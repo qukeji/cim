@@ -7,12 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DruidServlet extends HttpServlet {
 
-   public void init(ServletConfig servletConfig)
-    {
+    public void init(ServletConfig servletConfig) {
     }
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
     }
 
 

@@ -10,7 +10,7 @@ public class CmsTranscodeManager {
 		init();
 	}
 
-	// ³õÊ¼»¯Ïß³Ì
+	// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ß³ï¿½
 	public void init() {
 		System.out.println("start 	..");
 		start();
@@ -20,12 +20,12 @@ public class CmsTranscodeManager {
 		// sentcutv = new SentChaitiaoMp4();
 		autoTranscode=new CmsTranscode();
 		System.out.println("start CMSTranscode......");
-		// Ïß³ÌÎ´Æô¶¯¿ªÆôÏß³Ì
+		// ï¿½ß³ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 		if (autoTranscode.getRunner() == null)
 			autoTranscode.start();
 		Thread thread = autoTranscode.getRunner();
 		State state = thread.getState();
-		// Ïß³ÌÎÞÏÞÆÚµØµÈ´ýÖÕÖ¹Ïß³Ì
+		// ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµØµÈ´ï¿½ï¿½ï¿½Ö¹ï¿½ß³ï¿½
 		if (state == Thread.State.WAITING
 				|| state == Thread.State.TIMED_WAITING)
 			thread.interrupt();

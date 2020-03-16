@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="	https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+
+	<script src="http://123.56.71.230:889/cms/lib/2018/jquery/jquery.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--百度编辑器-->
+    <script src="http://123.56.71.230:889/cms/ueditor/ueditor.config.js"></script>
+    <script src="http://123.56.71.230:889/cms/ueditor/ueditor.all.js"></script>
+    <script src="http://123.56.71.230:889/cms/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script src="http://123.56.71.230:889/cms/ueditor/imgeditorDialog.js"></script>
+    <script src="http://123.56.71.230:889/cms/ueditor/imagesDialog.js"></script>
+    <script src="http://123.56.71.230:889/cms/common/2019/dynamic.js"></script>
+</head>
+<style>
+body {
+width:100%;
+height:100%;
+background:#e9ecef;
+    }
+#myTab{
+       width: 60px;
+    height: 1072px;
+    background-color: rgb(31, 52, 55);
+    float:left;
+      position: fixed;
+      top:58px;
+          z-index: 99999999;
+    
+}
+#myTab li {
+    width:100%;
+    text-align: center;
+    height:50px;
+    position: relative;
+}
+#myTab li  a {
+     width:80%;
+     display: block;
+     margin:0 auto;
+     height:40px;
+     -webkit-border-radius: 3px;
+     position: relative
+     
+}
+#myTabContent {
+    box-sizing: border-box;
+    /*position: absolute;*/
+    /*left: 78px;*/
+    /*top: 58px;*/
+    margin-left:78px;
+    margin-top:60px;
+    background: #e9ecef;
+}
+#myTab li a span {
+    color:#fff;
+}
+#myTab li  a:hover{
+    border: 0px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #fff;
+    cursor: default;
+    background-color:rgb(13, 128, 147);
+    border: 0 !important;
+    box-sizing: border-box
+    /* border-bottom-color: transparent; */
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border-radius: 4px 4px 0 0;
+}
+.nav-tabs>li>a:hover { 
+background:none
+}
+.list {
+ height: 58px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .2s ease-in-out;
+}
+.axios {
+    position: absolute;
+    display: block;
+   width: 60px;
+    height: 60px;
+    border-right: 1px solid rgba(0,0,0,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left:0;
+    cursor: pointer;
+}
+#myTab li:nth-child(1) {
+    margin-top:20px;
+}
+#myTab .val {
+    color:#fff;
+    font-weight: 400;
+    margin-left:20px;
+    display:none;
+   
+}
+.a{
+    width:230px !important;
+}
+.val {
+  
+}
+.input{
+    display: block;
+    width: 235px;
+    height:40px;
+    padding: .65px .75px;
+    font-size: 15px;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 3px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-top: 20px;
+    float:left;
+}
+ label{   display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    float: left;
+    line-height: 88px;
+    width: 50px;
+    height: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float:left;
+    }
+.titles{
+    padding-left:10px;
+}
+.home_right{
+ width:20%;
+    float:right;
+    box-sizing: border-box;
+     overflow: hidden;
+     background:#fff;
+        margin-top: 12px;
+    box-shadow: 0px 1px 7px #111;
+    height: 1251px;
+}
+.home_left{
+    width:78.5%;
+    float:left;
+    overflow: hidden;
+      box-sizing: border-box;
+      margin-left:0px;
+       background:#fff;
+       margin-top: 12px;
+    box-shadow: 0px 1px 7px #111;
+       height: 1251px;
+       /*padding-left: 10px !important;*/
+}
+#home{
+    background:#e9ecef;
+    width:100%;
+    /*border: 1px solid red;*/
+    height: 1275px;
+}
+
+.row {
+    margin-right: -14px;
+    margin-left: 0px !important;
+    
+}
+#edui1 {
+    width: 98.5% !important;
+}
+
+
+
+</style>
+<body id="app">
+   <!--页眉 -->
+          <div class="list">
+               <span class="axios" ><i class="icon ion-navicon-round"></i></span>
+          </div>
+  <!--导航栏-->
+
+        <ul id="myTab" class="nav nav-tabs">
+        </ul>
+<!--内容页-->
+          <div id="myTabContent" class="tab-content ">
+              <!--内容一-->
+        	<div class=" tab-pane fade in active " id="home">
+        	        <div class="home_right" ></div>
+        	        <div class="home_left">
+                     <div class="row flex-row align-items-center mg-b-15 edit" id="tr_Content"  style="margin-left:0px !important">   
+                    <input type="hidden" id="baiduEditor1" name="baiduEditor1" value="" style="display:none" />
+                    <script id="editor" type="text/plain" style="width:100%;height:800px;"></script>
+                    <table id="tabTable" CELLPADDING=0 CELLSPACING=0 class="table table-bordered mg-b-0">
+                    <tr id="tabTableRow" onclick="changeTabs()">
+                    <td id="t1" class="selTab" page="1" height="20">第1页</td>
+                    </tr>
+                   </table>
+                   <input type="button" value="删除当前页" onclick="DeletePage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+                   <input type="button" value="插入一页" onclick="AddPage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+                   </div>
+        	   </div>
+        	</div>
+             <!--内容二-->
+        	<div class="tab-pane fade" id="root">
+        	
+            </div>
+            <div class="tab-pane fade" id="wei">
+        		<p>3</p>
+            </div>
+            <div class="tab-pane fade" id="padstart">
+                <p>4</p>
+        	</div>
+        </div>
+
+</body>
+</html>
+<script src="http://123.56.71.230:889/cms/common/2018/document2019.js"></script>
+

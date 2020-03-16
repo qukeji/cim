@@ -1,0 +1,4 @@
+[#set($ii=0)#foreach( $item in $Controller.listTopItems(5))#if($ii>0),#end
+{"title":"$util.JSQuote($item.getTitle(30))","photo":"$item.getValue("Photo")","live_url":"$item.getValue("live_url")"}
+#set($ii=$ii+1)
+#end]

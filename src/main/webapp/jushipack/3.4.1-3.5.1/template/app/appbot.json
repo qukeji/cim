@@ -1,0 +1,6 @@
+[
+#set($i=0)
+#foreach( $item in $Controller.listItems("*") )#if($i>0),#end #set($i=$i+1)
+ {"channelName":"$item.getTitle()","channelID":"$item.getValue("column_id")","listUrl":"$item.getValue("column_href")","company":#if($item.getValue("company")==1)true #else false #end,"baoliao":#if($item.getValue("baoliao")==1)true #else false #end,"type":"$item.getValue("type")"}
+#end
+]

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的问政</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/wz-common-pc.js"></script>  
+</head>
+
+<body>
+    <!-- header开始 -->
+    <div class="header">
+        <div class="inner">
+            <div class="search-box">
+                <span class="search-box-in">
+                    <img src="images/search2.png">
+                    <input autofocus="autofocus" placeholder="输入关键字" type="text" class="search-box-input">
+                </span>
+                <span class="search-box-out">站内搜索</span>
+            </div>
+            <div class="header-phone">
+                <p class="header-qq">热线电话：400-0873-154 </p>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="inner">
+            <div class="nav-item nav-item-politics">
+                <a href="politics.html" target="_blank">我要问政</a>
+            </div>
+            <div class="nav-item  nav-item-mypolitics active">
+                <a href="mypolitics.html" target="_blank">我的问政</a>
+            </div>
+        </div>
+    </div>
+    <!-- header结束 -->
+
+    <!-- content开始 -->
+    <div class="mypolitics">
+        <ul class="mypolitics-nav">
+            <li class="active" data-id="0"><a href="javascript:;">全部</a></li>
+            <li data-id="2"><a href="javascript:;" >办理中</a></li>
+            <li data-id="1"><a href="javascript:;">待办理</a></li>
+            <li class="border-right" data-id="3"><a href="javascript:;">已办理</a></li>
+        </ul>
+        <div class="mypolitics-content">
+            <div class="mypolitics-lists">            
+            </div>
+            <div class="pages"></div>
+             <div class="mypolitics-result-no">暂无数据</div>
+            <!--<div class="mypolitics-item">
+                <div class="mypolitics-info">
+                    <h1>荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？</h1>
+                    <p>07-02 16:53</p>
+                </div>
+                <div class="mypolitics-status mypolitics-status1">已办理</div>
+            </div>
+            <div class="mypolitics-item">
+                <div class="mypolitics-info">
+                    <h1>荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？过江车收费成本大大增这个大桥收费年限确定多少？</h1>
+                    <p>07-02 16:53</p>
+                </div>
+                <div class="mypolitics-status mypolitics-status2">办理中</div>
+            </div>-->
+        </div>
+    </div>
+   
+
+    <!-- footer开始 -->
+    <div class="footer">
+        <div class="inner">
+           
+        </div>
+    </div>
+    <!-- footer结束 -->
+    <script>
+        var phone=getUrlParam("phone");
+        var statuss=0;
+        var page=1;
+        var listnum=20;
+        $(function(){
+             if(!sSs("phone") || sSs("phone")==""){
+                //window.location.href="politics-phone.html";
+            }
+            $(".mypolitics-nav li").click(function(){
+                $(this).addClass("active").siblings("li").removeClass("active");
+                var _status=$(this).attr("data-id");
+                showPoliticsList(_status,page,listnum);
+            });
+           
+            showPoliticsList(0,page,listnum);
+
+        
+        
+            function showPoliticsList(statuss,page,listnum){
+                var _data={};
+                if(statuss){
+                    _data={phone:phone,status:statuss,page:page,pagesize:listnum};
+                }else{
+                    _data={phone:phone,page:page,pagesize:listnum};
+                }
+                
+                $.ajax({
+                    type:"get",
+                    dataType:"json",
+                    url:"http://123.56.71.230:889/cms/wenzheng/wenzheng_list.jsp",    
+                    data:_data, 
+                    success:function(data){
+                        if(data.status==200){
+                            console.log(data)
+                            if(data.result.length>0){
+                                var result=data.result;
+                                var total=data.total;
+                                if(total>listnum){
+                                    $(".pages").show();
+                                }else{
+                                    $(".pages").hide();
+                                }
+                                $(".mypolitics-lists").html("");
+                                var html='';
+                                $.each(result,function(vi,va){
+                                    html+='<div class="mypolitics-item"><div class="mypolitics-info">';
+                                    html+='<h1><a href="content.html?id='+va.id+'">'+va.Title+'</a></h1><p>'+va.CreateDate+'</p></div>';
+                                    if(va.Status2=="待办理"){
+                                        html+='<div class="mypolitics-status mypolitics-status3">'+va.Status2+'</div></div>';
+                                    }else if(va.Status2=="办理中"){
+                                        html+='<div class="mypolitics-status mypolitics-status2">'+va.Status2+'</div></div>';
+                                    }else if(va.Status2=="已办理"){
+                                        html+='<div class="mypolitics-status mypolitics-status1">'+va.Status2+'</div></div>';
+                                    }
+                                    
+                                })
+                                $(".mypolitics-lists").html(html);
+                                console.log(total+","+page)
+                                $(".pages").unbind().createPage({
+                                    pageCount: Math.ceil( total/listnum ),
+                                    current: page,
+                                    backFn: function(current) {
+                                        showPoliticsList(statuss,current,listnum)
+                                    }
+                                });
+                            }else{
+                                $(".mypolitics-result-no").show();
+                            }
+                            
+    
+                        }else{
+                            $(".mypolitics-result-no").show();
+                            //console.log(data.message)
+                        }
+                    }
+                })
+            }
+        
+        })
+        
+  
+    </script>
+</body>
+
+</html>

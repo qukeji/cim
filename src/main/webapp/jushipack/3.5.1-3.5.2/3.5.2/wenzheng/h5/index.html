@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>问政</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<script src="../js/fontSize.js"></script>
+	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	
+	</head>
+	<body  id="index">
+		<div class="section">
+			<div class="wz_tj">
+				<p>
+					<span><img src="../images/wz_icon_pc.png">问政总量<i class="ts_total">（）</i>件</span>
+				    <span class="mg-x-5">/</span>
+					<span class="yjj">已解决<i>（）</i>件</span>
+				</p>
+				<p>
+					<span><img src="../images/wz_icon_call.png">问政热线：400-0873128</span>
+				</p>
+			</div>
+			<div class="ranking">
+				<table>
+					<thead>
+						<tr>
+							<th class="th1">满意度排行</th>
+							<th><img src="../images/wz_rank_1.png"></th>
+							<th><img src="../images/wz_rank_2.png"></th>
+							<th class="th4"><img src="../images/wz_rank_3.png"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--<tr>
+							<td>部门</td>
+							<td>房产局</td>
+							<td>交管局</td>
+							<td>国土局</td>
+						</tr>
+						<tr>
+							<td>问题总数</td>
+							<td>1542</td>
+							<td>1540</td>
+							<td>1520</td>
+						</tr>
+						<tr>
+							<td>回复率</td>
+							<td>99%</td>
+							<td>98%</td>
+							<td>97%</td>
+						</tr>
+						<tr>
+							<td>满意率</td>
+							<td>99%</td>
+							<td>98%</td>
+							<td>97%</td>
+						</tr>-->
+					</tbody>
+				</table>
+		    </div>
+		</div>
+		<div class="wywz">
+			<div class="wywz_inner">
+				<a href="javascript:;" data-url="wywz.html" class="a1"><img src="../images/wz_icon_wywz.png" /><span>我要问政</span></a>
+				<a href="wdwz-list.html" class="a2"><img src="../images/wz_icon_wdwz.png" /><span>我的问政</span></a>
+			</div>
+		</div>
+		<div class="big-col"></div>
+		<div class="sub-title">
+			<div class="col"></div>
+			<span>最新问政</span>
+		</div>
+		<div class="news-wz">
+			<!--<div class="wz-item">
+				<div class="avator-box">问</div>
+				<div class="text-box">
+					<p class="wz-title">
+						<span class="name">飞扬的灵魂</span>
+						<i>向</i>
+						<span class="part">市直部门-卫计委</span><i>投诉</i>
+					</p>
+					<p class="detail">合作医疗报销分割单多久可以打印.得到医疗美容主诊资格认证.</p>
+					<p class="time-state"><span class="wz-time">07-02 16:16</span><span class="wz-state">办理中</span></p>
+				</div>
+			</div>-->
+		
+		</div>
+		<div id="no-data">
+			<p class=""><span>暂无数据</span></p>
+		</div>
+		<!--公共弹窗-->
+		<div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		
+        <div class="loading">
+    		<div class="imgbox">
+    			<img src="../images/video_loading.gif">
+    		</div>
+    	</div>
+    	<div class="top">
+    		<span class=""></span>
+    	</div>
+		<script>
+			
+			$(function(){
+				
+				getRankList();				
+				function getRankList(){
+					$.ajax({
+						type:"get",
+						url: siteUrl+"/wenzheng_main.jsp",				  		
+						dataType:"jsonp",
+						success:function(data){
+							console.log(data)
+							var tbaleHtml = "" ;
+							//部门
+							tbaleHtml +='<tr><td>部门</td>' ;
+							var result = data.result.slice(0,3);
+							for(var i=0;i<result.length;i++){
+							    //if(i==0){
+							     //  tbaleHtml += '<td>部门</td>' ;
+							    //}else{
+							       tbaleHtml += '<td>'+result[i].channelName+'</td>'
+							    //}
+							}
+							tbaleHtml +='</tr>' ;
+							//问题总数
+							tbaleHtml +='<tr><td>问题总数</td>'  ;
+							for(var i=0;i<result.length;i++){
+							       tbaleHtml += '<td>'+result[i].total+'</td>'
+							}
+							tbaleHtml +='</tr>' ;
+							//回复率
+							tbaleHtml +='<tr><td>回复率</td>'  ;
+							for(var i=0;i<result.length;i++){
+							    tbaleHtml += '<td>'+toPercent( result[i].reply_num )+'</td>'
+							}
+							tbaleHtml +='</tr>' ;
+							//满意率
+							tbaleHtml +='<tr><td>满意率</td>'  ;
+							for(var i=0;i<result.length;i++){
+							   tbaleHtml += '<td>'+toPercent( result[i].satisfy_num )+'</td>'
+							}
+							tbaleHtml +='</tr>' ;
+							$(".ranking tbody").html(tbaleHtml) ;
+							$(".ts_total").text("（"+data.totalnum+"）");
+							console.log(data.totalnum)
+							$(".yjj i").text("（"+data.count+"）")
+							
+						}
+					});
+				}
+				newWzList() ;
+				//最新问政
+				var pagenum  = 1 ;
+            	var havaNextPage = true ;  //是否有下一页
+            	var _switch  = true ;   //开关，防止一次下拉触发多次接口请求
+				function newWzList(){
+					$.ajax({
+						type:"get",
+						url: siteUrl+"/wenzheng_list.jsp",				  		
+						dataType:"jsonp",
+						data:{"page":pagenum},
+						beforeSend:function(XMLHttpRequest){ 
+            	        	if(pagenum>1){
+            	        		$(".loading").show();
+            	        	}
+            	        	_switch = false ;
+            			}, 
+						success:function(data){
+							//console.log(data)
+							if(data.result.length){
+							    pagenum ++ ;
+							    _switch = true ;
+							}else{
+							    _switch = false ;
+							    havaNextPage = false ;
+							    $(".loading").fadeOut("slow");
+							    if(pagenum==1){
+							       $("#no-data").show();							   
+							    }
+							    return ;
+							}
+						
+							$(".loading").fadeOut("slow");
+							var newWzHtml = "" ;
+							
+							for(var i=0;i<data.result.length;i++){
+								newWzHtml += '<div class="wz-item" data-id="'+data.result[i].id+'">' +
+								             	'<div class="avator-box">问</div>'+
+								             	'<div class="text-box">'+
+								             		'<p class="wz-title">'+
+														'<span class="name">'+data.result[i].UserName+'</span>'+
+														'<i>向</i>'+
+														'<span class="part">'+data.result[i].channelName+'</span>'+
+									                    '<i>'+data.result[i].type+'</i>'+
+													'</p>'+
+													'<p class="detail">'+data.result[i].Summary+'</p>'+
+													'<p class="time-state">'+
+														'<span class="wz-time">'+data.result[i].CreateDate+'</span>'+
+														'<span class="wz-state">'+data.result[i].Status2+'</span>'+
+													'</p>'+
+												'</div>'+
+											'</div>'
+							}
+							
+							$(".news-wz").append(newWzHtml) ;
+							location();
+						},
+						error:function(){
+						    havaNextPage = false ;
+            	        	$(".loading").fadeOut("slow");
+            	        	_switch = false ;
+            	        	
+						}
+					});
+				}
+				
+				//滚动的上拉刷新
+                $(window).scroll(function(){  	
+                	
+                    if($(document).scrollTop() >= $(document).height()-$(window).height()) {	
+                    	if(_switch){
+                		    newWzList();	        	
+            	        	return false;
+                		}
+            	       
+                	}
+                });
+				$('.top').click(function(){
+                    console.log(111)
+                	$(window).scrollTop(0);
+                });
+				function location(){
+    		    	$(".wz-item").click(function(){
+        			    console.log("id")
+        			    var _id = $(this).attr("data-id");
+        			    var _url = "wz-detail.html?id="+_id;
+        			   
+        			    window.location.href  = _url ;  //
+        			    //window.open(_url,"_blank")
+        			})
+    			}
+				
+				function locationHref(url,phonenum){
+					var _url = url+"?phone="+phonenum ;
+				    window.location.href = _url ;  //	
+				}
+		        
+		              
+		        $(".wywz .a2").click(function(){
+		        	var index = $(this).index();
+		        	var _url = $(this).attr('href')  ;
+			        var phone = sSs("wz_phone") ;
+			        var session  = getUrl("session") ;
+			        if(session==""){
+			            
+			        }
+			        if(phone){			        	
+			        	locationHref(_url,phone)			        				        	
+			        }else{
+			            //window.open( "wz-validate-h5.html?a="+index ,"_blank");  
+			        	window.location.href= "wz-validate-h5.html?a="+index ;
+			        }
+			        return false;
+		        });
+		        //我要问政
+		        $(".wywz .a1").click(function(){
+		        	var _url = $(this).attr('data-url')  ;
+			        var session  = getUrl("session") ;
+			       // alert(session);
+			        var _switch = false ;
+                    $.ajax({
+						type:"get",
+						url: "/config/appconfig.json",				  		
+						dataType:"json",
+						success:function(data){
+							if(data.mandatoryLogin==1){
+							    if(session==""||session==undefined){
+            			         //   if(isIOS()){
+            			         //       try{
+            			         //           console.log("ios")
+            			         //           var url="iosjumplogin://?url=wywz.html";
+                        //                     document.location.href = url;
+                    	   //                 //window.webkit.messageHandlers.iosJumpLogin.postMessage();
+                        //                 }catch(e){}
+            			                
+            			         //   }else{
+            			         //       console.log("Android")
+            			         //       try{
+                    	   //                 JSInterface.toAndroidLogin();
+                        //                 }catch(e){}
+            			         //   }
+            			            
+            			            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
+                                        window.location.href='tidelogin://tide';
+                                    }  else {
+                                        event.preventDefault(); 
+                                        window.TideApp.login();
+                                    }
+            			            
+            			        }else{
+            			            
+            			            window.location.href = _url ;  //	
+            			        }
+							}else{
+							   window.location.href = _url ;  //	 
+							}
+							
+						},error:function(e){
+							console.log(e)
+						}
+					})
+			        
+		        });
+		        
+		        function toPercent(point){
+		            if(point==0){
+		               str = 0 ;  
+		            }else{
+		               var str=Number(point*100).toFixed(0);
+                        str+="%"; 
+		            }
+                    return str;
+                }
+			})
+		</script>
+	</body>
+</html>

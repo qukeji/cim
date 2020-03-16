@@ -1,0 +1,78 @@
+/* ------------------------------
+css for Tidecms
+design by ZhangLiang & mezeroz@gmail.com
+last update Zhangliang 2012.07.04 14:01
+---------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none;hide-focus:expression(this.hideFocus=true);}
+a:hover{text-decoration:none;color:#096ed5;}
+body{font-size:12px;background:#e9e9e9 url(../../images/bg_main.png) repeat-x left 37px;}
+*:focus{outline:none;}
+
+.header{background:url(../../images/bg_header.png) repeat-x;height:37px;overflow:hidden;position:relative;}
+.logo{float:left;width:160px;margin-right:55px;}
+.header-info{position:absolute;top:0;right:0;color:#9b9b9b;line-height:37px;}
+.header-info a{padding:0 8px;color:#9b9b9b;}
+.header-info a.messages{color:#ffae00;}
+
+.edit-info{width:470px;position:absolute;right:0;}
+.edit-info .txt{line-height:37px;float:left;color:#817b7b;}
+.edit-info .button{float:right;margin-right:10px;}
+.edit-info .button li{float:left;height:24px;margin:7px 6px 0 0;overflow:hidden;}
+.edit-info .button li a{line-height:22px;padding:0 10px;float:left;color:#000000;border:1px solid #bbbbbb;border-radius:2px;background:#f9f9f9;background:-moz-linear-gradient(top,#f9f9f9 0%,#eeeeee 49%,#e3e3e3 51%,#e3e3e3 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#f9f9f9),color-stop(49%,#eeeeee),color-stop(51%,#e3e3e3),color-stop(100%,#e3e3e3));background:-webkit-linear-gradient(top,#f9f9f9 0%,#eeeeee 49%,#e3e3e3 51%,#e3e3e3 100%);}
+.edit-info .button li a:hover{text-decoration:none;}
+
+.edit-nav{position:relative;z-index:2;height:31px;}
+.edit-nav ul{padding:0 0 0 4px;overflow:auto;}
+.edit-nav li{float:left;height:30px;margin:0 1px;overflow:hidden;}
+.edit-nav li a{line-height:28px;padding:0 20px;height:28px;float:left;color:#4b4b4b;border:1px solid #dbdbdb;border-top-left-radius:3px;border-top-right-radius:3px;background:-webkit-gradient(linear,0 0,0 bottom,from(#ececec),to(#ffffff));background:-moz-linear-gradient(top,#ececec,#ffffff);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec',endColorstr='#ffffff');}
+.edit-nav li a:hover{text-decoration:none;}
+.edit-nav li a.cur,.edit-nav li a:hover{background:#ffffff;border-bottom:1px solid #ffffff;color:#096ed5;}
+
+.edit-main{margin:20px;position:relative;}
+/* 从2012.07.03开始废弃 开始 */
+.edit-con{position:absolute;top:29px;width:100%;z-index:1;}
+.edit-con .top{height:14px;overflow:hidden;background:url(../../images/bg_top.png) repeat-x;}
+.edit-con .top .left{float:left;}
+.edit-con .top .left{background:url(../../images/top_l.png) no-repeat;width:14px;height:14px;}
+.edit-con .top .right{float:right;background:url(../../images/top_r.png) no-repeat;width:14px;height:14px;}
+.edit-con .bot{height:14px;overflow:hidden;background:url(../../images/bg_bot.png) repeat-x;}
+.edit-con .bot .left{float:left;}
+.edit-con .bot .left{background:url(../../images/bot_l.png) no-repeat;width:14px;height:14px;}
+.edit-con .bot .right{float:right;background:url(../../images/bot_r.png) no-repeat;width:14px;height:14px;}
+.edit-con .center{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;padding:0 12px;}
+.edit-con .center .title{padding:0 0 15px 0;}
+.edit-con .center .title input{border:1px solid #8a8a8a;background:#f9f9f9;padding:4px 2px;font-size:12px;vertical-align:middle;width:460px;}
+.edit-con .center .edit{padding:0 0 15px 0;}
+.edit-con .center .edit #tabTable{margin:0 0 5px;}
+.edit-con .center .line{padding:0 0 15px 0;}
+/* 从2012.07.03开始废弃 结束 */
+.edit_con_2012{position:absolute;top:29px;left:0;right:0;z-index:1;border:1px solid #dbdbdb;border-radius:5px;background:#ffffff;padding:14px 12px;}
+.edit_con_2012 .center .title{padding:0 0 15px 0;}
+.edit_con_2012 .center .title input{border:1px solid #8a8a8a;background:#f9f9f9;padding:4px 2px;font-size:12px;vertical-align:middle;width:460px;}
+.edit_con_2012 .center .edit{padding:0 0 15px 0;}
+.edit_con_2012 .center .edit #tabTable{margin:0 0 5px;}
+.edit_con_2012 .center .line{padding:0 0 15px 0;}
+
+.tab{border-top:1px solid buttonshadow;border-right:1px solid buttonshadow;border-left:1px solid buttonhighlight;border-bottom:1px solid buttonshadow;font-family:宋体;font-size:9pt;text-align:center;font-weight:normal}
+.selTab{border-left:1px solid buttonhighhight;border-top:none;border-right:1px solid black;border-bottom:1px solid buttonshadow;text-align:center;	font-family:宋体;font-size:9pt;}
+
+/* Add 2012.05.16 Zhangliang 标签编辑 begin */
+.edit_tags{padding:0 0 15px 0;}
+.edit_tags input[type="text"]{width:278px;}
+.et_tags{height:22px;margin:0 0 9px;}
+.et_tags li{float:left;margin:0 6px 0 0;position:relative;background:url(../../images/et_tags.png) no-repeat 0 0;padding:0 0 0 10px;cursor:pointer;}
+.et_tags_bg{float:left;background:url(../../images/et_tags.png) no-repeat 100% 0;padding:0 34px 0 0;height:22px;line-height:22px;color:#4b4b4b;}
+.et_tags .del{background:url(../../images/icon/del_10.png) no-repeat 0 0;width:10px;height:10px;overflow:hidden;cursor:pointer;text-indent:-5000px;position:absolute;top:6px;right:17px;}
+.et_tags .on{background-position:0 -22px;}
+.et_tags .on .et_tags_bg{background-position:100% -22px;color:#4b4b4b;}
+.et_form{position:relative;}
+.et_drop_down{position:absolute;top:28px;left:0;width:298px;border:1px solid #d6d6d6;background:#f7f7f7;border-radius:3px;}
+.et_drop_down li{height:22px;line-height:22px;color:#4b4b4b;padding:0 10px;}
+.et_drop_down li:hover{background:#cccccc;}
+.et_loading{background:url(../../images/et_loading.gif) no-repeat;width:16px;height:16px;overflow:hidden;position:absolute;left:12px;top:5px;text-indent:-5000px;}
+.et_add{color:#787878;position:absolute;left:12px;top:6px;}
+/* Add 2012.05.16 Zhangliang 标签编辑 end */

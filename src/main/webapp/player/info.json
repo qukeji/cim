@@ -1,0 +1,28 @@
+{
+    "id": "1016136",
+    "title": "ipad用着还顺手么2",
+    "photo": "http://vms.caixin.com/images/2016/7/11/20167111468221851442_7_1.jpg",
+    "videos": [{
+        "type": "v_sd",
+        "url": "http://videofile1.cutv.com/originfileg/010002_t/2017/03/08/G16/G16ghgggihkooponmgn2yw_cug.mp4"
+    }, {
+        "type": "v",
+        "url": "http://192.168.31.198/Ue9U0Pi/500/live.m3u8"
+    }],
+    "duration": 32,
+    "thumb": "",
+    "logos": [{ "url": "", "place": 1, "pos_a": 20, "pos_b": 20, "show": 1 }],
+    "subtitle": {
+        "srt": "",
+        "font_size": "",
+        "font_color": "",
+        "font": ""
+    },
+    "points": [{
+        "text": "",
+        "pos": 50,
+        "show": "",
+        "time": ""
+    }],
+    "buffer": ""
+}

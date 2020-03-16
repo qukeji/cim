@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>图片处理</title>
+	<link rel="stylesheet" type="text/css" href="../style/imgareaselect-default.css" />
+	<script type="text/javascript" src="../common/jquery.js"></script>
+	<script type="text/javascript" src="../common/imgareaselect.js"></script>
+	<script type="text/javascript">
+	function preview(img, selection) {
+		if (!selection.width || !selection.height)
+			return;
+		$('#preview img').css({
+			//width: Math.round(selection.width),
+			//height: Math.round(selection.height),
+			marginLeft: -Math.round(selection.x1),
+			marginTop: -Math.round(selection.y1)
+		});
+		$('#preview').css({
+			width: Math.round(selection.width),
+			height: Math.round(selection.height),
+		});
+
+		$('#x1').val(selection.x1);
+		$('#y1').val(selection.y1);
+		$('#x2').val(selection.x2);
+		$('#y2').val(selection.y2);
+		$('#w').val(selection.width);
+		$('#h').val(selection.height);  
+		window.selection=selection;
+	}
+
+	//获取html后缀地址
+	function getparastr(strname) { 
+		var hrefstr,pos,parastr,para,tempstr; 
+		//当前页面地址
+		hrefstr = window.location.href; 
+		//获取参数截取位置
+		pos = hrefstr.indexOf("?") 
+		//截取后参数字符串
+		parastr = hrefstr.substring(pos+1); 
+		//截取后参数数组
+		para = parastr.split("&"); 
+		tempstr=""; 
+		for(i=0;i<para.length;i++) 
+		{ 
+			tempstr = para[i]; 
+			//确定关联符号位置
+			pos = tempstr.indexOf("="); 
+			if(tempstr.substring(0,pos) == strname) { 
+			return (tempstr.substring(pos+1)); 
+			} 
+		} 
+	}
+ 
+	//保存图片
+	function postImg(){
+		//判断是否处理
+		if(typeof(selection) != 'undefined'){
+			var cond="filepath="+getparastr('imgsrc')+"&width="+selection.width+"&height="+selection.height+"&X1="+selection.x1+"&Y1="+selection.y1;
+			jQuery.ajax({
+				type:"GET",
+				data:cond,
+				url:'cropimage.jsp',    
+				success:function(data){
+					if(data.success="true"){
+						alert("图片裁剪完成");
+						window.close();
+                        window.opener.location.reload();//关闭子页面同时刷新父页面                                              
+                     }else{
+						location.reload();
+					}
+				}
+			});
+		}
+	}
+         function reloadParent() {
+           window.opener.location.reload();
+        }
+	$(document).ready(function () {
+		$('img#photo').attr("src",getparastr('imgsrc'));
+		$('#preview').find('img').attr("src",getparastr('imgsrc'));
+		$('img#photo').imgAreaSelect({
+			x1: 0, 
+			y1: 0, 
+			x2: 100, 
+			y2: 80,
+			handles: true,
+			onSelectEnd: preview
+		});
+	});
+	</script>
+</head>
+
+<body >
+	<div class="container demo">
+	<!--保存图片-->
+	<tbody>
+		<tr>
+			  <td><b>宽度:</b></td>
+			  <td><input type="text" value="-" id="w" /></td>
+			  <td><b>高度:</b></td>
+			  <td><input type="text" id="h" value="-" /></td>
+              <td><button type="button" onclick='postImg();'>保存</button></td>
+	    </tr>	
+	<tbody>
+           
+	<div class="frame" style="margin: 0 0.3em;">
+	<img id="photo" src="flower2.jpg" />
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+#if($item.getValue("videourl")!="" || $item.getValue("videoid")!="" )
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$item.getTitle()</title>
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta itemprop="name" content="">
+	<meta itemprop="description" content="">
+	<meta itemprop="image" content="">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="/css/live_wap.css" />		
+</head>
+<body class="page-load">
+	<header>
+	    #if($item.getValue("videourl")!="")
+        <input type="hidden" class="videourl" value="$item.getValue("videourl")" />
+        #elseif($item.getValue("videoid")!=""&&$item.getValue("videoid")!=0)
+        #foreach($item2 in $item.getItemUtil().listChildItems($item.getIntValue("videoid"),4," limit 1"))
+            #set($video_dest=$item2.getValue("Url"))
+            <input type="hidden" class="videourl" value="$video_dest" />
+        #end
+        #end
+		<input type="hidden" class="player-cover ttt" value="$item.getValue("Photo")" />
+		<input type="hidden" class="globalid" value="$item.getGlobalID()" />
+		<section id="player"></section>		
+	</header>
+	<div class="main-content">
+		<div class="live-detail">
+			<p class="title">$item.getTitle()</p>
+			<p class="intro">$item.getSummary()</p>
+			<div class="time">发布：<span class="time-sp">$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate())</span></div> 
+		</div>
+		
+		<div class="container">
+		    <!--相关新闻-->
+            <div class="relative-news">
+            	<div class="tl">
+            	    <h5>相关新闻</h5>
+            	</div>		
+            	<div class="news-list">
+            		
+            	</div>
+            </div>	
+		</div>						
+	</div>
+	
+	<!--\#include virtual="/Downloadprompt/down.html" -->
+	
+	<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/js/fontSize.js"></script>
+	<script type="text/javascript" src="/js/live_wap.js"></script>
+	<script>
+		$(function(){
+			var videoUrl = $(".videourl").val() ;
+		    var playerCover = $(".player-cover").val() ? $(".player-cover").val() :  "images/videoqj.png" ;
+			H5Player.status = "" ;					
+			H5Player.x5VideoPlay(videoUrl , true, playerCover );	
+		    resizeHeight();  
+				
+		})
+		
+		function resizeHeight(){
+			var windowHeight = $("body").height(),
+			    headerHeight = $("header").outerHeight(true),
+				introH = $(".live-detail").outerHeight(true),
+				downBoxH = $(".download_box").outerHeight(true),
+				listbox = $('.container') ;
+				listboxH = windowHeight - headerHeight - introH - downBoxH - 5;
+				listbox.css("height",listboxH);				
+		}
+		$(window).resize(function () {
+			H5Player.setX5VideoStyle();
+			resizeHeight();
+			var angle = window.orientation;
+			if (angle == 0) {
+				if (H5Player.isX5Video()) {
+					$("#video").height(document.documentElement.clientHeight);
+				}
+			} else {
+				if (H5Player.isX5Video()) {
+					$("#video").height("100%");
+				}
+			}
+		})
+		
+	</script>
+	<script>
+	    var GlobalID = $(".globalid").val()
+        var siteUrl = "$channel.getSite().getExternalUrl2()";
+        var Title="$util.JSONQuote($item.getTitle())";
+        var Summary="$util.JSONQuote($item.getSummary())";
+        var pImg  = "#if($item.getValue('Photo4')!="")$item.getValue('Photo4')#else$item.getValue('Photo')#end";
+        if(pImg.substr(0,4)!="http"){
+           pImg  = ""+siteUrl + pImg  ;
+        }    
+        //var UrlLink="$item.getHttpHref()";
+        var shareUrl = "$item.getHttpHref()";
+        var Desc;
+        // if(Summary != ""){
+        // 	Desc=Summary;
+        // }else{
+        // 	Desc=Title;
+        // }
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="/js/js_wap.js"></script>
+    <script>
+        relationNews(); //相关新闻
+    </script>	
+</body>
+
+</html>
+#end

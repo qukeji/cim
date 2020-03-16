@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>内容列表</title>
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <style>
+    	ul,li{list-style: none;}
+    	.collapsed-menu .br-mainpanel-file{margin-left: 0;margin-top: 0;}
+    	.search-box {display: none;}
+      .border-radius-5{border-radius: 5px;}
+      .topic-list-box{padding: 20px;min-height: 700px;}
+      .topicItem{
+      	float: left;
+      }
+      .topicItem:nth-child(n+2){
+      	border-left: none;
+      }
+      .topicItem1{
+      	width:199px;
+      	border: 1px solid #bbbbbb;
+      	height: 720px;
+      }
+      
+      ul li{
+      	padding: 0px 10px;
+      	cursor: pointer;
+      	border-bottom: 1px solid #bbbbbb;
+      	line-height: 36px;
+      	display: flex;
+      	justify-content: space-between;
+      	align-items: center;
+      }
+      ul li a{
+      	color: #495057;
+      	display: inline-block;
+      }
+      ul li .fa{
+      	font-size: 20px;
+      	display: none;
+      }
+      ul li.on{
+        background: #ced4da;
+      }
+      ul li.on a{
+        color: #000;
+      }
+      ul li[hasnext="1"] .fa{
+        display: block;
+      }
+      ul li.cur{
+        background: #23bf08;
+      }
+      ul li.cur a{
+        color: #fff;
+      }
+      ul li.cur .fa{
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body class="collapsed-menu">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="js-source">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+        </nav>
+        <div class="mg-l-auto">
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force"><i class="fa fa-plus mg-r-3"></i><span>新建</span></a>   
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force "><i class="fa fa-plus mg-r-3"></i><span>新建子分类</span></a>              
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force"><i class="fa fa-edit mg-r-3"></i><span>编辑</span></a>              
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force "><i class="fa fa-trash mg-r-3"></i><span>删除</span></a> 
+        </div><!-- btn-group -->
+
+      </div><!-- br-pageheader -->
+      
+ 
+      <div class="br-pagebody pd-x-20 mg-t-25">
+        <div class="card bd-0 shadow-base">
+          <div class="topic-list-box">
+          	<div class="topicItem topicItem1 clearfix">
+          		<ul>
+	          		<li class="on" hasnext="1"><a href="javascript:;">灌水</a><i class="fa fa-caret-right"></i></li>
+	          		<li class="cur" hasnext="1"><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li hasnext="1"><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a></li>
+	          		
+	          	</ul>
+          	</div>
+          	<div class="topicItem topicItem1">
+          		<ul>
+	          		<li class="on" hasnext="1"><a href="javascript:;">灌水</a><i class="fa fa-caret-right"></i></li>
+	          		<li class="" hasnext="1"><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li hasnext="1"><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a><i class="fa fa-caret-right"></i></li>
+	          		<li><a href="javascript:;">出游</a></li>
+	          		
+	          	</ul>
+          	</div>
+          	
+          </div>
+         
+          
+        </div>
+      </div><!-- br-pagebody -->
+      
+   
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>    
+    <script src="../../common/2018/bracket.js"></script>    
+    <script>
+      $(function(){
+       
+//      $('.topicItem').perfectScrollbar();
+        $(".topicItem").delegate("li","click",function(){
+        	$(".topicItem li.cur").removeClass("cur");
+        	$(this).addClass("cur");
+        })
+  
+      });
+    </script>
+  </body>
+</html>

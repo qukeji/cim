@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 7 列表</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="content-top">
+	<div class="left"></div>
+    <div class="right"></div>
+</div>
+<div class="content">
+	<div class="toolbar">
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+        	<ul class="toolbar3" style="display:none;">
+            	<li id="displayOperation">
+                	<p><span>全部<img src="../../images/toolbar2_list.gif" /></span></p>
+                </li>
+            </ul>
+            <ul class="toolbar2">
+                <li class="first"><a href="javascript:list();">全部</a></li>
+                <li><a href="javascript:list('Status1=-1');">草稿</a></li>
+                <li><a href="javascript:list('Status1=1');">已发</a></li>
+                <li class="last"><a href="javascript:list('IsDelete=1');">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+               	<!--<li><a href="#">归档</a></li> -->
+                <li class="first"><a href="javascript:approve();">发布</a></li>
+            	<!--<li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+				<li><a href="javascript:sortableEnable();">排序</a></li>
+				<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+				<!--<li class="list_no">复制</li>
+				<li class="list_no">移动</li>-->
+				<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1_cur" title="文字列表" onClick="changeList(1);"></li>
+            <li class="b3" title="图片平铺" onClick="changeList(2);"></li>
+        </ul>
+    </div>
+
+<div class="viewpane">
+        <div class="viewpane_tbdoy">
+<table width="100%" border="0" id="oTable" class="view_table">
+<thead>
+		<tr id="oTable_th">
+    				<th class="v1" width="25" align="center" valign="middle"><img src="../../images/viewpane1.png" /></th>
+    				<th class="v3" style="padding-left:10px;text-align:left;">标题</th>
+					
+    				<th class="v1"	align="center" valign="middle">状态</th>
+    				<th class="v8"  align="center" valign="middle">日期</th>
+
+    				<th class="v4"  align="left" valign="middle" style="padding-left:10px;">作者</th>
+    					
+    				
+    				<th class="v9" width="75" align="center" valign="middle">>></th>
+  				</tr>
+</thead>
+ <tbody> 
+
+  <tr No="1" ItemID="156" OrderNumber="153"  status="1" GlobalID="16330" id="jTip1_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="156" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_1" src="../../images/tree6.png"/><img src="../../images/channel_icon/170.png" title="图片新闻">[精选]12月5日现场表演区活动时间安排</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 12-03 15:46</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(156);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(156);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(156);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="2" ItemID="154" OrderNumber="152"  status="1" GlobalID="16328" id="jTip2_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="154" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_2" src="../../images/tree6.png"/>[精选]80后的我也下乡啦</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 02-23 14:29</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(154);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(154);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(154);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="3" ItemID="153" OrderNumber="151"  status="1" GlobalID="15512" id="jTip3_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="153" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_3" src="../../images/tree6.png"/>[精选]test2</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 07-03 17:22</td>
+     <td class="v4" style="color:#666666;">蔡明玉</td>
+	 
+	<td class="v9">
+
+	<div class="v9_button" onclick="approve2(153);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(153);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(153);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="4" ItemID="152" OrderNumber="150"  status="0" GlobalID="15451" id="jTip4_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="152" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_4" src="../../images/tree6.png"/>[精选]测试</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 07-03 17:21</td>
+     <td class="v4" style="color:#666666;">demo</td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(152);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(152);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(152);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="5" ItemID="149" OrderNumber="149"  status="1" GlobalID="11663" id="jTip5_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="149" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_5" src="../../images/tree6.png"/>[精选]美出台清理金融机构有毒资产具体措施</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-24 08:15</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(149);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(149);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(149);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="6" ItemID="150" OrderNumber="148"  status="1" GlobalID="11679" id="jTip6_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="150" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_6" src="../../images/tree6.png"/>[精选]惊！一千八的香槟美女竟拿来冲厕所</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-24 08:33</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(150);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+
+	
+    <div class="v9_button" onclick="Preview2(150);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(150);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="7" ItemID="148" OrderNumber="147"  status="1" GlobalID="10796" id="jTip7_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="148" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_7" src="../../images/tree6.png"/>[精选]不满搬家 佣人暴打九旬老妇</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-23 10:04</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(148);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(148);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(148);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="8" ItemID="147" OrderNumber="146"  status="1" GlobalID="10794" id="jTip8_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="147" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_8" src="../../images/tree6.png"/>[精选]实拍小伙学小龙女在绳子上睡觉</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-23 10:02</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(147);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(147);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(147);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="9" ItemID="146" OrderNumber="145"  status="1" GlobalID="10792" id="jTip9_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="146" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_9" src="../../images/tree6.png"/>[精选]高晓松节目现场遭90后炮轰</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-23 10:00</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(146);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+
+	
+    <div class="v9_button" onclick="Preview2(146);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(146);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="10" ItemID="145" OrderNumber="144"  status="1" GlobalID="10722" id="jTip10_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="145" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_10" src="../../images/tree6.png"/>[精选]各大品牌齐参与 家电销售再掀一轮大降价</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn on"><span>1280</span></div></td>
+    <td class="v8" > 03-23 09:05</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(145);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(145);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(145);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="11" ItemID="144" OrderNumber="143"  status="1" GlobalID="10711" id="jTip11_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="144" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_11" src="../../images/tree6.png"/>[精选]广东“3+2+2”实现“五一”7天假</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn on"><span>12</span></div></td>
+    <td class="v8" > 03-23 08:29</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(144);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(144);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(144);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="12" ItemID="151" OrderNumber="142"  status="1" GlobalID="11690" id="jTip12_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="151" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_12" src="../../images/tree6.png"/>[精选]世界防治结核病日：关注流动农民工健康</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-24 09:08</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(151);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+
+	
+    <div class="v9_button" onclick="Preview2(151);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(151);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="13" ItemID="143" OrderNumber="141"  status="1" GlobalID="10124" id="jTip13_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="143" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_13" src="../../images/tree6.png"/>[精选]汇源叫停全部上游基地项目</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-20 09:38</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(143);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(143);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(143);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="14" ItemID="142" OrderNumber="140"  status="1" GlobalID="10113" id="jTip14_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="142" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_14" src="../../images/tree6.png"/>[精选]卫生部：河南民权县医院手足口诊断病例存在隐瞒情况</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-20 09:45</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(142);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(142);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(142);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="15" ItemID="141" OrderNumber="139"  status="1" GlobalID="9982" id="jTip15_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="141" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_15" src="../../images/tree6.png"/>[精选]23岁女子因不漂亮有狐臭网上购剧毒自杀</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 17:08</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(141);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+
+	
+    <div class="v9_button" onclick="Preview2(141);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(141);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="16" ItemID="140" OrderNumber="138"  status="1" GlobalID="9978" id="jTip16_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="140" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_16" src="../../images/tree6.png"/>[精选]旷野惊现无人面包车 后座上血迹斑斑</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 17:06</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(140);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(140);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(140);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="17" ItemID="139" OrderNumber="137"  status="1" GlobalID="9973" id="jTip17_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="139" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_17" src="../../images/tree6.png"/>[精选]奇案！妙龄女竟惨死浴室</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 17:04</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(139);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(139);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(139);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="18" ItemID="138" OrderNumber="136"  status="1" GlobalID="9918" id="jTip18_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="138" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_18" src="../../images/tree6.png"/>[精选]巨贪和绅墓 引来无数盗墓贼</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 15:37</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(138);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+
+	
+    <div class="v9_button" onclick="Preview2(138);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(138);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+  <tr No="19" ItemID="137" OrderNumber="135"  status="1" GlobalID="9760" id="jTip19_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="137" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_19" src="../../images/tree6.png"/>[精选]男子遭逼婚为泄愤砸毁名车</td>
+
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 11:10</td>
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(137);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(137);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(137);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+
+	
+	</td>
+  </tr>
+  
+  <tr No="20" ItemID="136" OrderNumber="134"  status="1" GlobalID="9758" id="jTip20_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="136" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_20" src="../../images/tree6.png"/>[精选]女青年口述被口香糖麻醉洗劫财物过程</td>
+    
+	<td class="v1" align="center" valign="middle"><div class="dialog_btn"><span>12</span></div></td>
+    <td class="v8" > 03-19 11:08</td>
+
+     <td class="v4" style="color:#666666;"></td>
+	 
+	
+	<td class="v9">
+	<div class="v9_button" onclick="approve2(136);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(136);"><img src="../../images/v9_button_2.gif" title="预览" /></div>
+	<div class="v9_button" onclick="Preview3(136);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+	</td>
+  </tr>
+  
+ </tbody> 
+</table>
+
+</div>
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll">全部</span><span id="selectNo">无</span>			</div>
+        	<div class="left">共153条 1/8页 
+			跳至<input name="jumpNum" id="jumpNum" type="text" />页 <span id="goToId" style="cursor:pointer;">GO</span></div>
+			 	
+            <div class="center"><a href="javascript:gopage(1);" title="首页"><img src="../../images/viewpane_pages1.png" alt="首页" /></a><a href="javascript:gopage(2);" title="下一页">下一页<img src="../../images/viewpane_pages3.png" alt="下一页" /></a><a href="javascript:gopage(8);" title="末页"><img src="../../images/viewpane_pages4.png" alt="末页" /></a></div>
+
+		 
+            <div class="right">
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="rowsPerPage" onChange="change('#rowsPerPage','4112');" id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">条</div>
+            </div>
+        </div>
+        
+  </div>
+  
+<div class="toolbar" style="margin:14px 0 0;">
+
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+        	<ul class="toolbar3" style="display:none;">
+            	<li id="displayOperation">
+                	<p><span>全部<img src="../../images/toolbar2_list.gif" /></span></p>
+                </li>
+            </ul>
+            <ul class="toolbar2">
+
+                <li class="first"><a href="javascript:list();">全部</a></li>
+                <li><a href="javascript:list('Status1=-1');">草稿</a></li>
+                <li><a href="javascript:list('Status1=1');">已发</a></li>
+                <li><a href="javascript:list('IsDelete=1');">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+
+            <ul class="toolbar2">
+               <!--<li><a href="#">归档</a></li> -->
+                <li  class="first"><a href="javascript:approve();">发布</a></li>
+            <!--   <li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+
+				
+				
+				
+					<li><a href="javascript:sortableEnable();">排序</a></li>
+				
+					<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+						<!--<li class="list_no">复制</li>
+						<li class="list_no">移动</li>-->
+					<li><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+
+        	<li class="b1_cur" title="文字列表" onClick="changeList(1);"></li>
+            <li class="b3" title="图片平铺" onClick="changeList(2);"></li>
+        </ul>
+    </div>
+
+
+</div>
+<div class="content_bot">
+	<div class="left"></div>
+    <div class="right"></div>
+</div>
+<!-- 弹出提示开始 -->
+<div class="dialog_tips" style="position:absolute;right:352px;top:185px;width:230px;height:142px;">
+	<i class="d_tips_arrow"></i>
+	<div class="d_tips_top"><i class="t_l"></i><i class="t_c"></i><i class="t_r"></i></div>
+	<div class="d_tips_mid">
+		<i class="m_l"></i>
+		<div class="m_c">
+		<!-- 弹出提示内容开始 -->
+			<p class="">最近6日PV</p>
+			<p></p>
+		<!-- 弹出提示内容结束 -->
+		</div>
+		<i class="m_r"></i>
+	</div>
+	<div class="d_tips_bot"><i class="b_l"></i><i class="b_c"></i><i class="b_r"></i></div>
+</div>
+<!-- 弹出提示结束 -->
+</body>
+</html>

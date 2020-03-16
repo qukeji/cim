@@ -1,0 +1,130 @@
+#foreach( $item in $Controller.listTopItems(1))
+<!doctype html>
+<html>
+<head>
+<meta name="publisher" content="TideCMS 9.0">
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no"/>
+<title>$item.getTitle()</title>
+<link type="text/css" rel="stylesheet" href="/css/downphone.css"/>
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	var doc = document;
+	var win = window;
+	function initFontSize(){
+		var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function(){
+				var clientWidth = docEl.clientWidth;
+				if(!clientWidth) return;
+				if(clientWidth>750){
+					clientWidth=750;
+				}
+				fontSizeRate = (clientWidth / 375);
+				var baseFontSize = 10*fontSizeRate;
+				docEl.style.fontSize =  baseFontSize + 'px';
+			}
+		recalc();
+		if(!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc,false);
+	}
+	initFontSize();
+</script>
+</head>
+<body>
+<!--\#include virtual="/Downloadprompt/down.html" -->
+	 <div class="box">
+	       <section> 
+		          <img src="$item.getValue('logo')"/>
+		          <ul>
+		          	<li><img src="/images/star_03.png"/></li>
+		          	<li><img src="/images/star_03.png"/></li>
+		          	<li><img src="/images/star_03.png"/></li>
+		          	<li><img src="/images/star_03.png"/></li>
+		          	<li><img src="/images/star_03.png"/></li>
+		          </ul>
+		          <h1>$item.getTitle()</h1>
+	       </section>
+	       <div class="content">
+	       	  <p>$item.getValue("Summary")
+	          </p><br />
+	         <!-- <p>
+	          	In Huangshan is the officail APP of Huangshan Radio and TV Station.
+	          	It aims to offer you authoritative news,wonderful programs,considerate services and interesting activties.
+	          </p> -->
+	       </div>
+	       <footer>
+            <!-- <div class="two-code">
+		       	 	<img src="/images/two_code.png"/>
+		       	 </div> -->
+		       	 <div data-type="ios" class="apple">
+		       	 	<img src="/images/Apple_03.png"/>
+		       	 	<span>AppStore下载</span>
+		       	 </div>
+		       	 <div data-type="android" class="android">
+		       	 	<img src="/images/Android_03.png"/>
+		       	 	<span>Android下载</span>
+		       	 </div>
+	       </footer>
+      </div>
+      
+      <script type="text/javascript">
+		$(function(){
+			 function phonebox(){
+		 	    var bheight=$(document).height();
+				var pcheight=$("body").height(); 
+				if(bheight>pcheight){
+					$("body").css({"height":bheight+30+"px"});
+				}
+			 }
+             phonebox();
+             
+             #if($item.getValue('Photo')!="")
+             $("body").css({"background-image":"url('$item.getValue('Photo')')"});
+             #end
+        
+		
+            $("footer").find("div[data-type]").click(function(){
+		           var dwtype=$(this).attr("data-type");
+                   if(dwtype=="ios"){
+                           window.location.href="$item.getValue('applehref')";
+                       
+                    }else{
+                          var uas = navigator.userAgent.toLowerCase();
+                          if (uas.match(/MicroMessenger/i) == "micromessenger") {
+                                 alert("点击右上角在浏览器中打开");
+                               // window.location.href="$item.getValue('androidhref')";
+                          } else {
+                                 window.location.href="$item.getValue('androidhref')";
+                          }
+                   } 
+
+	    	});
+		
+
+	});
+			
+    
+    var siteUrl = "$channel.getSite().getExternalUrl2()";
+    var Title="$util.JSONQuote($item.getTitle())";
+    var Summary="$util.JSONQuote($util.JSQuote($item.getSummary()))";
+    var pImg  = "#if($item.getValue('logo')!="")$item.getValue('logo')#else$item.getValue('Photo')#end";
+    if(pImg.substr(0,4)!="http"){
+       pImg  = ""+siteUrl + pImg  ;
+    }    
+    //var UrlLink="$item.getFullHref()";
+    var shareUrl = "$item.getHttpHref()";
+    var Desc;
+    if(Summary != ""){
+    	Desc=Summary;
+    }else{
+    	Desc=Title;
+    }
+	</script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="/js/js_wap.js"></script>
+
+</body>
+</html>
+#end

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>媒体号认证-媒体号</title>
+		<link rel="stylesheet" href="/css/media.css" />
+		<script type="text/javascript" src="/js/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+		<div class="media-container">
+			<div class="media-title"><h5>媒体号认证</h5>
+			
+			<!--<a href="javascript:;" id="moreMedia" class="backpage"><img src="/images/medialeft.png"></a>-->
+			</div>
+			<div class="media-submitted">
+				<img src="/images/submitted.png">
+				<p class="p1">认证申请已提交！</p>
+				<p class="p2">结果将在2-3个工作日发送至邮箱，请您注意查收</p>
+				<p class="submit" style="display:none">确定</p>
+			</div>
+		</div>
+		<div id="commonpop">
+			<p><span></span></p>
+		</div>
+		<script type="text/javascript" src="/js/media_config.js" ></script>
+		<script>
+			$(function(){
+			    $('.backpage').click(function(){
+                   history.back(-1)
+                });
+                $(".submit").click(function(){
+                    setCookie("action",1);
+                    window.location.href="application.html";
+                });
+                var _type=getUrl("type");
+                if(_type==0){
+                    $(".media-title h5").html("个人认证");
+                }else{
+                     $(".media-title h5").html("组织认证");
+                }
+                $.ajax({
+					type:"get",
+					url:ipurl+"/company_register_check.php",
+					data:{"session":session,"site":site},
+					dataType :"jsonp",
+					jsonp:"callback",
+					success:function(data){
+						console.log(data)
+						if(data.code==200){
+						    if(data.mediaIdState==1){
+						        $(".p2").html(data.msg);
+						        $(".p1").html("认证申请审核中，请等待")
+						    }else if(data.mediaIdState==3){
+						        $(".submit").show();
+						        $(".p1").html("审核失败，点击确定按钮重新注册");
+						        $(".p2").html(data.msg);
+						        //setTimeout(function(){window.location.href="application.html";},2000);
+						    }else{
+						        
+						    }
+						}else{
+						    //commonPop(data.msg); 
+						}
+					},
+					error:function(){
+					}
+				});
+			})
+
+		</script>
+	</body>
+</html>

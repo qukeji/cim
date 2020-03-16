@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新建文档 主站>内容中心 TideCMS</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://www.tidemedia.com/js/jquery.min.js"></script><!-- jquery最低为1.7.1版本 -->
+<script type="text/javascript" src="stickUp.min.js"></script><!-- 新增js引用 -->
+</head>
+
+<body>
+<form name="form" action="" method="post">
+<div class="header">
+	<div class="logo"><a href="#" title="TideCMS"><img src="../../images/logo.png" alt="TideCMS" /></a></div>
+    <div class="edit-info">
+        <ul class="button">
+        	<li><a id="Image1Href" href="javascript:Save();">保存</a></li><!--去掉了span标签 -->
+            <li><a id="Image2Href" href="javascript:Save_Publish();">保存并发布</a></li>
+            <!--<li><a href="#"><span>预览</span></a></li>-->
+            <li><a href="javascript:self.close();">关闭</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="edit_main content_form"><!-- class名改为edit_main 增加content_form -->
+	<div class="edit_nav"><!-- class名改为edit_nav -->
+    	<ul>
+        	<li><a href="javascript:showTab('1')" class='cur' id="form1_td" groupid="3080">基本属性</a></li><!--去掉了span标签 -->
+        	<li><a href="javascript:showTab('2')"  id="form2_td" groupid="3081">视频信息</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="edit_con"><!-- class名改为edit_con 增加content_form -->
+    	<!-- <div class="top">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div> --><!-- 删除 -->
+		<div class="center" url="" id="form1" >
+            <table width="100%">
+    
+                <tr><td><div class="line" id="tr_Title">标题：</div></td><td><div class="line" id="field_Title"><input type="text" class="textfield" size="80" id="Title" name="Title" value="" onkeyup="checkTitle();"><select name="ChannelID" id="ChannelID">
+                    <option value="216">新闻</option>
+                    <option value="227">民生</option>
+                    <option value="228">时政</option>
+                    <option value="229">财经</option>
+                    <option value="230">地方</option>
+                    <option value="231">法制</option>
+                  </select></div></td></tr>
+                <tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows="5" name="Summary" ondblclick="showEditor('Summary')" id="Summary"></textarea></div>
+	</td></tr>
+     <tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows="5" name="Summary" ondblclick="showEditor('Summary')" id="Summary"></textarea></div>
+    </td></tr>
+     <tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows="5" name="Summary" ondblclick="showEditor('Summary')" id="Summary"></textarea></div>
+    </td></tr>
+     <tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows="5" name="Summary" ondblclick="showEditor('Summary')" id="Summary"></textarea></div>
+    </td></tr>
+     <tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows="5" name="Summary" ondblclick="showEditor('Summary')" id="Summary"></textarea></div>
+    </td></tr>
+                <tr>
+                	<td><div class="line">标签：</div></td>
+                    <td>
+                    	<div class="edit_tags">
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value=""> <input type="button" value="自动生成标签" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                                <div class="et_add">添加标签</div><!-- 点击id为Tag的input时，此div隐藏 -->
+                            </div>
+                        </div>
+                        
+                        <div class="edit_tags">
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value=""> <input type="button" value="正在分析" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                                <div class="et_loading">loading...</div>
+                            </div>
+                        </div>
+                        
+                        <div class="edit_tags">
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value="中国  黄岩岛  海战  航空母舰"> <input type="button" value="确定" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                            </div>
+                        </div>
+                        
+                        <div class="edit_tags">
+                            <div class="et_tags">
+                            	<ul>
+                                	<li><div class="et_tags_bg">中国</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">黄岩岛</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">海战</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">航空母舰</div><span class="del" title="删除此标签">删除</span></li>
+                                </ul>
+                            </div>
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value=""> <input type="button" value="确定" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                                <div class="et_add">添加标签</div><!-- 点击id为Tag的input时，此div隐藏 -->
+                            </div>
+                        </div>
+                        
+                        <div class="edit_tags">
+                            <div class="et_tags">
+                            	<ul>
+                                	<li><div class="et_tags_bg">中国</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">黄岩岛</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li class="on"><div class="et_tags_bg">海战</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">航空母舰</div><span class="del" title="删除此标签">删除</span></li>
+                                </ul>
+                            </div>
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value="海战"> <input type="button" value="确定" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                            </div>
+                        </div>
+                        
+                        <div class="edit_tags">
+                            <div class="et_tags">
+                            	<ul>
+                                	<li><div class="et_tags_bg">中国</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">黄岩岛</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">海战</div><span class="del" title="删除此标签">删除</span></li>
+                                    <li><div class="et_tags_bg">航空母舰</div><span class="del" title="删除此标签">删除</span></li>
+                                </ul>
+                            </div>
+                            <div class="et_form" id="field_Tag">
+                                <input type="text" class="textfield" size="80" name="Tag" id="Tag" value=""> <input type="button" value="确定" onClick="getAutoKeyword('Tag')" class="tidecms_btn3">
+                                <div class="et_drop_down">
+                                	<ul>
+                                    	<li>菲律宾</li>
+                                        <li>菲律宾海滩</li>
+                                        <li>菲佣</li>
+                                        <li>菲律宾香蕉</li>
+                                    </ul>
+                                </div>
+                                <div class="et_loading" style="display:none;">loading...</div>
+                                <div class="et_add">添加标签</div><!-- 点击id为Tag的input时，此div隐藏 -->
+                            </div>
+                        </div>	
+                    </td>
+                </tr>
+            </table>
+		</div>
+        <!-- <div class="bot">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div>--><!-- 删除 -->
+    </div>
+</div>
+<script>
+jQuery(function($) {
+    $(document).ready( function() {
+        $('.header').stickUp();
+    });
+});
+</script>
+</body>
+</html>

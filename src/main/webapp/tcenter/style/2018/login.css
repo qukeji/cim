@@ -1,0 +1,61 @@
+.cursor-pointer{cursor: pointer;}
+html,body{min-height: 100%;height: 100%;}
+.login{min-height: 100%;display: flex;justify-content: space-between;align-items: center;flex-direction: column;}
+.login-top{height: 86px;width: 100%;flex: 0 0 86px;}
+.login_footer{height: 100px;width: 100%;flex: 0 0 100px;}
+.login-mid{display: flex;flex-direction: column;justify-content: center;align-items: center;flex: 1;overflow-y: auto;overflow-x: hidden;}
+.anystretch img{height: 100% !important;top: 0 !important;}
+
+.logo{height: 60px;top: 35px;left: 45px;overflow: hidden;position: absolute;z-index: 2;display: flex;align-items: center;color: white;}
+.logo img{max-height: 100%;max-width:100%;margin-right: 10px;}
+.logo p{color: rgb(255, 255, 255);font-style: normal; letter-spacing: 0px;text-decoration: none;font-weight: 400;margin:0;padding:0;}
+.logo p:nth-child(1){font-size: 14px;line-height: 20px;color:#008fe1;}
+.logo p:nth-child(2){font-size: 16px;line-height: 24px;}
+.login_out {position: absolute;top: 35px;right: 45px;height: 44px;line-height: 44px;font-size: 14px;display: flex;align-items: center;}
+.login_footer {text-align: center;position: static;height: 100px;display: flex;align-items: center;justify-content: center;}
+.login_footer a:hover,.login_out a:hover{color: #999;}
+
+.system-info{line-height: 26px;}
+.system-info .info-box{max-height:50px;overflow-y:auto;padding-bottom: 10px;overflow: hidden;}
+.system-info *::-webkit-scrollbar { display: none;}
+.lh-40px{line-height: 40px;}
+.login_in_menu_box ul{display: flex;flex-direction: row;flex-wrap: wrap;}
+.login_in_menu_box ul li{width: 86px;height: 86px;	font-size: 12px;transition: ease-in-out 0.3s;list-style: none;margin-right: 10px;margin-bottom: 10px;}
+.login_in_menu_box ul li a{width: 86px;height: 86px;display: flex;justify-content: center;align-items: center;flex-direction: column;border-radius: 5px;font-size: 12px;color: #fff;background-color: #F49917 ;}
+.login_in_menu_box ul li a span{margin-top: 8px;}
+
+/*运营支撑背景色*/
+.login_in_menu_box .yyzc ul li a{background-color: #F49917 ;}
+/*应用发布背景色*/
+.login_in_menu_box .yyfb ul li a{background-color: rgba(255, 64, 95, 0.75) ;}
+/*资源汇聚背景色*/
+.login_in_menu_box .zyhj ul li a{background-color:rgb(139, 195, 74);}
+/*生产工具背景色*/
+.login_in_menu_box .scgj ul li a{background-color: rgba(37, 185, 255, 0.75);}
+
+.login_in_menu_box ul li:hover {opacity: 1;}
+.login_in_menu_box ul li:hover i {animation:pulse 1s ;}
+
+
+
+@media (max-width: 750px){
+	.login-top {flex: 0 0 50px;display: flex;align-content: center;justify-content: space-between;margin: 10px 0 0 0;}
+	.logo {margin: 0;background-size:40px ;text-indent: 0;font-size: 12px;line-height: 20px;color: #fff;position: static;width: auto;padding-left: 10px;line-height: 51px;max-width:55%}
+	.logo img{height: auto;margin-right: 6px;}	
+	.login_out{position: static;padding-right: 10px;height: 51px;font-size:12px;line-height: 20px;}
+	.login_out i{display: none;}
+	.login_out a.tx-gray-900{display: none;}
+	.system-info{margin-top: 20px;	}
+	.login_in_menu_box ul{justify-content: space-between;}	
+	.login_in_menu_box ul li{margin-right: 0;margin-bottom: 20px;}
+	.login_in_menu_box ul li.add-li{display: none;}
+	.login-mid{padding:0 12px}
+	.wd-lg-1000{margin-top:10px;}
+	.system-info .info-box{max-height:9999px;line-height:24px;}	
+}
+
+@media (max-width: 360px){	
+	.logo {background-size:30px ;font-size: 12px; padding-left: 10px;}
+	.login_out{font-size: 12px;}
+	.logo img {height: auto;margin-right: 4px;}
+}

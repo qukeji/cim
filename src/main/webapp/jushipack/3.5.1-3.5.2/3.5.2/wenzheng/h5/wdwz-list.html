@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>我的问政</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<link type="text/css" rel="stylesheet" href="../css/font-awesome/css/font-awesome.css" />
+	<script src="../js/fontSize.js"></script>	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	<style>
+		#wdwz-list ul{
+			padding: 0 .3rem;
+			display: none;
+		}
+		#wdwz-list ul li a{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.28rem;
+			line-height: 0.87rem;
+			border-bottom: 1px #eeeeee solid;
+			color: #222222;
+		}
+    </style>
+	</head>
+	
+	<body id="wdwz-list">
+		<ul>
+			<li class="dbl-li">
+				<a href="javascript:;" class="" data-num="0">
+					<span>待办理<i class="wz-num-i">（0）</i></span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</li>
+			<li class="blz-li">
+				<a href="javascript:;" class="" data-num="0">
+					<span>办理中<i class="wz-num-i">（0）</i></span>
+					<i class="fa fa-angle-right"></i>
+				</a>				
+			</li>
+			<li class="ybl-li">
+				<a href="javascript:;" class="" data-num="0">
+					<span>已办理<i class="wz-num-i">（0）</i></span>
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</li>
+		</ul>
+		<div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		<div class="backpage">
+    		<span class=""></span>
+    	</div>
+	</body>
+	<script>
+			$(function(){
+				
+				//待办理
+				var phone = getUrl("phone") ;	
+				myWz(phone)
+				function myWz(phone){
+					$.ajax({
+						type:"get",
+						url: siteUrl+"/wenzheng.jsp?phone="+phone,				  		
+						dataType:"jsonp",
+						success:function(data){
+						    console.log(data)
+							var myWzHtml = "" ;
+							console.log(data.result)
+							for(var i=0;i<data.result.length;i++){
+								if(data.result[i].status2==0){
+								    	console.log(555)
+								    $(".dbl-li").find(".wz-num-i").html('（'+data.result[i].num+'）') ;
+								    $(".dbl-li").find("a").attr("href",'wdwz.html?status=1&phone='+phone);    //1对应未办理
+								    $(".dbl-li").find("a").attr("data-num",data.result[i].num)
+									
+								}else if(data.result[i].status2==1){
+									 $(".blz-li").find(".wz-num-i").html('（'+data.result[i].num+'）') ;
+								     $(".blz-li").find("a").attr("href",'wdwz.html?status=2&phone='+phone);   //2对应办理中
+								     $(".blz-li").find("a").attr("data-num",data.result[i].num)
+								}else if(data.result[i].status2==2){
+							    	 $(".ybl-li").find(".wz-num-i").html('（'+data.result[i].num+'）') ;
+								     $(".ybl-li").find("a").attr("href",'wdwz.html?status=3&phone='+phone);    //3对应已办理
+								     $(".ybl-li").find("a").attr("data-num",data.result[i].num)
+								}
+							}
+						    //console.log(myWzHtml)
+							$("#wdwz-list ul").show(); 
+							
+						}
+					});
+				}
+				
+				$("#wdwz-list ul li a").click(function(){
+				    var href = $(this).attr("href");
+				    var num = $(this).attr("data-num")  ;
+				    //num = parseInt(num)
+				    console.log(num)
+				    if(num!=0){
+				         
+				        window.open(href,"") 
+				    }
+				    return false ;
+				})
+
+			})
+		</script>
+</html>

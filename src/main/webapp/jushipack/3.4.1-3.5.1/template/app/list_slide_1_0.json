@@ -1,0 +1,25 @@
+[
+#set($i=0)
+#set($total_custom = $item.listChildItems(14145).size()+0)
+#foreach( $item in $Controller.listItems("*","and item_type=5 "))#if($i>0),#end #set($i=$i+1)
+{	#set($doc_type=$item.getIntValue("doc_type"))	 	   
+	"contentID":"$item.getGlobalID()",
+	"title":"$util.JSONQuote($item.getTitle())",
+	"photo":#if($item.getValue('item_type')==2||$item.getValue('item_type')==5)"#if($item.getValue("Photo4").startsWith("http")==true)$item.getValue("Photo4")#else$item.getChannel().getSite().getUrl()$item.getValue("Photo4")#end"#else"#if($item.getValue("Photo4").startsWith("http")==true)$item.getValue("Photo")#else$item.getChannel().getSite().getUrl()$item.getValue("Photo")#end"#end,
+	"contentUrl":#if(($item.getValue('Parent')!=""&&$item.getValue('Parent')!=0)|| $doc_type == 3|| $doc_type == 7)"$item.getValue("href_app")"#elseif($doc_type ==2)"$item.getFullHref('pic')"#else"$item.getFullHref('app')"#end,
+	"sharepicurl":#if($doc_type == 2)"$item.getFullHref('picwap')"#else""#end,
+	"frame":"$item.getValue("frame")",
+	"doc_type":#if($doc_type==7 || $doc_type == 6)"0"#else"$doc_type"#end,
+	"juxian_liveid":"$item.getValue("juxian_liveid")",
+	"juxian_companyid":"$item.getValue("juxian_companyid")",
+	"secondcategory":"$item.getValue("secondcategory")",
+	"jumptype":#if($doc_type==6)"1"#else"$item.getValue("jumptype")"#end,
+	"interior_type":"$item.getValue("interior_type")",
+	"interior_id":"$item.getValue("interior_id")"
+}
+#end
+]
+
+
+
+

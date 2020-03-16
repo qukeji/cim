@@ -1,0 +1,114 @@
+﻿/* ------------------------------
+css for Tidecms 
+design by ZhangLiang & mezeroz@gmail.com
+last update Zhangliang 2012.07.04 14:01
+---------------------------- */
+@import url(main-content.css);
+@import url(form-common.css);
+@import url(form-iframe.css);
+
+/* 从2012.05.25废弃 */
+/* Gecko hack;Pre-FF3 Gecko uses -moz-inline-box instead of inline-block. */
+html>body .button_inline_block{
+display:-moz-inline-box;/* This is ignored by FF3 and later */
+display:inline-block;}/* This is ignored by pre-FF3 Gecko */
+.button_inline_block{position:relative;display:inline-block;cursor:pointer;}
+.button_inline_block a{padding:0;margin:0;height:auto;width:auto;line-height:normal;float:none;}
+* html .button_inline_block{display:inline;}
+*:first-child+html .button_inline_block{display:inline;}
+* html .top_button_inner,* html .list_button_inner{left:-1px}
+*:first-child+html .top_button_inner,*:first-child+html .list_button_inner{left:-1px}
+.top_button{height:24px;margin:0 0 0 5px;background:url(../../images/top_button_bg.gif) repeat-x left top;}
+.top_button_outer{border-color:#bfcbdf;border-style:solid;border-width:1px 0;}
+.top_button_inner{border-color:#bfcbdf;border-style:solid;border-width:0 1px;margin:0 -1px;padding:0 4px 0px;}
+.top_button_inner span{float:left;height:19px;margin:3px 0 0;}
+.top_button_inner span.txt{line-height:16px;_line-height:18px;padding:0 4px;}
+.top_button_inner span.img img{vertical-align:middle;margin:0 1px 0 1px;}
+/* 从2012.05.25废弃 */
+
+*:focus{outline:none;}
+/* Edit by Zhangliang 2012.05.25 面包屑导航右侧按钮 begin */
+.tidecms_btn{float:left;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#e5eaf4');background:-webkit-linear-gradient(top,#ffffff,#e5eaf4);background:-moz-linear-gradient(top,#ffffff,#e5eaf4);height:22px;border:1px solid #bfcbdf;border-radius:2px;cursor:pointer;padding:0 5px;}
+.t_btn_pic{float:left;margin:4px 0 0 0;}
+.t_btn_pic img{width:14px;height:14px;}
+.t_btn_txt{float:left;line-height:22px;padding:0 2px;}
+/* Edit by Zhangliang 2012.05.25 面包屑导航右侧按钮 end */
+
+/* Add by zhangliang 2011.06.10 Tidecms_notify begin */
+.tidecms_notify{float:left;display:none;}
+.tn_top,.tn_bot{border-top-color:#fff1a8;border-bottom-color:#fff1a8;}
+.tn_main{background:#fff1a8;border-color:#fff1a8;border:3px solid transparent;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-weight:700;font-size:12px;padding:2px 7px;line-height:14px;}
+/* Add by zhangliang 2011.06.10 Tidecms_notify end */
+/* Add by zhangliang 2011.06.22 Tidecms Box begin */
+.tidecms_box_layout{width:197px;}
+.tidecms_box_title{background:url(../../images/tidebox_bg.png) no-repeat 0 0;height:27px;width:187px;font-family:Arial;line-height:27px;color:#ffffff;padding:0 0 0 10px;cursor:move;}
+.tidecms_box{width:197px;overflow:hidden;}
+.tidecms_box_tabs{background:url(../../images/tidebox_bg.png) no-repeat 0 -27px;padding:1px 0 0;height:23px;border:1px solid #bbbbbb;border-top:none;border-bottom:none;}
+.tidecms_box_tabs li{float:left;background:url(../../images/tidecms_box_tabs_li.png) no-repeat 0 0;height:23px;margin-left:-1px;}
+.tidecms_box_tabs span{display:block;width:32px;height:22px;cursor:pointer;overflow:hidden;background:url(../../images/tidecms_box_tabs.png) no-repeat 0 0;text-indent:-5000px;}
+.tidecms_box_tabs li.disabled span,.tidecms_box_tabs .on span{cursor:default;}
+.tidecms_box_tabs #tabs2 span{background-position:0 -46px;}
+.tidecms_box_tabs #tabs2.disabled span{background-position:0 -69px;}
+.tidecms_box_tabs #tabs3 span{background-position:0 -92px;}
+.tidecms_box_tabs #tabs3.disabled span{background-position:0 -115px;}
+.tidecms_box_tabs #tabs4 span{background-position:0 -138px;}
+.tidecms_box_tabs #tabs4.disabled span{background-position:0 -161px;}
+.tidecms_box_tabs #tabs5 span{background-position:0 -184px;}
+.tidecms_box_tabs #tabs5.disabled span{background-position:0 -207px;}
+.tidecms_box_tabs #tabs6 span{background-position:0 -230px;}
+.tidecms_box_tabs #tabs6.disabled span{background-position:0 -253px;}
+.tidecms_box_tabs .on{background:url(../../images/tidecms_box_tabs_li_on.png) no-repeat 0 0;}
+.tidecms_box_main{width:195px;height:467px;overflow:hidden;background:#ffffff;border:1px solid #bbbbbb;border-top:none;border-bottom:none;}
+.tidecms_box_bot{background:url(../../images/tidebox_bg.png) no-repeat 0 -95px;width:197px;height:27px;}
+.tidecms_box_pages{text-align:center;color:#26619e;padding:7px 0;}
+.tidecms_box_pages span{margin:0 5px;}
+.tidecms_box_search{height:31px;padding:7px 0 0 8px;border-bottom:1px solid #bbbbbb;}
+.tbs_select{float:left;width:44px;height:22px;background:url(../../images/tidebox_bg.png) no-repeat 0 -51px;border:1px solid #bfcbdf;position:relative;cursor:pointer;z-index:9999;}
+.tbs_select_list{width:44px;position:absolute;border:1px solid #bfcbdf;background:#ffffff;left:-1px;padding:3px 0;display:none;}
+.tbs_select_list li{padding:0 0 0 5px;height:20px;line-height:20px;color:#666666;}
+.tbs_select_list li:hover{background:#eef2f7;}
+.tbs_select.on .tbs_select_list{display:block;}
+.tbs_select_txt{line-height:22px;padding:0 0 0 5px;color:#666666;}
+.tbs_arrow{background:url(../../images/tbs_arrow.gif) no-repeat 0 0;width:9px;height:5px;position:absolute;top:9px;left:31px;}
+.tbs_text{width:97px;border:none;border-top:1px solid #bfcbdf;border-bottom:1px solid #bfcbdf;background:url(../../images/tidebox_bg.png) no-repeat 0 -73px;line-height:16px;padding:3px 5px;height:16px;float:left;}
+.tbs_text:focus{outline:none;}
+.tbs_button{float:left;height:24px;width:26px;color:#666666;font-family:Arial;text-align:center;border:1px solid #bfcbdf;cursor:pointer;background:url(../../images/tidebox_bg.png) no-repeat 0 -51px;line-height:normal;}
+.tbs_result{height:420px;overflow-y:auto;overflow-x:hidden;padding:8px 0 0 8px;}
+.tbs_result li{margin:0 0 8px;}
+.tbs_result_pic{float:left;width:80px;height:60px;}
+.tbs_result_pic img{width:80px;height:60px;}
+.tbs_result_info{float:left;padding:0 0 0 7px;width:83px;}
+.tbs_result_title{display:block;line-height:16px;}
+.tbs_result_title a,.tbs_result_title{color:#6ea1d4;}
+.tbs_result_tools{padding:5px 0 0;}
+.tbs_result_tools a{margin:0 2px 0 0;}
+.tbs_result_tips{position:absolute;z-index:9999;background:#edc900;border:1px solid #8f6200;width:145px;padding:5px 7px;color:#542f00;}
+.tbs_result_tips_title{font-size:13px;color:#000000;padding:3px 0 8px;line-height:16px;}
+.tbs_result_tips_info{line-height:16px;}
+.tbs_result_tips_drag{padding:8px 0 5px;}
+.tbs_result_tips_drag img{vertical-align:middle;margin:-2px 4px 0 1px;}
+.tbs_txt_list .tbs_result_info{float:none;width:auto;padding:0 10px 0 0;} 
+.tbs_txt_list .tbs_result_title img{float:left;vertical-align:middle;}
+.tidecms_box_arrow{background:url(../../images/tbs_arrow_away.gif) no-repeat;width:9px;height:5px;overflow:hidden;float:right;margin:12px 10px 0 0;text-indent:-5000px;cursor:pointer;}
+.tidecms_box_arrow.on{background:url(../../images/tbs_arrow.gif) no-repeat 0 0;}
+.drag_on{background:#8BC9EC;}
+/* Add by zhangliang 2011.06.22 Tidecms Box end */
+/* Add by zhangliang 2011.06.23 Drag and drop upload begin */
+.drag_upload .mouse_icon{display:block;margin:0 0 6px;}
+.drag_upload_info{background:#edc900;border:1px solid #8f6200;width:145px;padding:5px 7px;color:#542f00;}
+.drag_upload_info img{vertical-align:middle;margin:-2px 4px 0 1px;}
+/* Add by zhangliang 2011.06.23 Drag and drop upload end */
+/* Add by zhangliang 2012.05.09 Common Tips begin */
+.tidecms_common_tips{height:24px;display:none;float:none;}
+.tidecms_common_tips .tct{float:left;background:#fff1a8;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-weight:700;font-size:12px;border:none;font-family:"宋体";padding:0 7px;line-height:24px;margin:0;}
+/* Add by zhangliang 2012.05.09 Common Tips end */
+
+/* openwin */
+.openwin{font-size:12px;position:fixed;z-index:1000;}
+.openwin_bg{filter:alpha(opacity=50);-moz-opacity:0.5;opacity:0.5;z-index:1001;background:#79726C;position:fixed;left:0;top:0;right:0;bottom:0;}
+.openwin_main{background:#efefef;position:fixed;z-index:1002;left:50%;top:50%;width:628px;height:408px;border:1px solid #cccccc;padding:12px;}
+.openwin_nav{height:25px;line-height:25px;font-family:"宋体"}
+.openwin_nav .nav{float:left;color:#555555;}
+.openwin_nav .nav a{color:#555555;}
+.openwin_nav .close{float:right;}
+.openwin_nav .close a{display:block;height:19px;width:19px;}

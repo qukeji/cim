@@ -1,0 +1,15 @@
+
+1、更换模板
+   栏目 ： 聚视演示版 / 互动管理 / 社区管理 / 帖子管理
+   原模板：公用模板2.0/hpic_wap_content_2_0.shtml去掉
+   替换为：wap/wap_content.shtml
+
+2、看电视栏目   频道目录名改为    /television
+
+3、修改微信sdk js为相对协议引入
+	频道：APP管理-栏目管理（含所有子频道）
+	涉及模板： 
+	app/content_wap.shtml
+	app/pic_wap_content.shtml
+	wap/video_wap.html
+	wap/live_wap.html

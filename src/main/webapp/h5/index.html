@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>H5编辑器</title>
+		<link rel="stylesheet" href="css/app.d4f1d.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/self_define.css">
+
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/ueditor.all.min.js"></script>
+		<script src="js/zeroclipboard.min.js"></script>
+		<script>			
+			ZeroClipboard.config({
+				trustedDomains: ["*"]
+			});			
+			function triggerInsertImage(){
+	    		var _id = $(".edui-for-insert-images").attr("id");
+	    		console.log(_id);   	
+	    		return $EDITORUI[_id]._onClick("", this);
+	    	}			
+			function getUrl(name) {
+					 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			     var r = window.location.search.substr(1).match(reg);
+			     if(r!=null)return  unescape(r[2]); return null;
+			};
+			var _webname  = getUrl('webname') ;			
+			var _siteUrl = "http://"+window.location.host ;
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="root">
+	
+		</div>
+		<script src="js/app.d4f1d.js"></script>
+		<!--<script src="js/material.js"></script>-->		
+	</body>
+    <script type="text/javascript" charset="utf-8" src="ueditor/imagesDialog.js"></script>
+    <script>
+		function getUecontent(){
+    		var h5_content = window.WXBEditor.getContent();    		
+    		return h5_content;
+    	}    	
+    	function checkInit(){
+    		if(window.WXBEditor){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}
+    	function setCurrentContent(_html){   		
+    		window.WXBEditor.setContent(_html,false);
+    	}
+    	function setInsertContent(_html,b){    		
+    		window.WXBEditor.execCommand('inserthtml',_html);    	
+    	}
+    	   	
+    </script>
+</html>

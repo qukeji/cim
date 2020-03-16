@@ -1,0 +1,388 @@
+/* 
+theme for tcenter
+ */
+.height {
+    height: 200px !important;
+    width: 100% !important;
+}
+/*blue*/
+#blue .theme-bg{background:#3f51b5}
+#blue .theme-bg-1{background:rgba(63,81,181,.1)}
+#blue .theme-bg-2{background:rgba(63,81,181,.2)}
+#blue .theme-bg-3{background:rgba(63,81,181,.3)}
+#blue .theme-bg-4{background:rgba(63,81,181,.4)}
+#blue .theme-bg-5{background:rgba(63,81,181,.5)}
+#blue .theme-bg-6{background:rgba(63,81,181,.6)}
+#blue .theme-bg-7{background:rgba(63,81,181,.7)}
+#blue .theme-bg-8{background:rgba(63,81,181,.8)}
+#blue .theme-bg-9{background:rgba(63,81,181,.9)}
+#blue .theme-tx-color{color:#3f51b5}
+#blue .br-menu-link.active{background:#3f51b5}
+#blue .sidebar-menu .treeview-menu>li.active>a,#blue .sidebar-menu>li.active>a{background-color:#3f51b5;border-radius:2px}
+#blue .sidebar-menu .treeview-menu>li.active>a span,#blue .sidebar-menu>li.active>a span{background-color:#3f51b5;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#blue .btn-outline-info.active,#blue .btn-outline-info:active,#blue .btn-outline-info:hover,#blue .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#3f51b5;border-color:#3f51b5}
+#blue .btn-outline-info{color:#3f51b5;background-color:transparent;background-image:none;border-color:#837ce6}
+
+/*pink*/
+#pink .theme-bg{background:rgb(198, 46, 97)}
+#pink .theme-bg-1{background:rgba(238, 129, 166,.1)}
+#pink .theme-bg-2{background:rgba(238, 129, 166,.2)}
+#pink .theme-bg-3{background:rgba(238, 129, 166,.3)}
+#pink .theme-bg-4{background:rgba(238, 129, 166,.4)}
+#pink .theme-bg-5{background:rgba(238, 129, 166,.5)}
+#pink .theme-bg-6{background:rgba(238, 129, 166,.6)}
+#pink .theme-bg-7{background:rgba(238, 129, 166,1)}
+#pink .theme-bg-8{background:rgba(234, 94, 141,1)}
+#pink .theme-bg-9{background:rgba(217, 71, 120,1)}
+#pink .theme-tx-color{color:rgb(198, 46, 97)}
+#pink .br-menu-link.active{background:rgb(198, 46, 97)}
+#pink .sidebar-menu .treeview-menu>li.active>a,#pink .sidebar-menu>li.active>a{background-color:rgb(198, 46, 97);border-radius:2px}
+#pink .sidebar-menu .treeview-menu>li.active>a span,#pink .sidebar-menu>li.active>a span{background-color:rgb(198, 46, 97);border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#pink .btn-outline-info.active,#pink .btn-outline-info:active,#pink .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:rgb(198, 46, 97);border-color:rgb(198, 46, 97)}
+#pink .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:rgb(198, 46, 97)}
+#pink .btn-outline-info:hover{color:#fff;background-color:rgb(198, 46, 97);border-color:rgb(198, 46, 97)}
+#glay .br-menu-link.active{background:#425c84;color:#fff}
+#glay .sidebar-menu>li.active>a,.sidebar-menu .treeview-menu>li.active>a{background-color:#425c84;border-radius:2px}
+#glay .sidebar-menu .treeview-menu>li.active>a span,#glay .sidebar-menu>li.active>a span{background-color:#425c84;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+/*deep-blue*/
+#deep-blue .theme-bg{background:#425c84}
+#deep-blue .theme-bg-1{background:rgba(123,166,232,.1)}
+#deep-blue .theme-bg-2{background:rgba(123,166,232,.2)}
+#deep-blue .theme-bg-3{background:rgba(123,166,232,.3)}
+#deep-blue .theme-bg-4{background:rgba(123,166,232,.4)}
+#deep-blue .theme-bg-5{background:rgba(123,166,232,.5)}
+#deep-blue .theme-bg-6{background:rgba(123,166,232,.6)}
+#deep-blue .theme-bg-7{background:rgba(123,166,232,.7)}
+#deep-blue .theme-bg-8{background:rgba(123,166,232,.8)}
+#deep-blue .theme-bg-9{background:rgba(95,140,208,.9)}
+#deep-blue .theme-tx-color{color:#425c84}
+#deep-blue .br-menu-link.active{background:#425c84}
+#deep-blue .sidebar-menu .treeview-menu>li.active>a,#deep-blue .sidebar-menu>li.active>a{background-color:#425c84;border-radius:2px}
+#deep-blue .sidebar-menu .treeview-menu>li.active>a span,#deep-blue .sidebar-menu>li.active>a span{background-color:#425c84;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#deep-blue .btn-outline-info.active,#deep-blue .btn-outline-info:active,#deep-blue .btn-outline-info:hover,#deep-blue .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#425c84;border-color:#425c84}
+#deep-blue .btn-outline-info{color:#425c84;background-color:transparent;background-image:none;border-color:#425c84}
+
+
+/*appManage*/
+#appManage .theme-bg {
+	background:#3fb5b1;
+}
+
+#appManage .theme-bg-1 {
+	background: rgba(90, 213, 208, .1)
+}
+
+#appManage .theme-bg-2 {
+	background: rgba(90, 213, 208, .2)
+}
+
+#appManage .theme-bg-3 {
+	background: rgba(44, 147, 143, .3)
+}
+
+#appManage .theme-bg-4 {
+	background: rgba(90, 213, 208, .4)
+}
+
+#appManage .theme-bg-5 {
+	background: rgba(90, 213, 208, .5)
+}
+
+#appManage .theme-bg-6 {
+	background: rgba(90, 213, 208, .6)
+}
+
+#appManage .theme-bg-7 {
+	background: rgba(90, 213, 208, .7)
+}
+
+#appManage .theme-bg-8 {
+	background: rgba(71, 193, 189, .8)
+}
+
+#appManage .theme-bg-9 {
+	background: rgba(63, 181, 177, .9)
+}
+
+#appManage .theme-tx-color {
+	color:#3fb5b1;
+}
+
+#appManage .br-menu-link.active {
+	background: #3fb5b1;
+}
+
+#appManage .sidebar-menu .treeview-menu>li.active>a,
+#appManage .sidebar-menu>li.active>a {
+	background-color:  #3fb5b1;
+	border-radius: 2px
+}
+
+#appManage .sidebar-menu .treeview-menu>li.active>a span,
+#appManage .sidebar-menu>li.active>a span {
+	background-color:  #3fb5b1;
+	border-radius: 2px;
+	display: inline-block;
+	padding-right: 5px;
+	margin-right: 15px
+}
+
+#appManage .btn-outline-info.active,
+#appManage .btn-outline-info:active,
+#appManage .btn-outline-info:hover,
+#appManage .show>.btn-outline-info.dropdown-toggle {
+	color: #fff;
+	background-color: #3fb5b1;
+	border-color:  #3fb5b1;
+}
+
+#appManage .btn-outline-info {
+	color: #3fb5b1;
+	background-color: transparent;
+	background-image: none;
+	border-color:  #3fb5b1;
+}
+
+
+/*ugcManage*/
+#ugcManage .theme-bg {
+	background: rgb(185, 57, 128)
+}
+
+#ugcManage .theme-bg-1 {
+	background: rgba(185, 57, 128, .1)
+}
+
+#ugcManage .theme-bg-2 {
+	background: rgba(185, 57, 128, .2)
+}
+
+#ugcManage .theme-bg-3 {
+	background: rgba(185, 57, 128, .3)
+}
+
+#ugcManage .theme-bg-4 {
+	background: rgba(185, 57, 128, .4)
+}
+
+#ugcManage .theme-bg-5 {
+	background: rgba(185, 57, 128, .5)
+}
+
+#ugcManage .theme-bg-6 {
+	background: rgba(200, 71, 142, .6)
+}
+
+#ugcManage .theme-bg-7 {
+	background:rgb(219, 90, 162)
+}
+
+#ugcManage .theme-bg-8 {
+	background: rgb(219, 90, 162)
+}
+
+#ugcManage .theme-bg-9 {
+	background: rgb(200, 71, 142)
+}
+
+#ugcManage .theme-tx-color {
+	color: rgb(185, 57, 128)
+}
+
+#ugcManage .br-menu-link.active {
+	background: rgb(185, 57, 128)
+}
+
+#ugcManage .sidebar-menu .treeview-menu>li.active>a,
+#ugcManage .sidebar-menu>li.active>a {
+	background-color: rgb(185, 57, 128);
+	border-radius: 2px
+}
+
+#ugcManage .sidebar-menu .treeview-menu>li.active>a span,
+#ugcManage .sidebar-menu>li.active>a span {
+	background-color: rgb(185, 57, 128);
+	border-radius: 2px;
+	display: inline-block;
+	padding-right: 5px;
+	margin-right: 15px
+}
+
+#ugcManage .btn-outline-info.active,
+#ugcManage .btn-outline-info:active,
+#ugcManage .btn-outline-info:hover,
+#ugcManage .show>.btn-outline-info.dropdown-toggle {
+	color: #fff;
+	background-color: rgb(185, 57, 128);
+	border-color: rgb(185, 57, 128)
+}
+
+#ugcManage .btn-outline-info {
+	color: #425c84;
+	background-color: transparent;
+	background-image: none;
+	border-color: rgb(185, 57, 128) ;
+}
+
+/*userdataManage*/
+#userdataManage .br-menu-link.active{background:#d06a2e}
+ 
+#userdataManage .theme-bg{background:#d06a2e}
+#userdataManage .theme-bg-1{background:#df7a3f}
+#userdataManage .theme-bg-2{background:#ec8a51}
+#userdataManage .theme-bg-3{background:#ffab7a}
+#userdataManage .theme-bg-4{background:rgba(232,62,140,.4)}
+#userdataManage .theme-bg-5{background:rgba(232,62,140,.5)}
+#userdataManage .theme-bg-6{background:rgba(232,62,140,.6)}
+#userdataManage .theme-bg-7{background:rgba(232,62,140,.7)}
+#userdataManage .theme-bg-8{background:rgba(232,62,140,.8)}
+#userdataManage .theme-bg-9{background:rgba(232,62,140,.9)}
+#userdataManage .theme-tx-color{color:#d06a2e}
+#userdataManage .br-menu-link.active{background:#d06a2e}
+#userdataManage .sidebar-menu .treeview-menu>li.active>a,#userdataManage .sidebar-menu>li.active>a{background-color:#d06a2e;border-radius:2px}
+#userdataManage .sidebar-menu .treeview-menu>li.active>a span,#userdataManage .sidebar-menu>li.active>a span{background-color:#d06a2e;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#userdataManage .btn-outline-info.active,#userdataManage .btn-outline-info:active,#userdataManage .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#e83e8c;border-color:#d06a2e}
+#userdataManage .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:#e83e8c}
+#userdataManage .btn-outline-info:hover{color:#fff;background-color:#d06a2e;border-color:#e83e8c}
+#userdataManage .br-menu-link.active{background:#d06a2e;color:#fff}
+#userdataManage .sidebar-menu>li.active>a,#userdataManage .sidebar-menu .treeview-menu>li.active>a{background-color:#d06a2e;border-radius:2px}
+#userdataManage .sidebar-menu .treeview-menu>li.active>a span,#userdataManage .sidebar-menu>li.active>a span{background-color:#d06a2e;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+
+/*shenpianManage*/
+
+#shenpianManage .theme-bg{background:#84427b}
+#shenpianManage .theme-bg-1{background:#a45b9a}
+#shenpianManage .theme-bg-2{background:#bd73b3}
+#shenpianManage .theme-bg-3{background:#ffab7a}
+#shenpianManage .theme-bg-4{background:rgba(232,62,140,.4)}
+#shenpianManage .theme-bg-5{background:rgba(232,62,140,.5)}
+#shenpianManage .theme-bg-6{background:rgba(232,62,140,.6)}
+#shenpianManage .theme-bg-7{background:rgba(232,62,140,.7)}
+#shenpianManage .theme-bg-8{background:rgba(232,62,140,.8)}
+#shenpianManage .theme-bg-9{background:rgba(232,62,140,.9)}
+#shenpianManage .theme-tx-color{color:#84427b}
+#shenpianManage .br-menu-link.active{background:#84427b}
+#shenpianManage .sidebar-menu .treeview-menu>li.active>a,#shenpianManage .sidebar-menu>li.active>a{background-color:#84427b;border-radius:2px}
+#shenpianManage .sidebar-menu .treeview-menu>li.active>a span,#shenpianManage .sidebar-menu>li.active>a span{background-color:#84427b;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#shenpianManage .btn-outline-info.active,#shenpianManage .btn-outline-info:active,#shenpianManage .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#e83e8c;border-color:#d06a2e}
+#shenpianManage .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:#e83e8c}
+#shenpianManage .btn-outline-info:hover{color:#fff;background-color:#84427b;border-color:#e83e8c}
+#shenpianManage .br-menu-link.active{background:#84427b;color:#fff}
+#shenpianManage .sidebar-menu>li.active>a,#shenpianManage .sidebar-menu .treeview-menu>li.active>a{background-color:#84427b;border-radius:2px}
+#shenpianManage .sidebar-menu .treeview-menu>li.active>a span,#shenpianManage .sidebar-menu>li.active>a span{background-color:#84427b;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+
+
+
+/*pgcMnanage*/
+
+#pgcMnanage .theme-bg{background:#0b94d5}
+#pgcMnanage .theme-bg-1{background:#0b94d5}
+#pgcMnanage .theme-bg-2{background:#25a8e6}
+#pgcMnanage .theme-bg-3{background:#39bcf9}
+#pgcMnanage .theme-bg-4{background:rgba(232,62,140,.4)}
+#pgcMnanage .theme-bg-5{background:rgba(232,62,140,.5)}
+#pgcMnanage .theme-bg-6{background:rgba(232,62,140,.6)}
+#pgcMnanage .theme-bg-7{background:rgba(232,62,140,.7)}
+#pgcMnanage .theme-bg-8{background:rgba(232,62,140,.8)}
+#pgcMnanage .theme-bg-9{background:rgba(232,62,140,.9)}
+#pgcMnanage .theme-tx-color{color:#0b94d5}
+#pgcMnanage .br-menu-link.active{background:#0b94d5}
+#pgcMnanage .sidebar-menu .treeview-menu>li.active>a,#pgcMnanage .sidebar-menu>li.active>a{background-color:#0b94d5;border-radius:2px}
+#pgcMnanage .sidebar-menu .treeview-menu>li.active>a span,#pgcMnanage .sidebar-menu>li.active>a span{background-color:#0b94d5;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#pgcMnanage .btn-outline-info.active,#pgcMnanage .btn-outline-info:active,#pgcMnanage .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#e83e8c;border-color:#d06a2e}
+#pgcMnanage .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:#e83e8c}
+#pgcMnanage .btn-outline-info:hover{color:#fff;background-color:#0b94d5;border-color:#e83e8c}
+#pgcMnanage .br-menu-link.active{background:#0b94d5;color:#fff}
+#pgcMnanage .sidebar-menu>li.active>a,#pgcMnanage .sidebar-menu .treeview-menu>li.active>a{background-color:#0b94d5;border-radius:2px}
+#pgcMnanage .sidebar-menu .treeview-menu>li.active>a span,#pgcMnanage .sidebar-menu>li.active>a span{background-color:#0b94d5;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+
+/*collectMnanage*/
+
+#collectMnanage .theme-bg{background:#2a75a6;}
+#collectMnanage .theme-bg-1{background:#18a1e1}
+#collectMnanage .theme-bg-2{background:#25a8e6}
+#collectMnanage .theme-bg-3{background:#39bcf9}
+#collectMnanage .theme-bg-4{background:rgba(232,62,140,.4)}
+#collectMnanage .theme-bg-5{background:rgba(232,62,140,.5)}
+#collectMnanage .theme-bg-6{background:rgba(232,62,140,.6)}
+#collectMnanage .theme-bg-7{background:rgba(232,62,140,.7)}
+#collectMnanage .theme-bg-8{background:rgba(232,62,140,.8)}
+#collectMnanage .theme-bg-9{background:rgba(232,62,140,.9)}
+#collectMnanage .theme-tx-color{color:#2a75a6}
+#collectMnanage .br-menu-link.active{background:#2a75a6}
+#collectMnanage .sidebar-menu .treeview-menu>li.active>a,#collectMnanage .sidebar-menu>li.active>a{background-color:#2a75a6;border-radius:2px}
+#collectMnanage .sidebar-menu .treeview-menu>li.active>a span,#collectMnanage .sidebar-menu>li.active>a span{background-color:#2a75a6;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#collectMnanage .btn-outline-info.active,#collectMnanage .btn-outline-info:active,#collectMnanage .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#e83e8c;border-color:#d06a2e}
+#collectMnanage .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:#e83e8c}
+#collectMnanage .btn-outline-info:hover{color:#fff;background-color:#2a75a6;border-color:#e83e8c}
+#collectMnanage .br-menu-link.active{background:#2a75a6;color:#fff}
+#collectMnanage .sidebar-menu>li.active>a,#collectMnanage .sidebar-menu .treeview-menu>li.active>a{background-color:#2a75a6;border-radius:2px}
+#collectMnanage .sidebar-menu .treeview-menu>li.active>a span,#collectMnanage .sidebar-menu>li.active>a span{background-color:#2a75a6;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+
+/*electronic_map*/
+
+#electronic_map .theme-bg{background:#259b24}
+#electronic_map .theme-bg-1{background:#259b24}
+#electronic_map .theme-bg-2{background:#259b24}
+#electronic_map .theme-bg-3{background:#259b24}
+#electronic_map .theme-bg-4{background:rgba(232,62,140,.4)}
+#electronic_map .theme-bg-5{background:rgba(232,62,140,.5)}
+#electronic_map .theme-bg-6{background:rgba(232,62,140,.6)}
+#electronic_map .theme-bg-7{background:rgba(232,62,140,.7)}
+#electronic_map .theme-bg-8{background:rgba(232,62,140,.8)}
+#electronic_map .theme-bg-9{background:rgba(232,62,140,.9)}
+#electronic_map .theme-tx-color{color:#259b24}
+#electronic_map .br-menu-link.active{background:#259b24}
+#electronic_map .sidebar-menu .treeview-menu>li.active>a,#electronic_map .sidebar-menu>li.active>a{background-color:#259b24;border-radius:2px}
+#electronic_map .sidebar-menu .treeview-menu>li.active>a span,#electronic_map .sidebar-menu>li.active>a span{background-color:#259b24;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#electronic_map .btn-outline-info.active,#electronic_map .btn-outline-info:active,#electronic_map .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:#e83e8c;border-color:#d06a2e}
+#electronic_map .btn-outline-info{color:#80155c;background-color:transparent;background-image:none;border-color:#e83e8c}
+#electronic_map .btn-outline-info:hover{color:#fff;background-color:#259b24;border-color:#e83e8c}
+#electronic_map .br-menu-link.active{background:#259b24;color:#fff}
+#electronic_map .sidebar-menu>li.active>a,#electronic_map .sidebar-menu .treeview-menu>li.active>a{background-color:#259b24;border-radius:2px}
+#electronic_map .sidebar-menu .treeview-menu>li.active>a span,#electronic_map .sidebar-menu>li.active>a span{background-color:#259b24;border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+
+
+
+/*
+ tcenter-index
+ * */
+#green .theme-bg{background:rgb(110, 162, 51)}
+#green .theme-bg-1{background:rgba(159, 217, 94,.1)}
+#green .theme-bg-2{background:rgba(159, 217, 94,.2)}
+#green .theme-bg-3{background:rgba(159, 217, 94,.3)}
+#green .theme-bg-4{background:rgba(159, 217, 94,.4)}
+#green .theme-bg-5{background:rgba(159, 217, 94,.5)}
+#green .theme-bg-6{background:rgba(159, 217, 94,.6)}
+#green .theme-bg-7{background:rgba(159, 217, 94,.7)}
+#green .theme-bg-8{background:rgba(159, 217, 94,1)}
+#green .theme-bg-9{background:rgba(136, 193, 71,1)}
+#green .theme-tx-color{color:rgb(110, 162, 51)}
+#green .br-menu-link.active{background:rgb(110, 162, 51)}
+#green .sidebar-menu .treeview-menu>li.active>a,#green .sidebar-menu>li.active>a{background-color:rgb(110, 162, 51);border-radius:2px}
+#green .sidebar-menu .treeview-menu>li.active>a span,#green .sidebar-menu>li.active>a span{background-color:rgb(110, 162, 51);border-radius:2px;display:inline-block;padding-right:5px;margin-right:15px}
+#green .btn-outline-info.active,#green .btn-outline-info:active,#green .btn-outline-info:hover,#green .show>.btn-outline-info.dropdown-toggle{color:#fff;background-color:rgb(110, 162, 51);border-color:rgb(110, 162, 51)}
+#green .btn-outline-info{color:rgb(110, 162, 51);background-color:transparent;background-image:none;border-color:rgb(110, 162, 51);}
+#green .btn-info {background-color: rgba(86, 132, 34,1);border-color: rgba(86, 132, 34,1);}
+#green .sidebar-menu .treeview-menu>li>a>.fa-users,.sidebar-menu .treeview-menu>li>a>.fa-table,.sidebar-menu>li>a>.fa-table{color: #FFFFFF;}
+.height {
+    height: 200px !important;
+    width: 100% !important;
+}
+
+/*¿ª¹Ø*/
+#green .toggle-light.primary .toggle-on.active{
+    background-color : #00e266;
+}
+#green .toggle-light.primary .toggle-on.active+.toggle-blob {
+    border: 3px solid #00e266;
+}
+
+
+
+

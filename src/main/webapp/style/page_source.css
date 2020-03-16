@@ -1,0 +1,61 @@
+/* ------------------------------
+css for Tidecms 7
+design by zhangliang & mezeroz@gmail.com
+date 2009-05-22
+edit 2011-02-28
+---------------------------- */
+/* Reset */
+body,p,form,ul,ol,li,input{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none;outline:none;}
+a:hover{text-decoration:none;color:#000000;}
+html{height:100%;overflow:hidden;}
+body{font-size:12px;background:#ffffff;height:100%;overflow:hidden;}
+
+.source_top{height:35px;background:url(../images/editor_tools.png) repeat-x 0 0;width:100%;}
+/* Add by zhangliang 2009.8.5 begin */
+.openwin #popDiviframe{padding:0 5px;line-height:100px;text-align:center;}
+/* Add by zhangliang 2009.8.5 end */
+
+.editor_save{float:left;padding:7px 12px 0 10px;background:url(../images/editor_tools.png) no-repeat 100% -35px;}
+.editer_button,.tools_main{background:url(../images/editor_tools.png) repeat-x 0 -91px;height:21px;line-height:21px;}
+.editer_button a,.tools_l{float:left;background:url(../images/editor_tools.png) no-repeat 0 -70px;padding:0 0 0 17px;}
+.editer_button a span,.tools_main ul{float:left;background:url(../images/editor_tools.png) no-repeat 100% -112px;padding:0 17px 0 0;cursor:pointer;}
+
+.editor_tools{float:right;padding:7px 10px 0 0;height:21px;background:url(../images/editor_tools.png) no-repeat -3px -35px;}
+.editor_tools .title{float:left;float:left;color:#4b4b4b;padding:0 10px 0;line-height:22px;}
+.tools_main{float:left;}
+.tools_main ul{padding:0 5px 0 0;height:21px;}
+.tools_main li{float:left;margin:0 2px;}
+.tools_l{padding:0 0 0 5px;}
+.tools_l li img{vertical-align:middle;margin:2px 0 0;}
+.tools_l li a{display:block;width:28px;height:21px;line-height:21px;text-align:center;vertical-align:middle;}
+.tools_l #search a,.tools_l #word_wrap a,.tools_l #undo a,.tools_l #redo a,.tools_l #highlight a{display:block;width:30px;height:21px;background:url(../images/editor_tools_icon.png) no-repeat center 0;overflow:hidden;text-indent:-5000px;}
+.tools_l li.on{filter:alpha(opacity=30);-moz-opacity:0.3;opacity:0.3;}
+.tools_l #search.on a,.tools_l #word_wrap.on a{width:28px;}
+.tools_l #word_wrap a{background-position:center -21px;}
+.tools_l #undo a{background-position:center -126px;}
+.tools_l #redo a{background-position:center -147px;}
+.tools_l #undo.on a,.tools_l #redo.on a{cursor:default;}
+.tools_l #highlight a{background-position:center -84px;}
+
+.app_button{height:27px;}
+.app_button_l{background:url(../images/app_button.png) no-repeat 0 0;padding:0 0 0 10px;height:21px;cursor:pointer;position:relative;}
+.app_button_l span{float:left;background:url(../images/app_button.png) no-repeat 100% 0;padding:0 25px 0 0;line-height:21px;color:#d8d8d8;}
+.templates_app .on .app_list_top{background:#565656 url(../images/app_list_top.png) no-repeat 100% 0;height:7px;position:absolute;left:0;top:20px;right:-1px;z-index:2;}
+.templates_app{float:left;padding:0 10px;height:35px;}
+.templates_app span.title{float:left;line-height:35px;color:#4b4b4b;padding:0 10px 0 0;width:48px;}
+.templates_app .app_box{float:left;margin:7px 7px 0 0;position:relative;z-index:9999;}
+.templates_app .arrow{position:absolute;top:8px;right:7px;background:url(../images/editor_arrow.png) no-repeat 0 -29px;display:block;width:10px;height:6px;overflow:hidden;cursor:pointer;}
+.templates_app .app_list{display:none;}
+.templates_app .on .app_list{display:block;position:absolute;top:27px;left:0;width:127px;background:url(../images/app_list.gif) no-repeat 0 0;padding:1px 0 0;}
+.templates_app .app_list_bot{background:url(../images/app_list.gif) no-repeat -127px 0;display:block;width:127px;height:1px;overflow:hidden;}
+.templates_app .app_list ul{background:#565656;padding:5px 0;}
+.templates_app .app_list li:hover,.templates_app .app_list li.on{background:#d9d9d9 url(../images/app_list_li.png) repeat-x 0 0;}
+.templates_app .app_list li a,.templates_app .app_list li.on a{display:block;line-height:22px;color:#d5d5d5;padding:4px 0 4px 20px;background:url(../images/editor_arrow.png) no-repeat 9px -38px;}
+.templates_app .app_list li a:hover{color:#463500;background-position:9px -266px;}
+.templates_app .app_list li.on a{color:#463500;background-position:9px -266px}
+.templates_app .app_links{float:left;margin:11px 0 0 7px;color:#3f3f3f;}
+.templates_app .app_links:hover{text-decoration:underline;}

@@ -1,0 +1,98 @@
+﻿/* ------------------------------
+css for Tidecms 树状图菜单
+design by ZhangLiang & mezeroz@gmail.com
+last update Zhangliang 2012.06.11 14:58
+---------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#ffffff;text-decoration:none;outline:none;}
+a:hover{text-decoration:none;color:#096ed5;outline:none;}
+body{font-size:12px;background:#e9e9e9 url(../images/bg_main.png) repeat-x left -38px;}
+html,body{height:100%;overflow:hidden;}
+table{border-collapse:collapse;}
+*:focus{outline:none;}
+/* 从2012.05.25废弃 */
+.manage{margin:6px 0 5px 6px;position:relative;z-index:2;}
+.manage_box{background:url(../images/manage_box_bg.gif) no-repeat left top;height:24px;}
+.manage_boxr{background:url(../images/manage_box_bg.gif) no-repeat right -48px;}
+.manage_boxm{background:url(../images/manage_box_bg.gif) repeat-x left -24px;margin:0 4px;height:24px;}
+.manage_boxm_title{float:left;font-size:12px;padding:4px 0 0;}
+.manage_boxm_title img{margin:0 3px -4px 2px;}
+.manage_boxm_other{float:right;width:40px;border-left:1px solid #bfcbdf;cursor:pointer;background:url(../images/manage_boxm_other.gif) no-repeat right 10px;padding:4px 0 0 6px;height:20px;font-size:12px;*padding:6px 0 0 6px;*height:18px;overflow:hidden;}
+.manage_list{position:absolute;top:26px;left:0;right:0;border-left:1px solid #bbbbbb;border-top:1px solid #bbbbbb;border-right:1px solid #666666;border-bottom:1px solid #666666;background:#ffffff;}
+.manage_list li{margin:0 4px;border-bottom:1px solid #e5e5e5;padding:4px 0;cursor:pointer;font-size:12px;}
+.manage_list li img{margin:0 3px -4px 0;}
+
+/* 过渡代码 */
+table.box-gray,table.box-gray td{border:none;border-collapse:collapse;}
+.box-gray .top,.box-gray .bottom{height:14px;overflow:hidden;background:url(../images/bg_top.png) repeat-x;margin:0 0 0 6px;}
+.box-gray .top .left,.box-gray .bottom .left{float:left;}
+.box-gray .top .left,.box-gray .bottom .left{background:url(../images/top_l.png) no-repeat;width:14px;height:14px;}
+.box-gray .top .right,.box-gray .bottom .right{float:right;background:url(../images/top_r.png) no-repeat;width:14px;height:14px;}
+.box-gray .bottom{background:url(../images/bg_bot.png) repeat-x;}
+.box-gray .bottom .left{background:url(../images/bot_l.png) no-repeat;}
+.box-gray .bottom .right{background:url(../images/bot_r.png) no-repeat;}
+.menu-main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;margin-left:6px;padding:0 0 0 3px;}
+/* 过渡代码 */
+
+/* Add 2009.06.19 by zhangliang */
+.menu_top_main,.menu_bottom{height:14px;overflow:hidden;background:url(../images/bg_top.png) repeat-x;margin:0 0 0 6px;}
+.menu_top_main .left,.menu_bottom .left{float:left;}
+.menu_top_main .left,.menu_bottom .left{background:url(../images/top_l.png) no-repeat;width:14px;height:14px;}
+.menu_top_main .right,.menu_bottom .right{float:right;background:url(../images/top_r.png) no-repeat;width:14px;height:14px;}
+.menu_bottom{background:url(../images/bg_bot.png) repeat-x;}
+.menu_bottom .left{background:url(../images/bot_l.png) no-repeat;}
+.menu_bottom .right{background:url(../images/bot_r.png) no-repeat;}
+/* Add 2009.06.19 by zhangliang */
+
+.menu_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;margin-left:6px;padding:0 0 0 6px;}/* Edit 2009.06.19 by zhangliang */
+.menu_main iframe{height:100%;width:100%;}/* Edit 2009.06.19 by zhangliang */
+.menu_main a{color:#000000;font-size:12px;}/* Edit 2009.06.19 by zhangliang */
+.menu_main img{vertical-align:middle;}/* Edit 2009.06.19 by zhangliang */
+.menu-tree{height:24px;line-height:24px;}
+.menu-tree-con{padding:0 0 5px 0;}
+.menu-tree-con .lists{padding:1px 0 0 17px;}
+.menu-tree-con .lists a{padding-left:4px;}
+
+/* Add 2009.06.19 by zhangliang */
+.menu_top{position:absolute;left:0;top:0;right:0;height:49px;z-index:2;}
+.menu_main{position:absolute;left:0;top:49px;bottom:24px;right:0px;overflow:auto;}
+.menu_bottom{position:absolute;left:0;bottom:10px;right:0;}
+.menu_main iframe{width:100%;height:100%;}
+/* ie7 */
+.menu_top{*height:49px;*margin-top:-69px;*margin-bottom:0px;*position:relative;*top:0;*right:0;*bottom:0;*left:0;}
+.menu_main{*height:100%;*position:relative;*top:0;*right:0;*bottom:0;*left:0;*margin-left:6px;}
+.menu_bottom{*margin-left:6px;*position:relative;*top:0;*right:0;*bottom:0;*left:0;}
+/* Add 2009.06.19 by zhangliang */
+/* 从2012.05.25废弃 */
+
+.webfx-tree-icon.opacity{filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6;}
+/* 调整左侧菜单和右侧主要工作区的层 begin */
+.menu_resize{cursor:e-resize;background:url(../images/menu_right1.png) no-repeat;width:14px;height:39px;display:block;}
+.menu_chick{display:block;background:url(../images/menu_right2.png) no-repeat;width:14px;height:39px;cursor:pointer;}
+.menu_chick:hover{background:url(../images/menu_right2_hover.png) no-repeat;}
+/* 调整左侧菜单和右侧主要工作区的层 end *
+/* Add 2011.04.29 by zhangliang begin */
+.column_nav,.column_toggle,.column_viewer,.column_nav iframe,.column_toggle iframe,.column_viewer iframe{position:absolute;top:0;bottom:0;}
+.column_nav{width:194px;left:0;}
+.column_toggle{width:14px;left:194px;}
+.column_toggle #div001{top:50%;margin:-58px 0 0;position:absolute;}
+.column_viewer{left:208px;right:0;}
+/* Add 2011.04.29 by zhangliang end */
+.column_nav .ifm_left{position:relative;}
+
+/* Add 2012.05.25 Zhangliang 左侧菜单 begin */
+.menu_top_2012{position:relative;margin:6px 0 5px 6px;}
+.m_t_main{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#e5eaf4');background:-webkit-linear-gradient(top,#ffffff,#e5eaf4);background:-moz-linear-gradient(top,#ffffff,#e5eaf4);height:22px;border:1px solid #bfcbdf;border-radius:2px;line-height:22px;}
+.m_t_title{float:left;}
+.m_t_title img{margin:0 3px -4px 2px;width:16px;height:16px;}
+.m_t_other{float:right;border-left:1px solid #bfcbdf;cursor:pointer;background:url(../images/manage_boxm_other.gif) no-repeat 96% center;padding:0 15px 0 6px;}
+.m_t_other_list{position:absolute;top:26px;left:0;right:0;border-left:1px solid #bbbbbb;border-top:1px solid #bbbbbb;border-right:1px solid #666666;border-bottom:1px solid #666666;background:#ffffff;}
+.m_t_other_list li{margin:0 4px;border-bottom:1px solid #e5e5e5;padding:4px 0;cursor:pointer;font-size:12px;}
+.m_t_other_list li:last-child{border:none;}
+.m_t_other_list img{margin:0 3px -4px 0;}
+.menu_main_2012{border:1px solid #dbdbdb;border-radius:2px;background:#ffffff;padding:0 0 0 6px;position:absolute;left:6px;top:35px;bottom:10px;right:0px;overflow:auto;}
+.menu_main_2012 a{color:#000000;font-size:12px;}
+/* Add 2012.05.25 Zhangliang 左侧菜单 end */

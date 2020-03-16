@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>问政详情</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<link type="text/css" rel="stylesheet" href="../css/font-awesome/css/font-awesome.css" />
+	<script src="../js/fontSize.js"></script>	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	<style>
+	    .ans{display:none;}
+	    .five-stars{display:none;}
+	    .sub-title{display:none;}
+	    .answer{display:none;}
+	</style>
+	</head>
+	<body id="detail">
+		<div class="news-wz">
+			<div class="wz-item ask">
+				<div class="avator-box">问</div>
+				<div class="text-box">
+					<p class="wz-title"> </p>
+					<p class="time-state"><span class="wz-time"> </span><span class="wz-state"> </span></p>
+					<p class="detail">
+					</p>					
+				</div>
+			</div>
+			
+		</div>
+		<div class="answer">回复部门</div>
+		<div class="news-wz ans">
+			<div class="wz-item">
+				<div class="avator-box">答</div>
+				<div class="text-box">
+					<p class="wz-title"></p>
+					<p class="detail">
+						
+					</p>
+					<p class="time-state"> <span class="wz-time">  </span></p>
+					
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="sub-title">
+			<div class="col"></div>
+			<span>请您对我们的服务做出评价</span>
+		</div>
+		<div class="five-stars">
+	        
+	        <div class="satisfied-degree">
+	        	<a class="ac" href="javascript:;"><i class="fa fa-smile-o"></i>满意</a>
+	        	<a class="" href="javascript:;"><i class="fa fa-frown-o"></i>不满意</a>
+	        </div>
+	        <div class="submit">
+	        	<a href="javascript:;" class="submit-a">提交</a>
+	        </div>
+		</div>
+		<div class="pjresult">
+		    您对此问题已评价：满意
+		</div>
+		<!--公共弹窗-->
+		<div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		<div class="backpage">
+    		<span class=""></span>
+    	</div>
+	</body>
+	<script>
+		$(function(){
+			//问政列表
+		
+			var wzid  = getUrl("id") ;
+			var wzStatus = getUrl("status") ;
+	        var evaluation = 0 ;
+	        var everSubmit = false ;
+	        $(".satisfied-degree a").on("click",function(){
+	        	evaluation = $(this).index() ;
+	            $(this).addClass("ac").siblings().removeClass("ac") ;
+	          
+	        });
+	        //问政详情接口
+	        wzDetail() ;
+	        function wzDetail(){
+				$.ajax({
+					type:"get",
+					url: siteUrl+"/wenzheng_info.jsp",				  		
+					dataType:"jsonp",			
+					data:{"id":wzid},
+					success:function(data){
+						//问
+						$(".ask .wz-title").text(data.result.Title);
+						$(".ask .wz-time").text(data.result.CreateDate);
+						$(".ask .detail").text(data.result.Summary);
+						$(".ask .wz-state").text(data.result.Status2);
+						//回复
+						var ansHtml  = '' ;
+						
+						for(var i=0 ;i<data.result.reply.length;i++){
+						   ansHtml += '<div class="wz-item">' +
+    						            '<div class="avator-box ans">答</div>'+
+    						            '<div class="text-box">'+
+    						            '<p class="wz-title">'+data.result.channelName+'</p>'+
+    						            '<p class="detail">'+data.result.reply[i].reason+'</p>'+
+    						            '<p class="time-state"> <span class="wz-time">'+data.result.reply[i].ModifiedDate+' </span></p>'+
+						            '</div>'+
+						        '</div>'
+						}
+				// 		$(".ans .wz-title").text(data.result.channelName);
+				// 		$(".ans .wz-time").text(data.result.ModifiedDate);
+				// 		$(".ans .detail").text(data.result.reason);
+					    $(".ans").html(ansHtml) ;
+						 
+						if(data.result.reply[0].reason){
+						    $(".ans,.answer").show();
+						    
+						}
+						
+						var phone = sSs("wz_phone") ;
+            	       if(phone&&wzStatus==3){
+            	           if(data.result.evaluation==0){
+            	                $(".five-stars").show();
+            	                $(".sub-title").show();
+            	           }else if(data.result.evaluation==1){
+            	               $(".pjresult").text("您对此问题已评价：满意").show() ;
+            	           }else if(data.result.evaluation==2){
+            	               $(".pjresult").text("您对此问题已评价：不满意").show() ;
+            	           }
+            	           
+            	       }
+						
+					},error:function(e){
+					    console.log(e)
+					}
+				});
+			}
+	       
+	       
+	       
+	       //满意度提交
+	 	   $(".submit-a").click(function(){	 
+		 	   	if(everSubmit){
+		 	   	    commonPop("您已提交过！")
+		 	   		return false ;
+		 	   	}
+				$.ajax({
+					type:"get",
+					url: siteUrl+"/wenzheng_evaluation.jsp",				  		
+					dataType:"jsonp",
+					data:{
+					    "id":wzid,
+						"evaluation":evaluation
+					},
+					success:function(data){
+						everSubmit = true ;
+						commonPop("提交成功！")
+						
+					}
+				});
+			
+       		})
+	    });
+	</script>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5文件拖动上传示例</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+</head>
+<body>
+<div class="content_t1">
+	<div class="content_t1_nav">当前位置：tidemedia.com/demo/museum</div>
+    <div class="content_new_post">
+        <div class="tidecms_btn">
+            <div class="t_btn_pic"><img src="../../images/icon/preview.png" /></div>
+            <div class="t_btn_txt">检索</div>
+        </div>
+    </div>
+</div>
+<div class="viewpane_c1" id="SearchArea">
+	<!-- <div class="top"> 删除
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="center">
+    <table width="100%" height="38" border="0" cellpadding="0" cellspacing="0" class="box-tint">
+  <tr>
+    <td width="20">&nbsp;</td>
+    <td>--><form name="search_form" action="content_video_ugc.jsp?id=8801&amp;rowsPerPage=20" method="post" onsubmit="document.search_form.OpenSearch.value='1';"><!-- 增加相关label标签，与之相对应的input或selrct想关联 -->
+    		<label for="Title">检索：标题</label> <input name="Title" id="Title" type="text" size="18" class="textfield" value="">
+            <label for="CreateDate1">拆条日期</label>
+            <select name="CreateDate1" id="CreateDate1">
+		    	<option value="&gt;" selected="">大于</option>
+		    	<option value="=">等于</option>
+		    	<option value="&lt;">小于</option>
+      		</select>
+		  	<input id="CreateDate" name="CreateDate" type="text" size="10" class="textfield hasDatepicker" value=""><img class="ui-datepicker-trigger" src="../../images/icon/26.png" alt="..." title="...">
+		  	<label for="User">作者</label>
+		  	<input name="User" id="User" type="text" size="10" class="textfield" value="">
+		  	<label for="Pid">PID</label>
+		  	<input name="Pid" id="Pid" type="text" size="10" class="textfield" value="">
+		  	<label for="Status">状态</label>
+		  	<select name="Status" id="Status">
+		    	<option value="0" selected=""></option>
+		    	<option value="2">已发</option>
+		    	<option value="1">草稿</option>
+      		</select>
+			<!-- 图片新闻
+		  	<input type="checkbox" name="IsPhotoNews" value="1" > -->	
+		 	<label for="IsIncludeSubChannel">包含子频道</label><input type="checkbox" name="IsIncludeSubChannel" value="1" id="IsIncludeSubChannel"> 
+			<input name="Submit" type="Submit" class="tidecms_btn2" value="查找">
+			<input type="hidden" name="OpenSearch" id="OpenSearch" value="0">
+        </form><!-- </td>
+    <td width="20">&nbsp;</td>
+  </tr>
+</table>
+</div>
+    <div class="bot"> 删除
+    	<div class="left"></div>
+    	<div class="right"></div>
+    </div> -->
+</div>
+<div class="content_2012">
+	<!-- 拖动文件上传开始 -->
+	<div class="drag_files">请将文件拖动到这里上传…</div>
+	<!-- 拖动文件上传结束 -->
+	<div class="toolbar" style="display:none;">
+    	<div class="toolbar_l">
+            <span class="toolbar1">操作：</span>
+
+            <ul class="toolbar2">
+                <li  class="first"><a href="javascript:newFile();">新建</a></li>
+                <li><a href="javascript:previewFile();">预览</a></li>
+                <li><a href="javascript:notepad();">编辑</a></li>
+				<li><a href="javascript:publishFile();">发布</a></li>
+				<li><a href="javascript:uploadFile();">上传</a></li>
+
+				<li><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1_cur" title="文字列表" onClick="changeList(1);"></li>
+            <li class="b3" title="图片平铺" onClick="changeList(2);"></li>
+        </ul>
+    </div>
+  	<div class="viewpane">
+ 
+        <div class="viewpane_tbdoy">
+<table width="100%" border="0" id="oTable" class="view_table">
+<thead>
+		<tr>
+    				<th class="v1" width="25" align="center" valign="middle"><img src="../../images/viewpane1.png" /></th>
+    				<th class="v3" style="padding-left:10px;text-align:left;"><a href="javascript:sort_select('0')">名称</a></th>
+    				<th class="v1"	align="center" valign="middle"><a href="javascript:sort_select('2')">大小</a></th>
+
+    				<th class="v8"  align="center" valign="middle"><a href="javascript:sort_select('0')">类型</a></th>
+    				<th class="v4"  align="left" valign="middle" style="padding-left:10px;"><a href="javascript:sort_select('1')">最后修改时间</a></th>
+    				<th class="v9" width="55" align="center" valign="middle">>></th>
+  				</tr>
+</thead>
+ <tbody> 
+ 
+
+
+	<tr id="jTip1_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="index.html" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>index.html</td>
+    
+	<td class="v1" align="center" valign="middle">3KB</td>
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 11:46</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip2_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="index_test.html" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>index_test.html</td>
+    
+	<td class="v1" align="center" valign="middle">11KB</td>
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-03-02 22:39</td>
+
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip3_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="museum.html" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>museum.html</td>
+    
+	<td class="v1" align="center" valign="middle">1KB</td>
+
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-03-01 11:34</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip4_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="museum.swf" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>museum.swf</td>
+    
+	<td class="v1" align="center" valign="middle">200KB</td>
+    <td class="v8" >swf</td>
+     <td class="v4"  style="color:#666666;">2011-03-03 15:11</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip5_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="object_vr.html" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>object_vr.html</td>
+    
+	<td class="v1" align="center" valign="middle">1KB</td>
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 13:22</td>
+
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip6_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="object_vr.swf" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>object_vr.swf</td>
+    
+	<td class="v1" align="center" valign="middle">34KB</td>
+
+    <td class="v8" >swf</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 04:04</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip7_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="panorama.html" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>panorama.html</td>
+    
+	<td class="v1" align="center" valign="middle">2KB</td>
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 13:21</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip8_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="panorama.swf" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>panorama.swf</td>
+    
+	<td class="v1" align="center" valign="middle">173KB</td>
+    <td class="v8" >swf</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 12:29</td>
+
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip9_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="swfaddress.js" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>swfaddress.js</td>
+    
+	<td class="v1" align="center" valign="middle">16KB</td>
+
+    <td class="v8" >js</td>
+     <td class="v4"  style="color:#666666;">2011-03-01 11:34</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip10_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="swfobject.js" type="checkbox"/></td>
+
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>swfobject.js</td>
+    
+	<td class="v1" align="center" valign="middle">7KB</td>
+    <td class="v8" >js</td>
+     <td class="v4"  style="color:#666666;">2007-02-28 19:30</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip11_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="zoom_image.html" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>zoom_image.html</td>
+    
+	<td class="v1" align="center" valign="middle">1KB</td>
+    <td class="v8" >html</td>
+     <td class="v4"  style="color:#666666;">2011-02-23 13:22</td>
+
+	<td class="v9">
+	</td>
+  </tr>
+
+
+	<tr id="jTip12_id">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="zoom_image.swf" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;"><img src="../../images/tree6.png"/>zoom_image.swf</td>
+    
+	<td class="v1" align="center" valign="middle">15KB</td>
+
+    <td class="v8" >swf</td>
+     <td class="v4"  style="color:#666666;">2011-02-18 14:27</td>
+	<td class="v9">
+	</td>
+  </tr>
+
+  
+ </tbody> 
+</table> 
+        </div>
+
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll">全部</span><span id="selectNo">无</span>			</div>
+        	<div class="left">共12条 1/1页 
+			</div>
+			
+            <div class="right">
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+
+                <div class="right_s2">
+            	    <select name="rowsPerPage" onChange="change(this);" id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+
+                    <option value="50">50</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">条</div>
+
+            </div>
+        </div>
+  </div>
+ 
+</div>
+</body>
+</html>

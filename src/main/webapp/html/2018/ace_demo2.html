@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+    <title></title>
+    
+     <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    
+	
+	
+    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <!-- vendor css -->
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <style>
+    	html,body{
+    		width:100%;
+            height: 100%;                      
+            overflow: hidden;   
+            position: relative;                   
+    	}
+    	#textarea {            
+            margin: 0;
+	        position: absolute;
+	        top: 50px;
+	        bottom: 0;
+	        left: 0;
+	        right: 0;
+        }
+        button{
+        	padding: 5px 10px;
+        	margin:10px 20px;
+        }
+    </style>
+  </head>
+ 
+  <body>
+  	
+  	<div class="br-pageheader pd-y-10 pd-md-l-30">
+        <div class="">
+            <a href="javascript:;" class="btn btn-info mg-r-20 pd-x-15 pd-y-5" onclick="">保存</a>
+            <a href="javascript:;" class="btn btn-info pd-x-15 pd-y-5" onclick="">预览</a>
+        </div>
+        <div class="mg-l-auto">
+            <a href="javascript:;" class="btn btn-info mg-r-20 pd-x-15 pd-y-5" onclick="searchWord()">查找</a>
+        </div>
+    </div>
+  <div style="display:none;">
+  	  <button type="button" id="getContent">获取内容</button>
+	  <button type="button" id="writeContent">写入内容</button>
+	  <button type="button" id="getSelsectContent">获取选择的内容</button>
+  </div> 
+  
+  <!--<div id="ace_editor"></div>-->
+  <textarea id="textarea" style="width: 100%;"></textarea>
+  <!--<script src="../../lib/2018/ace/build/src-min/ace.js"></script>
+  <script src="../../lib/2018/ace/build/src-min/ext-language_tools.js"></script>-->
+  <script>
+  	//$(function(){
+  		//	ace.require("ace/ext/language_tools");
+//	    var editor = null;
+//	    editor.setOptions({
+//	    	enableBasicAutocompletion: true,
+//	        enableSnippets: true, //启用代码块提示
+//	        enableLiveAutocompletion: true
+//	        
+//	    });
+//	   
+//	    
+//	    editor.setFontSize(18);
+//	    editor.getSession().setUseWrapMode(true);   //设置代码折叠
+//	    //editor.resize();
+//	    editor.setHighlightActiveLine(false);  //设置高亮
+//	    //editor.setTheme("ace/theme/chrome");//monokai模式是自动显示补全提示
+//	   // editor.setTheme("ace/theme/monokai");//monokai模式是自动显示补全提示
+//	     
+//	    editor.getSession().setMode("ace/mode/javascript");//语言
+	    //editor.getSession().setMode("ace/mode/html");//语言
+	    //editor.getSession().setMode("ace/mode/css");//语言
+	    
+	    
+	   
+  	//})
+
+   </script>
+  
+   <script>
+
+function inject(options, callback) {
+    var baseUrl = options.baseUrl || "../../lib/2018/ace/build/src-min/";
+
+    var load = function(path, callback) {
+        var head = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+
+        s.src = baseUrl + "/" + path;
+        head.appendChild(s);
+
+        s.onload = s.onreadystatechange = function(_, isAbort) {
+            if (isAbort || !s.readyState || s.readyState == "loaded" || s.readyState == "complete") {
+                s = s.onload = s.onreadystatechange = null;
+                if (!isAbort)
+                    callback();
+            }
+        };
+    };
+
+    load("ace.js", function() {
+        ace.config.loadModule("ace/ext/textarea", function() {
+            var event = ace.require("ace/lib/event");
+            var areas = document.getElementsByTagName("textarea");
+            for (var i = 0; i < areas.length; i++) {
+                event.addListener(areas[i], "click", function(e) {
+                    if (e.detail == 3) {
+                        ace.transformTextarea(e.target, options.ace);
+                    }
+                });
+            }           
+            callback && callback();
+        });
+    });
+}
+
+// Call the inject function to load the ace files.
+var textAce;
+inject({}, function () {
+    // Transform the textarea on the page into an ace editor.    
+    var t = document.querySelector("textarea");
+    textAce = ace.require("ace/ext/textarea").transformTextarea(t);
+    setTimeout(function(){textAce.setDisplaySettings(false)});
+});
+
+</script>
+  </body>
+</html>

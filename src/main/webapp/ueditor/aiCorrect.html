@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
+    <title></title>
+    <!-- vendor css -->
+    <link href="../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">-->
+    <!--<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">-->   
+    <!--<link href="../lib/highlightjs/github.css" rel="stylesheet">-->   
+    <link href="../lib/2018/select2/css/select2.min.css" rel="stylesheet">    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../style/2018/common.css">
+    <style>
+      	html,body{width: 100%;height: 100%;}
+      	table,.tips,.bd.rounded{display:none;}
+      	.modal-body-btn { bottom: 10px;}
+        .modal-body {bottom: 10px;}
+      	.modal-body-btn .config-box .row .left-fn-title{min-width: 80px;text-align: left;}
+      	.modal-body .config-box label.ckbox{width: 90px;cursor: pointer;margin-right: 50px;}
+      	.table thead th{vertical-align: middle;}
+      	.table th{padding: 0.3rem 0.75rem ;}
+		.table td{padding: 0.4rem 0.75rem ;}
+		.btn-group-sm>.btn, .btn-sm, .sp-container .btn-group-sm>button{padding:0.1rem 0.2rem}
+  </style>  
+  </head>
+  
+  <body> 
+    <div class="bg-white modal-box">      
+	    <div class="modal-body modal-body-btn pd-20 overflow-y-auto">
+	      <div class="config-box">	       	          		  	  
+           	  <div class="bd rounded table-responsive">
+                <table class="table table-bordered mg-b-0">
+                  <thead>
+                    <tr>
+                      <th class="wd-60">编号</th>
+                      <th class="">错误</th>
+                      <th class="">正确</th>
+                      <!--<th class="wd-80 ">操作</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--<tr>-->
+                    <!--  <td scope="row">1</td>-->
+                    <!--  <td></td>-->
+                    <!--  <td></td>-->
+                    <!--  <td><button class="btn btn-info btn-sm mg-r-8 tx-13 " onclick="">替换</button></td>-->
+                    <!--</tr>-->
+                   
+                  </tbody>
+                </table>
+                
+              </div>
+              <p class="text-center tips tx-18 mg-t-100"><i class="fa fa-check-square-o tx-info tx-20 mg-r-5"></i>暂无建议</p>
+            </div>	                   
+	    </div><!-- modal-body -->
+     <!-- <div class="btn-box">
+      	<div class="modal-footer  justify-content-end" >
+		      
+		      <button type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs mg-r-10" data-dismiss="modal">关闭</button>
+		    </div> 
+      </div> -->	    
+	     
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+    <script src="../lib/2018/jquery/jquery.js"></script> 
+    <script>
+      var dialog	= window.top;
+	  var ueditor = dialog.getUE();
+	  
+      function replaceThis(_this){
+          var content = ueditor.getContent();
+          var parentsTr = $(_this).parents("tr") ;
+          var correct_frag = parentsTr.find(".correct_frag").text();
+          var ori_frag = parentsTr.find(".ori_frag").text();
+          console.log(correct_frag,ori_frag);
+          content = content.toString().replace(ori_frag,correct_frag);
+          console.log(content)
+          ueditor.setContent(content, false);
+          alert("替换成功！")
+      }
+    
+    
+      ;$(function(){
+      	
+        var content = ueditor.getContentTxt();
+        //content = content.slice(0,300) 
+       var counts = 0;
+        $.ajax({
+    		type:"post",
+    		url: "/tcenter/ai_tools/doc_ai.jsp",	
+    		data:{content:content},
+    		dataType:"json",
+    		success:function(data){
+    			console.log(data);
+            	for (var i = 0; i < data.length; i++) {
+        			if(data[0].item.vec_fragment.length){
+        			    var tableHtml = "" ;
+        			    for(var j=0;j<data[i].item.vec_fragment.length;j++){
+        			        if(i==0){
+        			            tableHtml += '<tr><td>'+(j+1)+'</td>'
+        			        }else{
+        			            counts =0 ;
+        			            for(var k=0;k<i;k++){
+        			                counts+=data[k].item.vec_fragment.length ;
+        			            }
+        			            tableHtml += '<tr><td>'+(counts+j+1)+'</td>'
+        			        }
+        			        tableHtml +='<td class="ori_frag">'+data[i].item.vec_fragment[j].ori_frag+'</td>\
+        			        <td class="correct_frag">'+data[i].item.vec_fragment[j].correct_frag+'</td>\
+        			        </tr>'
+        			    }
+        			    //<td></td></tr>'
+        			    //<td><button class="btn btn-info btn-sm mg-r-8 tx-13 " onclick="replaceThis(this)">替换</button></td></tr>'
+        			    $("tbody").append(tableHtml);
+        			    $("table,.bd.rounded").show();
+        			}else{
+        			    $(".tips").show()
+        			}
+        		  }
+    		},
+    		error:function(e){
+    			console.log(e)
+    			alert("接口请求失败！")
+    		//	alert("本地化失败！")
+    		}
+	    });
+		   
+      });
+    </script>
+  </body>
+</html>

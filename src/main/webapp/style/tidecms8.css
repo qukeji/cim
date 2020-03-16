@@ -1,0 +1,30 @@
+﻿/* 
+Picture box
+Design:ZhangLiang & mezeroz@gmail.com
+Date:2010.05.13
+*/
+.pic_box{position:fixed;}
+.pic_box_top{height:20px;overflow:hidden;}
+.pic_box_t_l,.pic_box_t_m,.pic_box_t_r{display:block;height:20px;position:absolute;top:0;background:url(../images/pic_box_top_bottom.png);}
+.pic_box_t_l{width:20px;left:0;background-position:0 0;}
+.pic_box_t_m{left:20px;right:20px;background:url(../images/pic_box_top_bottom.png) repeat-x 0 -20px;}
+.pic_box_t_r{width:20px;right:0;background-position:0 -40px;}
+.pic_box_m_l,.pic_box_m_r{display:block;width:20px;position:absolute;background:url(../images/pic_box_main.png) repeat-y;top:20px;bottom:20px;}
+.pic_box_m_l{left:0;background-position:0 0;}
+.pic_box_m_r{right:0;background-position:-20px 0;}
+.pic_box_m_c{position:absolute;left:20px;right:20px;top:20px;bottom:20px;background:#efefef; overflow:hidden;}
+.pic_box_bottom{height:20px;overflow:hidden;}
+.pic_box_b_l,.pic_box_b_m,.pic_box_b_r{position:absolute;display:block;height:20px;background:url(../images/pic_box_top_bottom.png);bottom:0;}
+.pic_box_b_l{width:20px;left:0;background-position:0 -60px;}
+.pic_box_b_m{left:20px;right:20px;background:url(../images/pic_box_top_bottom.png) repeat-x 0 -80px;}
+.pic_box_b_r{width:20px;right:0;background-position:0 -100px;}
+/* Picture box end */
+
+/* 
+Tree(edit)
+Design:ZhangLiang & mezeroz@gmail.com
+Date:2010.05.20
+*/
+.webfx-tree-item{font-family:arial,sans-serif;}
+.menu_main a{font-size:13px;}
+/* Tree end */

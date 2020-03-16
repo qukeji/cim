@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
+    <title>聚视后台</title>
+
+    <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    
+    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    
+  </head>
+  <style>
+  	html,body{
+  		width: 100%;
+  		height: 100%;
+  	}
+  	.channel-all{
+  		display: flex;
+  		flex-direction: row;
+  		flex-wrap: wrap;
+  		justify-content: space-between;
+  		margin:5px 0 20px 0;
+  	}
+  	.channel-all a{
+  		background: #639ad7;
+  		color: #FFFFFF;
+  		width: 45%;  		
+  	}
+  	.fa-question-circle{
+  		color: #639ad7;
+  	}
+  	
+  </style>
+  <script>
+
+   </script>
+  <body class="" >
+ 
+    <div class="bg-white modal-box">      
+	    <div class="modal-body-nomal pd-20 overflow-y-auto">	        
+	   	  <div  class="channel-all">
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10" onclick="newChannel()">独立数据频道</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">继承数据频道</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">页面管理</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">应用程序</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">专题频道</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">数据源频道</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10">图片集频道</a>
+	   	  	<a href="javascript:;" class="btn mg-r-5 mg-b-10" onclick="newMirror()">镜像频道</a>
+	   	  </div>	
+	   	  <div class="hr_line mg-t-25 mg-b-25"></div>
+	   	  <div class="mg-t-15"><a href="javascript:;"><i class="fa fa-question-circle mg-r-3"></a></i><span>关于此部分的说明</span></div>
+	    </div>
+
+    </div><!-- br-mainpanel -->
+ 
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    
+    <script>    	   	
+    	function newChannel(){	    	
+	        var url = "form-config.html";	       
+			  	var	dialog = new top.TideDialog();
+					dialog.setWidth(700);
+					dialog.setHeight(650);
+					dialog.setUrl(url);
+					dialog.setTitle('新建频道');
+					dialog.setChannelName('首页管理');
+					dialog.show();
+		  }
+    	function newMirror(){	    	
+	        var url = "mirror-channel.html";	       
+			  	var	dialog = new top.TideDialog();
+					dialog.setWidth(600);
+					dialog.setHeight(600);
+					dialog.setUrl(url);
+					dialog.setTitle('新建镜像频道');
+					dialog.setChannelName('首页管理');
+					dialog.show();
+		  }
+      $(function(){
+      	
+		   
+      });
+    </script>
+  </body>
+</html>

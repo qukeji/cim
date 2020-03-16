@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>$item.getTitle()</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+<meta name="format-detection" content="telephone=no" />
+
+<meta itemprop="name" content="$item.getTitle()"/>
+<meta itemprop="image" content="#if($item.getValue('Photo').startsWith("http")==true)$item.getValue('Photo')#else$channel.getSite().getExternalUrl2()$item.getValue('Photo')#end" />
+<meta name="description" itemprop="description" content="$util.JSONQuote($item.getSummary())" />
+
+<script src="/js/flexible_css.js"></script>
+<script src="/js/flexible.js"></script>   
+
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/videoPlayer.js"></script>
+<link type="text/css" rel="stylesheet" href="/css/article.css" />
+<script> 
+	var GlobalID = $item.getGlobalID(); 
+    var siteId = $item.getChannel().getSiteID(); 
+</script>
+<script type="text/javascript" src="/js/history.js"></script>
+</head>
+<body>
+<!--\#include virtual="/Downloadprompt/down.html" -->
+<div class="content-wrapper">
+      <div class="m-container" id="contentHolder">
+            <article class="articleList" style="display: block;">
+                <div class="head clearfix" id="ucScreen">
+                    <h1 class="article-title">$util.JSQuote($item.getTitle())</h1>
+                    <div class="data">发布日期：$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate()) </div>
+                </div>
+                <div class="text clearfix">
+                    <div class="text1"><div class="page-content page-on" style="padding-bottom:30px;">
+                    #if($item.getValue("videourl")!="")
+                    <div class="player"><video src="$item.getValue("videourl")" controls="controls" poster="$item.getValue("Photo")" style="width:100%;margin:20px auto;"></video></div>
+                    #end
+                    <div class="conmm">
+                    $item.getValue("txtContent")
+                    
+                    <script>
+                    var img=[];
+                    #foreach($subitem in $item.listChildItems(14145))
+                    img.unshift("$subitem.getValue("Photo")");
+                    #end
+                    var html=""
+                    $(img).each(function(i,el){
+                      html+='<img src="'+el+'">';
+                    })
+                    $(".conmm").append(html)
+                    </script>
+                    </div>
+                    
+
+                    </div></div>
+                </div>
+            </article>
+      </div>
+</div>
+
+<!-- <div class="m-top"><a href="#top">回顶部</a></div> -->
+
+<!-- 返回顶部 -->
+<div class="top">
+	<span class=""></span>
+</div>
+
+<script>
+    var siteUrl = "$channel.getSite().getExternalUrl2()";
+    var Title="$util.JSONQuote($item.getTitle())";
+    var Summary="$util.JSONQuote($item.getSummary())";
+    var pImg  = "$item.getValue('Photo')";
+    if(pImg.substr(0,4)!="http"){
+       pImg  = ""+siteUrl + pImg  ;
+    }    
+    var shareUrl = "$item.getHttpHref()";
+    var Desc;
+    
+</script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/js/js_wap.js"></script>
+<script>
+    //relationNews(); //相关新闻
+</script>	
+</body>
+</html>

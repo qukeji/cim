@@ -1,0 +1,6 @@
+/* Windows Vista Theme */
+.context-menu-theme-vista{border:1px solid #666666;border-top:1px solid #bbbbbb;border-left:1px solid #bbbbbb;background:#ffffff;width:95px;padding:4px;}
+.context-menu-item{cursor:pointer;}
+.context-menu-item-hover{color:#096ed5;}
+.context-menu-item .context-menu-item-inner{padding:4px 16px 4px 0;border-bottom:1px solid #e5e5e5;font-size:12px;}
+.context-menu-item-inner img{margin:0 3px -4px 0;}

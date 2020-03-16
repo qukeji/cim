@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../../favicon.ico"/>
+<title>编辑文档 网络智库：校长共话一流本科教育 山西可"为我所用" 聚视演示版>APP管理>栏目管理>首页>推荐 TideCMS</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+
+<link rel="stylesheet"  type="text/css" href="../../style/jquery.tagit.css" />
+<link href="../../lib/2018/jquery-toggles/toggles-full.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../style/timepicker/jquery-ui.css" />
+<link rel="stylesheet"  type="text/css" href="../../style/timepicker/jquery-ui-timepicker-addon.css" />
+<link rel="stylesheet" href="../../style/2018/bracket.css"> 
+<link rel="stylesheet" href="../../style/2018/common.css">
+
+<style>
+	.collapsed-menu .br-mainpanel-file{margin-left: 60px;margin-bottom: 30px;}		
+	#nav-header{line-height: 60px;margin-left: 20px;color: #a4aab0;font-style: normal;}
+	#nav-header a{color: #a4aab0;}
+	.table-bordered {border: 1px solid #dee2e6;text-align: center;}
+	#tabTable td{padding: 0.3rem !important;cursor: pointer;}
+	.selTab{border: 1px solid #17A2B8 !important;background-color: #17A2B8;color: #fff;}
+    .edui-default .edui-editor-breadcrumb{line-height: 30px;}
+    .ui-widget-content{border: 1px solid rgba(0, 0, 0, 0.15) ;}
+	.bs-tooltip-bottom .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #f8f9fa;opacity: 1;}
+	.tooltip.bs-tooltip-bottom .arrow::before,
+	.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {border-bottom-color: #f8f9fa;	}
+	/*.edui-editor {z-index: 0 !important;}*/
+	.btn-box a{color:#fff }
+	/*tooltip相关样式*/
+	.bs-tooltip-right .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #00b297;opacity: 1;}
+	.tooltip.bs-tooltip-right .arrow::before,
+	.tooltip.bs-tooltip-auto[x-placement^="right"] .arrow::before {	border-right-color: #00b297;}
+	.this-article{
+		position: relative;
+	}
+	.article-default{
+		border:2px solid transparent;
+		padding: 5px;
+	}
+	.article-active{
+		border:2px solid rgb(37, 155, 36) !important;
+	}
+	.this-article .this-article-box{
+		padding: 5px;
+		height: 0;
+		padding-bottom: 33.33%;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		
+	}
+	.this-article .this-article-box img{
+		position: absolute;
+		left: 0;
+		top: 0;
+		max-width: 100%;
+		min-width: 100%;		
+	}
+	.this-article .this-article-box .title-bg{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: rgba(0,0,0,0.4);
+		z-index: 1000;
+	}
+	.this-article .this-article-box .this-title{
+		padding: 5px 15px;		
+		line-height: 22px;
+		font-size: 13px;
+		position: absolute;
+		bottom: 36px;
+		color: #fff;
+		overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+	}
+	.this-article .art-up,.this-article .art-delete{display: none;}
+	.article-list{
+		margin-top: 15px;
+	}
+	.article-list .article-item{		
+		position: relative;
+		margin-top: 10px;
+		cursor: pointer;
+		padding: 10px 5px;
+	}
+	.article-list .article-item:before{
+		content: "";		
+		position: absolute;
+		width: 96%;
+		height: 1px;
+		background: #ddd;
+		bottom: -1px;
+		left: 2%;
+		z-index: -1;
+	}
+	.article-list .article-item .art-container{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.article-list .article-item .art-img-box{
+		width: 80px;
+		height: 60px;
+		overflow: hidden;
+		background: #ddd;
+		text-align: center;
+		flex: 0 0 80px;
+	}
+	.article-list .article-item .art-img-box img{
+		max-height: 100%;
+		min-width: 100%;
+		min-height:100% ;
+	}
+	.article-list .article-item .article-title{
+		overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-size: 14px;
+        word-break: break-word;
+	}		
+	.art-handler{
+		width: 100%;		
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		height: 36px;
+    	background: rgba(0,0,0,0.4);    	
+    	display: none;
+		z-index: 1000;
+	}
+	 .art-handler i{
+		color: #fff;
+		font-size: 24px;
+		line-height: 36px;
+		cursor: pointer;
+		width: 36px;
+		display: inline-block;
+	}
+	.art-handler .handle-box{
+		display: flex;
+		padding: 0 15px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.article-default:hover .art-handler{
+		display: block;
+	}
+	.art-add-btn-box{
+		text-align: center;
+		width: 100%;
+		cursor: pointer;		
+	}
+	.art-add-btn-box .art-add-btn{
+		position: relative;
+		width: 60px;
+		display: inline-block;
+	}
+	.art-add-btn-box .art-add-btn>i{
+		color: rgb(200,205,208);
+	}
+	.art-add-btn-box .btn-tool{
+		position: absolute;
+		width:100px ;
+		background: rgba(0, 0, 0,0.7);	
+		left: -20px;
+		top: 35px;
+		padding: 10px ;
+		border-radius: 3px;
+		display: none;
+	}
+	.art-add-btn-box .btn-tool::before{
+		content: "";
+		width:0;
+        height:0;
+		border-right:10px solid transparent;
+		border-left:10px solid transparent;
+		border-bottom:10px solid rgba(0, 0, 0,0.7);
+		position: absolute;
+		top: -10px;
+		left: 40px;
+	}
+	.art-add-btn-box .btn-tool a{
+		color: #fff;
+	}
+	.art-add-btn-box .btn-tool a:hover{
+		color: #dddddd;
+	}
+	.art-add-btn-box .art-add-btn:hover .btn-tool{
+		display: block;
+	}
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../common/2018/common2018.js"></script>
+<script src="../../common/document.js"></script>
+<script type="text/javascript" src="../../common/2018/TideDialog2018.js"></script>
+<script src="../../common/tag-it.js"></script>
+<!--百度编辑器-->
+<script type="text/JavaScript" charset="utf-8" src="../../ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/imgeditorDialog.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/imagesDialog.js"></script>
+
+<script>
+
+var Pages=1;
+var curPage = 1;
+var Contents = new Array();
+Contents[Contents.length] = "";
+var userId = 40;
+var userName = "方志伟";
+var userGroupName = "Tide";
+var userGroupId = 4;
+var channelid = 15981;
+var groupnum = 3;
+var SiteAddress = "http://jushi-yanshi.tidemedia.com";
+var GlobalID = 1427140;
+var editable = 0;
+var NoCloseWindow = 0;//是否关闭页面
+var unload = true ;//关闭页面是否提示
+
+window.onresize = function(){	
+	if(document.getElementsByClassName("content-edit-frame")[0]){		
+		if(navigator.userAgent.indexOf("MSIE")>0||navigator.userAgent.indexOf("rv:11")>0||navigator.userAgent.indexOf("Firefox")>0){ 
+			var _height = document.getElementsByClassName("content-edit-frame")[0].contentWindow.document.body.scrollHeight ;
+		}else{
+			var _height = document.getElementsByClassName("content-edit-frame")[0].contentWindow.document.documentElement.scrollHeight ;		
+		}
+		document.getElementsByClassName("content-edit-frame")[0].style.height = _height
+	}
+}
+//调整iframe的高度 
+function changeFrameHeight(_this){   
+	if(navigator.userAgent.indexOf("MSIE")>0||navigator.userAgent.indexOf("rv:11")>0||navigator.userAgent.indexOf("Firefox")>0){   
+	console.log(_this.contentWindow.document.body.scrollHeight)
+		_this.style.height = _this.contentWindow.document.body.scrollHeight +40+"px";				
+	}else{	
+	console.log(_this.contentWindow.document.documentElement.scrollHeight)
+		_this.style.height = _this.contentWindow.document.documentElement.scrollHeight +40 +"px";				
+	}
+}
+
+</script>
+
+</head>
+
+<body class="collapsed-menu email" id="withSecondNav">
+<script type="text/javascript">document.body.disabled  = true;</script>
+<form name="form" action="../../content/document_submit.jsp" method="post" id = "form">
+<div class="br-logo"><img src="../../images/2018/system-logo.png"></div>
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>		
+		<div class="br-sideleft-menu">		    		
+			<a href="javascript:showTab('1')" class='br-menu-link active ' id="form1_td" groupid="8433" data-toggle="tooltip" data-placement="right" title="内容编辑">		
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-edit tx-22"></i>
+					<span class="menu-item-label">内容编辑</span>
+				</div><!-- menu-item -->
+			</a><!-- br-menu-link -->
+		</div><!-- br-sideleft-menu -->		
+		<div class="br-sideleft-menu">		    		
+			<a href="javascript:showTab('2')" class='br-menu-link  ' id="form2_td" groupid="8437" data-toggle="tooltip" data-placement="right" title="图片集">		
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-edit tx-22"></i>
+					<span class="menu-item-label">图片集</span>
+				</div><!-- menu-item -->
+			</a><!-- br-menu-link -->
+		</div><!-- br-sideleft-menu -->		
+		<div class="br-sideleft-menu">		    		
+			<a href="javascript:showTab('3')" class='br-menu-link  button' id="form3_td" groupid="17832" data-toggle="tooltip" data-placement="right" title="按钮集合">		
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-edit tx-22"></i>
+					<span class="menu-item-label">按钮集合</span>
+				</div><!-- menu-item -->
+			</a><!-- br-menu-link -->
+		</div><!-- br-sideleft-menu -->		
+		<div class="br-sideleft-menu">
+			<a href="javascript:showTab('4')" class="br-menu-link" id="form4_td" data-toggle="tooltip" data-placement="right" title="历史版本">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-history tx-22"></i>
+					<span class="menu-item-label">历史版本</span>
+				</div><!-- menu-item -->
+			</a><!-- br-menu-link -->
+		</div><!-- br-sideleft-menu -->	
+	</div><!-- br-sideleft -->  
+	<div class="br-header">
+		<div class="br-header-left">
+			<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div id="nav-header" class="hidden-md-down flex-row align-items-center">
+				微信发布工具
+			</div>
+		</div>  <!-- br-header-left -->
+		<div class="br-header-right">
+			<div class="btn-box" >	      						
+				<a class="btn btn-primary tx-size-xs mg-r-5" href="javascript:Save();" id="Image1Href">保存</a>				
+				<a class="btn btn-secondary tx-size-xs mg-r-5" id="Image2Href" href="javascript:Save_Publish();">保存并发布</a>			
+				<a class="btn btn-secondary tx-size-xs mg-r-10" href="javascript:self.close();">关闭</a>			   
+			</div>
+		</div><!-- br-header-right -->
+	</div><!-- br-header -->
+
+    <!--  <div class="br-pagebody bg-white mg-l-20 mg-r-20">
+	<div class="br-content-box pd-20">  -->
+	<div class="br-mainpanel br-mainpanel-file overflow-hidden" id="form1"  data-approve=0 data-yl=0>
+		<div class="row row-sm mg-t-10">
+			<!--内容编辑-->
+			<div class="col-sm-8 ">
+				<div class="br-pagebody bg-white mg-l-20 mg-r-20 " url="">
+					<div class="br-content-box pd-20"> 
+						<div class="center">	
+							<div class="article-title mg-l-15 mg-b-15 pd-r-30" >	
+								<div class="row flex-row align-items-center mg-b-15" id="tr_Title">                   		  	  	
+								    <label class="left-fn-title wd-150 " id="tr_Title">标题：</label>
+								    <label class="wd-content-lable d-flex" id="field_Title">
+									<input class="form-control" placeholder="" type="text" id="Title" name="Title" size="80" value="网络智库：校长共话一流本科教育 山西可&quot;为我所用&quot;" onkeyup="checkTitle();">
+								    </label>
+									<label><span id="TitleCount" class="mg-l-10"></span></label> 
+								</div>		
+							
+								<div class="row flex-row align-items-center mg-b-15" id="tr_anuor">
+									<label class="left-fn-title wd-150" id='desc_anuor'>作者：</label>
+									<label class="wd-content-lable d-flex " id="field_anuor">
+										<input type="text" placeholder="请输入作者" class="textfield form-control" size="80" name="anuor" id="anuor" value=""> 
+									</label>
+								</div>														
+								<div class="row flex-row align-items-center mg-b-15" id="tr_changeEditor">
+						        	<label class="left-fn-title wd-150" id="">编辑器选择：</label>
+						        	<label class="wd-content-ckx d-flex" id="">
+						        		<label class="rdiobox mg-r-15">
+						        			<input type="radio" value="0" id="default_editor" name="editortype">
+						        			<span for="default_editor">默认编辑器</span>
+						        		</label>
+									<label class="rdiobox mg-r-15">
+										<input type="radio" value="1" id="h5_editor" checked="checked" name="editortype">
+										<span for="h5_editor">微信编辑器</span>
+									</label>		
+						        </div>
+								<div class="row flex-row align-items-center mg-b-15 edit" id="tr_Content" style="display: none;">   
+									<input type="hidden" id="baiduEditor1" name="baiduEditor1" value="" style="display:none" />
+									<script id="editor" type="text/plain" style="width:100%;height:600px;"></script>
+									<script type="text/javascript">
+										var currcontent = "";				
+											currcontent = '<p>&nbsp;<span style=\"text-align: left; color: navy; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 楷体_GB2312; font-size: 13pt; font-style: normal; font-weight: normal; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/span><\/p><center><img alt=\"\" src=\"\/images\/2018\/11\/28\/201811281543371765274_90_t1080.jpg\" border=\"0\"\/><\/center><p><br\/><\/p><p style=\"margin: 0px; padding: 0px;\">&nbsp;<\/p><p><span style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/span><\/p><p><br\/><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"color: navy; font-family: 宋体; font-size: 13pt;\"><strong>智库话题：太火了吧<\/strong><\/span><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: navy; text-transform: none; text-indent: 30px; letter-spacing: normal; font-size: 13pt; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"color: navy; font-family: 楷体_GB2312; font-size: 13pt;\">今年6月，教育部部长陈宝生在新时代全国高等学校本科教育工作会议上指出，高教大计、本科为本，本科不牢、地动山摇。他强调，面对本科教育中出现的理念滞后、投入不到位、评价标准和政策机制的导向等问题，必须推进“四个回归”，也就是回归常识、回归本分、回归初心、回归梦想。<\/span><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: navy; text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 楷体_GB2312; font-size: 13pt; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"color: navy; font-size: 13pt;\">10月25日，2018大学校长论坛在太原召开。60余位来自全国知名大学的党委书记、校长汇聚一堂，共议改革热点，以“回归•创新•育人”为主题，就大学的使命与方向展开极具开创性的探讨，共同探寻一流本科教育的建设<span style=\"color: navy; font-size: 13pt;\">之路和发展之路。<\/span><\/span><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: navy; text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 楷体_GB2312; font-size: 13pt; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"color: navy; font-family: 楷体_GB2312; font-size: 13pt;\">为紧密对接国家“双一流”建设方案，深入实施科教兴晋、人才强省、创新驱动发展战略，山西省委、省政府提出了促进山西省高等教育振兴崛起的“1331工程”。<\/span><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: navy; text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 楷体_GB2312; font-size: 13pt; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"color: navy; font-family: 楷体_GB2312; font-size: 13pt;\">“1331工程”中，第一个“1”，指坚持立德树人这一根本任务，促进高等学校“一校一面”特色发展，培养高素质创新人才；第一个“3”，指全面加强重点学科、重点实验室、重点创新团队3项建设，促进高等教育内涵式发展；第二个“3”，指全面加强高校协同创新中心、工程（技术）研究中心、产业技术创新战略联盟3项建设，促进高等教育与经济社会融合发展；后一个“1”，指努力产出一批具有重大贡献的标志性成果，促进高等教育引领创新驱动发展。<\/span><\/p><p><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/strong><\/p><p style=\"margin: 0px; padding: 0px; text-align: center;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><center><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><img title=\"\" align=\"center\" id=\"10673857\" style=\"margin: 0px auto; border: currentColor; border-image: none; text-align: center; text-indent: 30px; display: block;\" src=\"http:\/\/thinktank.sxgov.cn\/image\/attachement\/jpg\/site2\/20181105\/0025ab8d11361d49e88002.jpg\" border=\"0\" sourcename=\"本地文件\" sourcedescription=\"编辑提供的本地文件\" data-bd-imgshare-binded=\"1\"\/><\/strong><\/center><center><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/center><p style=\"margin: 0px; padding: 0px;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><p><span style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/span><\/p><p><br\/><\/p><div align=\"left\" style=\"margin: 0px auto; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"font-size: 12pt;\">&nbsp;&nbsp;&nbsp;<\/span><\/div><div align=\"left\" style=\"margin: 0px auto; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"font-size: 16px;\"><p style=\"margin: 0px 3px 15px; padding: 0px; text-indent: 30px;\">教育部最新公布的2018年山西省大学名单总共80所，其中一本、二本、三本等本科33所，专科学校47所。其中，只有太原理工大学是世界一流学科建设高校和211工程大学。而在大学排名、重要学科排名等方面均与先进省份有较大差距。<\/p><\/span><\/div><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><strong>上海交大党委副书记顾锋：本科生培养是大学人才培养最重要的基础<\/strong><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">没有一流的人才培养，也谈不上是一流的大学，本科生的培养是大学人才培养最重要的基础。因此，上海交大对这个问题高度重视，从招生到培养的全环节都把一流本科人才培养放在最重要的位置。学校对一流的本科教育非常重视，也是一个光荣的传统。在很多方面，我们一直强调四位一体的人才培养理念，在价值引领、实力探究、能力建设、人格养成四个方面，全力为我们学生成长打造一个良好的环境。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">上海交大的本科招生，采取大平台招生，新生入校一年后进行专业分流。各个学院、各个专业在一年之后对优质生源还有很激烈的竞争。这促使了各个专业努力把自己的专业办得鲜明有特色。只有一流的学生才会为自己将来能直升一流的研究生奠定基础，这对各个学院有很大压力。交大高度认识本科教育的重要性，从各个方面都把本科教育摆在最高的位置上。我们很多管理的手段，包括机构设置，都是围绕着本科的教育而展开的。比如我们大部分的院系，它的系的设置，是围绕着本科专业而设置的。上海交大的学生工作系统，也是以本科生培养的体系来设置的。最近学校整合了所有的奖项，把立德树人奖作为高校的最高奖，这也是将本科教育中做出重要贡献放在核心的位置。<\/p><p><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/strong><\/p><p style=\"margin: 0px; padding: 0px; text-align: center;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><center><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><img title=\"\" align=\"center\" id=\"10673859\" style=\"margin: 0px auto; border: currentColor; border-image: none; text-align: center; text-indent: 30px; display: block;\" src=\"http:\/\/thinktank.sxgov.cn\/image\/attachement\/jpg\/site2\/20181105\/0025ab8d11361d49e89403.jpg\" border=\"0\" sourcename=\"本地文件\" sourcedescription=\"编辑提供的本地文件\" data-bd-imgshare-binded=\"1\"\/><\/strong><\/center><p style=\"margin: 0px; padding: 0px;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><p><span style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/span><\/p><p><br\/><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><strong>南方科技大学党委书记郭雨蓉：年轻的南科大靠什么异军突起？<\/strong><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">南方科技大学是一个非常年轻的大学，是2012年才正式获得教育部批准办学的，但是我们也是一个新时代的新大学，在教育部办学批文上面，当时就给我们非常明确的两项任务。一是要探索有中国特色的现代大学制度，二是探索拔尖创新人才培养。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">南科大建设的几个优势因素：<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">一是赶上国家蓬勃发展的时期，同时也得益于深圳得天独厚的改革开放的氛围，给学生提供了中国四个自信的一个样本。学校不断探索在本科教育方面的改革创新之路，从2012年开始，采用“631”录取模式，高考占60%，学校考试占30%，高中平时表现占10%。通过7年的实践，发现这样的招生方式的确能在一定范围内选到与学校创新特质相符的学生。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">二是从办学之初就确定了宽基础、精专业、通识+专业 +创新的全过程培养方式，不分专业招生，2+2，前两年通识，二年级之后选专业。比较突出的一是书院制，二是双导师制。书院就是学生的生活社区、生活空间和通识教育、素质培养的一个空间。双导师制就是生活导师和专业导师，所有的教授全部担任导师，这是教授工作的重要一个组成部分。同时，学校注重学生尽早地开展科研实践，学生的科研素养、科研能力比较高，从毕业生情况来看，像华为、大疆这些创新型企业和高校的研究生给出的回馈，学生的思维活跃、动手能力强，优势突出。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">三是高素质的教师队伍。建校之初就把标准定得比较高，300人的教授队伍，90%以上都有国外学习和工作经历，目前有14位的全职院士，也有140位的千人计划入选者。这样一个高素质、高水平的人才队伍，也给学校整体发展打下一个坚实的基础。教授们百分之百必须给本科生授课，而且有很大一部分都是给一年级的本科生授课，教授们现身说法，怎样能不仅有能力，同时有情怀，为国家、为民族做贡献。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">四是非常注重国际化。一方面是建立高素质的全球大学的朋友圈；另一方面，在一些专业课方面，注重实施双语教学，让学生有更开阔的国际视野，同时注重大比例的出国交换和留学。目前来看，都有比较好的成效。<\/p><p><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><\/strong><\/p><p style=\"margin: 0px; padding: 0px; text-align: center;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><center><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><img title=\"\" align=\"center\" id=\"10673861\" style=\"margin: 0px auto; border: currentColor; border-image: none; text-align: center; text-indent: 30px; display: block;\" src=\"http:\/\/thinktank.sxgov.cn\/image\/attachement\/jpg\/site2\/20181105\/0025ab8d11361d49e8a304.jpg\" border=\"0\" sourcename=\"本地文件\" sourcedescription=\"编辑提供的本地文件\" data-bd-imgshare-binded=\"1\"\/><\/strong><\/center><p style=\"margin: 0px; padding: 0px;\"><strong style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/strong><\/p><p><span style=\"text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;<\/span><\/p><p><br\/><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><strong>北京林业大学校长安黎哲：最高绿色学府的“三个加强”<\/strong><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">北京林业大学是教育部直属院校，也是和林草局共建的一个全国重点大学，它被誉为中国最高绿色学府，目前培养的十万多名栋梁之材，都奋斗在全国的各个生态文明建设的岗位上，包括有15位院士。在学科建设、人才培养过程中，我们一直致力于建设北林特色的一流本科教育，也在不断地改革和创新，主要是进行了三个方面的加强。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">一是以先进的理念引领本科教育，树立以学生为中心的理念，不断修订人才培养方案，不断深化本科教育教学改革。在培养卓越农林类专业和普通类本科专业上一起发力，既培养热爱林业、扎根基层、投身生态、引领绿色这样一流的本科人才，又着力培养适应国家建设和社会发展需要的复合型人才。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">二是学校在顶层设计方面推进本科教育，坚持回归初心、以本为本，推动本科教育教学的改革和发展。特别是聚焦学科专业、课程、教材、实践教学和创新创业教育、毕业论文等关键环节，全要素提升专业核心竞争力，形成了校内联动、内外协同、国际合作、科教融合、产教融合的人才培养机制，以此提高人才培养特别是适合林业大学的人才培养的体系。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">三是内涵式发展，强化一流本科教育。对专业进行升级改造，优化的是专业结构，并且把一些专业做大做强做精为特色专业，以专业认证和评估为推动，加强专业的标准化建设。以此打造了一支高水平的教师队伍；形成了立体化的、多层次的一些学习资源；设立了提高或提升教师教学能力的三大奖励体系，构建了全方位立体化的人才质量保障体系；健全了三全育人的机制体制，来保障学生德智体美劳全面发展。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\"><strong>北京航天航空大学副校长黄海军：大学里不能太热闹<\/strong><\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">学生回归常识，好好学、认真学、学真本领；教师回归本分，好好教，教出学问来。大学要多研究培养什么人、怎样培养人，把全部的资源都对准人才培养，创新手段和措施，持续推进本科教育教学培养模式综合改革，真正把一流的学生培养成一流的人才。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">本科教育的水平就好比问一个国家人民的人均寿命。这是一个主体，这个国家肯定也有活到 100多岁的，110多岁的，但是，人均寿命是衡量这个国家整体人民素质的一个根本性、基本型的指标。从这个上面讲，本科教育的重要性对学校的发展是不言而喻的。本科是年轻人知识架构形成创新能力初显的关键的四年。北航是一个有鲜明的航空航天特色和信息IT特色的学校。我们在人才培养方面，尤其是对本科教育方面，采取的是通识和专业并重的培养模式。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">2017年开始，北航正式启动大类招生、大类培养、书院管理的模式。每年的本科招生近 4000人，绝大部分归为四大类，航空航天类、信息类、理科类、人文社科类。每一类底下涵盖四到十二个专业学院。每一类生招进来以后不直接落实专业学院，学校成立了北航学院统一管理招进来的本科生。学生必须在一年级学完了以后，才能确定专业学院。基本原则是，学生的自愿和第一年的学习成绩。目前实现了学生零投诉，且零调剂。落实了专业学院后，在大二、大三、甚至大四的上半年还可以换专业。<\/p><p style=\"margin: 0px 3px 15px; padding: 0px; text-align: left; color: rgb(34, 34, 34); text-transform: none; text-indent: 30px; letter-spacing: normal; font-family: 宋体; font-size: 15px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;\">这样的方式让学生找到了真正喜爱的专业，同时调动了专业学院的积极性。第一年特别强调通识教育、综合素质培养，我们成立了六个书院，在第一年里面出现了 20多年前才有的教师集体备课、相互听课的情形，真正把教学当成学术来对待。大批的长江学者、杰青走向一年级大学生的讲台，来讲解自己的专业，讲解最前沿的学科发展。我们的目标，就是以学生为本，通识为基，融汇一体，创新开放。<\/p><p>&nbsp;<\/p>';					
+											currcontent = currcontent.replace(/src=\"\//g, 'src=\"http://jushi-yanshi.tidemedia.com\/' ) ;					
+										$("#baiduEditor1").val(currcontent);										
+										var ChannelID=15981;						
+										var ue = UE.getEditor('editor');
+										ue.ready(function() {
+											UE.getEditor('editor').setHeight(600)
+										   setContent(currcontent,false);
+										});
+										//获得内容
+										function getContent() {
+											var content = ue.getContent() ;
+											if(content==""){
+												try{
+													if(document.getElementById("h5editor1_Frame").contentWindow.WXBEditor){
+												    	content = h5_getContent();
+												    }
+												}catch(e){}					    						
+											}
+											content = content.replace(/(<img class="tide_video_fake".*?)>/gi,"");
+											content = content.replace(/(<img class="tide_photo_fake".*?)>/gi,"");
+											return content;
+										}
+										//写入内容
+										function setContent(content,isAppendTo){
+											var img = "<img class=\"tide_video_fake\" src=\"../../editor/images/spacer.gif\" _fckfakelement=\"true\" _fckrealelement=\"1\">";
+											var img1 = "<img class=\"tide_photo_fake\" src=\"../../editor/images/spacer.gif\" _fckfakelement=\"true\" _fckrealelement=\"1\">";
+											
+											content = content.replace(/(<span id="tide_video">(.+?)<\/span>)/gi,"$1"+img);
+											content = content.replace(/(<span id="tide_photo">(.+?)<\/span>)/gi,"$1"+img1);
+											ue.setContent(content,isAppendTo);
+										}
+										//获得纯文本
+										function getContentTxt(){
+											return ue.getContentTxt();
+										}
+										//返回当前编辑器对象
+										function getUE(){
+											return ue;
+										}
+									</script>
+									<table id="tabTable" CELLPADDING=0 CELLSPACING=0 class="table table-bordered mg-b-0">
+										<tr id="tabTableRow" onclick="changeTabs()">
+											<td id="t1" class="selTab" page="1" height="20">第1页</td>
+										</tr>
+									</table>
+									<input type="button" value="删除当前页" onclick="DeletePage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+									<input type="button" value="插入一页" onclick="AddPage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+								</div>
+								<div class="row flex-row align-items-center mg-b-15" id="tr_h5Editor">
+						        	<iframe id="h5editor1_Frame" src="../../h5/index.html" width="100%" height="800" frameborder="0" scrolling="no" onload="inserBdContent()" ></iframe>
+						        </div>
+								<div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-150" id=''>列表封面图：</label>
+									<label class="wd-content-lable d-flex " id="">
+										<input type="text" name=""  id="" value="" class="textfield upload field_image form-control" title="" size="80" >
+									</label>
+									<label>
+										<input type="button" value="选择" onClick="selectImage('Photo')" class="btn btn-primary tx-size-xs mg-l-10">
+									</label>
+									<label>
+										<input type="button" value="预览" onClick="previewFile('Photo')" class="btn btn-primary tx-size-xs mg-l-10">
+									</label>
+								</div>
+								<div class="row mg-t--10 start_type_item show">
+		                            <label class="left-fn-title wd-150"></label>
+		                            <label class="d-flex align-items-center tx-gray-800 tx-12">
+		                                <i class="icon ion-information-circled tx-16 tx-gray-900 mg-r-5"></i>
+		                                	列表封面图比例为2.35:1，建议尺寸：600*256，文章为第一篇图文时生效；
+		                            </label>
+		                        </div>
+								<div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-150" id='desc_Photo'>转发封面图：</label>
+									<label class="wd-content-lable d-flex " id="">
+										<input type="text" name="Photo"  id="Photo" value="/images/2018/11/28/201811281543371765274_90_t1080.jpg" class="textfield upload field_image form-control" title="" size="80" >				
+									</label>
+									<label>
+										<input type="button" value="选择" onClick="selectImage('Photo')" class="btn btn-primary tx-size-xs mg-l-10">
+									</label>
+									<label>
+										<input type="button" value="预览" onClick="previewFile('Photo')" class="btn btn-primary tx-size-xs mg-l-10">
+									</label>
+								</div>
+								<div class="row mg-t--10 start_type_item show">
+		                            <label class="left-fn-title wd-150"></label>
+		                            <label class="d-flex align-items-center tx-gray-800 tx-12">
+		                                <i class="icon ion-information-circled tx-16 tx-gray-900 mg-r-5"></i>
+		                                	转发封面图比例为1:1，建议尺寸：600*600，文章不是第一篇图文时，列表封面图也使用此字段；
+		                            </label>
+		                        </div>
+						        <div class="row flex-row align-items-center mg-b-15" id="tr_Summary">
+									<label class="left-fn-title wd-150" id='desc_Summary'>摘要：</label>
+									<label class="wd-content-lable d-flex " id="field_Summary">
+										<textarea cols="81" class="textfield form-control" rows=5 name="Summary" onDblClick="showEditor('Summary')" id="Summary"></textarea>
+									</label>
+								</div>
+								<div class="row flex-row align-items-center mg-b-15" id="tr_showbuttontitle">
+									<label class="left-fn-title wd-150" id='desc_showbuttontitle'>留言：</label>
+									<label class="wd-content-ckx d-flex " id="field_showbuttontitle">
+										<label class="rdiobox mg-r-15">
+											<input type="radio" value="0" id="showbuttontitle_0" name="showbuttontitle" checked>
+											<span for='showbuttontitle_0'>所与人均可留言</span>
+										</label>
+										<label class="rdiobox mg-r-15">
+											<input type="radio" value="1" id="showbuttontitle_1" name="showbuttontitle" >
+											<span for='showbuttontitle_1'>仅关注后可留言</span>
+										</label>
+									</label>
+								</div>				
+							</div>
+							<div class="mg-t-10">
+								<a class="btn btn-secondary tx-size-xs mg-r-20" href="javascript:;">保存</a>
+								<a class="btn btn-secondary tx-size-xs mg-r-10" href="javascript:;">预览</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>			
+			</div>
+			<div class="col-sm-4 pd-x-0-force">
+				<div class="br-pagebody  mg-l-0 mg-r-30 pd-x-0-force" >
+		            <div class="card bg-white shadow-base bd-0">
+		                <div class="card-body bg-white">
+		                	<div class="this-article article-default article-active">
+		                		<div class="this-article-box">
+		                			<img src="http://jushi-yanshi.tidemedia.com//images/2018/11/28/201811281543371765274_90_t1080.jpg">
+		                			<div class="title-bg">
+		                				<div class="this-title art-tl">正常正常正常正常正常正常正常正常正常正常正常</div>
+		                			</div>
+		                		</div>
+								<div class="art-handler">
+									<div class="d-flex handle-box">
+										<span class="d-block">
+											<i class="fa fa-long-arrow-up art-up"></i>
+											<i class="fa fa-long-arrow-down art-down"></i>		                						
+										</span>
+										<span><i class="fa fa-trash-o art-delete"></i></span>
+									</div>
+								</div>	
+		                	</div>
+		                	<div class="article-list">
+		                		<div class="article-item article-default">
+		                			<div class="art-container">
+		                				<div class="article-title art-tl">标题了解一下标题了解一下标题了解一下标题了解一下标题了解一下</div>
+			                			<div class="art-img-box">
+			                				<img src="http://jushi-yanshi.tidemedia.com//images/2018/11/28/201811281543371765274_90_t1080.jpg">
+			                			</div>
+		                			</div>
+		                			<div class="art-handler">
+		                				<div class="d-flex handle-box">
+		                					<span class="d-block">
+		                						<i class="fa fa-long-arrow-up art-up"></i>
+		                						<i class="fa fa-long-arrow-down art-down"></i>		                						
+		                					</span>
+		                					<span><i class="fa fa-trash-o art-delete"></i></span>
+		                				</div>
+		                			</div>		                			
+		                		</div>
+		                		<div class="article-item article-default">
+		                			<div class="art-container">
+		                				<div class="article-title art-tl">标题了解一下标题了解一下标题了解一下标题了解一下标题了解一下</div>
+			                			<div class="art-img-box">
+			                				<img src="http://jushi-yanshi.tidemedia.com//images/2018/11/28/201811281543371765274_90_t1080.jpg">
+			                			</div>
+		                			</div>
+		                			<div class="art-handler">
+		                				<div class="d-flex handle-box">
+		                					<span class="d-block">
+		                						<i class="fa fa-long-arrow-up art-up"></i>
+		                						<i class="fa fa-long-arrow-down art-down"></i>		                						
+		                					</span>
+		                					<span><i class="fa fa-trash-o art-delete"></i></span>
+		                				</div>
+		                			</div>		                			
+		                		</div>
+		                		<div class="article-item article-default">
+		                			<div class="art-container">
+		                				<div class="article-title art-tl">标题了解一下标题了解一下标题了解一下标题了解一下标题了解一下</div>
+			                			<div class="art-img-box">
+			                				<img src="http://jushi-yanshi.tidemedia.com//images/2018/11/28/201811281543371765274_90_t1080.jpg">
+			                			</div>
+		                			</div>
+		                			<div class="art-handler">
+		                				<div class="d-flex handle-box">
+		                					<span class="d-block">
+		                						<i class="fa fa-long-arrow-up art-up"></i>
+		                						<i class="fa fa-long-arrow-down art-down"></i>		                						
+		                					</span>
+		                					<span><i class="fa fa-trash-o art-delete"></i></span>
+		                				</div>
+		                			</div>		                			
+		                		</div>
+		                	</div>
+		                	
+		                	<div class="art-add-btn-box bg-gray-200 mg-t-20 pd-y-15" >
+		                		<div class="art-add-btn"> 
+		                			<i class="fa fa-plus tx-26"></i>
+		                			<div class="btn-tool">
+		                				<div class="d-flex flex-column">
+		                					<a class="tx-white mg-b-5" href="javascript:;" id="newArticle"><i class="fa fa-pencil mg-r-5"></i>写新图文</a>
+		                					<a class="tx-white" href="javascript:;" id="chooseArticle"><i class="fa fa-list-alt mg-r-5"></i>选择图文</a>
+		                				</div>
+		                			</div>
+		                		</div>
+		                	</div>
+		              </div><!-- card-body -->		              
+		            </div><!-- card -->	               
+	        	</div>
+			</div>
+		</div>		
+	</div>
+
+	<div class="br-mainpanel br-mainpanel-file overflow-hidden" id="form2" style="display:none;"> 
+		<div class="br-pagebody bg-white mg-l-20 mg-r-20 clear-padding" url="../../photo/document_photo_list.jsp?&itemid=835&globalid=1427140&channelid=15981&fieldgroup=2">
+			<div class="br-content-box pd-20"> 
+				<div class="center">
+					<iframe id="iframe2" class="content-edit-frame" frameborder="0" style="width:100%;min-height:500px;height:100%;" marginheight="0" marginwidth="0" scrolling="auto" src="../../null.jsp" onload="changeFrameHeight(this)" ></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="br-mainpanel br-mainpanel-file overflow-hidden" id="form3" style="display:none;">
+		<div class="br-pagebody bg-white mg-l-20 mg-r-20 clear-padding" url="../../content/content_gather_button.jsp?LinkChannelID=15922&LinkChannelID1=15894&parent=15893&itemid=835&globalid=1427140&channelid=15981&fieldgroup=3">
+			<div class="br-content-box pd-20"> 
+				<div class="center">
+					<iframe id="iframe3" class="content-edit-frame" frameborder="0" style="width:100%;min-height:500px;height:100%;" marginheight="0" marginwidth="0" scrolling="auto" src="../../null.jsp" onload="changeFrameHeight(this)" ></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="br-mainpanel br-mainpanel-file overflow-hidden" style="display:none;" url="" id="form4"> 
+	    <iframe id="content_historical_version" class="content-edit-frame" style="width:100%;min-height:600px;" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" 
+	        src="content_historical_version.jsp?GlobalID=1427140" onload="changeFrameHeight(this)"></iframe>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<input type="hidden" name="From" value="">
+<input type="hidden" name="Action" value="Add">
+<input type="hidden" name="Content" value="">
+<input type="hidden" id="ItemID" name="ItemID" value="835">
+<input type="hidden" name="ChannelID" value="15981">
+<input type="hidden" name="Status" value="0">
+<input type="hidden" name="Approve" value="0">
+<input type="hidden" id="GlobalID" name="GlobalID" value="1427140">
+<input type="hidden" name="ParentGlobalID" value="0">
+<input type="hidden" name="RelatedItemsList" value="">
+<input type="hidden" name="Page" value="1">
+<input type="hidden" id="RecommendGlobalID" name="RecommendGlobalID" value="0">
+<input type="hidden" name="RecommendChannelID" value="0">
+<input type="hidden" name="RecommendItemID" value="0">
+<input type="hidden" name="NoCloseWindow" id="NoCloseWindow" value="0">
+<input type="hidden" name="ContinueNewDocument" value="0">
+<input type="hidden" id="RecommendType" name="RecommendType" value="0"><div id="ajax_script" style="display:none;"></div>
+</form>
+<!--11ms-->
+
+<script type="text/javascript">
+var form_data = $("#form").serialize();//获取表单数据
+function init(){
+	
+};
+</script>
+
+<!--兼容性提示弹窗-->
+<div class="editorTipsModal modal" id="editorTipsModal" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close">×</button>
+				<h4 class="modal-title" id="myModalLabel">系统提示</h4>
+			</div>
+			<div class="modal-body">
+				<p>系统检测到您正在使用低版本浏览器，为保证您的正常使用，请升级浏览器到最新版本。</p>
+				<p>推荐使用浏览器：谷歌浏览器，其他浏览器及版本：360浏览器最新版、IE9及以上版本。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-close" data-dismiss="modal">关闭</button>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+<script src="../../lib/2018/select2/js/select2.min.js"></script>
+<script src="../../lib/2018/jquery-toggles/toggles.min.js"></script>
+<script type="text/javascript" src="../../common/jquery-ui-timepicker-addon.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+
+<script>
+	var groupnum=4;
+  $(function(){
+		'use strict';
+
+		//show only the icons and hide left menu label by default
+		$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+		
+		
+		$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+		$('#showMailBoxLeft').on('click', function(e){
+			e.preventDefault();
+			if($('body').hasClass('show-mb-left')) {
+			$('body').removeClass('show-mb-left');
+			$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+			} else {
+			$('body').addClass('show-mb-left');
+			$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+			}
+		});
+		
+		  $('.br-sideleft [data-toggle="tooltip"]').tooltip({
+				shadowColor:"#ffffff",
+				textColor:"000000",
+				trigger:"hover"
+			});
+		
+  });
+</script>
+
+<script>
+//h5编辑器相关
+var everLoadH5 = true ;
+$("#tr_changeEditor input[name='editortype']").click(function(){
+	var val = $(this).val();
+	if(val==0){
+		$("#tr_h5Editor").hide();
+		$("#tr_Content").show();
+		setContent(h5_getContent());
+		h5_setContent("");
+	}else{
+		if(!everLoadH5){
+			var _html = '<iframe id="h5editor1_Frame" src="../../h5/index.html?webname=/tcenter" width="100%" height="800" frameborder="0" scrolling="no" onload="inserBdContent()" ></iframe>' ;
+			$("#tr_Content").hide();
+			$("#tr_h5Editor").html(_html).show();				
+			everLoadH5 = true ;
+		}else{
+			$("#tr_h5Editor").show();
+			$("#tr_Content").hide();
+			h5_setContent(getContent());
+			setContent("");
+		}
+
+	}
+})
+function inserBdContent(){
+	var _interval = setInterval(function(){
+		try
+		   {
+		     var h5ue = document.getElementById("h5editor1_Frame").contentWindow.WXBEditor ;
+		     if(h5ue){
+		     	h5ue.ready(function() {
+		     		if(!getContent()){
+		     			h5_setContent(currcontent);
+		     		}else{
+		     			h5_setContent(getContent());
+		     		}			   		
+					setContent("");
+ 			    });
+ 			    clearInterval(_interval)
+		     }else{
+		     	return ;
+		     }
+		   }
+		 catch(err){}
+	},50)
+}
+//获得h5编辑器内容
+function h5_getContent(){
+	var content = document.getElementById("h5editor1_Frame").contentWindow.getUecontent();
+	return content;		
+}	
+//h5编辑器写入内容
+function h5_setContent(insertContent,b){
+	document.getElementById("h5editor1_Frame").contentWindow.setCurrentContent(insertContent,true);
+}
+//h5编辑器插入内容
+function h5_insertContent(insertContent,b){
+	document.getElementById("h5editor1_Frame").contentWindow.setInsertContent(insertContent,true);
+};
+$(function() {
+	//判断是否为ie8及以下浏览器
+	var DEFAULT_VERSION = 8.0;
+	var _ua = navigator.userAgent.toLowerCase();
+	var _isIE = _ua.indexOf("msie")>-1;
+	var browserVersion;
+	if(_isIE){
+		browserVersion =  _ua.match(/msie ([\d.]+)/)[1];
+	}
+	if(browserVersion <= DEFAULT_VERSION ){
+		$('#editorTipsModal').show().css("opacity",1)
+	};   
+    $(".editorTipsModal .btn-close,.editorTipsModal button.close").click(function(){
+    	$('#editorTipsModal').hide().css("opacity",0)
+    })
+    
+   
+});
+
+
+
+
+</script>
+<script>
+	//微啵云定制程序
+	//切换高亮
+	$(".article-default").click(function(){
+		var _that = $(this) ;
+		if(_that.hasClass("article-active")){
+			return ;
+		}else{				
+			$(".article-default").removeClass("article-active");
+			_that.addClass("article-active");
+		}
+	})
+	
+	//检查是否超过8篇
+	function checkArticleNum(){
+		if($(".article-default").length<8){
+			return true ;
+		}else{
+			return false ;
+		}
+		 
+	}
+	//新写图文
+	$("#newArticle").click(function(){
+		var _html = '<div class="article-item article-default">'+
+            			'<div class="art-container">'+
+            				'<div class="article-title art-tl">标题了解一下标题了解一下标题了解一下标题了解一下标题了解一下</div>'+
+                			'<div class="art-img-box">'+
+                				'<img src="http://jushi-yanshi.tidemedia.com//images/2018/11/28/201811281543371765274_90_t1080.jpg">'+
+                			'</div>'+
+            			'</div>'+
+            			'<div class="art-handler">'+
+            				'<div class="d-flex handle-box">'+
+            					'<span class="d-block">'+
+            						'<i class="fa fa-long-arrow-up art-up"></i>'+
+            						'<i class="fa fa-long-arrow-down art-down"></i>'+                						
+            					'</span>'+
+            					'<span><i class="fa fa-trash-o art-delete"></i></span>'+
+            				'</div>'+
+            			'</div>'+	                			
+            		'</div>';
+		$(".article-list").append(_html);
+		
+	})
+	
+	//文章标题同步
+	$("#Title").on("keyup",function(){
+		var _val = $(this).val();
+		var acArticle = $(".article-active") ;
+		acArticle.find(".art-tl").text(_val);
+		//后面是刷新缓存
+	})
+	
+	$(".art-up").click(function(){
+		var _article = $(this).parents(".article-item")
+		if(_article.prev())
+        _article.prev().before(_article);
+        return false;
+	})
+	$(".art-down").click(function(){
+		var _article = $(this).parents(".article-item")
+		if(_article.next())
+        _article.next().after(_article);
+        return false;
+	})
+	//排序
+	 
+	
+</script>
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>XIUMI connect</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #xiumi {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body >
+<iframe  id="xiumi"
+        src="http://xiumi.us/studio/v5#/paper">
+</iframe>
+<script type="text/javascript" src="../xiumi/internal.js"></script>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script>
+    var excludeSpecial = function(s) {  
+        // 去掉转义字符  
+        s = s.replace(/\\/g, "");  
+        return s;  
+     }; 
+    var xiumi = document.getElementById('xiumi');
+    var xiumi_url = "http://xiumi.us";
+    xiumi.onload = function () {
+        console.log("打印的信息为:"+"postMessage");
+        xiumi.contentWindow.postMessage('ready', xiumi_url);
+    };
+    document.addEventListener("mousewheel", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    });
+    window.addEventListener('message', function (event) {
+       
+        if (event.origin == xiumi_url) {
+             $.ajax({
+                type:"post",
+                url: "/tcenter/api/img_tocms.jsp",
+                data:{content:event.data},
+                dataType:"json",
+                beforeSend:function(XMLHttpRequest){ 
+    	        	var _html = '<div id="xiumiTips" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 99999;background-color: #000;width:100%;height:100%;opacity:0.5;"  onclick="javascript:return false;">' +
+    	        	            '<div style="display: inline-block;vertical-align: middle;width:80px;height:80px;background-image:url(/tcenter/img/2019/video_loading.gif);background-size:100%;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;"></div>'+
+    	        	            '</div>';
+    	        	$(top.document.body).append(_html);
+    			}, 
+                success:function(data){
+                    if(data.status == 1){
+                         console.log("得到的内容是:"+data.content)
+                         editor.execCommand('insertHtml', excludeSpecial(data.content));
+                         $(top.document.body).find("#xiumiTips").remove();
+                         editor.fireEvent("catchRemoteImage");
+                         dialog.close();
+                    }else{
+                        $(top.document.body).find("#xiumiTips").remove();
+                    }
+                    
+                },
+                error:function(e){
+                    console.log(e)
+                    $(top.document.body).find("#xiumiTips").remove();
+                    dialog.close();                    
+                    //TideAlert("本地化失败！")
+                }
+            });
+           
+         
+        
+        }
+    }, false);
+</script>
+</body>
+</html>

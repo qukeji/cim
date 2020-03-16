@@ -1,0 +1,208 @@
+.collapsed-menu .br-mainpanel-file{
+    margin:0px;
+    margin-bottom: 30px;
+}		
+#nav-header{
+    line-height: 60px;
+    margin-left: 20px;
+    color: #a4aab0;
+    font-style: normal;
+}
+#nav-header a{
+    color: #a4aab0;
+}	
+.wd-content-lable.wd-sm-table{
+    width: 700px;
+}
+.wd-three{
+    width: 700px;
+}
+.app-img-box{
+    max-width: 800px;
+}
+.app-img-box img{
+    max-width: 100%;
+}
+.row{
+    margin-left:0;
+    margin-right: 0;
+}
+.wd-content-ckx label{
+    margin-bottom: 0;
+} 
+.wd-label-imput{
+    width:700px;
+}
+.hide{
+    display: none;
+}
+.header_style .rdiobox span:before {
+    top:15px;
+    left: 100px;
+}
+.header_style .rdiobox span:after {
+    top:20px;
+    left: 105px;
+    display: none;
+}
+.header_style .rdiobox{
+    border: 1px solid transparent;
+}
+.border-label{
+    border: 1px solid #34c2ac !important;
+}
+.border-label-red{
+    border: 1px solid red !important;
+}
+.channel-name .wd-sm-table{
+    width: 300px;
+}
+.ckbox_right.ckbox span:before {
+    left: 155px;
+}
+.ckbox_right.ckbox span:after {
+    left: 155px;
+    display: none;
+}
+.sp-preview{
+    width:0;
+}
+.sp-replacer{
+    width:20px;
+    height:20px;
+    position: absolute;
+    top:10px;
+    right:15px;
+    background: url(../../images/apppack/color_icon.png) no-repeat 0 0;
+    border:none;
+}
+.position-re{
+    position: relative;
+}
+.sp-dd{
+    display: none;
+}
+.sp-button-container .sp-cancel{
+    color:#d93f3f !important;
+}
+.resolution-power .btn{
+    background-color:#fff;
+    border: 1px solid #cbcbcb;
+}
+.resolution-power img{
+    display: none;
+}
+.resolution-power .actives{
+    color: #fff;
+    background-color: #17a2b8;
+    border: 1px solid #cbcbcb;
+    opacity: 0.8;
+}
+.resolution-power .actives img{
+    display: block;
+}
+.resolution-power .progress{
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.resolution-power img{
+    position: absolute;
+    top: 6px;
+    left: 77px;
+    max-width: 50px;
+}
+.startup span{
+    background: url(../../images/apppack/startup.png) no-repeat 0 0;
+    padding-left: 25px;
+    color:#00b297;
+    font-weight: bolder;
+    font-size: .95rem;
+    padding-right: 15px;
+}
+.jxcolorselect .sp-replacer{
+    right:-36px;
+}
+.margin-auto{
+    margin: 0 auto;
+}
+
+.step-num{
+    height:100px;
+    margin-bottom: 0;
+}
+.pack-info{
+    position: absolute;
+    top:55%;
+    text-align: center;
+}
+.pack-infos{
+    position: absolute;
+    top:50%;
+    text-align: center;
+}
+.step-info .circle i{
+    color: #868e96;
+    font-size: 28px;
+}
+.step-info span{
+    width:100%;
+    height:5px;
+    background: #868e96;
+    display: inline-block;
+    flex:1;
+    margin-bottom: 30px;
+}
+.step-info span.active{
+    background: #17a2b8;
+}
+.step-info .circle{
+    border:4px solid #868e96;
+    border-radius: 50%;
+    padding:5px;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content: center!important;
+    align-items: center!important;
+    margin-bottom:0;
+    cursor: pointer;
+}
+.step-info .title{
+    line-height: 40px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.step-info .step-num.active .circle{
+    border:4px solid #17a2b8;
+}
+.step-info .step-num.active .circle i{
+    color: #17a2b8;
+}
+.step-info .step-num.active .title{
+    color: #17a2b8;
+}
+@media (max-width: 1200px) {
+    
+    .wd-label-input{
+        width:300px;
+    }
+}
+@media (max-width: 992px) {
+    .wd-content-lable.wd-sm-table{
+        width: 300px;
+    }
+    .collapsed-menu .br-mainpanel-file {
+        margin-left: 0;
+    }
+    .wd-three{
+        width: 300px;
+    }
+    
+}	
+@media (max-width: 640px) {
+    
+    .wd-640-hide{
+        display: none;
+    }
+}

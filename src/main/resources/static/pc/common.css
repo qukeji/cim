@@ -1,0 +1,178 @@
+body{
+	background: #f0f3f5;
+}
+.wd1200{
+	width:1200px;
+	margin:0 auto;
+}
+.dpnone{
+	display: none!important;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.img-box{
+	overflow: hidden;
+}
+.img-box img{
+	width:100%;
+	min-height:100%;
+}
+
+
+/*头部*/
+.hd-wrap{
+				
+}
+.hd-wrap .hd-top{
+	font-size:13px;
+	line-height:40px;
+	color:#fff;
+	background:#143564;
+}
+.hd-wrap  .hd-top a{
+	color:#fff;
+	margin-right: 10px;
+}
+.hd-wrap  .hd-top span{
+	margin:0 8px;
+	color:#ccc;
+}
+.hd-wrap  .hd-bottom{
+	background:white;
+}	
+.hd-wrap  .hd-bottom .logo-wrap{
+	padding:15px 0 20px 0;
+}
+.hd-wrap  .hd-bottom .logo-box{
+	overflow: hidden;
+}
+.hd-wrap  .hd-bottom .logo-box img{
+	width:122px;
+	height:36px;
+	vertical-align: middle;
+}
+.hd-wrap  .hd-bottom .logo-box span{
+    font-size:20px;
+    line-height:30px;
+    padding-left:15px;
+    border-left: 1px solid #ccc;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+
+.search-wrap.sp-searchbox .search-box{
+	font-size:16px;
+	border-radius: 15px;
+	border:1px solid #377beb;
+	overflow: hidden;
+	width:auto;
+	height:auto;
+	margin:0;
+	
+}
+.search-wrap.sp-searchbox .search-box input{
+	width:310px;
+	padding:0 15px;
+	height:30px;
+	line-height:30px;
+	vertical-align: middle;
+}
+.search-wrap.sp-searchbox .search-box a{
+	font-size:16px;
+	line-height:30px;
+	height:30px;
+	background:#377beb;
+	color:white;
+	padding:0 14px;
+	display:inline-block;
+	vertical-align: middle;
+}
+.search-wrap.sp-searchbox .search-wrap p{
+	font-size:15px;
+	line-height:29px;
+	color:#999;
+}
+.search-wrap.sp-searchbox p span{
+    margin:0 5px;
+}
+.search-wrap.sp-searchbox p a{
+	color:#999;
+}
+	
+.hd-wrap .download-wrap  a{
+	display: inline-block;
+	height:32px;
+	font-size:14px;
+	line-height:32px;
+	padding:0 15px;
+	background:rgb(240,243,245);
+	vertical-align: middle; 
+	border-radius: 15px;
+	margin-left:20px;
+}
+.hd-wrap .download-wrap  img{
+	vertical-align: middle; 
+	margin-right:5px;
+}	
+.hd-wrap .download-wrap .exitdown{
+	background:#377BEB;
+	color:white;
+}
+
+
+/*列表页检索页面包屑*/
+.search-nav{
+	font-size:14px;
+	line-height:30px;
+	padding:10px 0;
+	font-weight:400;
+	color:rgba(153,153,153,1);
+}
+.search-nav .colgray{
+	color:#999;
+}
+.search-sum{
+	padding-left: 15px;
+	border-left: 1px solid #999;
+	margin-left: 15px;
+}
+
+
+/*媒资库搜索*/
+.md-searchbox .search-box{
+	border:1px solid rgba(243,243,243,1);
+	border-radius:5px;
+    overflow: hidden;
+    height:30px;
+    line-height:30px;
+    margin:0;
+    width:auto;
+}
+.md-searchbox .search-box img{
+	width:16px;
+	vertical-align: middle;
+	margin:0 5px;
+}
+.md-searchbox .search-box input{
+	font-size:13px;
+	line-height:30px;
+	width:380px;
+}
+.md-searchbox .search-box .search-btn{
+	display: inline-block;
+	width:80px;
+	line-height:30px;
+	background:#377beb;
+	color:white;
+	text-align: center;
+	margin:0;
+}
+.md-searchbox .search-box .search-btn:hover{
+	background:#143564;
+}
+

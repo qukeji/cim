@@ -1,0 +1,19 @@
+/* Windows Vista Theme */
+.context-menu-theme-vista{
+	width:140px;padding:4px;background: #eee;	
+    border-radius: 3px;   
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    background-color: #fff;
+}
+.context-menu-item{cursor:pointer;}
+.context-menu-item-hover{color:#495057;background-color: #e9ecef;border-radius:2px;}
+.context-menu-item .context-menu-item-inner{padding:0.4rem 1rem;color: #666;}
+.context-menu-item-inner img{margin:0 3px -4px 0;}
+.context-menu-item .context-menu-item-inner i{margin-right: 5px;color: #666;min-width: 15px;}
+.context-menu-item-hover .context-menu-item-inner{color:#495057;}
+.context-menu-item-hover .context-menu-item-inner i{color:#495057;}
+#contextmenu_shadow{display: none !important;}
+

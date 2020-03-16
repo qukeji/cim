@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<title>TideCMS 9.1 开发测试环境</title>
+
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+
+<script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+
+<script language=javascript>
+	function init() {
+		window.status = "当前用户：方志伟  角色：系统管理员";
+		set_main_class("index");
+		
+	}
+
+	function reSize() {
+		document.getElementById("main").style.height = Math.max(document.body.clientHeight - document.getElementById("main").offsetTop, 0) + "px";
+	}
+
+	function set_main_class(str) {
+		jQuery('.header_menu  li').removeClass('on');
+		jQuery('#home_' + str).addClass('on');
+	}
+
+
+	function feed() {
+		title = '反馈'
+		url = "http://123.125.148.3:888/cms/feedback.jsp";
+		var dialog = new top.TideDialog();
+		dialog.setWidth(500);
+		dialog.setHeight(500);
+		dialog.setUrl(url);
+		dialog.setTitle(title);
+		dialog.show();
+	};
+</script>
+<style>
+.usual-tool-box ul{display:flex;flex-direction:row;flex-wrap:wrap}
+.usual-tool-box ul li{width:86px;height:86px;font-size:12px;transition:ease-in-out 0.3s;list-style:none;margin-right:10px;margin-bottom:10px}
+.usual-tool-box ul li .fa{font-size:30px}
+.usual-tool-box ul li a{width:86px;height:86px;display:flex;justify-content:center;align-items:center;flex-direction:column;border-radius:5px;font-size:12px;color:#fff;background-color:rgb(69,152,225)}
+.usual-tool-box ul li a span{margin-top: 5px;}
+.usual-tool-box ul .add-li a{background-color:rgba(147,147,147,0.3)}
+table{table-layout:fixed}
+table th{padding-top:10px !important;padding-bottom:10px !important}
+table td{padding-top:7px !important;padding-bottom:7px !important;font-size: 12px;}
+.wd-title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:36%}
+.point-th{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.change-options .nav-link{border-radius:15px}
+.br-menu-link.active{background:rgb(66, 92, 132)}
+.sidebar-menu .treeview-menu>li.active>a,#blue .sidebar-menu>li.active>a{background-color:rgb(66, 92, 132);}
+.sidebar-menu .treeview-menu>li.active>a span,#blue .sidebar-menu>li.active>a span{background-color:rgb(66, 92, 132);}
+@media only screen and (max-width: 640px) {
+	.table-box{width:100%;overflow-x:auto}
+	table{width:640px}
+	.wd-title{width:150px}
+	.br-mainpanel>.pd-30{padding: 20px 10px !important;}
+	.br-pagebody{padding-left: 10px !important;padding-right: 10px !important;}
+	.nav-pills{flex-direction:row !important}
+	.nav-pills .nav-item{margin-bottom:10px}
+}
+</style>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="init();" scroll="no">
+	<div class="br-logo">
+		<a class="d-flex align-items-center tx-center ht-100p wd-100p"  href="http://123.56.71.230:889/tcenter/main.jsp">
+		   <img class="ht-100p" src="http://123.56.71.230:889/cms/img/2019/system_logo.png">
+		</a>
+	</div>
+
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>
+			<div class="br-sideleft-menu">				
+				<a href="main.jsp" class="br-menu-link active menu-home">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-home tx-22"></i>
+						<span class="menu-item-label">概览</span>
+					</div>
+					<!-- menu-item -->
+				</a>				
+				<a href="explorer/index2018.jsp" class="br-menu-link menu-explorer">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-file-text-o tx-20"></i>
+						<span class="menu-item-label">我的稿件</span>
+					</div>
+				</a>								
+				<a href="channel/index2018.jsp" class="br-menu-link menu-channel">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-calendar-check-o tx-20"></i>
+						<span class="menu-item-label">我的审核</span>
+					</div>
+				</a>				
+				<!-- br-menu-link -->
+				<a href="source/index2018.jsp" class="br-menu-link menu-source">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-check-square-o tx-20"></i>
+						<span class="menu-item-label">我的选题</span>
+					</div>
+					<!-- menu-item -->
+				</a>									
+				<a href="../../lib/appIndex2018.jsp?childGroup=1" class="br-menu-link ">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-youtube-play tx-20"></i>
+						<span class="menu-item-label">我的视频</span>
+					</div>
+				</a>
+				
+
+			
+			</div>
+			<!-- br-sideleft-menu -->
+		</div>
+        <!-- br-sideleft -->
+
+	<div class="br-header">
+		<div class="br-header-left">
+			<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>个人工作台</a></div>
+		</div>
+		<!-- br-header-left -->
+		<div class="br-header-right">
+			<nav class="nav">
+				<div class="dropdown">
+					<a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+						<span class="logged-name hidden-md-down">方志伟</span>
+						<img src="images/2018/img1.jpg" class="wd-32 rounded-circle" alt="">
+						<span class="square-10 bg-success"></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-header wd-200">
+						<ul class="list-unstyled user-profile-nav">
+							<li><a href="person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+							<li><a href="logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+						</ul>
+					</div>
+					<!-- dropdown-menu -->
+				</div>
+				<!-- dropdown -->
+			</nav>
+		</div>
+		<!-- br-header-right -->
+	</div>
+	<!-- br-header -->
+	<!-- ########## START: MAIN PANEL ########## -->
+	<div class="br-mainpanel with-first-nav pd-b-30">
+		<div class="pd-30">
+			<h4 class="tx-gray-800 mg-b-15 tx-20">常用工具</h4>
+			<div class="usual-tool-box">
+				<ul>
+					<li class="op-9">
+						<a href="">					
+							<i class="fa fa-binoculars"></i>
+							<span>内容采集</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="">				
+							<i class="fa fa-check-square-o"></i>
+							<span>选题任务</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="">					
+							<i class="fa fa-file-text-o"></i>
+							<span>文稿管理</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="">					
+							<i class="fa fa-tablet"></i>
+							<span>app管理</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="">			
+							<i class="fa fa-laptop "></i>
+							<span>网站管理</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="">				
+							<i class="fa fa-address-card "></i>
+							<span>PGC管理</span>
+						</a>
+					</li>					
+					<li class="op-9">
+						<a href="" target="_blank">				
+							<i class="fa fa-database"></i>
+							<span>全媒体资源</span>
+						</a>
+					</li>					
+					<li class="op-9 ">
+						<a href="" target="_blank">				
+							<i class="fa fa-weixin"></i>
+							<span>微信矩阵</span>
+						</a>
+					</li>	
+					<li class="op-9 ">
+						<a href="" target="_blank">				
+							<i class="fa fa-refresh"></i>
+							<span>收录剪辑</span>
+						</a>
+					</li>	
+					<li class="op-9 ">
+						<a href="" target="_blank">				
+							<i class="fa fa-scissors"></i>
+							<span>云快编</span>
+						</a>
+					</li>	
+					<!--添加按钮样式区别对待-->
+					<li class=" add-li">
+						<a href="javascript:;">
+							<i class="fa fa-plus tx-30"></i>
+						</a>
+					</li>
+					<!--添加按钮end-->
+				</ul>
+			</div>
+		</div>
+		<!-- d-flex -->
+
+		<div class="br-pagebody mg-t-5 pd-x-30">
+			<h4 class="tx-gray-800 mg-b-15 tx-20">工作台</h4>
+			<div class="row row-sm">
+				<div class="col-sm-6 ">
+					<div class="bg-white card bd-0 shadow-base">
+						<div class="tx-14 pd-l-20 ht-40 bd-b d-flex justify-content-between align-items-center">
+							<span>我的稿件</span> 
+							<!--<button class="btn btn-success pd-y-0-force btn-sm mg-r-10 tx-12 new-btn">新建</button>-->	
+							<button class="btn btn-success btn-sm mg-r-15 tx-12">新建</button>
+						</div>
+						<div class="change-options bd-b pd-y-10 pd-l-15">
+							<div class="rounded d-flex align-items-center">				                    
+					    		<ul class="nav nav-pills flex-column flex-md-row  rounded column-charts" role="tablist">
+					    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">全部</a></li>	
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">草稿</a></li>
+			              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">已发</a></li>					              					             
+			            		</ul>
+							</div>
+						</div>
+						<div class="table-box">
+							<table class="table  table-valign-middle mg-b-0">
+								<thead>
+									<tr>
+										<th class="wd-title pd-l-10">标题</th>
+										<th class="point-th wd-100">节点</th>
+										<th class="wd-60">状态</th>
+										<th class="wd-160">创建时间</th>
+										<th class="wd-80">操作</th>
+										
+									</tr>
+								</thead>
+								<tbody>	
+								<tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">APP管理>栏目管理>首页</span>
+				                    </td>
+				                    <td class="tx-warning">草稿</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-warning">草稿</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+		
+								
+								 </tbody>
+				              </table>
+						</div>
+				
+					</div>
+				
+				</div>
+				<!-- col-3 -->
+				<div class="col-sm-6 mg-t-20 mg-sm-t-0">
+					<div class="bg-white card bd-0 shadow-base">
+						<div class="tx-14 pd-l-20 ht-40 bd-b d-flex justify-content-between align-items-center">
+							<span>我的审核</span> 
+							<!--<button class="btn btn-success pd-y-0-force btn-sm mg-r-10 tx-12 new-btn">新建</button>-->	
+							<button class="btn btn-success btn-sm mg-r-15 tx-12">新建</button>
+						</div>
+						<div class="change-options bd-b pd-y-10 pd-l-15">
+							<div class="rounded d-flex align-items-center">				                    
+					    		<ul class="nav nav-pills flex-column flex-md-row  rounded column-charts" role="tablist">
+					    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">全部</a></li>	
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">未审核</a></li>
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">审核中</a></li>
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">审核通过</a></li>
+			              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">审核未通过</a></li>
+			            		</ul>
+							</div>
+						</div>
+						<div class="table-box">
+							<table class="table  table-valign-middle mg-b-0">
+								<thead>
+									<tr>
+										<th class="wd-title pd-l-10">标题</th>
+										<th class="point-th wd-100">节点</th>
+										<th class="wd-100">状态</th>
+										<th class="wd-160">创建时间</th>
+										<th class="wd-80">操作</th>							
+									</tr>
+								</thead>
+								<tbody>	
+								<tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-info">审核中</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="">未审核</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">审核通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">APP管理>栏目管理>首页</span>
+				                    </td>
+				                    <td class="tx-danger">审核未通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-danger">审核未通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+								
+								 </tbody>
+				              </table>
+						</div>
+				
+					</div>
+				
+				</div>
+				
+			</div>
+			<!-- row -->
+			<div class="row row-sm mg-t-20">
+				<div class="col-sm-6 mg-t-20 mg-sm-t-0">
+					<div class="bg-white card bd-0 shadow-base">
+						<div class="tx-14 pd-l-20 ht-40 bd-b d-flex justify-content-between align-items-center">
+							<span>我的选题</span> 								
+							<button class="btn btn-success btn-sm mg-r-15 tx-12">新建</button>
+						</div>
+						<div class="change-options bd-b pd-y-10 pd-l-15">
+							<div class="rounded d-flex align-items-center">				                    
+					    		<ul class="nav nav-pills flex-column flex-md-row  rounded column-charts" role="tablist">
+					    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">全部</a></li>	
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">未审核</a></li>
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">审核中</a></li>
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">审核通过</a></li>
+			              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">审核未通过</a></li>
+			            		</ul>
+							</div>
+						</div>
+						<div class="table-box">
+							<table class="table  table-valign-middle mg-b-0">
+								<thead>
+									<tr>
+										<th class="wd-title pd-l-10">标题</th>
+										<th class="point-th wd-100">节点</th>
+										<th class="wd-100">状态</th>
+										<th class="wd-160">创建时间</th>
+										<th class="wd-80">操作</th>							
+									</tr>
+								</thead>
+								<tbody>	
+								<tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-info">审核中</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="">未审核</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">审核通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-danger">审核未通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-danger">审核未通过</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+								
+								 </tbody>
+				              </table>
+						</div>
+						
+					</div>
+				
+				</div>
+				
+				<div class="col-sm-6 mg-t-20 mg-sm-t-0">
+					<div class="bg-white card bd-0 shadow-base">
+						<div class="tx-14 pd-l-20 ht-40 bd-b d-flex justify-content-between align-items-center">
+							<span>我的视频</span> 
+							<button class="btn btn-success btn-sm mg-r-15 tx-12">新建</button>
+						</div>
+						<div class="change-options bd-b pd-y-10 pd-l-15">
+							<div class="rounded d-flex align-items-center">				                    
+					    		<ul class="nav nav-pills flex-column flex-md-row  rounded column-charts" role="tablist">
+					    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">全部233</a></li>	
+			              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0" data-toggle="tab" href="#" role="tab" aria-expanded="false">草稿</a></li>
+			              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-20 pd-y-0 " data-toggle="tab" href="#" role="tab" aria-expanded="true">已发</a></li>					              					             
+			            		</ul>
+							</div>
+						</div>
+						<div class="table-box">
+							<table class="table  table-valign-middle mg-b-0">
+								<thead>
+									<tr>
+										<th class="wd-title pd-l-10">标题</th>
+										<th class="point-th wd-100">节点</th>
+										<th class="wd-60">状态</th>
+										<th class="wd-160">创建时间</th>
+										<th class="wd-80">操作</th>									
+									</tr>
+								</thead>
+								<tbody>	
+								<tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-warning">草稿</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-success">已发</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>
+				                <tr>
+				                    <td class="pd-l-5 wd-title">基础部教师赴古蔺县乡村小学调研学习基础部教师赴古蔺县乡村小学调研学习</td>
+				                    <td>
+									<span class="tx-12">系统管理员</span>
+				                    </td>
+				                    <td class="tx-warning">草稿</td>
+				                    <td>2019-06-13 15:22:54</td>
+				                    <td><button class="btn btn-success btn-sm mg-r-8 tx-12">查看</button></td>
+				                </tr>										
+								 </tbody>
+				             </table>										
+						
+						</div>
+							
+					</div>					
+				</div>
+				<!-- col-3 -->					
+			</div>
+			<!-- row -->
+		</div>
+		
+	</div>
+	<!-- br-mainpanel -->
+	<!-- ########## END: MAIN PANEL ########## -->
+	
+
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+
+<script src="../../common/2018/TideDialog2018.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+<script>
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+})	
+
+
+	//管理工具+号弹窗
+	$(".add-li").click(function(){
+		var url = "管理工具弹窗.html";
+    	var	dialog = new TideDialog();
+			dialog.setWidth(750);
+			dialog.setHeight(600);
+			dialog.setUrl(url);
+			dialog.setTitle('自定义工具显示');
+			//dialog.setChannelName('资源栏目');
+			dialog.show();
+	})
+</script>
+</body>
+
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>TideCMS</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/sidebar-menu-template.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<style>
+	html,body{height:100%;}
+	.sidebar-menu li .treeview-menu.menu-open {display: block;}
+	.br-subleft{position: static !important;height: 100%;border: 1px solid #e9ecef;width: 360px;border-top: none; }
+	.right-box{flex: 1;}
+	.btn-box{position: absolute;bottom: 0;width: 100%;}
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../common/2018/common2018.js"></script>
+
+<script>  
+var dir = "";
+
+var itemid = "396";
+function next()
+{
+	var channelid = "";
+	jQuery("#leftTd input:checked").each(function(i){
+		if(i==0)
+			channelid+=jQuery(this).val();
+		else
+			channelid+=","+jQuery(this).val();
+	});
+
+	if (channelid!=""){
+		
+		if(itemid.indexOf(",")!=-1 || channelid.indexOf(",")!=-1){
+			var IsApprove = "0";
+			if($("#IsApprove").attr("checked")) IsApprove = "1";
+			var url = "out_submit_items.jsp?ChannelID=" + channelid +"&RecommendChannelID="+15894+"&RecommendItemID="+itemid;
+			url += "&IsApprove="+IsApprove;
+			//alert(url);return;
+			document.location = url;
+		}else{
+			var url="../content/document.jsp?ItemID=0&ChannelID=" + channelid+ "&ROutTarget=&ROutChannelID="+15894+"&ROutItemID="+itemid;
+			window.open(url);
+			top.TideDialogClose('');
+		}
+		
+	}else{
+		alert("请选择频道.");
+		//list();
+		return false;
+	}
+	$("#submitButton").attr("disabled",true);
+}
+
+</script>
+</head>
+<body class="collapsed-menu email">
+	<div class="bg-white modal-box">
+		<div class="modal-body modal-body-btn pd-0-force overflow-y-auto">
+			<div class="d-flex ht-100p-force justify-content-between">
+				<div class="br-subleft br-subleft-file" id="leftTd">
+					<div class="sidebar-menu-box ht-100p-force overflow-auto">
+						<ul class="sidebar-menu mg-t-0-force" hid>	  	  
+						</ul>
+					</div>
+				</div><!-- br-subleft -->
+				<div class="right-box">
+					<div class=" mg-t-5 lh-30px mg-x-20 tx-black"><b>类型</b></div>
+					<div class="row ckbox-row mg-x-20-force">                  		  	  	   		  	  		  
+		              <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>网站</span>
+			          </label>
+			          <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>APP</span>
+			          </label>
+			          <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>两微</span>
+			          </label>
+			          <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>三方媒体</span>
+			          </label>
+			          <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>电视端</span>
+			          </label>
+			          <label class="rdiobox mg-r-20 " >
+			              <input name="rdio" type="radio" ><span>其他</span>
+			          </label>
+			            
+       		  	  	</div> 
+       		  	  	
+       		  	  	<div class=" mg-t-5 lh-30px mg-l-20 tx-black"><b>对应关系</b></div>
+       		  	  	<div class="mg-x-20">
+       		  	  		<textarea rows="6" class="form-control textBox" placeholder=""></textarea>
+       		  	  		<label class="d-flex align-items-center tx-gray-800 tx-12">
+							<i class="icon ion-information-circled tx-16 tx-gray-900 mg-r-5"></i>对应关系如不填写则推荐系统默认字段。
+						</label>
+       		  	  	</div>
+       		  	  		
+				</div>
+			</div>
+	
+		</div><!-- modal-body -->
+	
+		<div class="btn-box">
+			<div class="modal-footer" >
+				<button name="submitButton" type="submit" class="btn btn-primary tx-size-xs"  id="submitButton" onclick="next();">确认</button>
+				<button name="btnCancel1" type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal" id="btnCancel1">取消</button>
+			</div> 
+		</div>	
+	</div>
+	<script src="../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../lib/2018/moment/moment.js"></script>
+	<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	<script src="../../lib/2018/peity/jquery.peity.js"></script>
+	<script src="../../lib/2018/select2/js/select2.min.js"></script>
+	<script src="../../common/2018/bracket.js"></script>
+	<script src="../../common/2018/sidebar-menu-channel.js"></script>
+
+	<script>
+        $(function(){
+			$('.br-mailbox-list,.br-subleft').perfectScrollbar();	
+			            
+			var menu = $('.sidebar-menu');
+			var json = [{"name":"栏目管理","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15894,"type":0,"child":[{"path":"../channel/channel_xml.jsp?id=15895","load":1,"name":"首页","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15895,"type":1},{"path":"../channel/channel_xml.jsp?id=15904","load":1,"name":"视听","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15904,"type":1},{"path":"","load":0,"name":"报料","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":21821,"type":1},{"path":"../channel/channel_xml.jsp?id=21822","load":1,"name":"直播","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":21822,"type":1},{"path":"../channel/channel_xml.jsp?id=15907","load":1,"name":"圈子","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15907,"type":1},{"path":"../channel/channel_xml.jsp?id=16243","load":1,"name":"周边","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":16243,"type":1},{"path":"","load":0,"name":"发现","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15911,"type":1},{"path":"../channel/channel_xml.jsp?id=15913","load":1,"name":"媒体号内容管理","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15913,"type":1},{"path":"../channel/channel_xml.jsp?id=15995","load":1,"name":"专题","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15995,"type":1},{"path":"../channel/channel_xml.jsp?id=16244","load":1,"name":"活动","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":16244,"type":1},{"path":"","load":0,"name":"爆料1","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":22617,"type":1},{"path":"","load":0,"name":"精品推荐内容管理","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":24137,"type":1}]},{"name":"按钮内容","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15922,"type":0,"child":[{"path":"","load":0,"name":"资讯","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15923,"type":1},{"path":"","load":0,"name":"媒体","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15924,"type":1},{"path":"../channel/channel_xml.jsp?id=15925","load":1,"name":"服务","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15925,"type":1},{"path":"../channel/channel_xml.jsp?id=15972","load":1,"name":"按钮图标库","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15972,"type":1},{"path":"../channel/channel_xml.jsp?id=15993","load":1,"name":"专题按钮","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15993,"type":1},{"path":"","load":0,"name":"首页按钮","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":16031,"type":1},{"path":"","load":0,"name":"shipin","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":16275,"type":1},{"path":"","load":0,"name":"普通频道","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":17737,"type":1}]},{"name":"网站管理","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15933,"type":0,"child":[{"path":"","load":0,"name":"首页","icon":",'','../images/tree/16_page_icon.png'","id":15934,"type":2},{"path":"","load":0,"name":"轮播图","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15935,"type":1},{"path":"../channel/channel_xml.jsp?id=15936","load":1,"name":"首页新闻","icon":",'','../images/tree/16_channel_class_icon.png','../images/tree/16_openchannel_class_icon.png'","id":15936,"type":1},{"path":"","load":0,"name":"底部栏","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15940,"type":0},{"path":"","load":0,"name":"通栏广告","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15941,"type":0},{"path":"","load":0,"name":"底部栏文字","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15942,"type":0},{"path":"","load":0,"name":"测试","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":16834,"type":0},{"path":"","load":0,"name":"一键换肤","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":18957,"type":0}]},{"name":"信息推送","icon":",'','../images/tree/16_channel_icon.png','../images/tree/16_openchannel_icon.png'","id":15943,"type":0,"child":[]}];
+
+			var html = '<li class="treeview"><a href="#" load="0" channelId="0"><i class="fa fisrtNav fa-home" have="1"></i> <span>推荐</span></a><ul class="treeview-menu" style="display: block;">';
+
+			for(var i=0;i<json.length;i++){
+
+				html += '<li><a href="#" load="'+json[i].load+'" channelId="'+json[i].id+'">'
+				if(json[i].load==1||(json[i].child && json[i].child.length>0)){
+					html += '<i class="fa fa-angle-double-right op-5" hava="1"></i>' 
+				}else{
+					html += '<i class="fa fa-angle-right op-5" hava="0"></i>' 
+				} 
+				html +='<label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="'+json[i].id+'"><span style="padding:0"></span></label><span>'+json[i].name+'</span></a>';
+
+				if(json[i].child && json[i].child.length>0){
+					html += '<ul class="treeview-menu" style="display: none;">' + get_menu_html(json[i]) + '</ul>';
+				}
+				html += '</li>';
+			}
+
+			html += '</ul></li>';
+
+			menu.append(html);
+
+			//多级导航自定义
+			$.sidebarMenu(menu);
+			backToOriginal(json);  //频道记忆
+		});
+
+		function get_menu_html(json)
+		{
+			var html = "";
+			if(json.child && json.child.length>0)
+			{
+				var json_ = json.child;
+				for(var i=0;i<json_.length;i++){
+					html += '<li><a href="#" load="'+json_[i].load+'" channelId="'+json_[i].id+'">'
+					if(json_[i].load==1||(json_[i].child && json_[i].child.length>0)){
+						html += '<i class="fa fa-angle-double-right op-5" hava="1"></i>' 
+					}else{
+						html += '<i class="fa fa-angle-right op-5" hava="0"></i>' 
+					} 
+					html +='<label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="'+json_[i].id+'"><span style="padding:0"></span></label><span>'+json_[i].name+'</span></a>';
+
+					if(json_[i].child && json_[i].child.length>0){
+						html += '<ul class="treeview-menu" style="display: none;">' + get_menu_html(json_[i]) + '</ul>';
+					}
+					html += '</li>';
+				}
+			}
+			return html;
+		 }
+
+		 function setChannelCookie(_id){
+			$.ajax({
+				type:"GET",
+				url:"../../channel/getChannelPath.jsp?ChannelID="+_id,
+				success: function(data){
+					tidecms.setCookie("recommend_channel_path",data.trim());
+				}
+			});		
+		}
+		//返回最后一级导航
+		function backToOne(ids){
+		
+			var current = ids ? ids:_activeChannelid
+			if(current){
+				var currentChannel  =  $(".sidebar-menu a[channelid='"+current+"']") ;
+				$(".sidebar-menu li").removeClass("active");
+				currentChannel.parent("li").addClass("active");
+			}			
+		}
+		//返回二三四级导航
+		function backToOuter(){
+			channelStart ++ ;
+			if(channelStart == channel_id_array.length-1){		    	
+				backToOne(channel_id_array[channel_id_array.length-1]);
+				return ;
+			}
+			backToInner(channel_id_array[channelStart])
+		}		
+		//二三四级导航
+		function backToInner(_id){	
+			var url="../../lib/channel_json.jsp?ChannelID="+_id;
+			var $this = $(".sidebar-menu a[channelid='"+_id+"']")			
+			var checkElement = $this.next();
+			var load = $this.attr("load");
+			if(load==1) 
+			{
+				$.ajax({
+					type:"GET",
+					dataType:"json",
+					url:url,			
+					success: function(json){
+						var html = '<ul class="treeview-menu" style="display: none;">';
+			
+						for(var i=0;i<json.length;i++){
+							if(json[i].child && json[i].child.length>0)
+							{
+								html += '<li class="treeview">';
+							}
+							else
+							{
+								html += '<li>';
+							}
+							html += '<a href="javascript:;" load="'+json[i].load+'" channelid="'+json[i].id+'" channeltype="'+json[i].type+'">';
+		
+							if(json[i].load==1||(json[i].child && json[i].child.length>0)){
+								if(json[i].type==0){
+									html += '<i class="fa fa-angle-double-right" hava="1"></i>';
+								}else{
+									html += '<i class="fa fa-angle-double-right op-5" hava="1"></i>';
+								}
+								
+							}else{
+								
+								if(json[i].type==0){
+									html += '<i class="fa fa-angle-right" hava="0"></i>';
+								}else{
+									html += '<i class="fa fa-angle-right op-5" hava="0"></i>';
+								}
+							}
+							html += '<label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="'+json[i].id+'"><span style="padding:0"></span></label><span>'+json[i].name+'</span></a>';
+		
+							if(json[i].child && json[i].child.length>0)
+							{
+								html += '<ul class="treeview-menu" style="display: none;">' + get_menu_html(json[i]) + '</ul>';
+							}
+							html += '</li>';
+						}
+						html += '</ul>';
+						$this.nextAll().remove();
+						$this.after($(html));
+						$this.attr("load",0);//加载完毕改变load属性
+						checkElement = $this.next();
+						sidebarMenu_show_back(checkElement,$this,backToOuter);
+					}
+				});	
+			}
+			else
+			{
+				sidebarMenu_show_back(checkElement,$this,backToOuter);
+			}
+		}
+		var _activeChannelid = 0 ;  //记忆的频道号
+		var channelStart = 0 ; //起始频道id
+		var channel_id_array = null ;  
+		function backToOriginal(arr){
+			var channel_path = getCookie("recommend_channel_path");
+			if(channel_path){
+				
+				channel_id_array = channel_path.split(",");
+				//判断记忆频道其实
+				var n = -1 ;
+				for(var i=0;i<arr.length;i++){
+					var channelStart_id = arr[i].id+"";
+					n = channel_id_array.indexOf(channelStart_id);
+					if(n!=-1){break;}
+				}
+				channel_id_array = channel_id_array.slice(n);
+				
+				
+			}else{
+				return ;
+			}
+
+			if(channel_id_array.length==1){  //站点
+				var $this = $(".sidebar-menu a[channelid='"+channel_id_array[0]+"']") ;
+				$(".sidebar-menu li").removeClass("active");
+				$this.parent("li").addClass("active");
+			}else if(channel_id_array.length==2){    //站点下一级导航 
+				var $this = $(".sidebar-menu a[channelid='"+channel_id_array[0]+"']") ;
+				_activeChannelid = channel_id_array[1] ;
+				var checkElement = $this.next() ;			   
+				sidebarMenu_show_back(checkElement,$this,backToOne)
+			}else if(channel_id_array.length>2){   //二三四级导航
+				var $this = $(".sidebar-menu a[channelid='"+channel_id_array[0]+"']") ;
+				var checkElement = $this.next() ;			    
+				sidebarMenu_show_back(checkElement,$this,backToOuter)
+			}		    
+		}
+//========================================================================
+		$.sidebarMenu = function(menu) {
+			var animationSpeed = 300;
+		  
+			$(menu).on('click', 'li a', function(e) {
+				var $this = $(this);
+				var checkElement = $this.next();
+
+				var load = $this.attr("load");
+				var channelid = $this.attr("channelid");
+				setChannelCookie(channelid);
+				if(load==1) 
+				{		
+					var url="../../lib/channel_json.jsp?ChannelID="+channelid;
+					$.ajax({
+						type:"GET",
+						dataType:"json",
+						url:url,
+						success: function(json){
+						var html = '<ul class="treeview-menu" style="display: none;">';
+
+						for(var i=0;i<json.length;i++){
+							if(json[i].child && json[i].child.length>0)
+							{
+								html += '<li class="treeview">';
+							}
+							else
+							{
+								html += '<li>';
+							}
+							html += '<a href="#" load="'+json[i].load+'" channelid="'+json[i].id+'">';
+
+							if(json[i].load==1||(json[i].child && json[i].child.length>0)){
+								html += '<i class="fa fa-angle-double-right op-5" hava="1"></i>' 
+							}else{
+								html += '<i class="fa fa-angle-right op-5" hava="0"></i>' 
+							}
+							html += '<label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="'+json[i].id+'"><span style="padding:0"></span></label><span>'+json[i].name+'</span></a>';
+
+							if(json[i].child && json[i].child.length>0)
+							{
+								html += '<ul class="treeview-menu" style="display: none;">' + get_menu_html(json[i]) + '</ul>';
+							}
+							html += '</li>';
+						}
+						html += '</ul>';
+						$(".nav-loading").remove();
+						$this.nextAll().remove();
+						$this.after($(html));
+						$this.attr("load",0);//加载完毕改变load属性
+						checkElement = $this.next();
+						sidebarMenu_show(checkElement,animationSpeed,$this);
+					}});
+				
+				}
+				else
+				{
+					sidebarMenu_show(checkElement,animationSpeed,$this);
+				}
+				
+			});
+		}	
+	</script>
+
+
+</body>
+</html>

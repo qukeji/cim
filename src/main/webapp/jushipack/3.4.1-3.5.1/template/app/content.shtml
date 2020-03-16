@@ -1,0 +1,174 @@
+#if($item.getValue("doc_type")==8 )
+[
+{"title":"$util.JSONQuote($item.getTitle())","photo":"$item.getValue('Photo')","time":"$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate())","autor":"$item.getValue("autor")","videourl":"#if($item.getValue("videourl").startsWith("http")==true)$item.getValue("videourl")#else$item.getChannel().getSite().getUrl()$item.getValue("videourl")#end","summary":"$util.JSONQuote($item.getValue("Summary"))","GlobalID":"$item.getGlobalID()","wapurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#elseif($item.getValue("doc_type")==1)"$item.getFullHref('video')"#elseif($item.getValue("doc_type")==8)"$item.getFullHref('live')"#else"$item.getFullHref()"#end,"juxian_companyid":"$item.getValue("juxian_companyid")","audio":"$item.getValue("isAudio")","td_liveid":"$item.getValue("td_liveid")"}
+]
+#elseif($item.getValue("doc_type")==1 )
+[
+{"title":"$util.JSONQuote($item.getTitle())","photo":"$item.getValue('Photo')","time":"$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate())","autor":"$item.getValue("autor")","videourl":"#if($item.getValue("videourl")!="")#if($item.getValue("videourl").startsWith("http")==true)$item.getValue("videourl")#else$item.getChannel().getSite().getUrl()$item.getValue("videourl")#end#else#foreach($item2 in $item.getItemUtil().listChildItems($item.getIntValue("videoid"),4," limit 1"))$item2.getValue("Url")#end#end","summary":"$util.JSONQuote($item.getValue("Summary"))","GlobalID":"$item.getGlobalID()","wapurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#elseif($item.getValue("doc_type")==1)"$item.getFullHref('video')"#elseif($item.getValue("doc_type")==8)"$item.getFullHref('live')"#else"$item.getFullHref()"#end,"juxian_companyid":"$item.getValue("juxian_companyid")","audio":"$item.getValue("isAudio")","td_liveid":"$item.getValue("td_liveid")"}
+]
+#else
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>$item.getTitle()</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+<script src="/js/flexible_css.js"></script>
+<script src="/js/flexible.js"></script>
+<link href="/css/content.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/videoPlayer.js"></script>
+<script> 
+	var GlobalID = $item.getGlobalID();
+	var channelid = $channel.getId() ;
+	var siteId = $item.getChannel().getSiteID(); 
+	var companyid = $item.getValue("juxian_companyid");
+	var allowadvert = $item.getValue("allowadvert");
+</script>
+<script type="text/javascript" src="/js/history.js"></script>
+<script> 
+	var _size = getUrl("font") ;
+	setFontSize(_size) ;
+</script>
+
+</head>
+
+
+<body>
+
+<input type="hidden" id="news_keywords" value="$item.getValue("Keyword")">
+<h2>$item.getTitle()</h2>
+<div class="data">发布日期：$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate())</div>
+
+<!-- 企业信息展示-->
+<div class="company-box">
+	<div class="company-info">
+		<div class="info-l">
+			<div class="company-img-box">
+				<img class="company-logo" src="" />
+			</div>
+			<div class="company-text">
+				<p class="company-name"></p>
+				<span class="concern-num"><i> </i>粉丝</span>
+			</div>
+		</div>
+		<div class="info-r">
+			<a href="javascript:;" class="info-btn notyet"></a>
+		</div>			
+	</div>
+</div>
+
+<div class="content">
+   <div class="conmm">
+      $item.getContent()
+    </div>
+</div>
+<!-- 评论区域 -->
+<!-- 关键词-->
+<div class="keywords-box" style="display:none;">
+   <div class="keywords-content" style="">
+     <!-- <a class="key-btn" href="javascript:;" onclick="searchKeyWords(this);">热点热点</a> -->
+   </div>
+</div>
+<script type="text/javascript">
+
+var res = {"title":"$util.JSQuote($item.getTitle())","globalid":"$item.getGlobalID()","url":"$util.JSQuote($item.getHttpHref())","image":"$util.JSQuote($item.getValue('Photo'))","summary":"$util.JSONQuote($item.getSummary())"};
+function item_info(){
+	return JSON.stringify(res);
+}
+try {
+	window.share.shareData(JSON.stringify(res));
+} catch(e) {
+}
+
+#if($item.getValue("gid")=="")
+function setImage(){
+    var imgs = document.getElementsByTagName("img");
+    for (var i=0;i<imgs.length;i++){
+        if(imgs[i].className!="imgs"){
+        	var src = imgs[i].src;
+        	var find = false;
+	        var element = imgs[i];  
+	        while(element.parentNode) {
+	            if(element.tagName.toUpperCase() == 'A') {
+	                find = true;
+	                break;
+	            }
+	            element = element.parentNode;
+	        }
+	        if (!find) {
+	            imgs[i].setAttribute("onClick","imageClick(src)");
+	        }
+        }  
+    }
+}
+
+function imageClick(imagesrc){
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        var url="imageclick://?url="+imagesrc;
+        document.location.href = url;
+    } else {
+        window.onImageClick.getImageUrl(imagesrc);
+    }
+}
+setImage();
+#end
+/*后加*/
+
+//获得关键词
+getKeyWords();
+function getKeyWords(){
+	var keywords = $("#news_keywords").val();
+	if(!keywords){
+		return ;
+	}
+	var wordsArr = keywords.split(",");
+	var btnHtml = "" ;
+	if(wordsArr.length>=3){
+		for (var i=0;i<3;i++) {
+			btnHtml += '<a class="key-btn" href="javascript:;" onclick="searchKeyWords(this)">'+wordsArr[i]+'</a>'
+		}
+	}else{
+		for (var i=0;i<wordsArr.length;i++) {
+			btnHtml += '<a class="key-btn" href="javascript:;" onclick="searchKeyWords(this)">'+wordsArr[i]+'</a>'
+		}
+	}
+	$(".keywords-box").show();
+    $(".keywords-box .keywords-content").html(btnHtml);
+    
+}
+//客户端方法，搜索关键词
+function searchKeyWords(_this){
+	var keyword = $(_this).text();
+	console.log(keyword)
+	if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
+        window.location.href='tidekeyword://tide?keyword='+keyword;
+    }  else {
+        event.preventDefault(); 
+        window.tidejsinterface.keyword(keyword);
+    }
+}
+
+
+function getImageUrls() {
+    var imgs = document.getElementsByTagName("img");
+	var imgSrcs = [];
+    for (var i = 0; i < imgs.length; i++) {
+    	if(imgs[i].className!="imgs"){
+	    	if (parseInt(imgs[i].getAttribute("data-show")) == 1) {
+	    		imgSrcs.push(imgs[i].src);
+	    	}  
+    	}
+    }
+    return JSON.stringify(imgSrcs);   
+}
+
+try {
+	window.image.setSource(getImageUrls());
+} catch(e) {
+}
+
+</script>
+</body>
+</html>
+#end

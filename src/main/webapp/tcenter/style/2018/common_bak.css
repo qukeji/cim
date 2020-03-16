@@ -1,0 +1,182 @@
+.menu-item-label_self{
+	white-space: nowrap;
+    margin-left: 10px;
+    margin-right: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+/*html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	min-height: 768px;
+}*/
+/*副标题*/
+.js-sub-title-box{
+	background: #dee2e6;
+}
+.js-sub-title span i{
+	font-style: normal;
+}
+/*个人信息*/
+.br-header-right .dropdown .dropdown-menu{
+	min-width: 8rem;
+}
+/*内容管理  列表页*/
+.br-mainpanel .js-source-row{
+	width: 100%;
+	margin: 0 !important;
+	float: left;
+}
+.br-mainpanel .js-source-time{
+	flex: 0 0 240px;
+}
+.js-source-row label{
+	padding:0px;
+	margin-right: 5px;
+	line-height:40px;
+	margin-bottom: 0;
+}
+.js-source-row .form-control{
+	
+}
+.js-source-keywords{
+
+	flex: 0 0 200px;
+}
+.js-source-author{
+	
+	flex: 0 0 120px;
+}
+/*.js-source-author {
+	
+	flex: 0 0 66px;
+}*/
+
+.new-file-dropdown{
+	
+}
+.new-file-dropdown a.nav-link{
+	/*width: 140px;*/
+	height: 40px;
+	line-height: 40px;
+	background: #0866C6;
+	padding: 0 5px;
+	min-width: 110px;
+	color: #fff;
+	font-size: 14px;
+}
+.new-file-dropdown a.nav-link i{
+	margin: 5px;
+}
+#js-source .dropdown-menu-header{
+	padding: 10px 10px;
+	top: 43px !important;
+}
+#js-source-table{
+	table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+	
+#js-source-table .js-title-box{
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: flex-start;
+} 
+.js-text-icon{
+	padding: 2px 5px;
+	border-radius: 3px;
+	
+}
+#js-source-table p{
+	margin: 0;
+	padding: 0;
+}
+#js-source-table th,
+#js-source-table td{
+	vertical-align: middle;
+}
+
+#js-source-table .js-text{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items:  flex-start;
+	min-height: 80px;
+}
+#js-source-table .js-img-box{
+	margin-right: 15px;	
+	width: 160px;
+	height: 90px;
+	/*max-height: 90px;
+	min-width: 90px;*/
+}
+#js-source-table .js-img-box img{
+	/*max-width: 100%;
+	min-height: 100%;*/
+	height: 100%;
+	width: 100%;
+}
+#js-source-table .js-text-icon{
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+#js-source-table .js-text-top{
+	white-space: normal;
+}
+#js-source-table .js-text-top .js-text-title{
+	color: #636363;
+	line-height: 23px;
+}
+#js-source-table .js-text-top span{
+	margin-right: 5px;
+}
+#js-source-table .js-text-stick{
+	border-color: #ff000f;
+	color: #ff000f;
+}
+#js-source-table .js-text-image{
+	border-color: #0866C6;
+	color: #0866C6;
+}
+
+#js-source-table .js-text-down span{
+	margin-right: 10px;
+	/*color: #999999;*/
+}
+#js-source-table .js-text-down span i{
+	margin-right: 4px;
+	/*color: #999999;*/
+}
+.dropdown .dropdown-menu{
+	min-width: 8rem;
+}
+.dropdown .dropdown-menu .list-unstyled li{
+	font-size: 12px;
+	line-height: 20px;
+	white-space: nowrap;
+}
+.dropdown .dropdown-menu .list-unstyled li a{
+	padding: 3px 5px;
+}
+/*#js-source-table td .dropdown .list-unstyled li{
+	font-size: 12px;
+	line-height: 20px;
+}
+#js-source-table td .dropdown .list-unstyled li a{
+	padding: 2px 5px;
+}*/
+#js-source-table .dropdown .dropdown-menu{
+	min-width: 60px;
+	height: 1;
+		
+}
+#js-source-table .dropdown{
+	display: none;
+}
+
+

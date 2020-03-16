@@ -1,0 +1,71 @@
+ul,li{list-style:none}
+.usual-tool-box ul{display:flex;flex-direction:row;flex-wrap:wrap}
+.usual-tool-box ul li{width:72px;height:72px;font-size:12px;transition:ease-in-out 0.3s;list-style:none;margin-right:10px;margin-bottom:10px}
+.usual-tool-box ul li .fa{font-size:28px}
+.usual-tool-box ul li a{width:72px;height:72px;display:flex;justify-content:center;align-items:center;flex-direction:column;border-radius:5px;font-size:12px;color:#fff;background-color:rgb(69,152,225)}
+.usual-tool-box ul li a span{margin-top:5px}
+.usual-tool-box ul .add-li a{background-color:rgba(147,147,147,0.3)}
+table{table-layout:fixed}
+table tbody tr:hover,table tbody tr:visited{background:rgb(231,244,255)}
+.table th{padding-top:10px;padding-bottom:10px;padding-left:0.2rem;padding-right:0.2rem}
+.table td{padding-top:5px;padding-bottom:5px;padding-left:0.2rem;padding-right:0.2rem;font-size:12px}
+.table tr th:nth-child(1){padding-left:0.7rem}
+.table tr td:nth-child(1){padding-left:0.7rem}
+.table td,.table th{border-top:none}
+.wd-title,.point-th{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.change-options .nav-link{border-radius:15px}
+.br-menu-link.active{background:rgb(11, 148, 213)}
+.sidebar-menu .treeview-menu>li.active>a,#blue .sidebar-menu>li.active>a{background-color:rgb(11, 148, 213)}
+.sidebar-menu .treeview-menu>li.active>a span,#blue .sidebar-menu>li.active>a span{background-color:rgb(11, 148, 213)}
+.table .td-time{font-size:10px;display:flex;flex-direction:column}
+/*线索*/
+.table .xs-title-td{padding:10px 0.5rem;display:flex;flex-direction:column}
+.xs-title-td .xs-title{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;margin-bottom:3px}
+.xs-title-td .xs-detail{display:flex;justify-content:flex-start}
+.xs-title-td .xs-detail span{margin-right:5px}
+.br-pagebody .col-sm-4-more{flex:0 0 36%;max-width:36%}
+.br-pagebody .col-sm-4-less{flex:0 0 28%;max-width:28%}
+/*导航*/
+.workstate-nav{padding:8px 0px}
+.workstate-nav ul{display:flex;flex-direction:row;align-items:center;justify-content:center;background:rgb(231,244,255);border-radius:3px}
+.workstate-nav ul li{margin:0 10px;padding:8px 0;color:rgb(83,83,83)}
+.workstate-nav ul li a{color:rgb(83,83,83);font-weight: 600;}
+.workstate-nav ul li.ac a{color:rgb(0,112,208)}
+.tx-333{color:#333333}
+.cursor-pointer{cursor:pointer}
+.charts-section{display:none}
+.row-sm>div{padding-left:5px;padding-right:5px}
+.col-sm-4 .stateitem{margin-top:15px}
+.col-sm-4 .stateitem:nth-child(1){margin-top:0}
+.workstate-top{color: #fff;}
+#stateitem0 .workstate-top{background:#8bc34a;}
+#stateitem1 .workstate-top{background:rgb(219, 159, 0);}
+#stateitem2 .workstate-top{background:rgb(164, 47, 140);}
+#stateitem3 .workstate-top{background:rgb(3, 178, 151);}
+#stateitem4 .workstate-top{background:rgb(63, 81, 181);}
+#xiansuo .workstate-top{background:rgb(220, 53, 69);}
+.table-box{padding-bottom: 15px;}
+.data-detail{font-size: 18px;}
+.itemPie{height: 150px;}
+.pieDonut{height: 150px ;}
+.charts-box{max-width: 270px;flex: 0 0 270px;}
+
+.radius-l-t-5{border-top-left-radius:5px;border-top-right-radius:5px}
+.radius-l-t-8{border-top-left-radius:8px;border-top-right-radius:8px}
+.active-show-i{color:#ddd}
+.tooltip-inner{padding:8px 15px;font-size:13px;border-radius:3px;color:#ffffff;background-color:rgb(0,112,208);opacity:1}
+.tooltip.bs-tooltip-top .arrow::before,.tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before{border-top-color:rgb(0,112,208)}
+@media only screen and (max-width:1366px){
+	.nav-pills .nav-item{margin-bottom:10px;}
+}
+@media only screen and (max-width:640px){
+	.table-box{width:100%;overflow-x:auto}
+	table{width:640px}
+	.wd-title{width:150px}
+	.br-mainpanel>.pd-media{padding:20px 10px !important}
+	.br-pagebody{padding-left:10px !important;padding-right:10px !important}
+	.nav-pills{flex-direction:row !important}
+	.nav-pills .nav-item{margin-bottom:10px}
+	.email .with-first-nav{margin-left:0 !important}
+	.br-pagebody .col-sm-4-more,.br-pagebody .col-sm-4-less{flex:0 0 100%;max-width:100%}
+}

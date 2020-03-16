@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>$item.getTitle()</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+<script src="/js/flexible_css.js"></script>
+<script src="/js/flexible.js"></script>
+<link href="/css/content.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/videoPlayer.js"></script>
+<script> 
+	var GlobalID = $item.getGlobalID();
+	var channelid = $channel.getId() ;
+	var siteId = $item.getChannel().getSiteID(); 
+	var companyid = $item.getValue("juxian_companyid");
+	var allowadvert = $item.getValue("allowadvert");
+	var baoliaostatus = $item.getValue("baoliaostatus");
+	var baoliao_userid = $item.getValue("baoliao_userid");
+	var baoliao_localtion = "$item.getValue("baoliao_localtion")";
+</script>
+
+<script> 
+	//var _size = getUrl("font") ;
+	//setFontSize(_size) ;
+</script>
+<script type="text/javascript" src="/js/history.js"></script>
+<script type="text/javascript" src="/js/baoliao.js"></script>
+</head>
+
+
+<body>
+
+<input type="hidden" id="news_keywords" value="$item.getValue("Keyword")">
+ <!--<h2>$item.getTitle()</h2>
+ <div class="data">发布日期：$item.FormatDate("yyyy年MM月dd日",$item.getPublishDate())</div>-->
+
+<div class="content">
+    
+   <div class="conmm">
+      <p>$item.getSummary()</p>
+      $item.getContent()
+      #if($item.getValue("videoid")!=""&&$item.getValue("videoid")!=0)
+        #foreach($item2 in $item.getItemUtil().listChildItems($item.getIntValue("videoid"),4," limit 1"))
+        #set($video_dest=$item2.getValue("Url"))
+        <div class="player">
+            <script>tide_player.showPlayer({video:"$video_dest",cover:"$item.getValue("Photo")",autoplay:"true",width:"100%",height:"100%"});</script>
+        </div>
+        #end
+        #elseif($item.getValue("videourl")!="")
+        <div class="player">
+            <script>tide_player.showPlayer({video:"$item.getValue("videourl")",cover:"$item.getValue("Photo")",autoplay:"true",width:"100%",height:"100%"});</script>
+        </div>
+        #end
+    </div>
+</div>
+<!-- 评论区域 -->
+
+<script type="text/javascript">
+var baoliaoUrl  = "$channel.getFullPath()$item.getId()"+".shtml" ;
+var res = {"title":"$util.JSQuote($item.getTitle())","globalid":"$item.getGlobalID()","url":baoliaoUrl,"image":"$util.JSQuote($item.getValue('Photo'))","summary":"$util.JSONQuote($item.getSummary())"};
+function item_info(){
+	return JSON.stringify(res);
+}
+try {
+	window.share.shareData(JSON.stringify(res));
+} catch(e) {
+}
+
+#if($item.getValue("gid")=="")
+function setImage(){
+    var imgs = document.getElementsByTagName("img");
+    for (var i=0;i<imgs.length;i++){
+        if(imgs[i].className!="imgs"){
+        	var src = imgs[i].src;
+        	var find = false;
+	        var element = imgs[i];  
+	        while(element.parentNode) {
+	            if(element.tagName.toUpperCase() == 'A') {
+	                find = true;
+	                break;
+	            }
+	            element = element.parentNode;
+	        }
+	        if (!find) {
+	            imgs[i].setAttribute("onClick","imageClick(src)");
+	        }
+        }  
+    }
+}
+
+function imageClick(imagesrc){
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        var url="imageclick://?url="+imagesrc;
+        document.location.href = url;
+    } else {
+        window.onImageClick.getImageUrl(imagesrc);
+    }
+}
+setImage();
+#end
+/*后加*/
+
+function getImageUrls() {
+    var imgs = document.getElementsByTagName("img");
+	var imgSrcs = [];
+    for (var i = 0; i < imgs.length; i++) {
+    	if(imgs[i].className!="imgs"){
+	    	if (parseInt(imgs[i].getAttribute("data-show")) == 1) {
+	    		imgSrcs.push(imgs[i].src);
+	    	}  
+    	}
+    }
+    return JSON.stringify(imgSrcs);   
+}
+
+try {
+	window.image.setSource(getImageUrls());
+} catch(e) {
+}
+
+</script>
+</body>
+</html>

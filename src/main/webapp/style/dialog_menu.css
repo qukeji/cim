@@ -1,0 +1,42 @@
+/* ------------------------------
+css for TideCms 7
+design by ZhangLiang & uusalon@gmail.com
+date 2009-06-22
+---------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#ffffff;text-decoration:none;hide-focus:expression(this.hideFocus=true);}
+a:hover{text-decoration:none;color:#096ed5;}
+body{font-size:12px;background:none;}
+html,body{height:100%;overflow:hidden;}
+html{*padding:29px 0 0;}
+
+.dialog_menu_top,.dialog_menu_bottom{height:14px;overflow:hidden;background:url(../images/bg_top.png) repeat-x;}
+.dialog_menu_top .left,.dialog_menu_bottom .left{float:left;}
+.dialog_menu_top .left,.dialog_menu_bottom .left{background:url(../images/top_l.png) no-repeat;width:14px;height:14px;}
+.dialog_menu_top .right,.dialog_menu_bottom .right{float:right;background:url(../images/top_r.png) no-repeat;width:14px;height:14px;}
+.dialog_menu_bottom{background:url(../images/bg_bot.png) repeat-x;}
+.dialog_menu_bottom .left{background:url(../images/bot_l.png) no-repeat;}
+.dialog_menu_bottom .right{background:url(../images/bot_r.png) no-repeat;}
+
+.dialog_menu_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;padding:0 0 0 6px;}/* Edit 2009.06.19 by zhangliang */
+.dialog_menu_main iframe{height:100%;width:100%;}/* Edit 2009.06.19 by zhangliang */
+.dialog_menu_main a{color:#000000;font-size:12px;}/* Edit 2009.06.19 by zhangliang */
+.dialog_menu_main img{vertical-align:middle;}/* Edit 2009.06.19 by zhangliang */
+.menu-tree{height:24px;line-height:24px;}
+.menu-tree-con{padding:0 0 5px 0;}
+.menu-tree-con .lists{padding:1px 0 0 17px;}
+.menu-tree-con .lists a{padding-left:4px;}
+
+/* Add 2009.06.19 by zhangliang */
+.dialog_menu_top{position:absolute;left:0;top:0;right:0;height:14px;z-index:2;}
+.dialog_menu_main{position:absolute;left:0;top:14px;bottom:14px;right:0px;overflow:auto;}
+.dialog_menu_bottom{position:absolute;left:0;bottom:0;right:0;}
+/* ie7 */
+.dialog_menu_top{*height:14px;*margin-top:-29px;*margin-bottom:0px;*position:relative;*top:0;*right:0;*bottom:0;*left:0;}
+.dialog_menu_main{*height:100%;*position:relative;*top:0;*right:0;*bottom:0;*left:0;}
+.dialog_menu_bottom{*position:relative;*top:0;*right:0;*bottom:0;*left:0;}
+/* Add 2009.06.19 by zhangliang */
+

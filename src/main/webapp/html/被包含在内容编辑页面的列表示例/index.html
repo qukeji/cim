@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 7 列表</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<style>
+body{background:none;}
+.content_t1_nav{margin:0;}
+.content{padding:0;border:none;}
+</style>
+</head>
+<body onLoad="init();">
+<div class="content_t1">
+	<div class="content_t1_nav">当前位置：图片库</div>
+    <div class="content_new_post">
+		<div class="top_button button_inline_block" onClick="addDocument();">
+			<div class="top_button_outer button_inline_block">
+				<div class="top_button_inner button_inline_block">
+					<span class="img"><img src="../images/icon/add.png" /></span>
+					<span class="txt">新建</span>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="content">
+	<div class="toolbar">
+    	<div class="toolbar_l">
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+               	<!--<li><a href="#">归档</a></li> -->
+                <li class="first"><a href="javascript:approve();">发布</a></li>
+            	<!-- <li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+				<!--<li class="list_no">复制</li>
+				<li class="list_no">移动</li>-->
+				<li><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+                <li class="last list" id="otherOperation" style="display:none;">
+                	<p>其他<img src="../images/toolbar2_list.gif" /></p>
+                    <ul id="ul1" style="display:none;">
+                    	<li onclick="deleteFile2();">撤稿</li>
+						<!--<li class="list_no">复制</li>
+						<li class="list_no">移动</li>-->
+						<li onclick="deleteFile();"><font style="color:red;">删除</font></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1" title="竖排" onClick="changeList(1);"></li>
+            <li class="b3_cur" title="竖排" onClick="changeList(2);"></li>
+        </ul>
+    </div>
+  	<div class="viewpane">
+	<!-- 图片列表开始 -->
+    	<div class="viewpane_pic_list">
+			<table width="100%" border="0" id="oTable">
+				<tbody> 
+					<tr>
+    					<td id="td_13" align="center" valign="top" class="c">
+                			<div class="pic">
+                    			<table border="0" width="100%">
+  									<tr>
+    									<td align="center" valign="middle"><img src="http://test.iweather.com.cn/pictures/e/images/2009871249618090134_268.jpg"/></td>
+						  			</tr>
+								</table>
+                    		</div>
+                    		<div class="txt">
+                    			<span class="check"><input name="id" value="13" type="checkbox"/></span>
+                        		<span class="title">qwerqwer(<font color=blue>已发</font>)</span>
+                    		</div>
+                		</td>
+                		<td id="td_14" align="center" valign="top" class="c">
+                    		<div class="pic">
+                    			<table border="0" width="100%">
+  									<tr>
+    									<td align="center" valign="middle"><img src="http://test.iweather.com.cn/pictures/e/images/2009871249618121369_268.jpg"/></td>
+						  			</tr>
+                    			</table>
+                    		</div>
+                    		<div class="txt">
+                    			<span class="check"><input name="id" value="14" type="checkbox"/></span>
+                        		<span class="title">asdfasdf(<font color=blue>已发</font>)</span>
+                    		</div>
+                		</td>
+                		<td align="center" valign="top" class="c"><div class="pic2">&nbsp;</div><div class="txt">&nbsp;</div></td>
+                		<td align="center" valign="top" class="c"><div class="pic2">&nbsp;</div><div class="txt">&nbsp;</div></td>
+                		<td align="center" valign="top" class="c"><div class="pic2">&nbsp;</div><div class="txt">&nbsp;</div></td>
+					</tr>
+				</tbody> 
+			</table>
+			<div style="position:absolute;right:0;top:120px;display:none;" id="jTipId">
+        		<ul class="toolbar2">
+               		<!--<li><a href="#">归档</a></li> -->
+                	<li class="first"><a href="javascript:approve();">发布</a></li>
+                	<!--<li><a href="javascript:Publish();">发布</a></li>-->
+                	<li><a href="javascript:Preview();">预览</a></li>
+                	<li><a href="javascript:editDocument1();">编辑</a></li>
+                	<li class="last list" id="otherOperation2">
+                		<p>其他<img src="../images/toolbar2_list.gif" /></p>
+                    	<ul id="ul1" style="display:none;">
+                    		<li onclick="deleteFile2();">撤稿</li>
+							<!--<li class="list_no">复制</li>
+							<li class="list_no">移动</li>-->
+							<li onclick="deleteFile();"><font style="color:red;">删除</font></li>
+                    	</ul>
+                	</li>
+            	</ul>
+    		</div>
+    	</div>
+<script>
+var page={id:'195',currPage:'1',querystring:'&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0',TotalPageNumber:1};
+</script>        
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll" onclick="selectAll();">全部</span><span id="selectNo" onclick="selectNo();">无</span>			</div>
+        	<div class="left">共2条 1/1页 
+			</div>
+            <div class="right">
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="rows" onChange="changeRowsCols();" id="rows">
+					<option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">行</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="cols" onChange="changeRowsCols();" id="cols">
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="16">16</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">列</div>
+            </div>
+        </div>
+	</div>
+	<div class="toolbar" style="margin:14px 0 0;">
+    	<div class="toolbar_l">
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+               	<!--<li><a href="#">归档</a></li> -->
+                <li class="first"><a href="javascript:approve();">发布</a></li>
+            	<!-- <li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+				<!--<li class="list_no">复制</li>
+				<li class="list_no">移动</li>-->
+				<li><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+                <li class="last list" id="otherOperation3" style="display:none;">
+                	<p>其他<img src="../images/toolbar2_list.gif" /></p>
+                    <ul id="ul1" style="display:none;top:-123px;">
+                    	<li onclick="deleteFile2();">撤稿</li>
+						<li onClick="sortableEnable();">排序</li>
+						<li onClick="RefreshItem();">刷新Cache</li>
+						<!--<li class="list_no">复制</li>
+						<li class="list_no">移动</li>-->
+						<li onclick="deleteFile();"><font style="color:red;">删除</font></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1" title="竖排" onClick="changeList(1);"></li>
+            <li class="b3_cur" title="竖排" onClick="changeList(2);"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

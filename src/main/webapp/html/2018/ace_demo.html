@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+    <title></title>
+    <!-- vendor css -->
+   <script src="../../lib/2018/jquery/jquery.js"></script>
+   <!--<script async="true" src="https://use.edgefonts.net/source-code-pro.js"></script>-->
+   
+   <!--<script src="../../lib/2018/ace/build/src-min/ace.js"></script>
+   <script src="../../lib/2018/ace/build/src-min/ext-language_tools.js"></script>
+   -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+    	html,body{
+    		width:100%;
+            height: 100%;           
+            margin: 0 !important;
+            padding: 0; 
+            /*overflow: hidden;*/          
+    	}
+    	#ace_editor { 
+            width:100;
+            height: 80%;
+            overflow: hidden;
+            padding: 10px;
+           margin: 0;
+	        /*position: absolute;
+	        top: 0;
+	        bottom: 0;
+	        left: 0;
+	        right: 0;*/
+        }
+        button{
+        	padding: 5px 10px;
+        	margin:10px 20px;
+        }
+    </style>
+  </head>
+ 
+  <body>
+  <button type="button" id="getContent">获取内容</button>
+  <button type="button" id="writeContent">写入内容</button>
+  <button type="button" id="getSelsectContent">获取选择的内容</button>
+  <div id="ace_editor"></div>
+ 
+  <script>
+//	ace.require("ace/ext/language_tools");
+    var editor = ace.edit("ace_editor");
+    editor.setOptions({
+    	enableBasicAutocompletion: true,
+        enableSnippets: true, //启用代码块提示
+        enableLiveAutocompletion: true
+        
+    });
+   
+    
+    editor.setFontSize(18);
+    editor.getSession().setUseWrapMode(true);   //设置代码折叠
+    //editor.resize();
+    //editor.setHighlightActiveLine(false);  //设置高亮
+    
+    editor.setTheme("ace/theme/monokai");//monokai模式是自动显示补全提示
+     
+//  editor.getSession().setMode("ace/mode/javascript");//语言
+    //editor.getSession().setMode("ace/mode/html");//语言
+    editor.getSession().setMode("ace/mode/css");//语言
+    editor.find('needle',{   //搜索
+	    backwards: false,
+	    wrap: false,
+	    caseSensitive: false,
+	    wholeWord: false,
+	    regExp: false
+	});
+	editor.findNext();
+	editor.findPrevious();
+    
+    $(function(){
+    	var html = '<head><meta charset="utf-8">'+
+    	'<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="robots" content="noindex, nofollow">'+
+		'<link rel="Shortcut Icon" href="../favicon.ico"></head>'
+    	$("#getContent").click(function(){
+    		alert( editor.getValue() )
+    	})
+    	$("#writeContent").click(function(){
+    		editor.setValue( html );
+    	})
+    	$("#getSelsectContent").click(function(){
+    		alert( editor.session.getTextRange(editor.getSelectionRange()) )
+    	})
+    })
+  </script>
+  </body>
+</html>

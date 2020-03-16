@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>内容列表</title>
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <!--<link href="../lib/highlightjs/github.css" rel="stylesheet">-->
+    <!--<link href="../../lib/2018/datatables/jquery.dataTables.css" rel="stylesheet">-->
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <style>
+    	.collapsed-menu .br-mainpanel-file{margin-left: 0;margin-top: 0;}
+    	.search-box {display: none;}
+      .border-radius-5{border-radius: 5px;}
+    </style>
+  </head>
+
+  <body class="collapsed-menu">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="js-source">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+        </nav>
+        <div class="mg-l-auto">
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force btn-search"><i class="fa fa-search mg-r-3"></i><span>检索</span></a>              
+          <a href="#" class="btn btn-info mg-r-10 pd-x-10-force pd-y-5-force "><i class="fa fa-plus mg-r-3"></i><span>新建</span></a> 
+        </div><!-- btn-group -->
+
+      </div><!-- br-pageheader -->
+      <!--搜索-->
+      <div class="search-box pd-x-20 mg-t-15">
+      	<div class="bd bg-white border-radius-5">
+      		<div class="row d-flex align-items-center mg-x-10-force">
+      			<!--标题-->
+      			<span class="tx-black vertical mg-r-5">检索：文件名</span>
+	            <div class="mg-r-10 mg-y-20 search-item">	              
+	              <input class="form-control wd-200 pd-x-5 pd-y-7-force" placeholder="" type="text" >
+	            </div>
+	            <a href="" class="btn btn-sm btn-info pd-x-10 pd-y-5">查找</a>
+	            <!--日期-->
+            
+          </div><!-- row -->
+      	</div>
+      </div>
+ 
+      <div class="br-pagebody pd-x-20 mg-t-15">
+        <div class="card bd-0 shadow-base">
+          <table class="table mg-b-0" id="content-table">
+            <thead>
+              <tr>
+                <th class="tx-12-force tx-mont tx-medium">名称</th>
+	              <th class="tx-12-force tx-mont tx-medium">文件名</th>
+	              <th class="tx-12-force tx-mont tx-medium">最后修改时间</th> 
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>              
+                <td>
+                  <i class="fa fa-file-text" aria-hidden="true"></i>
+                  <span class="pd-l-5 tx-black">Camera Uploads</span>
+                </td>                
+                <td class="">uploads.stml</td>
+                <td class="">2018-04-19 10:26 </td>               
+              </tr>            
+            </tbody>
+          </table>
+          <!--<div id="tide_content_tfoot">
+          	<label class="ckbox mg-b-0 mg-r-10 ">
+            	<input type="checkbox" id="checkAll_1"><span></span>
+          	</label> 
+          	<span class="mg-r-15 ">共666条</span>
+          	<span class="mg-r-15 ">1/16页</span>
+          	<div class="jump_page ">
+          		<span class="">跳至:</span>
+          		
+          		<label class="wd-50 mg-b-0">
+                <input class="form-control" placeholder="" type="text">
+              </label>
+          		
+		          <span class="">页</span>
+		          <a href="javascript:;" class="tx-14">Go</a>
+          	</div>
+          	<div class="each-page-num mg-l-20 ">
+          		<span class="">每页显示:</span>
+          		<select class="form-control select2 wd-80" data-placeholder="状态">
+		                      
+		            <option value="1" >10</option> 
+		            <option value="Firefox" selected="selected">20</option>
+		            <option value="Chrome">30</option>                
+		          </select>
+		          <span class="">条</span>
+          	</div>
+          </div>
+          -->
+          
+        </div>
+      </div><!-- br-pagebody -->
+      
+   
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    <script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+	<!--<script src="../lib/highlightjs/highlight.pack.js"></script>-->
+    <!--<script src="../../lib/2018/datatables/jquery.dataTables.js"></script>
+    <script src="../../lib/2018/datatables-responsive/dataTables.responsive.js"></script>-->
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    <script src="../../common/2018/bracket.js"></script>    
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+
+            } else {
+              $('body').removeClass('expand-menu');
+
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+		    $(".btn-search").click(function(){
+		    	$(".search-box").toggle(100);
+		    })
+		  
+  
+      });
+    </script>
+  </body>
+</html>

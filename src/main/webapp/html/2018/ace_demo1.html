@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+    <title></title>
+    
+     <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+       
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <!-- vendor css -->
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <style>
+    	html,body{width:100%;height: 100%;overflow: hidden;position: relative;}
+    	#ace_editor {margin: 0;position: absolute;top: 50px;bottom: 0;left: 0;right: 0;}
+        button{padding: 5px 10px;margin:10px 20px;}
+        .br-pageheader{background: #fff;}
+		.select-box{position: relative;}
+		.dropdown-menu{top: 27px;}
+		.dropdown-menu .nav-link{padding: 0.4rem 0.8rem;}
+		.dropdown-menu nav a i{margin-right: 0;width: 16px;}
+		.br-pageheader .text-box a{margin:0 5px;color: #333333;}
+		.br-pageheader .text-box a:hover{text-decoration: underline;}
+    </style>
+  </head>
+ 
+  <body>
+  	
+  	<div class="br-pageheader pd-y-10 pd-md-l-30">
+        <div class="">
+            <a href="javascript:;" class="btn btn-primary mg-r-20 pd-x-15 pd-y-5" onclick="">保存</a>
+            <a href="javascript:;" class="btn btn-primary pd-x-15 pd-y-5" onclick="">预览</a>
+        </div>
+				<div class="mg-l-30 select-box">
+					<a href="javascript:;" class="btn-fn btn btn-outline-secondary active mg-r-20 pd-x-15 pd-y-5">
+						编码
+						<i class="fa fa-caret-down mg-l-5"></i>				
+					</a>
+					<div class="dropdown-menu">
+									<nav class="nav nav-style-1 flex-column">
+										<a href="#" class="nav-link"><i class="fa fa-caret-right"></i>GB2312</a>
+										<a href="#" class="nav-link"><i class="fa fa-caret-right"></i>UTF-8</a>
+									</nav>
+							</div><!-- dropdown-menu -->
+				</div>
+				<div class="text-box">
+					<a href="javascript:;" class="">插入模块标记</a>,<a href="javascript:;">0.076</a>
+				</div>
+								
+    </div>
+  <div style="display:none;">
+  	  <button type="button" id="getContent">获取内容</button>
+	  <button type="button" id="writeContent">写入内容</button>
+	  <button type="button" id="getSelsectContent">获取选择的内容</button>
+  </div> 
+  
+  <div id="ace_editor"></div>
+  <script src="../../lib/2018/ace/build/src-min/ace.js"></script>
+  <script src="../../lib/2018/ace/build/src-min/ext-language_tools.js"></script>
+  <script>
+  	//$(function(){
+  		//	ace.require("ace/ext/language_tools");
+	    var editor = ace.edit("ace_editor");
+	    editor.setOptions({
+	    	enableBasicAutocompletion: true,
+	        enableSnippets: true, //启用代码块提示
+	        enableLiveAutocompletion: true
+	        
+	    });
+	   
+	    
+	    editor.setFontSize(18);
+	    editor.getSession().setUseWrapMode(true);   //设置代码折叠
+	    //editor.resize();
+	    editor.setHighlightActiveLine(true);  //设置高亮
+	    //editor.setTheme("ace/theme/chrome");//monokai模式是自动显示补全提示
+	    editor.setTheme("ace/theme/monokai");//monokai模式是自动显示补全提示	     
+	    //editor.getSession().setMode("ace/mode/javascript");//语言
+	    editor.getSession().setMode("ace/mode/css");//语言
+	    editor.setOption("wrap", "free") ;   //自动换行
+	    function searchWord(){
+   			editor.execCommand('find')
+   		}
+	    function changeToHtml(){
+	    	editor.getSession().setMode("ace/mode/html");//语言
+	    }
+	    function changeToCss(){
+	    	editor.getSession().setMode("ace/mode/css");//语言
+	    }
+	    function changeToJsp(){
+	    	editor.getSession().setMode("ace/mode/jsp");//语言
+	    }
+	    function changeToJs(){
+	    	editor.getSession().setMode("ace/mode/javascript");//语言
+	    }
+	    $(function(){
+	    	var html = '<head><meta charset="utf-8">'+
+	    	'<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="robots" content="noindex, nofollow">'+
+			'<link rel="Shortcut Icon" href="../favicon.ico"></head>'
+	    	$("#getContent").click(function(){
+	    		alert( editor.getValue() )
+	    	})
+	    	$("#writeContent").click(function(){
+	    		editor.setValue( html );
+	    	})
+	    	$("#getSelsectContent").click(function(){
+	    		alert( editor.session.getTextRange(editor.getSelectionRange()) )
+	    	})
+	    	
+	    	$(".select-box").mouseover(function(){
+					console.log(123)
+					$(this).find(".dropdown-menu").slideDown(0) ;
+	    	}).mouseleave(function(){
+					$(this).find(".dropdown-menu").slideUp(0) ;					
+				})
+	    })
+  	//})
+
+   </script>
+  </body>
+</html>

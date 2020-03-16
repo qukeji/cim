@@ -1,0 +1,3 @@
+#foreach( $item in $Controller.listTopItems(1))
+{"channel_name":"$channel.getName()","type":"$item.getValue('type')","photo":"$item.getValue("Photo")","skip":"$item.getValue('skip')","href":"$item.getValue("href")","countdown":"$item.getValue("countdown")","residencetime":"$item.getValue("residencetime")","gif":"$item.getValue("gif")","video":"$item.getValue("video")","preloadPhoto":"$item.getValue("preloadPhoto")"}
+#end

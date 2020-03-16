@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单设置 - TideCMS</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/common.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/jquery.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/ui.core.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/ui.sortable.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/jquery.scrollTo-min.js"></script>
+<script language="javascript">
+var group = 1;
+var channelid = 5993;
+
+function addField()
+{
+	var url="channel/field_add.jsp?ChannelID=5993&GroupID="+getSelectedTabID();
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(550);
+	dialog.setHeight(400);
+	dialog.setSuffix('_2');
+	dialog.setUrl(url);
+	dialog.setTitle("添加字段");
+	dialog.setScroll('auto');
+	dialog.show(); 
+}
+
+function addFieldGroup()
+{
+	var url="channel/fieldgroup_add.jsp?ChannelID=5993&Type=0";
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(400);
+	dialog.setHeight(250);
+	dialog.setSuffix('_2');
+	dialog.setUrl(url);
+	dialog.setTitle("添加组");
+	dialog.show();
+}
+
+function addFieldGroup2()
+{
+	var url="channel/fieldgroup_add.jsp?ChannelID=5993&Type=3";
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(400);
+	dialog.setHeight(250);
+	dialog.setSuffix('_2');
+	dialog.setUrl(url);
+	dialog.setTitle("添加集合组");
+	dialog.show();
+}
+
+function editFieldGroup()
+{
+	var url="channel/fieldgroup_edit.jsp?id="+getSelectedTabID();
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(400);
+	dialog.setHeight(250);
+	dialog.setSuffix('_2');
+	dialog.setUrl(url);
+	dialog.setTitle("修改组名");
+	dialog.show();
+}
+
+function delFieldGroup()
+{
+	if(confirm('你确认要删除吗?')) 
+	{
+		this.location = "form_view.jsp?Action=DeleteGroup&GroupID="+getSelectedTabID()+"&ChannelID=5993";
+	}
+}
+
+function delField(fid,name)
+{
+	if(confirm('你确认要删除字段 ' + name + ' 吗? 删除以后无法恢复!')) 
+	{
+		var url="../channel/field_delete.jsp?id="+fid;
+		jQuery.ajax({
+			type: "GET",
+			url: url,
+			success: function(msg){
+					$("#tr_"+fid).remove();
+				}
+	 		});
+	}
+}
+
+function editField(fieldid) 
+{
+	var url="channel/field_edit.jsp?FieldID="+fieldid;
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(550);
+	dialog.setHeight(400);
+	dialog.setSuffix('_3');
+	dialog.setUrl(url);
+	dialog.setTitle("字段信息");
+	dialog.show();
+}
+
+function selectItem(obj)
+{
+
+}
+
+function Order(i) {
+	//i==0 up i==1 down
+	var curr_id = getSelectedItemID();
+	if(curr_id==0){alert("请先选择要预览的文件！");return;}
+
+	document.order.direction.value = i;
+	document.order.id.value = curr_id;
+	document.order.submit();
+/*
+	var http = new HTTPRequest();
+	var url = "field_order.jsp?id=" + curr_id + "&direction=" + i;//alert(url);
+	http.open("GET",url,true);
+	http.onreadystatechange = function (){document.form.submit();};
+	http.send(null);*/
+}
+
+function getSelectedItemID()
+{
+	var curr_row;
+	for (curr_row = 0; curr_row < oTable.rows.length; curr_row++)
+	{
+	  if(oTable.rows[curr_row].className=="rows3")
+		{
+			return oTable.rows[curr_row].ItemID;
+		}
+	}
+
+	return 0;
+}
+
+var beginMoving=false;
+var startScrollTop = 0;
+
+
+function checkTarget(x,y)
+{
+	var num = 1;
+	for(i=1;i<=num;i++)
+	{
+		var o = eval("form"+i+"_td");
+		var rect = o.getBoundingClientRect();
+		if(x>=rect.left&&x<=rect.right&&y>=rect.top&&y<=rect.bottom)
+			return o.groupid;
+	}
+
+	return 0;
+}
+
+function checkOrder(obj)
+{
+	var objBottom = getTopPos(obj)+obj.offsetHeight;
+	document.title=objBottom;
+	var curr_row;
+	for (curr_row = 1; curr_row < oTable.rows.length; curr_row++)
+	{
+		var o = oTable.rows[curr_row];
+		var oBottom = getTopPos(o)+o.offsetHeight;
+		if(objBottom<oBottom && oBottom>0) return (curr_row);
+		//document.title=document.title+":"+oBottom;
+	}
+
+	return 0;
+}
+
+function getTopPos(inputObj)
+{		
+  var returnValue = inputObj.offsetTop;
+  while((inputObj = inputObj.offsetParent) != null){
+  	if(inputObj.tagName!='HTML')returnValue += inputObj.offsetTop;
+  }
+  return returnValue;
+}
+
+function setReturnValue(o){
+	if(o.refresh){
+		var s = "../channel/form_view.jsp?ChannelID="+channelid;
+		if(o.field) s += "&show_fieldid="+o.field;
+		document.location.href=s;
+	}
+}
+
+function showTab(j)
+{
+	for(i=1;i<=group;i++)
+	{
+		jQuery("#form"+i).hide();
+		jQuery("#form"+i+"_td").removeClass("cur");
+	}
+	
+	jQuery("#form"+j).show();
+	jQuery("#form"+j+"_td").addClass("cur");
+	sort(j);
+}
+
+function getSelectedTabID()
+{
+	
+	for(i=1;i<=group;i++)
+	{
+		var o = $("#form"+i+"_td");
+		if(o.hasClass("cur"))
+		{
+			return o.attr("groupid");
+		}
+	}
+
+	return 0;
+}
+
+function sort(o)
+{
+	var start_sort = false;
+	jQuery("#form"+o).sortable({items:"tr",axis:"y",cursor:"move",
+		start:function(e,ui){
+			var $p=jQuery(ui.placeholder);
+			$p.css({visibility:'visible',height:'20px'});
+			$p.html('<td colspan="7">&nbsp;&nbsp;&nbsp;</td>');
+				/*if(!start_sort)
+				{
+					$("#selectNo").trigger("click");
+					ui.helper.find(":checkbox").trigger("click");
+					var th = $("#oTable_th").children();//alert(th[1].clientWidth);
+					var child = ui.helper.children();
+					for(var j = 0;j<child.size();j++)
+						{(child[j].width=(th[j].clientWidth)+"px");
+						}
+					start_sort = true;
+				}*/
+			},
+		stop:function(e,ui){
+				start_sort = false;
+			},
+		update:function(e,ui){
+			start_sort = false;
+			var child = ui.item.children();
+			for(var j = 0;j<child.size();j++)
+			{
+				if(window.ActiveXObject)
+					child[j].width="";
+				else
+					child[j].width=("px");
+			}
+			var ItemID=ui.item.attr("ItemID");
+			var NextItemID = 0;//alert(ui.item.next());
+			if(ui.item.next().attr("ItemID"))
+				NextItemID = ui.item.next().attr("ItemID");
+			var url="../channel/field_order.jsp";
+			var data="ChannelID="+channelid+"&ItemID="+ItemID+"&NextItemID="+NextItemID;//alert(data);
+			jQuery.ajax({
+				type: "GET",
+				url: url,
+				async:false,
+				data: data,
+				success: function(msg){
+					document.location.href=document.location.href;
+				}
+	 		});
+	}});
+
+	jQuery("#form"+o).sortable("enable");
+}
+
+function init()
+{
+sort(1);
+
+}
+</script>
+</head>
+
+<body onLoad="init()">
+<div class="content_t1">
+	<div class="content_t1_nav">当前位置：搜索关键词</div>
+    <div class="content_new_post">
+	<input type="button" class="tidecms_btn2" value="添加字段" onClick="addField()"/>
+	<input type="button" class="tidecms_btn2" value="添加组" onClick="addFieldGroup()"/>
+	<input type="button" class="tidecms_btn2" value="添加集合组" onClick="addFieldGroup2()"/>
+	<input type="button" class="tidecms_btn2" value="重命名" onClick="editFieldGroup()"/><input type="button" class="tidecms_btn2" value="删除" onClick="delFieldGroup()"/>
+    </div>
+</div>
+
+<div class="edit_main dialog_editForm"><!-- edit-main改为edit_main，增加dialog_editForm -->
+	<div class="edit_nav"><!-- edit-nav改为edit_nav -->
+    	<ul>
+        	<li><a class='cur' href="javascript:showTab(1);" id="form1_td" groupid="3352"><span>内容编辑</span></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="edit_con"><!-- edit-con改为edit_con -->
+    	<!--<div class="top">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div>--><!-- 删除 -->
+		<div class="center_main">
+            <div class="center" id="form1" >
+            <table width="100%" border="0" cellspacing="0" cellpadding="5" id="oTable" class="view_table">
+            <thead>
+                    <tr id="oTable_th">
+                                <th align="left" width="100" valign="middle">&nbsp;描述</th>
+                                <th align="left" valign="middle">名称</th>
+                                <th align="left" valign="middle"></th>
+                                <th width="30" align="center" valign="middle">>></th>
+                    </tr>
+            </thead>
+            
+                <tr id="tr_29152" ItemID="29152">	
+                    <td>&nbsp;标题</td>
+                    <td>Title </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29152)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29153" ItemID="29153">	
+                    <td>&nbsp;<font color='#dddddd'>副标题</font></td>
+                    <td>SubTitle </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29153)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29154" ItemID="29154">	
+                    <td>&nbsp;发布日期</td>
+                    <td>PublishDate </td>
+                    <td><input type='text' size='80' class='w450'><img src='../images/calendar.gif'></td>
+                    <td align="center"><a href="javascript:editField(29154)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29155" ItemID="29155">	
+                    <td>&nbsp;<font color='#dddddd'>权重</font></td>
+                    <td>Weight </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29155)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29156" ItemID="29156">	
+                    <td>&nbsp;<font color='#dddddd'>文章来源</font></td>
+                    <td>DocFrom </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29156)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29157" ItemID="29157">	
+                    <td>&nbsp;<font color='#dddddd'>图片新闻</font></td>
+                    <td>IsPhotoNews </td>
+                    <td></td>
+                    <td align="center"><a href="javascript:editField(29157)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29158" ItemID="29158">	
+                    <td>&nbsp;<font color='#dddddd'>摘要</font></td>
+                    <td>Summary </td>
+                    <td><textarea cols=77 rows=6 class='w450'></textarea></td>
+                    <td align="center"><a href="javascript:editField(29158)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29159" ItemID="29159">	
+                    <td>&nbsp;<font color='#dddddd'>内容</font></td>
+                    <td>Content </td>
+                    <td><textarea cols=77 rows=6 class='w450'></textarea></td>
+                    <td align="center"><a href="javascript:editField(29159)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29160" ItemID="29160">	
+                    <td>&nbsp;<font color='#dddddd'>图片</font></td>
+                    <td>Photo </td>
+                    <td><input type='text' size='80' class='w450'><input type='button' value='...' class='tidecms_btn3'></td>
+                    <td align="center"><a href="javascript:editField(29160)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29161" ItemID="29161">	
+                    <td>&nbsp;<font color='#dddddd'>关键词</font></td>
+                    <td>Keyword </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29161)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+                <tr id="tr_29162" ItemID="29162">	
+                    <td>&nbsp;<font color='#dddddd'>标签</font></td>
+                    <td>Tag </td>
+                    <td><input type='text' size='80' class='w450'></td>
+                    <td align="center"><a href="javascript:editField(29162)"><img src="http://cms.tidedemo.com/cms_demo/images/inner_menu_edit.gif"></a></td>
+                </tr>
+            
+            </table></div>
+
+        </div>
+        <!--<div class="bot">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div>--><!-- 删除 -->
+    </div>
+</div>
+
+<!-- end-->
+
+<form name="form" action="form_view.jsp?ShowAll=1&ChannelID=5993" method="post">
+<input type="hidden" name="FieldGroupTab" value="">
+<input type="hidden" name="GroupID" value="">
+<input type="hidden" name="FieldID" value="">
+<input type="hidden" name="Action" value="">
+</form>
+<form name="order" action="field_order.jsp"	method="post">
+<input type="hidden" name="ChannelID" value="5993">
+<input type="hidden" name="number" value="">
+<input type="hidden" name="FieldGroupTab" value="">
+<input type="hidden" name="id" value="">
+<input type="hidden" name="direction" value="">
+</form>
+
+</body>
+</html>

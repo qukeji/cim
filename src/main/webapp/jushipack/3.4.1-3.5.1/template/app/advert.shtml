@@ -1,0 +1,5 @@
+[#set($i=0)
+#foreach( $item in $Controller.listTopItems($rows))#if($i>0),#end #set($i=$i+1)
+{"Title":"$item.getTitle()","onlinetime":"$item.getValue("onlinetime").replace(".0","")","Revoketime":"$item.getValue("Revoketime").replace(".0","")","position":"$item.getValue("position")","listposition":$item.getIntValue("listposition"),"item_type":"$item.getValue("item_type")","Photo":"$item.getValue("Photo")","Photo1":"$item.getValue("Photo1")","Photo2":"$item.getValue("Photo2")","href":"$item.getValue("href")","dropchannel_id":"$item.getValue("dropchannel_id")","dropchannel_name":"$item.getValue("dropchannel_name")","id":"$item.getId()","recommen":#if($item.getChannel().getSerialNo().indexOf('module_recommen')!=-1)true #else false #end,"advert":#if($item.getChannel().getSerialNo().indexOf('advert')!=-1)true #else false #end,"list":#if($item.getChannel().getSerialNo().indexOf('module_recommen')!=-1)<!--\#include virtual="$item.getValue("href").replace("list_1_0","good_recommen")" -->#else""#end}
+#end
+]

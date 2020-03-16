@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>编辑文档 灾民安置点 幸福的家园 视频库>内容中心>音视频媒资>地震原创视频 TideVMS</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<script>
+var Pages=1;
+var curPage = 1;
+var Contents = new Array();
+Contents[Contents.length] = "";
+var userId = 151;
+var userName = "张良";
+var userGroupName = "";
+var userGroupId = -1;
+var channelid = 14896;
+var groupnum = 4;
+</script>
+<script type="text/javascript" src="../common/jquery.js"></script>
+<script type="text/javascript" src="../common/common.js"></script>
+<script type="text/javascript" src="../common/document.js"></script>
+<script type="text/javascript" src="../editor/fckeditor.js"></script>
+<script type="text/javascript" src="../common/ui.core.js"></script>
+<script type="text/javascript" src="../common/jquery-ui-1.8.2.datepicker.min.js"></script>
+<script type="text/javascript" src="../common/TideDialog.js"></script>
+
+<script>
+function Save_Content()
+{
+	//保存正文,内容
+	//document.ContentEditor.preparesubmit();
+	var editor = document.getElementById("FCKeditor1___Frame").contentWindow;
+	var FCK			= editor.getFCK() ;
+	var FCKConfig	= editor.getFCKConfig();
+	var rows = document.getElementById("tabTableRow").cells;
+	for (var i=0;i<rows.length;i++){//alert(rows[i].className);
+		if (rows[i].className=="selTab"){
+			rows[i].className = "tab";
+			var rows_page = rows[i].getAttribute("page");
+			Contents[rows_page-1] = FCK.GetXHTML( FCKConfig.FormatSource );
+			//alert((rows_page-1) + ":" + Contents[rows_page-1]);
+			}
+		}
+	var localhost = document.location.protocol+ "//" + document.location.hostname;
+	if (document.location.port!="80")
+  		localhost = localhost + ":" + document.location.port;
+localhost = "http://210.72.21.36";
+	var reg = new RegExp(localhost,"g");
+	if(Pages<=1)
+	{
+		var str = Contents[0];
+		str = str.replace(reg, ""); //alert(str);
+
+		document.form.Content.value = str;
+		document.form.Page.value = "1";
+	}
+	else
+	{
+		for(var i=1;i<=Pages;i++)
+		{
+			var str = Contents[i-1];//document.all.ContentEditor.GetContent(i);
+			//alert(i+":"+str);
+			str = str.replace(reg, "");
+
+			if(i==1)
+				document.form.Content.value = str;
+			else
+			{
+				var oInput = document.createElement("input");//document.createElement("<input type='hidden' name='Content"+i+"' value=''>");
+				oInput.setAttribute("type","hidden");
+				oInput.setAttribute("name","Content"+i);
+				oInput.setAttribute("value",str);
+				document.form.appendChild(oInput);
+				//oInput.value = str;
+			}
+		}
+		
+		document.form.Page.value = Pages + "";
+	}
+}
+
+function Save()
+{
+	if(check())
+	{
+	//有内容拦的情况下，保存前先处理内容栏
+	if(document.getElementById("tabTableRow"))
+		Save_Content();
+
+	document.getElementById("Image1Href").href = "javascript:void(0);";
+
+	document.getElementById("Image2Href").href = "javascript:void(0);";
+
+	//alert("ok");
+	document.form.submit();
+
+	return;
+	}
+}
+
+function init()
+{	
+	//$.datepicker.setDefaults();
+	$(".date").datepicker({showOn: 'button',dateFormat:'yy-mm-dd',buttonImage: '../images/icon/26.png',buttonImageOnly: true,closeText: '关闭',
+		prevText: '<上月',
+		nextText: '下月>',
+		currentText: '今天',
+		monthNames: ['一月','二月','三月','四月','五月','六月',
+		'七月','八月','九月','十月','十一月','十二月'],
+		monthNamesShort: ['一','二','三','四','五','六',
+		'七','八','九','十','十一','十二'],
+		dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+		dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
+		dayNamesMin: ['日','一','二','三','四','五','六'],
+		weekHeader: '周',
+		dateFormat: 'yy-mm-dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: '年',setValue: function(o, s) {
+		var i = o.val().indexOf(" ");var m = "";if(i!=-1)m=o.val().substring(i);
+		o.val(s+m);
+		}});
+	
+	document.form.Action.value = "Update";
+	
+
+	checkTitle();
+	document.body.disabled  = false;
+}
+
+function initContent1()
+{
+	
+	if(document.getElementById("tabTableRow"))
+		try{
+		{
+			
+		}
+		}catch(er){	window.setTimeout("initContent1()",5);}
+		document.form.Action.value = "Update";//alert(Contents["t2"]);
+	
+}
+
+function initContent()
+{
+	window.setTimeout("initContent1()",1);
+}
+
+
+
+var curField = 0;
+
+function selectFile(fieldname)
+{
+	var	dialog = new TideDialog();
+	dialog.setWidth(500);
+	dialog.setHeight(250);
+	dialog.setLayer(2);
+	dialog.setUrl("../content/insertfile.jsp?ChannelID=14896&fieldname="+fieldname);
+	dialog.setTitle("上传文件");
+	dialog.show();
+}
+
+function selectImage(fieldname)
+{
+	var	dialog = new TideDialog();
+	dialog.setWidth(500);
+	dialog.setHeight(240);
+	dialog.setLayer(2);
+	dialog.setUrl("../content/insertfile.jsp?ChannelID=14896&Type=Image&fieldname="+fieldname);
+	dialog.setTitle("上传图片");
+	dialog.show();
+}
+
+
+function previewFile(fieldname)
+{
+	var name = document.getElementById(fieldname).value;
+
+	if(name=="") return;
+
+	if(name.indexOf("http://")!=-1)  window.open(name);
+	else	window.open("http://210.72.21.36/" + name);
+}
+
+function selectByKeyword()
+{
+	var ByKeyword = document.getElementById("ByKeyword");
+	var ByTitle = document.getElementById("ByTitle");
+	document.getElementById("related_doc_list").src = "related_doc_list.jsp?GlobalID=1034966&ChannelID=14896&ByKeyword="+ByKeyword.checked + "&ByTitle="+ByTitle.checked + "&keyword=" + encodeURIComponent(document.form.ByKeywordText.value);
+}
+function videoPlayer(divid,flv,width,height)
+{
+
+var html = '<embed src="../images/video_player.swf?v='+flv+'&volume=0.1&autoPlay=false" allowFullScreen="true" quality="high" width="'+width+'" height="'+height+'" wmode="transparent" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>';
+$("#"+divid).html(html);
+}
+$(function () {
+		var url="geturl.jsp?globalid="+ 1034966+"&callback=?";
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType:'jsonp',
+			success: function(msg){
+					videoPlayer("videoplayer",msg.video,650,450);
+
+					jQuery('#img1').attr('src',msg.img[1].url);
+					jQuery('#img2').attr('src',msg.img[2].url);
+					jQuery('#img3').attr('src',msg.img[3].url);
+					jQuery('#img4').attr('src',msg.img[4].url);
+					jQuery('#img5').attr('src',msg.img[0].url);
+					
+				}   
+		});  
+     
+});
+
+//-->
+
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<script type="text/javascript">document.body.disabled  = true;</script>
+<form name="form" action="../content/document_submit.jsp" method="post">
+<div class="header">
+	<div class="logo"><a href="#" title="TideCMS"><img src="../images/logo.png" alt="TideCMS" /></a></div>
+    <div class="edit-info">
+        <ul class="button">
+        	<li><a id="Image1Href" href="javascript:Save();">保存</a></li>
+            <li><a id="Image2Href" href="javascript:Save_Publish();">保存并发布</a></li>
+            <!--<li><a href="#"><span>预览</span></a></li>-->
+            <li><a href="javascript:self.close();">关闭</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="edit_main content_form">
+	<div class="edit_nav">
+    	<ul>
+
+        	<li>
+			<a href="javascript:showTab('1')" class='cur' id="form1_td" groupid="4076">
+			<span >视频管理</span></a></li>
+
+        	<li>
+			<a href="javascript:showTab('2')"  id="form2_td" groupid="4078">
+			<span >编目</span></a></li>
+
+        	<li>
+			<a href="javascript:showTab('3')"  id="form3_td" groupid="4079">
+			<span >转码管理</span></a></li>
+
+        	<li>
+			<a href="javascript:showTab('4')"  id="form4_td" groupid="6059">
+			<span >视频截图</span></a></li>
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="edit_con">
+    	
+<div class="center" url="" id="form1" >
+
+        
+		<table width="100%">
+<tr><td><div class="line" id="tr_Title">标题：</div></td><td><div class="line" id="field_Title"><input type="text" class="textfield" size="80" id="Title" name="Title" value="灾民安置点 幸福的家园" onkeyup="checkTitle();">	<span id="TitleCount"></span></div></td></tr>
+<tr><td valign="top"><div class="line">视频信息：</div></td><td>
+
+<div class="v_m_player" id="videoplayer" style="width:500px;height:375px;"></div>
+<div class="v_m_info">
+<table width="100%" border="0">
+  	<tr id="tr_Duration"><td width="90" align="right"><div class="line">时长：</div></td><td><div class="line" id="field_Duration"><input type="text" class="textfield w50" name="Duration" id="Duration" value=""> </div></td></tr>
+	<tr id="tr_zl"><td align="right"><div class="line">帧率：</div></td><td><div class="line" id="field_zl"><input type="text" class="textfield w100" name="zl" id="zl" value=""> </div></td></tr>
+	<tr id="tr_ml"><td align="right"><div class="line">码率：</div></td><td><div class="line" id="field_ml"><input type="text" class="textfield w100" name="ml" id="ml" value=""> </div></td></tr>
+	<tr id="tr_bmfs"><td align="right"><div class="line">编码方式：</div></td><td><div class="line" id="field_bmfs"><input type="text" class="textfield w100" name="bmfs" id="bmfs" value=""> </div></td></tr>
+	<tr id="tr_fbl"><td align="right"><div class="line">分辨率：</div></td><td><div class="line" id="field_fbl"><input type="text" class="textfield w100" name="fbl" id="fbl" value=""> </div></td></tr>
+    <tr id="tr_video_source"><td align="right"><div class="line">视频源文件：</div></td><td><div class="line" id="field_video_source"><input type="text" class="textfield w250" name="video_source" id="video_source" value="http://wmv5.china.com.cn/VOD/earthquake/zmnew.wmv"> </div></td></tr>
+</table>
+  </div>
+
+</td></tr>
+<tr><td></td><td><div id="imgfeild" class="v_printscreen"><img id="img1" src="" title="" />
+<img id="img2" src="" title="" />
+<img id="img3" src="" title="" />
+<img id="img4" src="" title="" />
+<img height="120" width="160" id="img5" src="" title="" />
+</div></td></tr>
+
+</table>
+</div>
+<div class="center" url="" id="form2" style="display:none;">
+
+        
+		<table width="100%">
+
+
+			
+	
+	<tr><td><div class="line">发布日期：</div></td><td><div class="line"><input type='text' name='PublishDate' id='PublishDate' value='2009-02-19 14:37:43' class='textfield date' size='24'>
+  </div></td></tr>
+	
+	
+
+			
+	<tr id="tr_Summary"><td><div class="line">摘要：</div></td><td><div class="line" id="field_Summary"><textarea cols="77" class="textfield" rows=5 name="Summary" onDblClick="showEditor('Summary')" id="Summary"></textarea></div></td></tr>
+
+	
+
+			
+	<tr id="tr_Photo"><td><div class="line">图片：</div></td><td><div class="line" id="field_Photo"><input type="text" name="Photo"  id="Photo" value="" class="textfield upload" size="80">
+<input type="button" value="选择" onClick="selectImage('Photo')" class="tidecms_btn3"> <input type="button" value="预览" onClick="previewFile('Photo')" class="tidecms_btn3"></div></td></tr>
+
+	
+
+			
+	<tr id="tr_Keyword"><td><div class="line">关键词：</div></td><td><div class="line" id="field_Keyword"><input type="text" class="textfield" size="80" name="Keyword" id="Keyword" value=""> <input type="button" value="自动提取" onClick="getAutoKeyword('Keyword')" class="tidecms_btn3"></div></td></tr>
+
+	
+
+			
+<tr><td colspan="2">
+<div class="edit">
+<input type="hidden" id="FCKeditor1" name="FCKeditor1" value="" style="display:none" />
+					<script type="text/javascript">
+<!--
+var oFCKeditor = new FCKeditor( 'FCKeditor1' ) ;
+oFCKeditor.BasePath	= '../editor/' ;
+oFCKeditor.Height	= 600 ;
+//oFCKeditor.Config['FullPage'] = true ;
+var currcontent = '幸福家园，是都江堰市一所赈灾居民安置点的名字。原以为这里会帐篷林立，小孩子们四处玩耍，然而这里的情景却让我们眼前一亮，帐篷没有了，取而代之的是一排排崭新干净的活动板房，这从最大程度上让灾民们在炎热多雨的天气中有了一个舒适的生活环境。\r\n';//Oracle not need JsQuote;
+currcontent = currcontent.replace(/src=\"\//g, 'src=\"http://210.72.21.36\/' ) ;
+//oFCKeditor.Value	= currcontent ;
+$("#FCKeditor1").val(currcontent);
+
+var ChannelID=14896;
+//oFCKeditor.Create() ;
+//-->
+		</script>
+<input type="hidden" id="FCKeditor1___Config" value="" style="display:none" /><iframe id="FCKeditor1___Frame" src="../editor/fckeditor.html?InstanceName=FCKeditor1&Toolbar=Default" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+<table id="tabTable" STYLE="width:100%;height:20px;" CELLPADDING=0 CELLSPACING=0>
+	<tr id="tabTableRow" onclick="changeTabs()">
+		<td id="t1" class="selTab" page="1" height="20">第1页</td>
+	</tr>
+</table>
+	<input type="button" value="删除当前页" onclick="DeletePage();" class="tidecms_btn3">
+	<input type="button" value="插入一页" onclick="AddPage();" class="tidecms_btn3">   
+</div>
+</td></tr>
+
+</table>
+</div>
+<div class="center" url="../video/document_video_list.jsp?&itemid=125559&globalid=1034966&channelid=14896&fieldgroup=3" id="form3" style="display:none;">
+<iframe id="iframe3" frameborder="0" style="width:100%;height:500px" marginheight="0" marginwidth="0" scrolling="auto" src="../null.jsp"></iframe>
+</div>
+<div class="center" url="../custom/video_photo_list.jsp?&itemid=125559&globalid=1034966&channelid=14896&fieldgroup=4" id="form4" style="display:none;">
+<iframe id="iframe4" frameborder="0" style="width:100%;height:500px" marginheight="0" marginwidth="0" scrolling="auto" src="../null.jsp"></iframe>
+</div>
+
+    </div>
+</div>
+<input type="hidden" name="From" value="">
+<input type="hidden" name="Action" value="Add">
+<input type="hidden" name="Content" value="">
+<input type="hidden" id="ItemID" name="ItemID" value="125559">
+<input type="hidden" name="ChannelID" value="14896">
+<input type="hidden" name="Status" value="0">
+<input type="hidden" id="GlobalID" name="GlobalID" value="1034966">
+<input type="hidden" name="ParentGlobalID" value="0">
+<input type="hidden" name="RelatedItemsList" value="">
+<input type="hidden" name="Page" value="1">
+<input type="hidden" id="RecommendGlobalID" name="RecommendGlobalID" value="0">
+<input type="hidden" name="RecommendChannelID" value="0">
+<input type="hidden" name="RecommendItemID" value="0">
+<input type="hidden" name="ContinueNewDocument" value="0">
+<input type="hidden" id="RecommendType" name="RecommendType" value="0"><div id="ajax_script" style="display:none;"></div>
+</form>
+<!--1ms-->
+
+</body>
+<script>
+
+</script>
+</html>

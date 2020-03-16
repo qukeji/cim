@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>属性设置 - TideCMS</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/common.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_demo/common/jquery.js"></script>
+<script type="text/javascript">
+function init()
+{
+}
+
+function check()
+{
+	if(isEmpty(document.form.Name,"请输入名称."))
+		return false;
+
+	if(isEmpty(document.form.FolderName,"请输入目录名."))
+		return false;
+	if(isEmpty(document.form.SerialNo,"请输入标识名."))
+		return false;
+
+	return true;
+}
+
+function isEmpty(field,msg)
+{	
+	if(field.value == "")
+	{
+		alert(msg);
+		field.focus();
+		return true;
+	}
+	return false;
+}
+
+function initOther()
+{
+
+	if(document.form.SerialNo.value!="" && document.form.FolderName.value=="")
+		document.form.FolderName.value = document.form.SerialNo.value;
+
+}
+
+function showRecommend()
+{
+	var o = document.getElementById("RecommendArea");
+	if(o)
+	{
+		if(o.style.display =="")
+			o.style.display = "none";
+		else
+			o.style.display = "";
+	}
+}
+
+function showTab(form,form_td)
+{
+	var num = 5;
+	for(i=1;i<=num;i++)
+	{
+		jQuery("#form"+i).hide();
+		jQuery("#form"+i+"_td").removeClass("cur");
+	}
+	
+	jQuery("#"+form).show();
+	jQuery("#"+form_td).addClass("cur");
+}
+
+function autoChange(id)
+{
+	var o = document.getElementById(id);
+	if(o)
+	{
+		if(o.rows==4)
+		{o.rows=20;}
+		else
+		{o.rows=4;}
+	}
+}
+
+function openIconList()
+{
+	var	dialog = new top.TideDialog();
+	dialog.setWidth(600);
+	dialog.setHeight(450);
+	dialog.setSuffix('_2');
+	dialog.setUrl("channel/icon_list.jsp");
+	dialog.setTitle("选择图标");
+	dialog.setScroll('auto');
+	dialog.show();
+}
+
+function setReturnValue(o){
+	//alert(o.icon);return;
+	if(o.icon!=null){
+		$("#iconimg").attr("src","/cms_demo/images/channel_icon/"+o.icon).show();
+		$("#Icon").val(o.icon);
+	}
+}
+
+function applySubChannel(i)
+{
+	if(confirm('子频道的对应属性会被覆盖，确认要复制该属性到子频道吗？')) 
+	{
+		var url="channel_attribute_copy.jsp?id="+$("#ChannelID").val()+"&type="+i;
+		$.ajax({type: "GET",url: url,success: function(msg){alert("应用成功.");}});
+	}
+}
+
+</script>
+</head>
+
+<body>
+<form name="form" action="channel_edit.jsp" method="post" onSubmit="return check();">
+<!-- start-->
+<div class="edit_main dialog_editChannel"><!-- edit-main改为edit_main，增加dialog_editChannel -->
+	<div class="edit_nav"><!-- edit-nav改为edit_nav -->
+    	<ul>
+        	<li><a href="javascript:showTab('form1','form1_td');" class="cur" id="form1_td"><span>基本信息</span></a></li>
+            <li><a href="javascript:showTab('form2','form2_td');" id="form2_td"><span>扩展信息</span></a></li>
+            <li><a href="javascript:showTab('form3','form3_td');" id="form3_td"><span>推荐设置</span></a></li>
+            <li><a href="javascript:showTab('form4','form4_td');" id="form4_td"><span>列表设置</span></a></li>
+			<li><a href="javascript:showTab('form5','form5_td');" id="form5_td"><span>内容设置</span></a></li>
+			<!--<li><a href="javascript:showTab('form6','form6_td');" id="form6_td"><span>通知功能</span></a></li>-->
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="edit_con"><!-- edit-con改为edit_con -->
+    	<!--<div class="top">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div>--><!-- 此层删除 -->
+		<div class="center_main">
+        <div class="center" id="form1">
+<table width="100%" border="0">
+  <tr>
+    <td>名称：</td>
+    <td><input type="text" name="Name" class="textfield"  value="图片集"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>模板方式：</td>
+    <td><input name="TemplateInherit" id="s003" type="radio" value="1" ><label for="s003">继承上级模板</label></td>
+    <td><input type="radio" id="s004" name="TemplateInherit" value="0" checked><label for="s004">独立模板</label></td>
+  </tr>
+  <tr>
+    <td>标识名：</td>
+    <td><input type="text" name="SerialNo" class="textfield" onBlur="initOther()" value="s3_a_l"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>目录名：</td>
+    <td><input type="text" name="FolderName"  class="textfield" value="l"></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>图片上传目录：</td>
+    <td><input type="text" name="ImageFolderName" class="textfield" value=""></td>
+    <td>*为空使用站点默认图片目录</td>
+  </tr>
+  <tr> 
+    <td>图片目录规则</td>
+    <td>
+		<select name="ImageFolderType">
+		<option value="0" selected>系统默认</option>
+		<option value="1" >按年份命名，每年一个目录</option>
+		<option value="2" >按年月命名，每月一个目录</option>
+		<option value="3" >按年月日命名，每日一个目录</option>
+		<option value="4" >按每天一个目录</option>
+		</select>
+	</td>
+  </tr>
+  <tr>
+    <td>链接：</td>
+    <td><input type="text" name="Href" class="textfield" value=""></td>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>图标：</td>
+    <td><img id="iconimg" src="/cms_demo/images/channel_icon/108.png" style="vertical-align:middle;">&nbsp;<input type="button" name="" class="tidecms_btn3" value="选择" onClick="openIconList()"></td>
+    <td>&nbsp;</td>
+  </tr>
+
+
+  <tr>
+    <td>是否在导航中出现：</td>
+    <td><input type="checkbox" name="IsDisplay" value="1" checked></td>
+    <td>&nbsp;</td>
+  </tr>
+
+</table>
+        </div>
+        
+       <div class="center" id="form2" style="display:none;">
+<table width="100%" border="0">
+  <tr>
+    <td width="80">附加属性一：</td>
+    <td><textarea name="Extra1" cols="70" rows="4" class="textfield"></textarea></td>
+  </tr>
+  <tr>
+    <td>附加属性二：</td>
+    <td><textarea name="Extra2" cols="70" rows="4" class="textfield"></textarea></td>
+  </tr>
+</table>
+	</div>
+        
+         <div class="center" id="form3" style="display:none;">
+<table width="100%" border="0" id="table001">
+  <tr>
+    <td width="70">引用栏目：</td>
+    <td width="460"><textarea name="Attribute1" id="Attribute1" cols="70" rows="4" class="textfield" onDblClick="autoChange('Attribute1')"></textarea></td>
+	<td align="left"><a href="javascript:applySubChannel(1)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  <tr>
+    <td>对应关系：</td>
+    <td><textarea name="Attribute2" id="Attribute2" cols="70" rows="4" class="textfield" onDblClick="autoChange('Attribute2')"></textarea></td>
+	<td align="left"><a href="javascript:applySubChannel(2)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  <tr>
+    <td>推荐栏目：</td>
+    <td><textarea name="RecommendOut" id="RecommendOut" cols="70" rows="4" class="textfield" onDblClick="autoChange('RecommendOut')"></textarea></td>
+	<td align="left"><a href="javascript:applySubChannel(3)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  <tr>
+    <td>对应关系：</td>
+    <td><textarea name="RecommendOutRelation" id="RecommendOutRelation" cols="70" rows=4 class="textfield" onDblClick="autoChange('RecommendOutRelation')"></textarea></td>
+	<td align="left"><a href="javascript:applySubChannel(4)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+</table>
+        </div>
+        
+        <div class="center" id="form4" style="display:none;">
+<table width="100%" border="0" id="table002"><!-- 这里结构有修改 -->
+	<tr>
+    <td colspan="3"><div class="form_view_list"><label>默认视图：</label><input type="radio" name="ViewType" value="0" checked id="ViewType_0"><label for="ViewType_0">文字列表</label><input type="radio" name="ViewType" value="1" id="ViewType_1"><label for="ViewType_1">图文列表</label><input type="radio" name="ViewType" value="2" id="ViewType_2"><label for="ViewType_2">图片列表</label></div></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+    	<ul class="list_show">
+        	<li><input type="checkbox" name="IsWeight" value="1" id="IsWeight"><label for="IsWeight">是否使用权重</label></li>
+            <li><input type="checkbox" name="IsComment" value="1" ><label>是否显示评论</label></li>
+            <li><input type="checkbox" name="IsClick" value="1" ><label>是否显示点击数</label></li>
+            <li><input type="checkbox" name="IsShowDraftNumber" value="1" ><label>是否显示草稿数</label></li>
+            <li><input type="checkbox" name="IsListAll" value="1" ><label>是否包含子频道</label></li>
+        </ul>
+    </td>
+  </tr>
+ <tr>
+    <td colspan="3"><div class="hr_line"></div></td>   
+  </tr>
+  <tr>
+    <td colspan="3">使用定制列表：</td>
+  </tr>
+    <tr>
+    <td>列表页程序：</td>
+    <td><input type="text" name="ListProgram" class="textfield" size="64" value=""/></td>
+	<td><a href="javascript:applySubChannel(7)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  <tr>
+    <td>列表页脚本：</td>
+    <td><textarea name="ListJS" id="ListJS" cols="64" rows="4" class="textfield" onDblClick="autoChange('ListJS')"></textarea></td>
+	<td><a href="javascript:applySubChannel(5)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  </table>
+        </div>
+
+		<div class="center" id="form5" style="display:none;">
+<table width="100%" border="0" id="table002">
+  <tr>
+    <td>使用地图位置信息：</td>
+    <td><input type="checkbox" name="" value="1"></td>
+	<td></td>
+  </tr>
+    <tr>
+    <td>使用相关内容：</td>
+    <td><input type="checkbox" name="" value="1"></td>
+	<td></td>
+  </tr>
+ <tr>
+    <td colspan="3"><div class="hr_line"></div></td>
+  </tr>
+    <tr>
+    <td colspan="3">使用定制内容模型：</td>  
+  </tr>
+ <tr>
+    <td>内容页程序：</td>
+    <td><input type="text" name="DocumentProgram" class="textfield" size="64" value=""/></td>
+	<td><a href="javascript:applySubChannel(8)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+  <tr>
+    <td>内容页脚本：</td>
+    <td><textarea name="DocumentJS" id="DocumentJS" cols="64" rows="4" class="textfield" onDblClick="autoChange('DocumentJS')"></textarea></td>
+	<td><a href="javascript:applySubChannel(6)"><img src="../images/v9_button_4.gif" title="应用到子频道" /></a></td>
+  </tr>
+ 
+</table>
+        </div>
+
+		<!--<div class="center" id="form6" style="display:none;">
+<table width="100%" border="0" id="table002">
+  <tr>
+    <td>列表页脚本6：<br><a class="applysubchannel" href="javascript:applySubChannel(5)">应用到子频道</a></td>
+    <td><textarea name="ListJS" id="ListJS" cols=46 rows=4 class="textfield" onDblClick="autoChange('ListJS')"></textarea></td>
+  </tr>
+  <tr>
+    <td>内容页脚本：<br><a class="applysubchannel" href="javascript:applySubChannel(6)">应用到子频道</a></td>
+    <td><textarea name="DocumentJS" id="DocumentJS" cols=46 rows=4 class="textfield" onDblClick="autoChange('DocumentJS')"></textarea></td>
+  </tr>
+  <tr>
+    <td>列表页程序：<br><a class="applysubchannel" href="javascript:applySubChannel(7)">应用到子频道</a></td>
+    <td><input type="text" name="ListProgram" class="textfield" size="49" value=""/></td>
+  </tr>
+  <tr>
+    <td>内容页程序：<br><a class="applysubchannel" href="javascript:applySubChannel(8)">应用到子频道</a></td>
+    <td><input type="text" name="DocumentProgram" class="textfield" size="49" value=""/></td>
+  </tr>
+</table>
+        </div>-->
+
+        </div>
+        <!-- <div class="bot">
+        	<div class="left"></div>
+            <div class="right"></div>
+        </div> --><!-- 此层删除 -->
+    </div>
+</div>
+<!-- end-->
+<div class="form_button">
+	<input type="hidden" id="ChannelID" name="ChannelID" value="13451">
+	<input type="hidden" id="Icon" name="Icon" value="108.png">
+	<input name="startButton" type="submit" class="tidecms_btn2" value="确定" id="startButton"/>
+	<input name="btnCancel1" type="button" class="tidecms_btn2" value="取消"  id="btnCancel1"  onclick="top.TideDialogClose('');"/>
+</div>
+<div id="ajax_script" style="display:none;"></div>
+</form>
+</body>
+</html>

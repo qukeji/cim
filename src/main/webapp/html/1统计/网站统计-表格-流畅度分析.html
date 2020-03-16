@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>TideCMS 9.1 开发测试环境</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/sidebar-menu-channel.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../common/2018/common2018.js"></script>
+<script src="../../common/2018/TideDialog2018.js"></script>
+<script>
+	var dir = "";	
+</script>
+</head>
+<body class="collapsed-menu email" id="withSecondNav">
+
+<div class="br-logo">
+	<a class="d-flex align-items-center tx-center ht-100p wd-100p"  href="http://123.56.71.230:889/tcenter/main.jsp">
+	   <img class="ht-100p" src="../img/2019/system_logo.png">
+	</a>
+</div>
+<div class="br-sideleft overflow-y-auto">
+	<label class="sidebar-label pd-x-15 mg-t-20"></label>
+	<div class="br-sideleft-menu">
+		<a href="../cms_main.jsp" class="br-menu-link active">
+		  <div class="br-menu-item">
+			<i class="menu-item-icon fa fa-home tx-20"></i>
+			<span class="menu-item-label">网站统计</span>
+		  </div>
+		</a>		
+		<a href="../explorer/index2018.jsp" class="br-menu-link">
+		  <div class="br-menu-item">
+			<i class="menu-item-icon fa fa-folder tx-20"></i>
+			<span class="menu-item-label">视频统计</span>            
+		  </div>
+		</a>		
+		<a href="../channel/index2018.jsp" class="br-menu-link">
+		  <div class="br-menu-item">
+			<i class="menu-item-icon fa fa-sitemap tx-20"></i>
+			<span class="menu-item-label">APP统计</span>
+		  </div>
+		</a>		
+		<a href="#" class="br-menu-link menu-system">
+		  <div class="br-menu-item">
+			<i class="menu-item-icon fa fa-gear tx-20"></i>
+			<span class="menu-item-label">系统管理</span>
+			<i class="menu-item-arrow fa fa-angle-down"></i>
+		  </div>
+		</a>
+		<ul class="br-menu-sub nav flex-column" id="system-menu">
+		  <li class="nav-item"><a href="../system/index2018.jsp" class="nav-link br-menu-item system-menu" id="system-menu-system">系统管理</a>         	
+		  </li>
+		  <li class="nav-item"><a href="../system/index_2018.jsp?id=1" class="nav-link system-menu1" id="system-menu-license">许可证</a></li>
+		  <li class="nav-item"><a href="../system/index_2018.jsp?id=2" class="nav-link system-menu2" id="system-menu-parameter">系统参数</a></li>		  
+		</ul>				
+      </div><!-- br-sideleft-menu -->     
+    </div><!-- br-sideleft -->
+	
+	<div class="br-header">
+        <div class="br-header-left">
+            <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+            <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+            <div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>内容汇聚发布</a></div>
+        </div>
+        <!-- br-header-left -->
+        <div class="br-header-right">
+            <nav class="nav">
+                <div class="dropdown">
+                    <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+                        <span class="logged-name hidden-md-down">方志伟</span>
+                        <img src="../images/2018/img1.jpg" class="wd-32 rounded-circle" alt="">
+                        <span class="square-10 bg-success"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-header wd-200">
+                        <ul class="list-unstyled user-profile-nav">
+                            <li><a href="../person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+                            <li><a href="../logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- dropdown-menu -->
+                </div>
+                <!-- dropdown -->
+            </nav>
+         </div>
+        <!-- br-header-right -->
+    </div>
+    <!-- br-header -->
+
+	<div class="br-subleft br-subleft-file">
+		<div class="sidebar-menu-box ht-100p-force">
+			<ul class="sidebar-menu">	  	  
+				<li class="treeview active">
+					<a href="javascript:;"><i class="fa fisrtNav fa-home" ></i> <span>趋势分析</span></a>
+				</li>
+				<li class="treeview">
+					<a href="javascript:;"><i class="fa fisrtNav fa-home" ></i><span>访问明细</span></a>
+				</li>
+				<li>
+					<a href="javascript:;"><i class="fa fisrtNav fa-home" ></i> <span>来源分析</span></a>
+				</li>
+				<li class="treeview">
+					<a href="javascript:;"><i class="fa fisrtNav fa-home"></i><span>页面分析</span></a>
+				</li>
+				<li class="treeview">
+					<a href="javascript:;"><i class="fa fisrtNav fa-home" ></i><span>新老访客</span></a>
+				</li>
+				<li class="treeview">
+					<a href="javascript:;"><i class="fa fisrtNav fa-home" ></i><span>地域分析</span></a>
+				</li>
+			</ul>
+		</div>
+        
+    </div><!-- br-subleft -->
+    <!-- ########## START: MAIN PANEL ########## -->
+    <div class="br-mainpanel with-second-nav br-mainpanel-file" id="js-source">
+        <iframe src="table.html" id="content_frame" style="width: 100%;height: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+    </div><!-- br-mainpanel -->
+	
+	<script src="../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../lib/2018/moment/moment.js"></script>
+	<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	<script src="../../common/2018/bracket.js"></script>
+	<script src="../../common/2018/sidebar-menu-channel.js"></script>
+	
+	<script>
+		
+
+        $(function(){
+			'use strict';
+
+			//show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+			$(document).on('mouseover', function(e){
+			  e.stopPropagation();
+			  if($('body').hasClass('collapsed-menu')) {
+				var targ = $(e.target).closest('.br-sideleft').length;
+				if(targ) {
+				  $('body').addClass('expand-menu');
+
+				  // show current shown sub menu that was hidden from collapsed
+				  $('.show-sub + .br-menu-sub').slideDown();
+
+				  var menuText = $('.menu-item-label,.menu-item-arrow');
+				  menuText.removeClass('d-lg-none');
+				  menuText.removeClass('op-lg-0-force');
+                  menuText.css({
+                      "display":"block",
+                      "opacity":"1"
+                  })
+
+				} else {
+				  $('body').removeClass('expand-menu');
+
+				  // hide current shown menu
+				  $('.show-sub + .br-menu-sub').slideUp();
+
+				  var menuText = $('.menu-item-label,.menu-item-arrow');
+				  menuText.addClass('op-lg-0-force');
+				  menuText.addClass('d-lg-none');
+				}
+			  }
+			});
+
+			$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+			$('#showMailBoxLeft').on('click', function(e){
+			  e.preventDefault();
+			  if($('body').hasClass('show-mb-left')) {
+				$('body').removeClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+			  } else {
+				$('body').addClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+			  }
+			});
+        })
+			
+
+    </script>
+		
+</body>
+</html>

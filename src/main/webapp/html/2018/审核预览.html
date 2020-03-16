@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="robots" content="noindex, nofollow">
+		<link rel="Shortcut Icon" href="/cms2018/favicon.ico">
+		<title>内容编辑</title>
+
+		<!-- vendor css -->
+		<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+		<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+		<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+		<link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">
+		
+		<link href="../../lib/2018/summernote/summernote-bs4.css" rel="stylesheet">
+		<!-- Bracket CSS -->
+		<link rel="stylesheet" href="../../style/2018/bracket.css">
+		<link rel="stylesheet" href="../../style/2018/common.css">
+		<script src="../../lib/2018/jquery/jquery.js"></script>
+		<script type="text/javascript" src="../../common/videoPlayer.js"></script>
+		<script type="text/javascript" src="../../common/2018/videoPlayer.js"></script>
+		<style>
+			.collapsed-menu .br-mainpanel-file {
+				margin-left: 60px;
+			}
+			
+			@media (max-width: 991px) {
+				.email .with-second-nav {
+					margin-left: 230px;
+				}
+				.collapsed-menu .br-mainpanel-file {
+					margin-left: 0;
+				}
+			}
+			
+			@media (max-width: 575px) {
+				.email .with-second-nav {
+					margin-left: 0px;
+				}
+			}			
+			#nav-header {line-height: 60px;margin-left: 20px;color: #a4aab0;font-style: normal;}			
+			#nav-header a {color: #a4aab0;}
+			
+			
+			
+			/*审核预览相关*/
+			.wd-content-lable{flex: 1;}
+			div.wd-content-div {display: block;width: 100%;flex: 1;}
+			div.wd-content-div p{line-height: 1.5;}
+			div.wd-content-div img{max-width: 100%;;margin: 5px 0;}
+			div.wd-content-img {max-width: 300px;display: block;}
+			div.wd-content-img img{max-width: 100%;}
+			@media (max-width: 575px) {
+				.wd-content-lable{flex: auto;}
+				div.wd-content-div {display: block;width: 100%;flex:auto;}
+			}	
+		</style>
+	</head>
+
+	<body class="collapsed-menu email">
+
+		<!-- ########## START: LEFT PANEL ########## -->
+		<div class="br-logo">
+			<a href="index.html"><img src="../../images/2018/system-logo.png"></a>
+		</div>
+		<div class="br-sideleft overflow-y-auto">
+			<label class="sidebar-label pd-x-15 mg-t-20"></label>
+			<div class="br-sideleft-menu">
+				<a href="index.html" class="br-menu-link active" data-toggle="tooltip" data-placement="right" title="功能组1">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-edit tx-22"></i>
+						<span class="menu-item-label">功能组1</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+				<!-- br-menu-link -->
+				<a href="" class="br-menu-link" data-toggle="tooltip" data-placement="right" title="功能组2">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-area-chart"></i>
+						<span class="menu-item-label">功能组2</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+				<!-- br-menu-link -->
+				<a href="structure.html" class="br-menu-link" data-toggle="tooltip" data-placement="right" title="功能组3">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-commenting tx-20"></i>
+						<span class="menu-item-label">功能组3</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+				<!-- br-menu-link -->
+
+			</div>
+			<!-- br-sideleft-menu -->
+
+		</div>
+		<!-- br-sideleft -->
+
+		<!-- ########## END: LEFT PANEL ########## -->
+
+		<!-- ########## START: HEAD PANEL ########## -->
+		<div class="br-header">
+			<div class="br-header-left">
+				<div class="navicon-left hidden-md-down">
+					<a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a>
+				</div>
+				<div class="navicon-left hidden-lg-up">
+					<a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a>
+				</div>
+				<div id="nav-header" class="hidden-md-down flex-row align-items-center">
+					<a href="javascript:;">资源栏目</a>>
+					<a href="javascript:;">文化娱乐</a>>
+					<a href="javascript:;">中国双航母编队呼之欲出</a>
+				</div>
+			</div>
+			<!-- br-header-left -->
+			<div class="br-header-right">
+				<div class="btn-box">
+					<button type="button" class="btn btn-primary tx-size-xs mg-r-5">保存</button>
+					<button type="button" class="btn btn-secondary tx-size-xs mg-r-5">保存并发布</button>
+					<button type="button" class="btn btn-secondary tx-size-xs mg-r-10">关闭</button>
+				</div>
+				
+			</div>
+			<!-- br-header-right -->
+		</div>
+		<!-- br-header -->
+		<!-- ########## END: HEAD PANEL ########## -->
+
+		
+
+		<div class="br-mainpanel br-mainpanel-file overflow-hidden">
+			
+			<div class="row row-sm mg-t-20">
+				<div class="col-sm-8 ">
+					<div class="br-pagebody bg-white mg-l-20 mg-r-20">
+						<div class="br-content-box pd-20">
+							<div class="mg-l-15 mg-b-15 pd-r-30">                       			       		
+								<div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>标题：</label>
+									<label class="wd-content-lable d-flex " id="">
+										党员初心：87岁郑福来坚持67年义务讲述卢沟桥抗战历史
+									</label>							
+								</div>
+								<div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>发布时间：</label>
+									<label class="wd-content-lable d-flex " id="">
+										2018-10-30 18:18:18
+									</label>						
+								</div>
+		                        <div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>作者：</label>
+									<label class="wd-content-lable d-flex " id="">
+										xx小可爱
+									</label>						
+								</div>
+								<div class="row flex-row align-items-start mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>内容：</label>
+									<div class="wd-content-div" id="">
+										<p style="white-space: normal;">
+										    6月27日，北京开启“晴晒”模式，蓝天白云下的京城处处风光绮丽。图像君向各位神勇的签约摄影师大大发起征稿，为广大网友奉上一篇精美的“蓝天盛宴”，不负美景不负卿呦！
+										</p>
+										<p style="white-space: normal;">
+										    <img src="http://upload.qianlong.com/2018/0627/1530084188243.gif" alt="1水印"/>
+										</p>
+										<p style="white-space: normal;">
+										    论坛上泰德网聚（北京）科技股份有限公司总经理李鲲先生发表演讲，围绕新媒体遇上新市场主题，
+										    以经典案列引入分析、思考，就新媒体经济时代的发展前景，如何实现移动互联网+新媒体与实体经济的深度融合，
+										    以及如何重构媒体发展模式等重要问题，分享了新认识。围绕“终端随人走、信息围人转”，云导播、大数据、云计算，
+										    移动直播、H5应用等技术服务;公有云+私有云的专属平台打造以及专业媒资系统，多种应用场景，自动化标签等的应用给出了新思路。
+										    论坛上泰德网聚（北京）科技股份有限公司总经理李鲲先生发表演讲，围绕新媒体遇上新市场主题，以经典案列引入分析、思考，就新媒体经济时代的发展前景，
+										    如何实现移动互联网+新媒体与实体经济的深度融合，以及如何重构媒体发展模式等重要问题，分享了新认识。围绕“终端随人走、信息围人转”，
+										    云导播、大数据、云计算，移动直播、H5应用等技术服务;公有云+私有云的专属平台打造以及专业媒资系统，多种应用场景，自动化标签等的应用给出了新思路。
+										</p>
+										<p style="white-space: normal;">
+										    6月27日，门头沟区妙峰山民族学校
+										</p>
+										<p style="white-space: normal;">
+										    <img src="http://upload.qianlong.com/2018/0627/1530083186951.jpg" alt="莲花池公园-李海滨"/>
+										</p>
+										<p style="white-space: normal;">
+										    6月27日，莲花池公园
+										</p>
+										<p style="white-space: normal;">
+										    <img src="http://upload.qianlong.com/2018/0627/1530081723188.jpg" alt="中央电视塔-赵雅丹"/>
+										</p>
+										<p style="white-space: normal;">
+										    6月27日，蓝天白云下的中央电视塔
+										</p>
+										<p style="white-space: normal;">
+										    <img src="http://upload.qianlong.com/2018/0627/1530081717109.jpg" alt="CBD-14点-李国良"/>
+										</p>
+										<p style="white-space: normal;">
+										    6月27日，远眺国贸CBD建筑群
+										</p>		
+									</div>						
+								</div>
+								<div class="row flex-row align-items-start mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>摘要：</label>
+									<div class="wd-content-div" id="">								
+										<p style="white-space: normal;">
+										    论坛上泰德网聚（北京）科技股份有限公司总经理李鲲先生发表演讲，围绕新媒体遇上新市场主题，
+										    以经典案列引入分析、思考，就新媒体经济时代的发展前景，如何实现移动互联网+新媒体与实体经济的深度融合，
+										    以及如何重构媒体发展模式等重要问题，分享了新认识。围绕“终端随人走、信息围人转”，云导播、大数据、云计算，
+										    移动直播、H5应用等技术服务;公有云+私有云的专属平台打造以及专业媒资系统，多种应用场景，自动化标签等的应用给出了新思路。								   
+										</p>
+										
+									</div>						
+								</div>
+								<div class="row flex-row align-items-center mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>关键词：</label>
+									<label class="wd-content-lable d-flex " id="">
+										蕊蕊，可爱，极了
+									</label>						
+								</div>
+								
+								<div class="row flex-row align-items-start mg-b-15" id="">
+									<label class="left-fn-title wd-120" id=''>封面图：</label>
+									<div class="wd-content-img" id="">								
+										<p style="white-space: normal;">
+										    <img src="http://upload.qianlong.com/2018/0627/1530081723188.jpg" alt="中央电视塔-赵雅丹"/>
+										</p>
+									</div>						
+								</div>
+		                        <div class="row flex-row align-items-top mg-b-15" id="tr_Keyword">
+									<label class="left-fn-title wd-120" id='desc_Keyword'>视频信息：</label>							
+									<label class=" d-flex flex-lg-wrap" id="">
+										<div class="video-preview-box " id="con_video_content">
+								       		<script>
+								       			showPlayer({video:"https://cloud.video.taobao.com/play/u/379092568/p/2/e/6/t/1/29140244.mp4",width:300,height:225,divid:"con_video_content",skin:"http://vphoto.kepuchina.cn/images/201712201513747433930_39.jpg"});
+								       		</script>	       		
+								       	</div>
+								       	
+							       	</label>
+								</div>
+		
+							</div>
+							<!--<div id="summernote">Hello, Tidecms!</div>-->
+						</div>
+					</div> 
+			    </div><!-- col-4 -->
+		        <div class="col-sm-4 pd-x-0-force">
+		        	<div class="br-pagebody  mg-l-20 mg-r-20 pd-x-0-force" >
+			            <div class="card bg-white shadow-base bd-0">
+			              <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+			                <h6 class="card-title tx-uppercase tx-12 mg-b-0">审核结果</h6>
+			                <!--<span class="tx-12 tx-uppercase">June 20-27, 2017</span>-->
+			              </div><!-- card-header -->
+			              <div class="card-body  bg-white">
+			              	
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">提交</span>
+			              				<span class="mg-r-7">编辑2</span>
+			              				<span>提交审核</span>
+			              			</p>
+			                		<p class="mg-b-0 tx-sm">2018.10.12 10:30</p>
+			              		</div>
+			              		
+			              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              					              		
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">一审</span>
+			              				<span class="mg-r-7">责编1</span>
+			              				<span class="tx-warning">审核中</span>
+			              			</p>
+			                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+			              		</div>
+			              	    <textarea class="form-control ht-100 mg-t-10" cols="5"  placeholder="驳回理由，如审核通过则不需要输入"></textarea>
+			              	    
+			              	    <div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              	    
+			              	    <div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">二审</span>
+			              				<span class="mg-r-7">2人</span>
+			              				<span>并签</span>
+			              			</p>
+			              		</div>
+			              		
+			              		<div class="bg-gray-300 pd-x-10 pd-y-5 mg-y-5 tx-gray-700">须责编2、责编3全部审核通过</div>
+			              		
+			              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              		
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">三审</span>
+			              				<span class="mg-r-7">主编</span>
+			              				<span class="" style="color:#868ba1">等待审核</span>
+			              			</p>
+			              		</div>
+			              		
+			              </div><!-- card-body -->
+			              
+			            </div><!-- card -->
+		                
+		                <div class="card-body mg-t-20 bg-white  shadow-base bd-0">			              	
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">提交</span>
+		              				<span class="mg-r-7">编辑2</span>
+		              				<span>提交审核</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">2018.10.12 10:30</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-success">通过</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-warning">审核中</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-danger">驳回</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		<div class="sh-reason mg-t-5">
+		              			<p class="bd pd-x-10 pd-y-5">理由：摘要中含有敏感政治人物名字理由：理由：摘要中含有敏感政治人物名字</p>
+		              		</div>
+		              	   
+			            </div><!-- card-body -->
+		        	
+		        	</div>
+		        </div><!-- col-4 -->
+		        
+			</div>
+		</div>
+		<!-- br-mainpanel -->
+		<!-- ########## END: MAIN PANEL ########## -->
+        
+		
+		<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+		<script src="../../lib/2018/popper.js/popper.js"></script>
+		<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+		<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+		<script src="../../lib/2018/moment/moment.js"></script>
+		<script src="../../lib/2018/summernote/summernote-bs4.min.js"></script>
+		<script src="../../lib/2018/summernote/summernote-zh-CN.js"></script>
+
+		<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+		<script src="../../lib/2018/peity/jquery.peity.js"></script>
+		<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+		<script src="../../lib/2018/medium-editor/medium-editor.js"></script>
+
+		<script src="../../common/2018/bracket.js"></script>
+
+		<script>
+			$(function() {
+				'use strict';
+
+				//show only the icons and hide left menu label by default
+				$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+
+				//      $(document).on('mouseover', function(e){
+				//      	
+				//        e.stopPropagation();
+				//        if($('body').hasClass('collapsed-menu')) {
+				//          var targ = $(e.target).closest('.br-sideleft').length;
+				//          if(targ) {
+				//            $('body').addClass('expand-menu');
+				//
+				//            // show current shown sub menu that was hidden from collapsed
+				//            $('.show-sub + .br-menu-sub').slideDown();
+				//
+				//            var menuText = $('.menu-item-label,.menu-item-arrow');
+				//            menuText.removeClass('d-lg-none');
+				//            menuText.removeClass('op-lg-0-force');
+				//
+				//          } else {
+				//            $('body').removeClass('expand-menu');
+				//
+				//            // hide current shown menu
+				//            $('.show-sub + .br-menu-sub').slideUp();
+				//
+				//            var menuText = $('.menu-item-label,.menu-item-arrow');
+				//            menuText.addClass('op-lg-0-force');
+				//            menuText.addClass('d-lg-none');
+				//          }
+				//        }
+				//      });
+
+				$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+				$('#showMailBoxLeft').on('click', function(e) {
+					e.preventDefault();
+					if($('body').hasClass('show-mb-left')) {
+						$('body').removeClass('show-mb-left');
+						$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+					} else {
+						$('body').addClass('show-mb-left');
+						$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+					}
+				});
+
+				$('.br-sideleft [data-toggle="tooltip"]').tooltip({
+					shadowColor: "#ffffff",
+					textColor: "000000",
+					trigger: "hover"
+				});
+
+				//自定义部分
+				var height = document.documentElement.clientHeight - 300;
+				$('#summernote').summernote({
+					height: height,
+					lang: "zh-CN",
+					focus: true,
+					tooltip: false,
+					callback: {
+
+					}
+				})
+
+			});
+		</script>
+	</body>
+
+</html>

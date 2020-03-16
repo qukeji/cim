@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>组织认证-媒体号</title>
+		<link rel="stylesheet" href="/css/media_register.css" />
+		<script type="text/javascript" src="/js/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+		<!-- 组织认证提交 -->
+		<div class="media-container organizationalCertification">
+			<div class="media-title"><h5>组织认证</h5>
+			<!--<a href="javascript:;" id="moreMedia"  class="backpage"><img src="../images/medialeft.png"></a>-->
+			</div>
+			<div class="media-bind" >
+				<div class="media-temp">
+					<input class="type media-per" type="text" value="" id="type" name="type" placeholder="类型" readonly="true"><span class="company_type"></span>
+				</div>
+				<input class="organizational-name media-per" type="text" value="" id="organizational-name" name="organizational-name" placeholder="组织名称">
+				<div class="media-temp">
+					<p class="upload-avatar media-per"  id="upload-avatar">上传头像</p>
+					<div class="upload-info">
+						<form class="upload-avatars">
+							<div class="avatar-preview"><img src="/images/media/avatar_default.png" id="avatar-img"></div>
+							<input type="file" name="file" value="" id="avatar">
+							<label for="avatar" class="avatar-img"></label>
+						</form>
+						<a href="javascript:;" class="uplaod-arr"><img src="/images/media/mediaright.png"></a>
+					</div>
+				</div>
+				
+				<div class="media-upload">
+					<div class="media-upload-title">请上传组织机构代码证/营业执照</div>
+					<div class="content-add">
+						<form class="upload-form">
+							<div class="picture-preview"><img src="" id="upload-img" style="display:none;"><span class="close" style="display:none;">×</span></div>
+							<input type="file" name="file" value="" id="upload">
+							<label for="upload" class="load-img">+</label>
+						</form>
+					</div>
+					<span class="tips">照片要清晰，大小尽量控制在2M以内</span>
+				</div>
+				<input class="email media-per" type="text" value="" id="email" name="email" placeholder="邮箱">
+				<textarea placeholder="请输入简介"></textarea>
+				<button class="sub-btn" id="submit_btn">加入</button>
+			</div>
+		</div>
+		<div id="commonpop">
+			<p><span></span></p>
+		</div>
+		<script type="text/javascript" src="/js/media_config.js" ></script>
+		<script>
+			$(function(){
+				// 组织提交
+				var _company_type=getUrl("type");
+				if(_company_type=="1"){
+					$(".organizationalCertification .company_type").html("群媒体");
+				}else if(_company_type=="2"){
+					$(".organizationalCertification .company_type").html("新闻媒体");
+				}else if(_company_type=="3"){
+					$(".organizationalCertification .company_type").html("国家机构");
+				}else if(_company_type=="4"){
+					$(".organizationalCertification .company_type").html("企业");
+				}else if(_company_type=="5"){
+					$(".organizationalCertification .company_type").html("其他组织");
+				}
+				//企业默认封面图
+				$("#avatar").change( function(){
+					if( doUpload( this ) ){
+						uploadImg( $(".upload-avatars") )
+					}	
+				} )	
+				$("#upload").change( function(){
+					if( doUpload( this ) ){
+						uploadImgs( $(".upload-form") )
+					}	
+				} )	
+				$(".close").click(function(){
+					$(this).hide();
+					$("#upload-img").attr({"src":""});
+					$("#upload-img,.picture-preview").hide();
+				});
+				//提交
+				
+				$("#submit_btn").click(function(){
+				    //alert(session);
+				    var type=1;
+					var company_type=$(".organizationalCertification .company_type").html();
+					var name=$("#organizational-name").val();
+					var email=$("#email").val();
+					var avatar=$("#avatar-img").attr("src");
+					var photo=$("#upload-img").attr("src");
+					
+					var summary=$(".organizationalCertification textarea").val();
+					var callback="callback";
+					if(!name){
+						commonPop("请输入组织名称"); 
+						return false;
+					}
+					if(!photo){
+						commonPop("请上传图片"); 
+						return false;
+					}
+					if(!email){
+						commonPop("请输入邮箱"); 
+						return false;
+					}
+					var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+				    if (!reg.test(email)) {
+				        commonPop("邮箱格式不正确，请重新输入！");
+				        return false;
+				    }
+					if(!summary){
+						commonPop("请输入简介"); 
+						return false;
+					}
+					var _data={};
+					if(getCookie("action")){
+					    _data={"session":session,"site":site,"type":type,"company_type":_company_type,"name":name,"email":email,"summary":summary,"avatar":avatar,"photo":photo,"action":getCookie("action")}
+					}else{
+					    _data={"session":session,"site":site,"type":type,"company_type":_company_type,"name":name,"email":email,"summary":summary,"avatar":avatar,"photo":photo,"action":0}
+					    
+					}
+					$.ajax({
+						type:"get",
+						url:ipurl+"/company_register.php",
+						data:_data,
+						dataType :"jsonp",
+						jsonp:"callback",
+						success:function(data){
+							console.log(data)
+							if(data.code==200){
+							   	commonPop(data.message); 
+							   	delCookie("action");
+							   	window.location.href="application.html";
+								//location.replace("application.html");
+							}else{
+							    commonPop(data.message); 
+							}
+						},
+						error:function(){
+						}
+					});
+				})
+				 function doUpload(that){
+					var file=that.files[0];
+					if(!/image\/\w+/.test(file.type)){
+						commonPop("文件必须为图片！");
+						return false;
+					}else{
+						return true;
+					}
+				}	
+				//图片上传函数
+				function uploadImgs(ele){	
+					var formData = new FormData(ele[0]);
+					$.ajax({   
+						 url:ipurl+"/file_upload.php",     
+						 data:formData,   
+						 type:"post",
+						 dataType:"json",
+						 async:false,
+						 cache:false,
+						 contentType:false,
+						 processData:false,
+						 success:function(data){   
+							if(data.status==1){				                	
+								$(".picture-preview img").attr("src",data.result.url);
+								$(".picture-preview img,.picture-preview,.picture-preview span").css("display","block");
+							 }else{
+								commonPop("上传图片失败");			                   
+							 }
+						 }
+						 
+					})
+				}
+				function uploadImg(ele){	
+					var formData = new FormData(ele[0]);
+					$.ajax({   
+						 url:ipurl+"/file_upload.php",     
+						 data:formData,   
+						 type:"post",
+						 dataType:"json",
+						 async:false,
+						 cache:false,
+						 contentType:false,
+						 processData:false,
+						 success:function(data){   
+							if(data.status==1){				                	
+								$(".avatar-preview img").attr("src",data.result.url);
+							 }else{
+								commonPop("上传图片失败");			                   
+							 }
+						 }
+						 
+					})
+				}
+				
+				
+			})	
+		</script>
+	</body>
+</html>

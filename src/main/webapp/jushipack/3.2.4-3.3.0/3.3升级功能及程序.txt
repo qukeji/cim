@@ -1,0 +1,126 @@
+1、媒体号审核自动生成列表页地址
+	content/document_media.jsp
+	content/document_submit_media2018.jsp
+	content/media_approvedocument2018.jsp
+2、调度管理修改路径
+	util/collect.jsp
+	util/sync_juxian.jsp
+	util/juxian_company_message.jsp
+3、列表页引用功能bug，（content字段引用不成功）
+	common/2018/common2018.js
+4、solr入库修改
+	api/index_app_update_solr.jsp
+5、聚视查询接口改成查询ES
+	api/index_app_update_es.jsp
+	api/es_app.jsp
+	api/relation_news.jsp
+6、内容编辑页的单选样式优化
+	tidemedia/cms/system/Field.java
+7、内容页编辑器切换
+	h5目录
+	content/document.jsp
+8、集合组列表页删除及排序功能
+	content/select_child_delete2018.jsp
+	content/content_gather.jsp
+	content/content_gather_sort2018.jsp
+9、去除页面多余div
+	main.jsp  
+	header.jsp
+10、独立h5编辑器内容页开发
+	content/document_h5.jsp
+11、频道树接口路径修改
+	lib/index2018.jsp
+	lib/appIndex2018.jap
+	lib/userIndex2018.jsp
+	lib/webIndex.jsp
+	lib/channel_json.jsp
+12、聚视资源中心导航点击报错
+	source/index2018.jsp
+13、媒体号管理：
+  13.1、关联社区用户编号
+	content/company_user_index.jsp
+	content/company_user_right.jsp
+  13.2、关联话题分类编号
+    content/company_topic_index.jsp
+    content/company_topic_right.jsp
+  13.3、内容页定制
+    content/document_company.jsp
+  13.4、关联内容频道
+    content/listHref.jsp
+14、删除话题时增加提示信息
+	category/multi_category_content.jsp
+	category/multi_category_delete_check.jsp
+16、资源栏目内容页弹窗404
+	content/document_ziyuan.jsp
+	content/secondcategoryList.jsp
+17、聚现直播修改列表页地址
+	content/content_juxianLive2018.jsp
+18、注册用户信息列表页地址
+	content/content_user.jsp
+19、移动复制404
+	common/2018/content.js
+	content/document_copy_index.jsp
+20、字段增加开关类型和说明
+	content/document_h5.jsp
+	content/document_button.jsp
+	content/document.jsp
+	tidemedia/cms/syatem/Field.java
+21、编辑器中编辑图片时出现404界面
+	photo/image_deal_online_editor.jsp
+	photo/cropimage.jsp
+	style/photo/cropper.css
+	style/photo/main.css
+	common/cropper.js
+	images/2018/img12.jpg
+22、社区中便捷话题界面问题修改
+	category/multi_category_edit2018.jsp
+23、非爆料频道字段隐藏
+	common/controlfield.js
+	content/document_ziyuan.jsp
+24、开关样式及字段说明调整
+	common/2018/bracket.js
+	content/document.jsp
+	content/document_h5.jsp
+	content/document_button.jsp
+	content/document_ziyuan.jsp
+	channel/field_edit2018.jsp
+25、频道参数修改
+	page/page_info2018.jsp
+	content/select_button_child_channel_tree.jsp
+	user/user_edit22018.jsp
+	user/user_add_2.jsp
+	content/document_copy_index.jsp
+	recommend/recommend_item.jsp
+	recommend/out_index.jsp
+	content/company_topic_index.jsp
+	content/company_user_index.jsp
+	content/index2018.jsp
+	content/secondcategoryList.jsp
+	content/listHref.jsp
+	report/channel_report_index.jsp
+	sns/index2018.jsp
+	source/recommend_out_index.jsp
+	source/index2018.jsp
+26、按钮内容管理频道功能程序custom目录转content
+	content/document_button.jsp
+	content/documentHref_index.jsp
+	content/documentHref_right.jsp
+27、网站管理员权限
+	include/tree.jsp
+	main.jsp
+28、工作流
+	system/index_2018.jsp
+	channel/channel2018.jsp
+	approve目录
+	system/LogAction.java
+	system/Log.java
+	system/Channel.java
+	system/ApproveScheme.java
+	system/ApproveItems.java
+29、
+	content/content2018.jsp
+	api/deletefileitem.jsp
+
+	
+	
+	

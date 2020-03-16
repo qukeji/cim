@@ -1,0 +1,683 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+    <title>图标选择</title>
+
+    <!-- vendor css -->
+    <link href="../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+   
+    <link href="../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../style/2018/common.css">
+    
+  </head>
+  <style>
+  	html,body{width: 100%;height: 100%;}
+  	.modal-body{top: 0px;}
+  	.config-box ul li{display:block;text-align: center;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+  	.modal-body .config-box .row{flex-wrap: wrap;}
+  	.config-box ul li .rdiobox{margin-right: 0 !important;margin-top: 5px;}
+  	.config-box ul li .rdiobox input{margin-right: 0;}
+  	@media (min-width: 576px){
+	  	.config-box .col-sm-2 {flex: 0 0 12%;max-width: 12%;}  	
+  	}
+	
+  </style>
+  <body class="" >
+ 
+    <div class="bg-white modal-box">
+      <!--<div class="ht-50 pd-x-20  rounded d-flex align-items-center justify-content-start bd-b">
+        <label class="mg-b-0-force">操作：</label>
+				<button class="btn btn-info btn-sm mg-r-8 tx-13" onclick="">上传</button>
+				<button class="btn btn-danger btn-sm mg-r-8 tx-13" onclick="">删除</button>
+      </div>-->
+	    <div class="modal-body pd-20 overflow-y-auto">
+	        <div class="config-box">
+	       	  <ul class="row icon-list list-unstyled tx-20 mg-b-0">
+	       	  
+	       	  	<li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="anchor"><i class="menu-item-icon fa fa-edit tx-22"></i>
+	              	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" checked="checked" value='<i class="menu-item-icon fa fa-edit tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>	            
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="anchor"><i class="menu-item-icon fa fa-anchor tx-22"></i>
+	              	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-anchor tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>	            
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="area-chart"><i class="menu-item-icon fa fa-area-chart tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-area-chart tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="arrows"><i class="menu-item-icon fa fa-arrows tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-arrows tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="automobile"><i class="menu-item-icon fa fa-automobile tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-automobile tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="balance-scale"><i class="menu-item-icon fa fa-balance-scale tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-balance-scale tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="area-chart"><i class="menu-item-icon fa fa-area-chart tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-area-chart tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="ban"><i class="menu-item-icon fa fa-ban tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-ban tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bank"><i class="menu-item-icon fa fa-bank tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bank tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bar-chart"><i class="menu-item-icon fa fa-bar-chart tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bar-chart tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bars"><i class="menu-item-icon fa fa-bars tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bars tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bath"><i class="menu-item-icon fa fa-bath tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bath tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="battery"><i class="menu-item-icon fa fa-battery tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-battery tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="battery-empty"><i class="menu-item-icon fa fa-battery-empty tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-battery-empty tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bed"><i class="menu-item-icon fa fa-bed tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bed tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bell-o"><i class="menu-item-icon fa fa-bell-o tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bell-o tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bicycle"><i class="menu-item-icon fa fa-bicycle tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bicycle tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="binoculars"><i class="menu-item-icon fa fa-binoculars tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-binoculars tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="birthday-cake"><i class="menu-item-icon fa fa-birthday-cake tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-birthday-cake tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bluetooth"><i class="menu-item-icon fa fa-bluetooth tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bluetooth tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="book"><i class="menu-item-icon fa fa-book tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-book tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="briefcase"><i class="menu-item-icon fa fa-briefcase tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-briefcase tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="bug"><i class="menu-item-icon fa fa-bug tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-bug tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="calendar"><i class="menu-item-icon fa fa-calendar tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-calendar tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="calendar-o"><i class="menu-item-icon fa fa-calendar-o tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-calendar-o tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="camera"><i class="menu-item-icon fa fa-camera tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-camera tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="camera-retro"><i class="menu-item-icon fa fa-camera-retro tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-camera-retro tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="clock-o"><i class="menu-item-icon fa fa-clock-o tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-clock-o tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="clone"><i class="menu-item-icon fa fa-clone tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-clone tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="close"><i class="menu-item-icon fa fa-close tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-close tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="coffee"><i class="menu-item-icon fa fa-coffee tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-coffee tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="cog"><i class="menu-item-icon fa fa-cog tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-cog tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="comment"><i class="menu-item-icon fa fa-comment tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-comment tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="comment-o"><i class="menu-item-icon fa fa-comment-o tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-comment-o tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="compass"><i class="menu-item-icon fa fa-compass tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                	<input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-compass tx-22"></i>'><span class="d-inline-block"></span>
+	              	</label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="credit-card"><i class="menu-item-icon fa fa-credit-card tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-credit-card tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="crop"><i class="menu-item-icon fa fa-crop tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-crop tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="crosshairs"><i class="menu-item-icon fa fa-crosshairs tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-crosshairs tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="cube"><i class="menu-item-icon fa fa-cube tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-cube tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="cutlery"><i class="menu-item-icon fa fa-cutlery tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-cutlery tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="database"><i class="menu-item-icon fa fa-database tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-database tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="desktop"><i class="menu-item-icon fa fa-desktop tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-desktop tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="diamond"><i class="menu-item-icon fa fa-diamond tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-diamond tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="download"><i class="menu-item-icon fa fa-download tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-download tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="envelope-o"><i class="menu-item-icon fa fa-envelope-o tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-envelope-o tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="eraser"><i class="menu-item-icon fa fa-eraser tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-eraser tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="exchange"><i class="menu-item-icon fa fa-exchange tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-exchange tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="eye"><i class="menu-item-icon fa fa-eye tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-eye tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="eye-slash"><i class="menu-item-icon fa fa-eye-slash tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-eye-slash tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="eyedropper"><i class="menu-item-icon fa fa-eyedropper tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-eyedropper tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="fax"><i class="menu-item-icon fa fa-fax tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-fax tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="feed"><i class="menu-item-icon fa fa-feed tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-feed tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="female"><i class="menu-item-icon fa fa-female tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-female tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="film"><i class="menu-item-icon fa fa-film tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-film tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="filter"><i class="menu-item-icon fa fa-filter tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-filter tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="fire"><i class="menu-item-icon fa fa-fire tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-fire tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="flag"><i class="menu-item-icon fa fa-flag tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-flag tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="folder"><i class="menu-item-icon fa fa-folder tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-folder tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="gavel"><i class="menu-item-icon fa fa-gavel tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-gavel tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="gear"><i class="menu-item-icon fa fa-gear tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-gear tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="gift"><i class="menu-item-icon fa fa-gift tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-gift tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="glass"><i class="menu-item-icon fa fa-glass tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-glass tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="globe"><i class="menu-item-icon fa fa-globe tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-globe tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="headphones"><i class="menu-item-icon fa fa-headphones tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-headphones tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="heart"><i class="menu-item-icon fa fa-heart tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-heart tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="home"><i class="menu-item-icon fa fa-home tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-home tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="hourglass"><i class="menu-item-icon fa fa-hourglass tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-hourglass tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="image"><i class="menu-item-icon fa fa-image tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-image tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="inbox"><i class="menu-item-icon fa fa-inbox tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-inbox tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="key"><i class="menu-item-icon fa fa-key tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-key tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="laptop"><i class="menu-item-icon fa fa-laptop tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-laptop tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="leaf"><i class="menu-item-icon fa fa-leaf tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-leaf tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center  mg-t-10" title="lock"><i class="menu-item-icon fa fa-lock tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-lock tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="magic"><i class="menu-item-icon fa fa-magic tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-magic tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="magnet"><i class="menu-item-icon fa fa-magnet tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-magnet tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="map"><i class="menu-item-icon fa fa-map tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-map tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="microphone"><i class="menu-item-icon fa fa-microphone tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-microphone tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="mobile"><i class="menu-item-icon fa fa-mobile tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-mobile tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="money"><i class="menu-item-icon fa fa-money tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-money tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="music"><i class="menu-item-icon fa fa-music tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-music tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="navicon"><i class="menu-item-icon fa fa-navicon tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-navicon tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="paw"><i class="menu-item-icon fa fa-paw tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-paw tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="pencil"><i class="menu-item-icon fa fa-pencil tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-pencil tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="phone"><i class="menu-item-icon fa fa-phone tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-phone tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="plane"><i class="menu-item-icon fa fa-plane tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-plane tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="plug"><i class="menu-item-icon fa fa-plug tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-plug tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="plus"><i class="menu-item-icon fa fa-plus tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-plus tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="print"><i class="menu-item-icon fa fa-print tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-print tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="random"><i class="menu-item-icon fa fa-random tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-random tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="recycle"><i class="menu-item-icon fa fa-recycle tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-recycle tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="refresh"><i class="menu-item-icon fa fa-refresh tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-refresh tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="reply"><i class="menu-item-icon fa fa-reply tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-reply tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="road"><i class="menu-item-icon fa fa-road tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-road tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="rocket"><i class="menu-item-icon fa fa-rocket tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-rocket tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="rss"><i class="menu-item-icon fa fa-rss tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-rss tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="search"><i class="menu-item-icon fa fa-search tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-search tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="send"><i class="menu-item-icon fa fa-send tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-send tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="server"><i class="menu-item-icon fa fa-server tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-server tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="share"><i class="menu-item-icon fa fa-share tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-share tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="shield"><i class="menu-item-icon fa fa-shield tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-shield tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="ship"><i class="menu-item-icon fa fa-ship tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-ship tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="shower"><i class="menu-item-icon fa fa-shower tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-shower tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="signal"><i class="menu-item-icon fa fa-signal tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-signal tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="signing"><i class="menu-item-icon fa fa-signing tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-signing tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="sitemap"><i class="menu-item-icon fa fa-sitemap tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-sitemap tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="sliders"><i class="menu-item-icon fa fa-sliders tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-sliders tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="spinner"><i class="menu-item-icon fa fa-spinner tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-spinner tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="spoon"><i class="menu-item-icon fa fa-spoon tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-spoon tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="star"><i class="menu-item-icon fa fa-star tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-star tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="suitcase"><i class="menu-item-icon fa fa-suitcase tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-suitcase tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="tablet"><i class="menu-item-icon fa fa-tablet tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-tablet tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="tags"><i class="menu-item-icon fa fa-tags tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-tags tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="tasks"><i class="menu-item-icon fa fa-tasks tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-tasks tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="television"><i class="menu-item-icon fa fa-television tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-television tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="ticket"><i class="menu-item-icon fa fa-ticket tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-ticket tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="trash"><i class="menu-item-icon fa fa-trash tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-trash tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="tree"><i class="menu-item-icon fa fa-tree tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-tree tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="trophy"><i class="menu-item-icon fa fa-trophy tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class=" menu-item-iconfa fa-trophy tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="truck"><i class="menu-item-icon fa fa-truck tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-truck tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="umbrella"><i class="menu-item-icon fa fa-umbrella tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-umbrella tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	            <li class="col-3 col-sm-2 col-lg-1 tx-center mg-t-10" title="wifi"><i class="menu-item-icon fa fa-wifi tx-22"></i>
+	            	<label class="rdiobox mg-b-10-force">
+	                <input id="" type="radio" name="iconselect" value='<i class="menu-item-icon fa fa-wifi tx-22"></i>'><span class="d-inline-block"></span>
+	              </label>
+	            </li>
+	          </ul><!-- icon-list -->
+	        </div>
+	                   
+	    </div><!-- modal-body -->
+      <div class="btn-box" >
+      	<div class="modal-footer" >
+		      <button type="button" class="btn btn-primary tx-size-xs" onclick="next()">确认</button>
+		      <button type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal">取消</button>
+		    </div> 
+      </div>
+	    
+	     
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+   
+    
+    <script type="text/javascript">  
+		
+			function next(){
+				/*var icon_list2018 = $('input:radio[name="iconselect"]:checked').val();*/
+				var icons = document.getElementsByName("iconselect");
+				 var icon="";
+				for(var i=0;i<icons.length;i++){
+					if(icons[i].checked){
+						icon=icons[i].value;
+					}
+				}
+				top.TideDialogClose({suffix:'_3',recall:true,returnValue:{icon:icon}});
+			}
+		
+		
+    </script>
+  </body>
+</html>

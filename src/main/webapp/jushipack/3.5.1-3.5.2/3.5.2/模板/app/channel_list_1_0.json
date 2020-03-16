@@ -1,0 +1,6 @@
+[
+#set($i=0)
+#foreach($subchannel in $channel.listSubChannels())#if($i>0),#end #set($i=$i+1)
+{"channelName":"$subchannel.getName()","channelID":"$subchannel.getId()","listUrl":#if($subchannel.getSerialNo().indexOf("nav_watch")!=-1)"$channel.getSite().getUrl()/a/a/list_watch_list.shtml"#else#if($subchannel.getExtra2()!="")"$subchannel.getExtra2()"#else"${subchannel.getFullPath()}list_1_0.shtml"#end#end,"exlink":#if($subchannel.getExtra1()=="exlink")true #else false #end,"community":#if($subchannel.getExtra1()=="community")true#else false #end,"baoliao":#if($subchannel.getSerialNo().indexOf('nav_baoliao')!=-1)true #else false #end,"tv":#if($subchannel.getSerialNo().indexOf('nav_tv')!=-1||$subchannel.getSerialNo().indexOf('nav_radio')!=-1 )true #else false #end,"watch":#if($subchannel.getSerialNo().indexOf('nav_watch')!=-1)true #else false #end,"channelType":"$subchannel.getExtra1()"}
+#end
+]

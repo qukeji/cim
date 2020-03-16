@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>TideCMS 列表</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link href="../../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<style>
+	.collapsed-menu .br-mainpanel-file {margin-left: 0;margin-top: 0;}
+	table.table-fixed{table-layout: fixed;word-break: break-all;word-wrap: break-word}
+	table.table-fixed,table.table-fixed th,table.table-fixed td{border:none;
+	border-collapse: collapse !important;}
+	table td{padding: 5px !important;vertical-align: middle;}
+	table td .card{padding: 5px;cursor: pointer;border: 2px solid transparent;}
+	table td:hover .card{border: 2px solid rgb(69, 152, 225);}
+	table td.ac .card{border: 2px solid rgb(69, 152, 225);background: rgba(69, 152, 225, 0.1);}
+	.list-pic-box{width: 100%;height: 0;padding-bottom: 75%;overflow: hidden;text-align: center;position: relative;}
+	/*.list-pic-box img{max-width: 100%;min-width:100%;min-height: 100%;height: auto;display: block;}*/
+	.list-pic-box .list-img-contanier{width: 100%;position: absolute;left: 0;top: 0;height: 100%;display: flex;justify-content: center;align-items: center;}
+    .list-pic-box .list-img-contanier img{width: auto;max-height: 100%;max-width: 100%;}
+    #tide_content_tfoot1 {padding: .75rem;display: flex;border-top: none;align-items: center;color: #000;}
+	@media (max-width: 575px){
+		#content-table .hidden-xs-down {word-break: normal;	}
+	}
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+<script type="text/javascript" src="../../common/2018/content.js"></script>
+<script>
+	var listType = 2;
+	var rows = 10;
+	var cols = 4;
+	var ChannelID = 15981;
+	var currRowsPerPage = 20;
+	var currPage = 1;
+	var ChannelName = "推荐";
+	var Parameter = "&ChannelID=" + ChannelID + "&rowsPerPage=" + currRowsPerPage + "&currPage=" + currPage;
+	var pageName = "content_ziyuan.jsp";
+	if (pageName == "") pageName = "content.jsp";
+
+	function gopage(currpage) {
+		var url = pageName + "?currPage=" + currpage + "&id=15981&rowsPerPage=20&Title=&startDate=&endDate=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0";
+		this.location = url;
+	}
+
+	function list(str) {
+		var url = pageName + "?id=15981&rowsPerPage=20";
+		if (typeof(str) != 'undefined')
+			url += "&" + str;
+		this.location = url;
+	}
+	function recommendOut1(id){
+		var	dialog = new top.TideDialog();
+			dialog.setWidth(500);
+			dialog.setHeight(400);
+			dialog.setUrl("../recommend/out_index.jsp?ChannelID="+ChannelID+"&ItemID="+id);
+			dialog.setTitle('推荐');
+			dialog.setChannelName(ChannelName);
+			dialog.show();
+	}
+	
+	
+//refresh为true，刷新url
+
+</script>
+</head>
+
+<body class="collapsed-menu email bg-white">
+	<div class="br-mainpanel br-mainpanel-file" id="js-source">
+		
+		<!--列表-->
+		<div class="br-pagebody pd-x-15 pd-sm-x-20 mg-t-15">
+			<div class="card bd-0">
+				<table class="table mg-b-0 table-fixed" id="content-table">
+					<tbody>
+						<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+							<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2019/10/9/20191091570600464488_23_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/5/2018751530804220460_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							  </div>
+						</td>
+				
+						<td  class="ac" >
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+				
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+								
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="card bd-0">
+								<div class="list-pic-box">
+									<div class="list-img-contanier">
+										<img class="card-img-top" src="http://jushi-yanshi.tidemedia.com/images/2018/7/2/2018721530529549022_49_t1080.png" alt="Image" onerror="" >
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<script>
+					var page = {
+						id: '15981',
+						currPage: '1',
+						rowsPerPage: '20',
+						querystring: '&Title=&startDate=&endDate=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0',
+						TotalPageNumber: 1
+					};
+				</script>
+                
+				
+				<!--分页-->
+				<div id="tide_content_tfoot1">
+					<span class="mg-r-20 ">共16条</span>
+					<span class="mg-r-20 ">1/1页</span>
+					<div class="jump_page ">
+						<span class="">跳至:</span>
+						<label class="wd-60 mg-b-0">
+							<input class="form-control" placeholder="" type="text" name="jumpNum" id="jumpNum">
+						</label>
+						<span class="">页</span>
+						<a href="javascript:jumpPage();" class="tx-14">Go</a>
+					</div>
+					<div class="btn-group mg-l-auto">
+						<a href="javascript:gopage(2)" class="btn btn-outline-info"><i class="fa fa-chevron-left"></i></a>
+						<a href="javascript:gopage(2)" class="btn btn-outline-info"><i class="fa fa-chevron-right"></i></a>
+					</div>
+					
+				</div>
+				<!--分页-->
+
+			</div>
+		</div>
+		<!--列表-->
+
+
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+<script src="../../lib/2018/select2/js/select2.min.js"></script>
+<script src="../common/2018/bracket.js"></script>
+
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+<script src="../../lib/2018/jquery-toggles/toggles.min.js"></script>
+
+<script>
+
+
+	;$(function() {
+		'use strict';
+
+		//show only the icons and hide left menu label by default
+		$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+
+		$(document).on('mouseover', function(e) {
+			e.stopPropagation();
+			if ($('body').hasClass('collapsed-menu')) {
+				var targ = $(e.target).closest('.br-sideleft').length;
+				if (targ) {
+					$('body').addClass('expand-menu');
+
+					// show current shown sub menu that was hidden from collapsed
+					$('.show-sub + .br-menu-sub').slideDown();
+
+					var menuText = $('.menu-item-label,.menu-item-arrow');
+					menuText.removeClass('d-lg-none');
+					menuText.removeClass('op-lg-0-force');
+
+				} else {
+					$('body').removeClass('expand-menu');
+
+					// hide current shown menu
+					$('.show-sub + .br-menu-sub').slideUp();
+
+					var menuText = $('.menu-item-label,.menu-item-arrow');
+					menuText.addClass('op-lg-0-force');
+					menuText.addClass('d-lg-none');
+				}
+			}
+		});
+
+		$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+		$('#showMailBoxLeft').on('click', function(e) {
+			e.preventDefault();
+			if ($('body').hasClass('show-mb-left')) {
+				$('body').removeClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+			} else {
+				$('body').addClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+			}
+		});
+
+		//切换选中
+		$("#content-table  td").click(function() {
+			$("#content-table  td").removeClass("ac");
+			$(this).addClass("ac")
+		});
+
+	});
+
+</script>
+
+    </div>
+
+</body>
+
+</html>

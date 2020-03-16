@@ -1,0 +1,99 @@
+#foreach( $item in $Controller.listTopItems(1))
+<!doctype html>
+<html>
+<head>
+<meta name="publisher" content="TideCMS 9.0">
+<meta charset="utf-8">
+<title>$item.getTitle()</title>
+<link rel="stylesheet" type="text/css" href="/css/downpc.css"/>
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script>
+	if (/mobile/i.test(navigator.userAgent)) {
+        window.location.href="share_app.html";
+    }
+</script>
+</head>
+<body>
+	<div class="box">
+         <div class="inner"> 
+        		<div class="container">
+        		   
+        		  
+		           <div class="box-left">
+		             #if($item.getValue('pcleft')!="")
+		              <div class="app-view">
+		                 <img src="$item.getValue('pcleft')"/>
+		              </div>
+		             #else
+		              <div class="app-view">
+		           	     <img src=""/>
+		           	  </div>
+		           	 #end
+		           </div>	
+		           <div class="box-right">
+		           	  <h1>$item.getTitle()</h1>
+		           	  <div class="r-star">
+		           	      <img src="/images/star_03.png"/>
+		           	      <img src="/images/star_03.png"/>
+		           	      <img src="/images/star_03.png"/>
+		           	      <img src="/images/star_03.png"/>
+		           	      <img src="/images/star_03.png"/>
+		           	  </div>
+		              <div class="r-content">
+			       	    <p>$item.getValue("Summary")
+			            </p><br />
+			           <!-- <p>
+			          	  In Huangshan is the officail APP of Huangshan Radio and TV Station.
+			          	  It aims to offer you authoritative news,wonderful programs,considerate services and interesting activties.
+			            </p>  -->
+		              </div>
+		              <div class="r-img">
+		          <!-- 	<div class="img-left">
+		              	  <img src="/images/download_app/two_code.png"/>
+		              	</div> -->
+		              	<div id="dwtype" class="img-right">
+		              		<div data-type="ios"><img src="/images/Apple_03.png"/><span>AppStore下载</span></div>
+		              		<div data-type="android"><img src="/images/Android_03.png"/><span>Android下载</span></div>
+		                </div>
+		              </div>
+		           </div>
+        		</div>
+	       </div>
+	   </div>
+      <script type="text/javascript">
+		$(function(){
+			 function pcbox(){
+		 		var bheight=$(".box").get(0).clientHeight;
+				var pcheight=$(window).height(); 
+				if(bheight<pcheight){
+					$(".box").css("margin-top",pcheight-bheight+"px");
+					if((pcheight-bheight)<130){
+						$(".box").css("margin-top","130px");
+					}
+				}else{
+					$(".box").css("margin-top","130px");
+				}
+			 }
+             pcbox();
+			$(window).resize(pcbox);
+			
+			 #if($item.getValue('pcphoto')!="")
+             $("body").css({"background":"url('$item.getValue('pcphoto')') no-repeat"});
+             #end
+
+			   			   
+		   $("#dwtype").find("div").click(function(){
+		     var dwtype=$(this).attr("data-type");
+                  if(dwtype=="ios"){
+	                     window.location.href="$item.getValue('applehref')";
+	              }else{
+	                    window.location.href="$item.getValue('androidhref')";
+	              } 
+			});
+			
+		});
+	</script>
+
+</body>
+</html>
+#end

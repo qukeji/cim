@@ -1,0 +1,543 @@
+Jan 9, 2012 10:58:51 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/jdk1.6.0_26/jre/lib/amd64/server:/usr/java/jdk1.6.0_26/jre/lib/amd64:/usr/java/jdk1.6.0_26/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+Jan 9, 2012 10:58:51 PM org.apache.catalina.startup.SetAllPropertiesRule begin
+WARNING: [SetAllPropertiesRule]{Server/Service/Connector} Setting property 'maxSpareThreads' to '200' did not find a matching property.
+Jan 9, 2012 10:58:51 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+WARNING: [SetPropertiesRule]{Server/Service/Engine/Host/Context} Setting property 'debug' to '5' did not find a matching property.
+Jan 9, 2012 10:58:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-889"]
+Jan 9, 2012 10:58:52 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8010"]
+Jan 9, 2012 10:58:52 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1697 ms
+Jan 9, 2012 10:58:52 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Jan 9, 2012 10:58:52 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.19
+mysql
+Site cache init
+Site cache init end
+time1:3963秒
+Jan 9, 2012 10:58:57 PM org.quartz.core.SchedulerSignalerImpl <init>
+INFO: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+Jan 9, 2012 10:58:57 PM org.quartz.core.QuartzScheduler <init>
+INFO: Quartz Scheduler v.2.0.1 created.
+Jan 9, 2012 10:58:57 PM org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin initialize
+INFO: Registering Quartz Job Initialization Plug-in.
+Jan 9, 2012 10:58:57 PM org.quartz.simpl.RAMJobStore initialize
+INFO: RAMJobStore initialized.
+Jan 9, 2012 10:58:57 PM org.quartz.core.QuartzScheduler initialize
+INFO: Scheduler meta-data: Quartz Scheduler (v2.0.1) 'TestScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+Jan 9, 2012 10:58:57 PM org.quartz.impl.StdSchedulerFactory instantiate
+INFO: Quartz scheduler 'TestScheduler' initialized from the specified file : '/quartz.properties' from the class resource path.
+Jan 9, 2012 10:58:57 PM org.quartz.impl.StdSchedulerFactory instantiate
+INFO: Quartz scheduler version: 2.0.1
+Jan 9, 2012 10:58:57 PM org.quartz.xml.XMLSchedulingDataProcessor processFile
+INFO: Parsing XML file: quartz_data.xml with systemId: quartz_data.xml
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor executePreProcessCommands
+INFO: Deleting all jobs in ALL groups.
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor executePreProcessCommands
+INFO: Deleting all triggers in ALL groups.
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding 5 jobs, 5 triggers.
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding job: DEFAULT.TestJob1
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding job: DEFAULT.TestJob2
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding job: DEFAULT.epg
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding job: DEFAULT.ugcvideo
+Jan 9, 2012 10:58:58 PM org.quartz.xml.XMLSchedulingDataProcessor scheduleJobs
+INFO: Adding job: DEFAULT.cutvvideo
+Jan 9, 2012 10:58:58 PM org.quartz.core.QuartzScheduler start
+INFO: Scheduler TestScheduler_$_NON_CLUSTERED started.
+Jan 9, 2012 10:58:58 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory examples
+Jan 9, 2012 10:58:58 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  22:58:58 01/09/2012
+Jan 9, 2012 10:58:58 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  22:58:58 01/09/2012 and reports: null
+Jan 9, 2012 10:58:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory host-manager
+Jan 9, 2012 10:58:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory docs
+Jan 9, 2012 10:58:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory ROOT
+Jan 9, 2012 10:58:59 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory manager
+Jan 9, 2012 10:58:59 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-889"]
+Jan 9, 2012 10:58:59 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8010"]
+Jan 9, 2012 10:58:59 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 7244 ms
+Communications link failure
+
+The last packet successfully received from the server was 11,066 milliseconds ago.  The last packet sent successfully to the server was 27 milliseconds ago.
+delfile:52639,228
+del:/news/sz/2012-1-9/1326120553441.shtml
+delete file false /news/sz/2012-1-9/1326120553441.shtml,site:主站,scheme:发布到web服务器
+del:/news/sz/2012-1-9/1326120553441.shtml
+delete file false /news/sz/2012-1-9/1326120553441.shtml,site:主站,scheme:发布到web服务器
+set sleeptime:0
+PublishAgent#110 end.>>> 16秒
+PublishAgent#109 end.>>> 16秒
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.TestJob1 fired (by trigger DEFAULT.Trigger1) at:  23:00:00 01/09/2012
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.cutvvideo fired (by trigger DEFAULT.cutvvideo) at:  23:00:00 01/09/2012
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.epg fired (by trigger DEFAULT.epg) at:  23:00:00 01/09/2012
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.ugcvideo fired (by trigger DEFAULT.ugcvideo) at:  23:00:00 01/09/2012
+load from 2012-01-09T22:51:00 to 2012-01-09T23:00:00
+load from 2012-01-09T22:49:00 to 2012-01-09T23:00:00
+start:1326121200075,2012-1-9 11:0
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.cutvvideo execution complete at  23:00:00 01/09/2012 and reports: null
+Jan 9, 2012 11:00:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.TestJob1 execution complete at  23:00:00 01/09/2012 and reports: null
+tvid:010005,ucat_id:0,totalnum:12596
+Communications link failure
+
+The last packet successfully received from the server was 10,893 milliseconds ago.  The last packet sent successfully to the server was 2 milliseconds ago.
+Jan 9, 2012 11:00:13 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.epg execution complete at  23:00:13 01/09/2012 and reports: null
+ps2:0
+init l
+tvid:010002,ucat_id:0,totalnum:10336
+PublishAgent#128 end.>>> 14秒
+PublishAgent#127 end.>>> 14秒
+RealFileName:/web/main2//news/sz/2012-1-9/1326121208181.shtml
+init l
+init l
+ps2:0
+tvid:010001,ucat_id:0,totalnum:6849
+ps2:0
+tvid:010003,ucat_id:0,totalnum:6469
+init l
+Jan 9, 2012 11:00:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:00:57 01/09/2012
+Jan 9, 2012 11:00:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:00:57 01/09/2012 and reports: null
+init l
+ps2:0
+tvid:010004,ucat_id:0,totalnum:5257
+ps2:4
+ugc 20120109-种粮大户爱心捐粮回馈社会,926514
+ugc 20120109-宁波新闻（整档）,926515
+ugc 20120109-春运又开始了,926516
+ugc 20120109-高速服务区开始提供便民服务,926517
+tvid:010006,ucat_id:0,totalnum:0
+tvid:010007,ucat_id:0,totalnum:0
+PublishAgent#133 end.>>> 4秒
+PublishAgent#132 end.>>> 4秒
+tvid:010008,ucat_id:0,totalnum:574
+init l
+init l
+ps2:1
+ugc 20120108-神偷当众从商场抱走42寸电视,926518
+tvid:010009,ucat_id:0,totalnum:0
+tvid:010010,ucat_id:0,totalnum:0
+tvid:010011,ucat_id:0,totalnum:0
+tvid:010012,ucat_id:0,totalnum:0
+init l
+tvid:010013,ucat_id:0,totalnum:38
+PublishAgent#140 end.>>> 3秒
+PublishAgent#139 end.>>> 3秒
+ps2:0
+tvid:010014,ucat_id:0,totalnum:0
+tvid:010015,ucat_id:0,totalnum:7449
+ps2:0
+tvid:010016,ucat_id:0,totalnum:0
+tvid:010017,ucat_id:0,totalnum:161
+ps2:0
+tvid:010018,ucat_id:0,totalnum:0
+init l
+tvid:010019,ucat_id:0,totalnum:0
+tvid:010020,ucat_id:0,totalnum:0
+tvid:010021,ucat_id:0,totalnum:0
+tvid:010022,ucat_id:0,totalnum:0
+init l
+tvid:010023,ucat_id:0,totalnum:3331
+ps2:0
+tvid:010024,ucat_id:0,totalnum:6883
+ps2:0
+tvid:010025,ucat_id:0,totalnum:3327
+ps2:0
+tvid:010027,ucat_id:0,totalnum:6799
+Jan 9, 2012 11:02:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:02:57 01/09/2012
+Jan 9, 2012 11:02:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:02:57 01/09/2012 and reports: null
+ps2:0
+tvid:010028,ucat_id:0,totalnum:8474
+ps2:0
+tvid:010029,ucat_id:0,totalnum:9
+ps2:0
+end:1326121403370
+Jan 9, 2012 11:03:23 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.ugcvideo execution complete at  23:03:23 01/09/2012 and reports: null
+init l
+init l
+init l
+Jan 9, 2012 11:03:57 PM org.apache.velocity.runtime.log.CommonsLogLogChute log
+SEVERE: ResourceManager : unable to find resource '' in any resource loader.
+Jan 9, 2012 11:03:57 PM org.apache.velocity.runtime.log.CommonsLogLogChute log
+SEVERE: ResourceManager : unable to find resource '' in any resource loader.
+init l
+init l
+init l
+PublishAgent#157 end.>>> 3秒
+PublishAgent#156 end.>>> 3秒
+RealFileName:/web/main2//news/gat/2012-1-9/1326121485865.shtml
+Jan 9, 2012 11:04:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:04:57 01/09/2012
+Jan 9, 2012 11:04:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:04:57 01/09/2012 and reports: null
+Jan 9, 2012 11:05:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.ugcvideo fired (by trigger DEFAULT.ugcvideo) at:  23:05:00 01/09/2012
+start:1326121500008,2012-1-9 11:5
+tvid:010005,ucat_id:0,totalnum:12596
+init l
+init l
+init l
+init l
+PublishAgent#166 end.>>> 8秒
+PublishAgent#165 end.>>> 8秒
+ps2:0
+tvid:010002,ucat_id:0,totalnum:10336
+sql:SELECT OrderNumber FROM channel_s3_o_d where OrderNumber>338250 and Category=0 and Active=1 order by OrderNumber asc limit 2
+nnn:338300
+nnn:338500
+nnn>>338400
+RealFileName:/web/main2//news/fz/2012-1-9/1326120393184.shtml
+ps2:0
+tvid:010001,ucat_id:0,totalnum:6849
+ps2:0
+tvid:010003,ucat_id:0,totalnum:6469
+ps2:0
+Jan 9, 2012 11:06:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.TestJob1 fired (by trigger DEFAULT.Trigger1) at:  23:06:00 01/09/2012
+load from 2012-01-09T22:55:00 to 2012-01-09T23:06:00
+Jan 9, 2012 11:06:00 PM org.apache.velocity.runtime.log.CommonsLogLogChute log
+SEVERE: ResourceManager : unable to find resource '' in any resource loader.
+tvid:010004,ucat_id:0,totalnum:5258
+Jan 9, 2012 11:06:05 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.TestJob1 execution complete at  23:06:05 01/09/2012 and reports: null
+ps2:1
+ugc 20120109-外国人写中国春联,926524
+tvid:010006,ucat_id:0,totalnum:0
+tvid:010007,ucat_id:0,totalnum:0
+tvid:010008,ucat_id:0,totalnum:574
+ps2:0
+tvid:010009,ucat_id:0,totalnum:0
+tvid:010010,ucat_id:0,totalnum:0
+tvid:010011,ucat_id:0,totalnum:0
+tvid:010012,ucat_id:0,totalnum:0
+init l
+tvid:010013,ucat_id:0,totalnum:38
+ps2:0
+tvid:010014,ucat_id:0,totalnum:0
+tvid:010015,ucat_id:0,totalnum:7449
+ps2:0
+tvid:010016,ucat_id:0,totalnum:0
+tvid:010017,ucat_id:0,totalnum:161
+ps2:0
+tvid:010018,ucat_id:0,totalnum:0
+tvid:010019,ucat_id:0,totalnum:0
+tvid:010020,ucat_id:0,totalnum:0
+tvid:010021,ucat_id:0,totalnum:0
+tvid:010022,ucat_id:0,totalnum:0
+Jan 9, 2012 11:06:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:06:57 01/09/2012
+Jan 9, 2012 11:06:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:06:57 01/09/2012 and reports: null
+tvid:010023,ucat_id:0,totalnum:3331
+init l
+init l
+init l
+ps2:0
+tvid:010024,ucat_id:0,totalnum:6883
+ps2:0
+tvid:010025,ucat_id:0,totalnum:3327
+ps2:0
+tvid:010027,ucat_id:0,totalnum:6800
+PublishAgent#192 end.>>> 3秒
+PublishAgent#191 end.>>> 3秒
+RealFileName:/web/main2//news/gat/2012-1-9/132612165335.shtml
+init l
+init l
+init l
+init l
+init l
+ps2:1
+ugc 20120109-珠海新闻（整档）,926528
+tvid:010028,ucat_id:0,totalnum:8474
+PublishAgent#196 end.>>> 5秒
+PublishAgent#195 end.>>> 5秒
+Jan 9, 2012 11:08:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.cutvvideo fired (by trigger DEFAULT.cutvvideo) at:  23:08:00 01/09/2012
+load from 2012-01-09T22:55:00 to 2012-01-09T23:08:00
+Jan 9, 2012 11:08:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.cutvvideo execution complete at  23:08:00 01/09/2012 and reports: null
+ps2:0
+tvid:010029,ucat_id:0,totalnum:9
+ps2:0
+end:1326121685758
+Jan 9, 2012 11:08:05 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.ugcvideo execution complete at  23:08:05 01/09/2012 and reports: null
+init l
+init l
+init l
+init l
+Communications link failure
+
+The last packet successfully received from the server was 13,383 milliseconds ago.  The last packet sent successfully to the server was 1 milliseconds ago.
+Jan 9, 2012 11:08:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:08:57 01/09/2012
+Jan 9, 2012 11:08:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:08:57 01/09/2012 and reports: null
+init l
+init l
+PublishAgent#205 end.>>> 12秒
+PublishAgent#204 end.>>> 12秒
+Jan 9, 2012 11:10:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.ugcvideo fired (by trigger DEFAULT.ugcvideo) at:  23:10:00 01/09/2012
+start:1326121800007,2012-1-9 11:10
+tvid:010005,ucat_id:0,totalnum:12596
+ps2:0
+tvid:010002,ucat_id:0,totalnum:10337
+init l
+PublishAgent#210 end.>>> 11秒
+PublishAgent#209 end.>>> 11秒
+ps2:1
+ugc 20120109-塑料强势能延续吗？,926532
+tvid:010001,ucat_id:0,totalnum:6850
+PublishAgent#214 end.>>> 8秒
+PublishAgent#213 end.>>> 8秒
+ps2:1
+ugc 20120109_拉萨火车：多方式购票便利旅客,926533
+tvid:010003,ucat_id:0,totalnum:6469
+Communications link failure
+
+The last packet successfully received from the server was 10,256 milliseconds ago.  The last packet sent successfully to the server was 0 milliseconds ago.
+init l
+Jan 9, 2012 11:10:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:10:57 01/09/2012
+Jan 9, 2012 11:10:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:10:57 01/09/2012 and reports: null
+PublishAgent#218 end.>>> 13秒
+PublishAgent#217 end.>>> 13秒
+ps2:0
+tvid:010004,ucat_id:0,totalnum:5260
+RealFileName:/web/main2//news/df/2012-1-9/1326121812762.shtml
+ps2:2
+ugc 20120109-宁波城管义工义卖4.8万元,926534
+ugc 20120109-各地商会纷纷安家宁波,926535
+tvid:010006,ucat_id:0,totalnum:0
+tvid:010007,ucat_id:0,totalnum:0
+tvid:010008,ucat_id:0,totalnum:575
+ps2:1
+ugc 20120108-赌的代价,926536
+tvid:010009,ucat_id:0,totalnum:0
+tvid:010010,ucat_id:0,totalnum:0
+tvid:010011,ucat_id:0,totalnum:0
+tvid:010012,ucat_id:0,totalnum:0
+init l
+init l
+tvid:010013,ucat_id:0,totalnum:38
+ps2:0
+tvid:010014,ucat_id:0,totalnum:0
+tvid:010015,ucat_id:0,totalnum:7449
+ps2:0
+tvid:010016,ucat_id:0,totalnum:0
+tvid:010017,ucat_id:0,totalnum:161
+ps2:0
+tvid:010018,ucat_id:0,totalnum:0
+tvid:010019,ucat_id:0,totalnum:0
+Jan 9, 2012 11:12:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.TestJob1 fired (by trigger DEFAULT.Trigger1) at:  23:12:00 01/09/2012
+load from 2012-01-09T23:01:00 to 2012-01-09T23:12:00
+tvid:010020,ucat_id:0,totalnum:0
+tvid:010021,ucat_id:0,totalnum:0
+tvid:010022,ucat_id:0,totalnum:0
+Jan 9, 2012 11:12:02 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.TestJob1 execution complete at  23:12:02 01/09/2012 and reports: null
+tvid:010023,ucat_id:0,totalnum:3331
+init l
+init l
+ps2:0
+tvid:010024,ucat_id:0,totalnum:6883
+ps2:0
+tvid:010025,ucat_id:0,totalnum:3327
+init l
+init l
+ps2:0
+tvid:010027,ucat_id:0,totalnum:6800
+ps2:0
+Jan 9, 2012 11:12:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:12:57 01/09/2012
+Jan 9, 2012 11:12:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:12:57 01/09/2012 and reports: null
+tvid:010028,ucat_id:0,totalnum:8475
+RealFileName:/web/main2//news/ms/2012-1-9/1326121972245.shtml
+Communications link failure
+
+The last packet successfully received from the server was 11,256 milliseconds ago.  The last packet sent successfully to the server was 1 milliseconds ago.
+PublishAgent#238 end.>>> 13秒
+PublishAgent#239 end.>>> 13秒
+ps2:1
+ugc 20120109-小西湖派出所网上追逃成效显著,926540
+init l
+tvid:010029,ucat_id:0,totalnum:9
+ps2:0
+end:1326122003013
+Jan 9, 2012 11:13:23 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.ugcvideo execution complete at  23:13:23 01/09/2012 and reports: null
+init l
+init l
+init l
+init l
+init l
+init l
+init l
+Jan 9, 2012 11:14:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:14:57 01/09/2012
+Jan 9, 2012 11:14:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:14:57 01/09/2012 and reports: null
+Jan 9, 2012 11:15:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.epg fired (by trigger DEFAULT.epg) at:  23:15:00 01/09/2012
+Jan 9, 2012 11:15:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.ugcvideo fired (by trigger DEFAULT.ugcvideo) at:  23:15:00 01/09/2012
+start:1326122100011,2012-1-9 11:15
+RealFileName:/web/main2//news/df/2012-1-9/132612209528.shtml
+tvid:010005,ucat_id:0,totalnum:12596
+PublishAgent#260 end.>>> 12秒
+PublishAgent#259 end.>>> 12秒
+Communications link failure
+
+The last packet successfully received from the server was 10,265 milliseconds ago.  The last packet sent successfully to the server was 0 milliseconds ago.
+Jan 9, 2012 11:15:11 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.epg execution complete at  23:15:11 01/09/2012 and reports: null
+ps2:0
+tvid:010002,ucat_id:0,totalnum:10339
+ps2:2
+ugc 20120109-期指在沉默中爆发 强劲反弹,926544
+ugc 20120109-“煤”飞色舞扬威大盘 资源股动向分析,926545
+init l
+init l
+init l
+tvid:010001,ucat_id:0,totalnum:6852
+ps2:2
+ugc 20120109_新西兰一触礁货轮遭遇风暴导致船体断裂,926546
+ugc 20120109_2012达喀尔拉力赛中段休息日探营,926547
+tvid:010003,ucat_id:0,totalnum:6469
+PublishAgent#273 end.>>> 5秒
+PublishAgent#274 end.>>> 5秒
+Jan 9, 2012 11:16:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.cutvvideo fired (by trigger DEFAULT.cutvvideo) at:  23:16:00 01/09/2012
+load from 2012-01-09T23:03:00 to 2012-01-09T23:16:00
+Jan 9, 2012 11:16:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.cutvvideo execution complete at  23:16:00 01/09/2012 and reports: null
+ps2:0
+tvid:010004,ucat_id:0,totalnum:5261
+ps2:0
+ps2:1
+ugc 20120109-无证渔船被拆解,926548
+init l
+tvid:010006,ucat_id:0,totalnum:0
+tvid:010007,ucat_id:0,totalnum:0
+tvid:010008,ucat_id:0,totalnum:575
+RealFileName:/web/main2//news/gat/2012-1-3/1325572261975.shtml
+ps2:0
+tvid:010009,ucat_id:0,totalnum:0
+tvid:010010,ucat_id:0,totalnum:0
+tvid:010011,ucat_id:0,totalnum:0
+Communications link failure
+
+The last packet successfully received from the server was 20,132 milliseconds ago.  The last packet sent successfully to the server was 0 milliseconds ago.
+Jan 9, 2012 11:16:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:16:57 01/09/2012
+Jan 9, 2012 11:16:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:16:57 01/09/2012 and reports: null
+tvid:010012,ucat_id:0,totalnum:0
+RealFileName:/web/main2//news/gat/2012-1-3/1325572261975.shtml
+tvid:010013,ucat_id:0,totalnum:38
+ps2:0
+tvid:010014,ucat_id:0,totalnum:0
+tvid:010015,ucat_id:0,totalnum:7456
+init l
+ps2:8
+init l
+ugc 20120109-台州 台州、江山两市老干部书画联展,926549
+ugc 20120109-临海公共自行车二期投入使用：站点多了 车子轻便了,926550
+ugc 20120109-为逃避电子警察 挡牌摘牌花样多,926551
+ugc 20120109-军民联欢 唱响2012,926552
+ugc 20120109-书法家进军营 春联送新兵,926553
+ugc 20120109-我市部署春节市场供应和生猪屠宰管理工作,926554
+ugc 20120109-临海头门港跨海大桥今打下首桩 全面开工建设拉开帷幕,926555
+ugc 20120109-“温情服务”温暖外地民工返乡路,926556
+tvid:010016,ucat_id:0,totalnum:0
+PublishAgent#284 end.>>> 5秒
+PublishAgent#283 end.>>> 5秒
+tvid:010017,ucat_id:0,totalnum:161
+CopyFile#0#287 end.>>> 6秒
+Communications link failure
+
+The last packet successfully received from the server was 12,663 milliseconds ago.  The last packet sent successfully to the server was 0 milliseconds ago.
+Communications link failure
+
+The last packet successfully received from the server was 12,855 milliseconds ago.  The last packet sent successfully to the server was 1 milliseconds ago.
+ps2:0
+tvid:010018,ucat_id:0,totalnum:0
+tvid:010019,ucat_id:0,totalnum:0
+tvid:010020,ucat_id:0,totalnum:0
+tvid:010021,ucat_id:0,totalnum:0
+tvid:010022,ucat_id:0,totalnum:0
+tvid:010023,ucat_id:0,totalnum:3331
+sql:SELECT OrderNumber FROM channel_s3_o_d where OrderNumber>338400 and Category=0 and Active=1 order by OrderNumber asc limit 2
+nnn:338500
+nnn:338550
+nnn>>338525
+ps2:0
+Jan 9, 2012 11:18:00 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job DEFAULT.TestJob1 fired (by trigger DEFAULT.Trigger1) at:  23:18:00 01/09/2012
+load from 2012-01-09T23:07:00 to 2012-01-09T23:18:00
+Jan 9, 2012 11:18:01 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.TestJob1 execution complete at  23:18:01 01/09/2012 and reports: null
+tvid:010024,ucat_id:0,totalnum:6883
+ps2:0
+tvid:010025,ucat_id:0,totalnum:3327
+ps2:0
+tvid:010027,ucat_id:0,totalnum:6800
+init l
+PublishAgent#301 end.>>> 12秒
+PublishAgent#300 end.>>> 12秒
+ps2:0
+tvid:010028,ucat_id:0,totalnum:8476
+RealFileName:/web/main2//news/gat/2012-1-9/1326122311353.shtml
+Jan 9, 2012 11:18:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobToBeExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml fired (by trigger JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml) at:  23:18:57 01/09/2012
+Jan 9, 2012 11:18:57 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job JobSchedulingDataLoaderPlugin.JobSchedulingDataLoaderPlugin_jobInitializer_quartz_data_xml execution complete at  23:18:57 01/09/2012 and reports: null
+ps2:1
+ugc 20120109-夜市摆摊闹矛盾 民警现场调查,926559
+copy wait,file:/web/video2/playinfo/A15fgffhngihlggonhjlwg.xml
+copy wait end,file:/web/video2/playinfo/A15fgffhngihlggonhjlwg.xml
+init l
+tvid:010029,ucat_id:0,totalnum:9
+ps2:0
+end:1326122343686
+Jan 9, 2012 11:19:03 PM org.quartz.plugins.history.LoggingJobHistoryPlugin jobWasExecuted
+INFO: Job DEFAULT.ugcvideo execution complete at  23:19:03 01/09/2012 and reports: null
+init l
+init l

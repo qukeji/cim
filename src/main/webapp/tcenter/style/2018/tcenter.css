@@ -1,0 +1,244 @@
+
+/*统一管理平台概览页*/
+.td-logo{
+	width: 52px;
+	height: 52px;
+	flex: 0 0 52px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+.icon-box-index{
+	width: 52px;
+	height: 52px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+.a-index-url{
+	display: block;
+	padding: 3px 10px ;
+	border: 1px solid #eee;
+	border-radius: 17px;
+}
+.a-index-url-s{
+	display: block;
+	padding: 0px 10px ;
+	border: 1px solid #eee;
+	border-radius: 15px;
+}
+.border-row{
+	margin: 10px 30px;
+	height: 2px;
+	background: #eee;
+}
+
+/*大屏*/
+ul.screen-case li{
+	list-style: none;
+	display: flex;
+	border-top: 1px solid #dee2e6;
+	padding: 25px 0;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	color: #4e4e4e;
+}
+ul.screen-case li .screen-tl{
+	flex: 0 0 250px;
+}
+ul.screen-case li .screen-num{
+	min-width: 150px;
+}
+
+/*ul.screen-case li:last-child{	
+	border-bottom: 1px solid #bbbbbb;	
+}*/
+ul.screen-case li .screen-tl i{
+	margin-right: 10px;
+	font-size: 18px;
+	color: #c6c6c6;
+}
+ul.screen-case li .screen-scan{
+	display: block;
+    padding: 0 20px;
+    border: 1px solid #bbbbbb;
+    border-radius: 13px;
+    text-align: center;
+    color: #4e4e4e;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 26px;
+}
+.dp-help-card{
+	min-height: 300px;
+}
+
+
+/*选题任务管理系统概览页*/
+#xt-user-range ul li{
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	border-top: 1px solid #bbbbbb;
+	padding: 15px 0;	
+	font-size: 16px;
+	color: #4e4e4e;
+}
+
+#xt-user-range ul li:last-child{	
+	border-bottom: 1px solid #bbbbbb;	
+}
+
+#xt-user-range ul li .user-info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 0 0 250px;
+}
+#xt-user-range ul li .user-info .img-box{
+	width: 38px;
+	height: 38px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+#xt-user-range ul li .user-info .img-box img{
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+}
+#xt-user-range ul li .user-info .text-box{
+	display: flex;
+	flex-direction: column;
+	
+}
+#xt-user-range .user-info .text-box .u-tl{
+	font-size: 16px;
+	font-weight: 400;
+}
+#xt-user-range .user-info .text-box .u-phone{
+	font-size: 12px;
+}
+#xt-user-range .xt-info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+	justify-content: flex-start;
+}
+#xt-user-range .xt-info .xt-num{
+	font-size: 16px;
+	color: rgb(11, 165, 238);
+	font-weight: 400;
+	flex: 1;
+}
+#xt-user-range .xt-info .login-num{
+	min-width: 160px;
+	text-align: left;
+}
+#xt-user-range .xt-info span{
+	margin-right: 10px;
+}
+#xt-user-range .xt-info i{
+	color: rgb(213, 213, 213);
+	margin-right: 5px;
+}
+.min-h-250{
+	min-height: 250px;
+}
+
+
+@media only screen and (max-width:576px ) {
+	.pd-x-30{
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+	}
+}
+
+/*媒体号排行*/
+#media-range{
+	
+}
+#media-range ul li{
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	border-top: 1px solid #bbbbbb;
+	padding: 15px 0;	
+	font-size: 16px;
+	color: #4e4e4e;
+}
+
+#media-range ul li:last-child{	
+	border-bottom: 1px solid #bbbbbb;	
+}
+
+#media-range ul li .user-info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#media-range ul li .user-info .img-box{
+	width: 38px;
+	height: 38px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+#media-range ul li .user-info .img-box img{
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+}
+#media-range ul li .user-info .text-box{
+	display: flex;
+	flex-direction: column;
+	
+}
+#media-range .user-info .text-box .u-tl{
+	font-size: 16px;
+	font-weight: 400;
+}
+#media-range .user-info .text-box .u-phone{
+	font-size: 12px;
+}
+#media-range .user-info{
+	flex: 0 0 200px;
+}
+
+#media-range .xt-info{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+	justify-content: flex-start;
+}
+#media-range .xt-info .xt-num{
+	font-size: 16px;
+	color: rgb(11, 165, 238);
+	font-weight: 400;
+	flex: 1;
+	
+}
+#media-range .xt-info span{
+	margin-right: 10px;
+	min-width: 80px;
+}
+#media-range .xt-info .xt-video{
+	min-width: 80px;
+}
+#media-range i{
+	color: rgb(213, 213, 213);
+	margin-right: 5px;
+}
+
+#media-range .watch-num{
+	flex: 0 0 160px;
+}

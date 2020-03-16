@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+    <title>结构管理</title>
+    <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">
+
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">-->
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../common/2018/common2018.js"></script>
+     <script src="../../common/2018/TideDialog2018.js"></script>
+  </head>
+ 
+  <body class="collapsed-menu email content_pages">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="channel-manage">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+          <a href="/html/help-to-edit.html" target="_blank" class="valign-middle tx-gray-900 mg-l-10" data-toggle="tooltip" data-placement="top">
+          	<i class="icon ion-help-circled tx-18"></i>
+          </a>
+          
+         
+         </nav>
+      </div><!-- br-pageheader -->
+      <div class="channel-name mg-l-30 mg-r-30">
+      	<div class="channel-name-box">
+      		<div class="set-img-box">
+      			<!--<i class="icon ion-ios-gear-outline tx-52 lh-72"></i>-->
+      			<!--<i class="fa fa-gear tx-52 lh-72"></i>-->
+      			<img src="../../images/2018/channel-setting.png" />
+      		</div>
+      		<div class="right-info">
+      			<h5 class="tx-22">体育赛事</h5>
+      			<p class="tx-12">共计<span class="channel-data-total">3245</span>条内容资源，其中<span class="channel-data-pub">3200</span>条为审核发布数据、<span class="channel-data-no">45</span>条未审核数据。</p>
+      		</div>
+      	</div>      	
+      </div>
+      <div class="br-pagebody">
+	  		<div class="br-section-wrapper">
+	  			<div class="channel-preview">
+	  				<span class="tx-14 mg-r-10">频道名称：首页管理</span>
+	  				<span class="tx-14 mg-r-10">目录名：index</span>
+	  				<span class="tx-14 mg-r-10">频道地址：/index</span>
+	  				<span class="tx-14 mg-r-10">编号：215</span>
+	  				<span class="tx-14 mg-r-10">标识：S3c_o</span>
+	  			</div>
+	  			<div class="channel-handle mg-t-20 mg-b-20">
+	  				<div class="">
+		          		<a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="picUpload()">调起图片上传弹窗</a>
+		        	</div>
+	  			</div>
+	  			
+	  		</div>
+	  	</div>	
+ 
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+	<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    
+    <script src="../../common/2018/bracket.js"></script>  
+ 
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+
+            } else {
+              $('body').removeClass('expand-menu');
+
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+         
+  
+      });
+    </script>
+    
+    <!--自定义函数-->
+    <script>
+    	
+	    function picUpload(){	    	
+          var url = "图片上传弹窗.html";
+		  	var	dialog = new top.TideDialog();
+				dialog.setWidth(800);
+				dialog.setHeight(650);
+				dialog.setUrl(url);
+				dialog.setTitle('图片上传');
+				dialog.show();
+	    }
+	    
+	     
+	  </script>
+  </body>
+</html>

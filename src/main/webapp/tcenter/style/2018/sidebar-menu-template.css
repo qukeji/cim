@@ -1,0 +1,140 @@
+.br-subleft{
+	background: #fff;
+	left: 0 !important;
+	top: 0 !important;
+}
+
+.sidebar-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 14px;
+	min-height: 45px;
+	/*background-color: #222d32;*/
+}
+
+.sidebar-menu>li {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar-menu>li>a {	
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 6px;    
+    margin: 4px 6px 4px 6px;  
+    color: #000000;
+    border-radius: 3px;   
+    align-items: center;
+    display: flex;
+    white-space: nowrap;
+}
+
+.sidebar-menu>li>a>.fa {
+	width: 20px;
+	font-size: 18px;
+	margin-right:5px;
+	color: #2a78be;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu li.active>a {
+	color: #FFFFFF;
+	/*background: #00b297;*/
+	background: #00b297 ;
+	/*border-left-color: #3c8dbc;*/
+}
+
+.sidebar-menu>li>.treeview-menu {
+	margin: 0 1px;
+	/*background: #1a2432;*/
+}
+
+.sidebar-menu>li .label,
+.sidebar-menu>li .badge {
+	margin-top: 3px;
+	margin-right: 5px;
+}
+
+.sidebar-menu li.header {
+	padding: 10px 25px 10px 15px;
+	font-size: 12px;
+	color: #000000;
+	background: #1a2226;
+}
+
+.sidebar-menu li>a>.fa-angle-left {
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+
+.sidebar-menu li.active>a>.fa-angle-left {
+	transform: rotate(-90deg);
+}
+
+.sidebar-menu li.active>.treeview-menu {
+	display: block;
+}
+
+.sidebar-menu a {
+	color: #b8c7ce;
+	text-decoration: none;
+}
+
+.sidebar-menu .treeview-menu {
+	display: none;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	padding-left: 5px;
+}
+
+.sidebar-menu .treeview-menu .treeview-menu {
+	padding-left: 20px;
+}
+
+.sidebar-menu .treeview-menu>li {
+	margin: 0;
+}
+
+.sidebar-menu .treeview-menu>li>a {
+    display: block;
+    font-size: 13px;
+    color: #000000;
+    margin: 4px 10px 4px 0px;
+    padding-left: 20px;
+    line-height: 31px;      
+    align-items: center;
+    display: flex;
+    white-space: nowrap;
+}
+
+.sidebar-menu .treeview-menu>li>a>.fa {
+	width: 15px;
+	font-size:16px;
+	margin-right: 5px;
+	color: #2a78be;
+}
+
+.sidebar-menu .treeview-menu>li>a>.fa-angle-left,
+.sidebar-menu .treeview-menu>li>a>.fa-angle-down {
+	width: auto;
+}
+
+/*.sidebar-menu .treeview-menu>li.active>a,
+.sidebar-menu .treeview-menu>li>a:hover {
+	color: #fffff;
+	background: #00b297;
+}*/
+.sidebar-menu i.fa-angle-right{
+	/*display:none ;*/
+}
+.sidebar-menu>li.active>a span,
+.sidebar-menu .treeview-menu>li.active>a span {
+    margin-right: 0px !important;
+}

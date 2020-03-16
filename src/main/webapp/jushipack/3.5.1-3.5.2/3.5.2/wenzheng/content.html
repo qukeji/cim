@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>问政</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/wz-common-pc.js"></script>  
+</head>
+
+<body>
+    <!-- header开始 -->
+    <div class="header">
+        <div class="inner">
+            <div class="search-box">
+                <span class="search-box-in">
+                    <img src="images/search2.png">
+                    <input autofocus="autofocus" placeholder="输入关键字" type="text" class="search-box-input">
+                </span>
+                <span class="search-box-out">站内搜索</span>
+            </div>
+            <div class="header-phone">
+                <p class="header-qq">热线电话：400-0873-154 </p>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="inner">
+            <div class="nav-item nav-item-politics">
+                <a href="politics.html">我要问政</a>
+            </div>
+            <div class="nav-item  nav-item-mypolitics active">
+                <a href="mypolitics.html">我的问政</a>
+            </div>
+        </div>
+    </div>
+    <!-- header结束 -->
+
+    <!-- content开始 -->
+    <div class="politics">
+        <div class="politics-my">
+            <div class="politics-item politics-item-ask">
+                <div class="politics-status politics-status-ask"><span>问</span></div>
+                <div class="politics-info">
+                    <!--<h1>荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？</h1>-->
+                    <!--<p class="time">07-02 16:53</p>-->
+                    <!--<p class="text">每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是</p>-->
+                </div>
+            </div>
+            
+            <div class="reply"><span>回复部门</span><em></em></div>
+            <div class="politics-department">
+               <!-- <div class="politics-item">
+                    <div class="politics-status politics-status-answer"><span>答</span></div>
+                    <div class="politics-info">
+                        <h1 class="title">荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？</h1>
+                        <p class="text">每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是</p>
+                    </div>
+                </div>
+                <div class="politics-item">
+                    <div class="politics-status politics-status-answer"><span>答</span></div>
+                    <div class="politics-info">
+                        <h1 class="title">荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？</h1>
+                        <p class="text">每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，这个长江大桥收费年限确定是多少？建桥的时候说是</p>
+                    </div>
+                </div>-->
+            </div>
+            
+            
+        </div>
+        <div class="evaluate">
+            <div class="evaluate-info">
+                <p>请您对我们的服务做出评价</p>
+                <div class="evaluate-check">
+                    <span class="satisfied active" data-id="0">满意</span><span class="satisfied-not" data-id="1">不满意</span>
+                </div>
+                <div class="evaluate-submit">提交</div>
+            </div>
+           
+        </div>
+    </div>
+   
+
+    <!--通用提示框-->
+    <div id="commonpop">
+        <p class="tips-container"><span></span></p>
+    </div>
+    <!-- footer开始 -->
+    <div class="footer">
+        <div class="inner">
+           
+        </div>
+    </div>
+    <!-- footer结束 -->
+    <script>
+        var id=getUrlParam("id");
+        var evaluation=0;
+        $(function(){
+            if(!sSs("phone") || sSs("phone")==""){
+                $(".evaluate").hide();
+            }
+            //问政列表
+            $.ajax({
+                type:"get",
+                dataType:"jsonp",
+                url:siteUrl+"/wenzheng_info.jsp",  
+                data:{id:id},
+                success:function(data){
+                    if(data.status==200){
+                        //console.log(data.result)
+                        var result=data.result;
+                        $(".politics-item-ask .politics-info").html(
+                            '<h1>'+result.Title+'</h1> <p class="time">'+result.CreateDate+'</p><p class="text">'+result.Summary+'</p><div class="status">'+result.Status2+'</div>'
+
+                            )
+                        if(result.reply!="" && result.reply){
+                            $(".politics-department").html("");
+                            var html='';
+                            $.each(result.reply,function(vi,va){
+                                if(va.reason && va.reason!=""){
+                                    html+='<div class="politics-item"><div class="politics-status politics-status-answer"><span>答</span></div><div class="politics-info">';
+                                    html+='<h1 class="title">'+result.channelName+'</h1><p class="time">'+result.ModifiedDate+'</p><p class="text">'+va.reason+'</p></div></div>';
+                                }
+                            })
+                            
+                            $(".politics-department").html(html);
+                        }else{
+                            $(".reply").hide();
+                            $(".politics-department").hide();
+                        }
+                        
+                    }else{
+                        console.log(data.message)
+                    }
+                }
+            })
+            
+            $(".evaluate-check span").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+                evaluation =$(this).attr("data-id");
+            })
+            
+             $(".evaluate-submit").click(function(){
+                $.ajax({
+                    type:"get",
+                    dataType:"jsonp",
+                    url:siteUrl+"/wenzheng_evaluation.jsp",  
+                    data:{id:id,evaluation:evaluation},
+                    success:function(data){
+                        if(data.status==200){
+                            commonPop("提交成功");
+                        }else{
+                            commonPop(data.message)
+                        }
+                    }
+                })
+            })
+            
+        })
+    </script>
+</body>
+
+</html>

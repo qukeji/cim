@@ -1,0 +1,10 @@
+#foreach( $item in $Controller.listTopItems(999))
+<tr>
+        <tr>
+	    <td>$item.getValue("Title")</td>
+	    <td><span>+$item.getValue("scoreoperate")</span>经验值</td>
+	    <td>上限<span id="totalgold">$item.getValue("upcontrol")</span>经验值</td>
+	</tr>	    			
+</tr>
+
+#end

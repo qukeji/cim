@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>TideCMS 列表</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link href="../../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<style>
+	.collapsed-menu .br-mainpanel-file {margin-left: 0;margin-top: 0;}
+	table th,table td{border-collapse: collapse !important;text-align: center;}
+	.nav-pills .nav-link:focus, .nav-pills .nav-link:hover{background-color:#e9ecef ;}
+	.line-chart-box{background: #f3f3f3;}
+	@media (max-width: 575px){
+		table .hidden-xs-down {word-break: normal;	}	
+	}
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+</head>
+
+<body class="collapsed-menu email">
+	<div class="br-mainpanel br-mainpanel-file" id="js-source">
+		<div class="br-pageheader pd-y-15 pd-md-l-20">
+			<nav class="breadcrumb pd-0 mg-0 tx-12">
+				<!--<span class="breadcrumb-item active">当前位置：专题频道</span>-->
+				<span class="breadcrumb-item active">网站统计 / 趋势分析</span>
+			</nav>
+		</div>
+		<!-- br-pageheader --> 
+		<!--列表-->
+		<div class="br-pagebody pd-x-0-force mg-t-0-force">
+			<div class="card shadow-base">
+				<div class="pd-x-30 pd-t-30 pd-b-15">
+					<div class="d-flex align-items-center justify-content-start flex-wrap">
+	                    <div class="rounded d-flex align-items-center mg-r-20 flex-lg-nowrap">				                    
+				    		<ul class="nav nav-pills flex-column flex-md-row rounded flex-lg-nowrap wd-300" id="nav-day" role="tablist">
+				    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">今天</a></li>
+				    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="false">昨天</a></li>
+		              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="false">最近7天</a></li>
+		              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="true">近30天</a></li>					              					             
+		            		</ul>
+						</div><!-- pd-10 -->	
+						<div class="each-page-num mg-r-20">
+							<span class="mg-r-2">频道:</span>
+							<select name="rows" class="form-control select2 wd-100" data-placeholder="" onChange="changeRowsCols();" id="rows">
+								<option value="3">3</option>
+								<option value="5">5</option>
+								<option value="8">8</option>
+								<option value="10">10</option>
+								<option value="20">20</option>
+								<option value="50">50</option>
+								<option value="100">100</option>          
+							</select>
+	                     </div>
+	                     <div class="mg-r-10 d-flex align-items-center">
+	                     	<span class="mg-r-2">时间区间: </span>
+	                     	<div class="wd-160 mg-r-10 search-item">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+									<input type="text" class="form-control fc-datepicker search-time" placeholder="YYYY-MM-DD" name="startDate" value="" id="startDate">
+								</div>
+							</div>
+							<div class="wd-20 mg-r-5 ht-40 d-flex align-items-center justify-content-start">至</div>
+							<div class="wd-160 mg-r-10 search-item">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+									<input type="text" class="form-control fc-datepicker search-time" placeholder="YYYY-MM-DD" name="endDate" value="" id="endDate">
+								</div>
+							</div>
+	                     </div>
+	                     <input type="submit" name="Submit" value="查询" class="btn btn-outline-info active pd-x-10 pd-y-10 tx-uppercase tx-bold tx-spacing-6 tx-14">
+						
+	                 </div>
+	                 <div class="card bd-0 shadow-base mg-t-15 ">
+						<table class="table mg-b-0 " id="content-table">
+							<thead>
+								<tr class="bg-gray-200">
+									<th class="tx-12-force tx-mont tx-medium">累计访问量</th>
+									<th class="tx-12-force tx-mont tx-medium hidden-xs-down">浏览量（PV）</th>
+									<th class="tx-12-force tx-mont tx-medium hidden-xs-down">访客数（UV）</th>
+									<th class="tx-12-force tx-mont tx-medium hidden-xs-down" >IP数</th>
+									<th class="tx-12-force tx-mont tx-medium hidden-xs-down">日均流量</th>
+									<th class="tx-12-force tx-mont tx-medium hidden-xs-down">人均访问量</th>
+								</tr>
+							</thead>                  
+							<tbody>                          
+		                         <tr>
+		                            <td class="">88888</td>
+		                            <td class="">8888</td>
+		                            <td class="">9999</td>
+		                            <td class="">20199</td>
+		                            <td class="">8999</td>       
+		                            <td class="">66</td>	                            
+		                         </tr>                                                     
+							</tbody>
+						</table>      
+					</div>
+					<div class="card shadow-base mg-t-20 line-chart-box mg-b-10">
+						<div id="pie-chart" class="wd-90p ht-300 mg-t-20 mg-b-10 pd-l-30"></div>		
+					</div>
+				</div>											
+			</div>
+		     
+			<div class="card bd-0 shadow-base mg-t-20 pd-x-30 pd-t-30 pd-b-30">
+				<div class=" bd-0 shadow-base">
+					<table class="table mg-b-0 " id="">
+						<thead>
+							<tr class="bg-gray-200">
+								<th class="wd-5p wd-50">编号</th>
+								<th class="tx-12-force tx-mont tx-medium wd-250">时间</th>
+								<th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-60" >浏览量（PV）</th>
+								<th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-150">访客数（UV）</th>
+								<th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-120">IP数</th>
+								
+							</tr>
+						</thead>                  
+						<tbody>                          
+	                         <tr>
+	                           <td class="valign-middle">01</td>
+	                            <td class="hidden-xs-down">2019-07-06 22:00:00至2019-07-06 22:59:59</td>
+	                            <td class="hidden-xs-down" >1000</td>
+	                            <td class="hidden-xs-down" >2019</td>
+	                            <td class="">777</td>       
+	                            
+	                         </tr>                                                     
+						</tbody>
+					</table>
+				</div>
+                 
+			</div>
+		</div>
+		<!--列表-->
+
+
+	<script src="../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../lib/2018/moment/moment.js"></script>
+	<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	
+	<script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+	<script src="../../lib/2018/select2/js/select2.min.js"></script>
+	<script src="../../common/2018/bracket.js"></script>
+	<script src="../../common/2018/echarts.common.min.js"></script>
+	<script>
+		
+		$(function() {
+			'use strict';
+	
+			//show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+	
+			$(document).on('mouseover', function(e) {
+				e.stopPropagation();
+				if ($('body').hasClass('collapsed-menu')) {
+					var targ = $(e.target).closest('.br-sideleft').length;
+					if (targ) {
+						$('body').addClass('expand-menu');
+	
+						// show current shown sub menu that was hidden from collapsed
+						$('.show-sub + .br-menu-sub').slideDown();
+	
+						var menuText = $('.menu-item-label,.menu-item-arrow');
+						menuText.removeClass('d-lg-none');
+						menuText.removeClass('op-lg-0-force');
+	
+					} else {
+						$('body').removeClass('expand-menu');
+	
+						// hide current shown menu
+						$('.show-sub + .br-menu-sub').slideUp();
+	
+						var menuText = $('.menu-item-label,.menu-item-arrow');
+						menuText.addClass('op-lg-0-force');
+						menuText.addClass('d-lg-none');
+					}
+				}
+			});
+	
+			$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+	
+			$('#showMailBoxLeft').on('click', function(e) {
+				e.preventDefault();
+				if ($('body').hasClass('show-mb-left')) {
+					$('body').removeClass('show-mb-left');
+					$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+				} else {
+					$('body').addClass('show-mb-left');
+					$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+				}
+			});
+	
+	
+	       
+			// Datepicker
+			tidecms.setDatePicker(".fc-datepicker");
+	
+		});
+		
+	
+	
+	var pieData1 = {
+		name: '访问来源',
+		legend : ['直接访问1','邮件营销1','联盟广告1','视频广告1','搜索引擎1'],
+		series : [
+                {value:335, name:'直接访问1'},
+                {value:310, name:'邮件营销1'},
+                {value:555, name:'联盟广告1'},
+                {value:135, name:'视频广告1'},
+                {value:1248, name:'搜索引擎1'}
+            ]
+	}
+	var pieData2 = {
+		name: '访问来源2',
+		legend : ['直接访问2','邮件营销2','联盟广告2','视频广告2','搜索引擎2'],
+		series : [
+            {value:435, name:'直接访问2'},
+            {value:310, name:'邮件营销2'},
+            {value:534, name:'联盟广告2'},
+            {value:135, name:'视频广告2'},
+            {value:1548, name:'搜索引擎2'}
+        ],
+	}
+		
+	// 基于准备好的dom，初始化echarts实例	
+		var myPieChart = echarts.init(document.getElementById('pie-chart'));
+		
+		var pieChartOption = {
+		    title : {
+		        text: '总数据量对比',
+		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'left',
+		        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+		    },
+		    series : [
+		        {
+		            name: '访问来源',
+		            type: 'pie',
+		            radius : '55%',
+		            center: ['50%', '60%'],
+		            data:[
+		                {value:335, name:'直接访问'},
+		                {value:310, name:'邮件营销'},
+		                {value:234, name:'联盟广告'},
+		                {value:135, name:'视频广告'},
+		                {value:1548, name:'搜索引擎'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+
+        
+        //点击切换示例
+        $("#nav-day li").click(function(){
+        	var _index = $(this).index();
+        	if(_index==0){
+        		refreshOption(pieData1)
+        	}else{
+        		refreshOption(pieData2)
+        	}
+        })
+        
+        function refreshOption(pieData){
+        	myPieChart.setOption({			    
+			    legend: {			        
+			        data: pieData.legend 
+			    },
+			    series : [
+			        {			            
+			            data:pieData.series 
+			        }
+			    ]
+			});
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myPieChart.setOption(pieChartOption);
+        //refreshOption(pieData1);
+        $(window).resize(function(){
+        	myPieChart.resize();
+        })
+	</script>
+
+    </div>
+
+</body>
+
+</html>

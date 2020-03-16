@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>$item.getTitle()</title>
+		<link rel="stylesheet" href="/css/anchor-show.css" />
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/js/anchor-common.js"></script>
+	</head>
+
+	<body id="card">
+		<div class="container">			
+			 <div class="anchor-intro">
+				<div class="type-tl"><span></span>简介</div>
+				$item.getContent()  
+			</div>
+		
+		</div>
+        
+	</body>
+
+</html>

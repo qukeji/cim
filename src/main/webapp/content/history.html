@@ -1,0 +1,169 @@
+<!doctype html>
+
+<title>merge view demo</title>
+<meta charset="utf-8" />
+<!--<link rel=stylesheet href="../doc/docs.css">-->
+
+<link rel=stylesheet href="../lib/2018/codemirror/lib/codemirror.css">
+<link rel=stylesheet href="../lib/2018/codemirror/addon/merge/merge.css">
+
+<link rel="stylesheet" href="../style/2018/bracket.css">
+<script src="../lib/2018/codemirror/lib/codemirror.js"></script>
+<script src="../lib/2018/codemirror/mode/xml/xml.js"></script>
+<script src="../lib/2018/codemirror/mode/css/css.js"></script>
+<script src="../lib/2018/codemirror/mode/javascript/javascript.js"></script>
+<script src="../lib/2018/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="../lib/2018/codemirror/lib/diff_match_patch.js"></script>
+<script src="../lib/2018/codemirror/addon/merge/merge.js"></script>
+<script src="../lib/2018/codemirror/lib/jquery.min.js"></script>
+<script type="text/javascript" src="../common/2018/common2018.js"></script>
+<style>
+	#view {width: 100%;height: 100%;min-height: 650px;}
+	#view p,#view span{font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,"Microsoft YaHei";font-weight: 400;line-height: 1.5;color: #868ba1;}	
+	.CodeMirror {line-height: 1.2;}	
+	span.clicky {cursor: pointer;background: #d70;color: white;padding: 0 3px;border-radius: 3px;}
+    .CodeMirror-merge, .CodeMirror-merge .CodeMirror{min-height: 650px; }
+	.title-wrap {overflow: hidden;color:#333;}
+	.title-wrap1{float:left;width: 47%;}
+	.title-wrap2{float:left;width: 47%;margin-left: 6%;}
+</style>
+<body>
+    <div class="d-flex align-items-center btn-wrap justify-content-start pd-x-25 pd-sm-x-20 pd-t-30 mg-b-25 mg-sm-b-30">
+    	<div class="btn-group hidden-xs-down ">
+    		<a href="javascript:;" class="btn btn-outline-info" id="backHistoryList">返回版本列表</a>
+    	</div>
+    </div>
+    <div class="br-pagebody pd-x-20 pd-sm-x-20 pd-t-0-force">
+		<div class="card bd-0 shadow-base pd-15">
+            <div class="title-wrap">
+                <div class="title-wrap1">
+                  <h6 class="title title1 mg-b-10">标题：</h6>
+                  <p class="version savetime1 mg-b-10">保存时间：</p>
+                </div>
+                <div class="title-wrap2">
+                  <h6 class="title title2 mg-b-10">标题：</h6>
+                  <p class="version savetime2 mg-b-10">保存时间：</p>
+                </div>
+            </div>
+        	<div id="view"></div>
+        </div>
+    </div>
+	<script>
+    	function getUrl(name) {
+        	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        };
+		var value, orig1, orig2, dv, panes = 2,
+			highlight = true,
+			connect = null,
+			collapse = false;
+		CodeMirror.k_init = function(id, newData, oldData) {
+			value = oldData; //左侧 老文件
+			orig1 = '';
+			orig2 = newData; //右侧 新文件
+			initUI();
+
+			function initUI() {
+				if(value == null) return;
+				var target = document.getElementById(id);
+				target.innerHTML = "";
+				var dv = CodeMirror.MergeView(target, {
+					value: value,
+					origLeft: panes == 3 && !collapse && !connect ? orig1 : null,
+					orig: orig2,
+					lineNumbers: true, //行号
+					mode: "text/html",
+					theme: '3024-night', //修改主题
+					styleActiveLine: true,
+					matchBrackets: true,
+					highlightDifferences: highlight,
+					connect: connect,
+					collapseIdentical: collapse,
+					revertButtons: false, //事件比较替换
+                    readOnly:true,//编辑器是否只读
+                    lineWrapping:true,//自动换行
+				});
+			}
+		};
+		
+		function toggleDifferences() {
+			dv.setShowDifferences(highlight = !highlight);
+		}
+        
+        var globalid = getUrl("globalid") ;
+        ;$(function(){
+			var id1 = getUrl("id1") ;
+            var id2 = getUrl("id2") ;
+            var _data = null ;
+            if(id1 & id2){
+                _data = {
+                    "id1":id1,
+                    "id2":id2
+                }               
+            }else{
+                _data = {
+                    "id1":id1,
+                    "globalid":globalid
+                }                
+            }            
+        	value = document.documentElement.innerHTML;
+        			$.ajax({
+			            type: "get",
+			            dataType: 'json',
+		            	url: "/tcenter/content/version_contrast.jsp",
+		            	data: _data ,
+			            success: function (data) {
+			                console.log(data);
+			                
+			                var title1=data[0].title;
+			                var title2=data[1].title;
+			                $(".title1").html("标题："+title1);
+			                $(".title2").html("标题："+title2);
+			                
+			                $(".savetime1").html("保存时间："+data[0].date);
+                			$(".savetime2").html("保存时间："+data[1].date);
+			                orig1 = data[0].Content;
+			                orig2 = data[1].Content;
+			                //console.log(orig1,orig2)
+			                CodeMirror.k_init('view', orig2, orig1) ;
+                			var winH = $(window).height() ,
+                			titleH = $(".title-wrap").outerHeight(true) ;
+                			btnWrapH = $(".btn-wrap").outerHeight(true) ;
+                			$(".CodeMirror-merge, .CodeMirror-merge .CodeMirror").height(winH-titleH-btnWrapH-60) ;
+			            }        			    
+        			})			
+        })
+		
+		function mergeViewHeight(mergeView) {
+			function editorHeight(editor) {
+				if(!editor) return 0;
+				return editor.getScrollInfo().height;
+			}
+			return Math.max(editorHeight(mergeView.leftOriginal()),
+				editorHeight(mergeView.editor()),
+				editorHeight(mergeView.rightOriginal()));}
+
+		function resize(mergeView) {
+			var height = mergeViewHeight(mergeView);
+			for(;;) {
+				if(mergeView.leftOriginal())
+					mergeView.leftOriginal().setSize(null, height);
+				mergeView.editor().setSize(null, height);
+				if(mergeView.rightOriginal())
+					mergeView.rightOriginal().setSize(null, height);
+
+				var newHeight = mergeViewHeight(mergeView);
+				if(newHeight >= height) break;
+				else height = newHeight;
+			}
+			mergeView.wrap.style.height = height -60+ "px";
+		}
+		
+		$("#backHistoryList").click(function(){
+		    console.log(globalid)
+		    changeFrameSrc( top.frames["content_historical_version"] , "../content/content_historical_version.jsp?GlobalID="+globalid );
+		    return ;
+		})
+	</script>
+</body>

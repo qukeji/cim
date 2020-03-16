@@ -1,0 +1,171 @@
+.body {
+scrollbar-face-color:#0093B9;
+scrollbar-3dlight-color:#A0EAFF;
+scrollbar-highlight-color:#0093B9;
+scrollbar-shadow-color:#0093B9;
+scrollbar-darkshadow-color:#00556C;
+scrollbar-arrow-color:#A0EAFF;
+scrollbar-track-color:#A0EAFF}						    /*IE浏览器滚动条样式*/
+.font {
+	font: 9pt "Verdana", "Arial", "Helvetica", "sans-serif", "宋体";
+	color: #333333;
+}                                                                           /*基本字体样式*/
+.box-gray {
+	background: #E4E6EB;
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #B5B5B5;
+	border-bottom: 1px solid #B5B5B5;
+	border-left: 1px solid #FFFFFF;
+}                                                                           /*灰色版块样式*/
+.box-white {
+
+	background: #FFFFFF;
+	border-top: 1px solid #B5B5B5;
+	border-right: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-left: 1px solid #B5B5B5;
+}                                                                           /*白色色版块样式*/
+.box-tint {
+
+	background: #F2F3F5;
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #B5B5B5;
+	border-bottom: 1px solid #B5B5B5;
+	border-left: 1px solid #FFFFFF;
+}                                                                           /*浅色版块样式*/
+.box-blue {
+
+	background: #3872B2;
+	border-top: 1px solid #6497CE;
+	border-right: 1px solid #285382;
+	border-bottom: 1px solid #285382;
+	border-left: 1px solid #6497CE;
+}                                                                           /*蓝色版块样式*/
+.font-white {
+
+	font: 9pt "Verdana", "Arial", "Helvetica", "sans-serif", "宋体";
+	color: #FFFFFF;
+}                                                                           /*白色字体*/
+td {
+	font-size: 12px;
+	font-family: "宋体", "Verdana", "Arial", "Helvetica", "sans-serif";
+
+}
+.fig {
+	font: 9px "Verdana", "Arial", "Helvetica", "sans-serif", "宋体";
+}
+.rows1 {
+	background: #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+}
+.rows2 {
+	background: #F5F5F5;
+	border-bottom: 1px solid #DDDDDD;
+
+}
+.rows3 {
+
+	background: #999999;
+	border-bottom: 1px solid #DDDDDD;
+}
+.textfield {
+	background: #FFFFFF;
+	font: 12px "Verdana", "Arial", "Helvetica", "sans-serif", "宋体";
+	border: 1px solid #7C859C;
+
+
+
+}
+.submit {
+	background: #969DAF;
+	font: 12px "Verdana", "Arial", "Helvetica", "sans-serif", "宋体";
+	color: #FFFFFF;
+	padding-top: 0px;
+	border: 1px solid #737C95;
+	height: 20px;
+
+}
+a:link {
+	color: #333333;
+	text-decoration: none;
+}
+a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+a:hover {
+	color: #CC3300;
+	text-decoration: none;
+}
+a:active {
+	color: #333333;
+	text-decoration: none;
+}
+.lin24 {
+	line-height: 24px;
+}
+.lin28 {
+	line-height: 28px;
+}
+.font-blue {
+	color: #0033FF;
+}
+.font-14 {
+	font-size: 14px;
+	color: #576077;
+
+}
+.box_lin {
+	border: 1px solid #D1D1D1;
+	background-color: #EDEEF1;
+}
+.box_l_w {
+	background-color: #FFFFFF;
+	border: 1px solid #D1D1D1;
+}
+.font_s14 {
+	font-size: 14px;
+	color: #FF6600;
+	font-weight: bold;
+}
+#column_menu {
+	background-image: url(/images/column_out_bg.gif);
+	background-repeat: repeat-x;
+	height: 26px;
+	width: 100%;
+}
+.column_menu_item {
+	background-image: url(/images/column_out_bg.gif);
+	background-repeat: repeat-x;
+	height: 26px;
+	float: left;
+}
+.column_menu_l {
+	background-image: url(/images/column_l.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 10px;
+	background-position: 4px;
+	float: left;
+}
+.column_menu_r {
+	background-image: url(/images/column_r.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 10px;
+	float: left;
+}
+.column_menu_txt {
+	background-image: url(/images/column_bg.gif);
+	background-repeat: repeat-x;
+	height: 26px;
+	font-variant: normal;
+	padding-top: 10px;
+	float: left;
+}
+.font-red {
+	color: #FF0000;
+}
+.font-green {
+	color: #0000CC;
+}

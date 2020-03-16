@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 弹出窗口示例（iframe）</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+<style type="text/css">body{background:none;}.openwin_main{background:#fff;}</style>
+</head>
+
+<body>
+<div class="openwin tidedialog" id="" style="">
+    <div class="openwin_bg"></div>
+    <div class="openwin_main ui-draggable" id="popmain_1" style="width: 700px; left: 370px; top: 131px; height: 500px;">
+        <div class="openwin_nav" id="openwin_nav_id">
+            <div class="nav" id="TideDialogTitle">图片编辑</div>
+            <div class="tidecms_common_tips" style="display:none;"><div class="tct"></div></div>
+            <div class="close" style="background:url(../images/openwin_close.png) no-repeat 0 0;"><a style="cursor:pointer;" title="关闭" class="TideDialogClose" href='javascript:getDialog().Close({suffix:"_1"});'></a></div>
+            </div>
+        <div class="openwin_iframe" id="popDiviframe"><iframe frameborder="0" src="../photo/image_deal_online.jsp?img=http://123.125.148.27:5001/images/2015/10/15/201510151444917509348_206.jpg" id="popiframe_1" name="popiframe_1" style="width: 700px; height: 435px;" scrolling="no" allowtransparency="true"></iframe></div>
+        <div class="form_button">
+            <input name="startButton" type="submit" class="tidecms_btn2" value="保存" id="startButton"/>
+            <input name="btnCancel1" type="button" class="tidecms_btn2" value="关闭"  id="btnCancel1"  onclick="top.TideDialogClose('');"/>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

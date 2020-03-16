@@ -1,0 +1,896 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 列表</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+</head>
+<body >
+<div class="content_t1">
+    <div class="content_t1_nav">当前位置：视频统计>>流畅度分析</div>    
+</div>
+<div class="content_2012">
+    <div class="viewpane"> 
+        <div class="viewpane_tbody">
+        <table width="100%" height="38" border="0" cellpadding="0" cellspacing="0" class="box-tint">
+          <tbody>
+            <tr>     
+                <td>
+                <input type="button" value="上上月" name="month" class="tidecms_btn2" onclick="setCss(4,this);">
+                <input type="button" value="上一月" name="month" class="tidecms_btn2" onclick="setCss(4,this);">
+                <input type="button" value="当月" name="month" class="tidecms_btn2 current" onclick="setCss(4,this);">
+                起始时间：<input type="text" value="" id="begin" class="CreateDate hasDatepicker"><img class="ui-datepicker-trigger" src="../../images/icon/26.png" alt="..." title="..."> <input type="button" value="查询" onclick="check();" class="tidecms_btn2" name="query">               
+                </td>
+          </tr>
+        </tbody>
+    </table>
+                <table width="100%" border="0" id="list" class="view_table video_lcd"> 
+                <thead>
+                    <tr id="oTable_th">
+                        <th class="v1" style="">时段</th>                  
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                        <th class="v1" style=""align="center" valign="middle" title="2015-02-04">24</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center" valign="middle">0:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">1:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_0" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">2:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">3:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">4:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">5:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">6:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">7:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">8:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">9:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">10:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">11:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">12:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">13:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">14:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">15:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">16:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">17:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">18:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">19:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">20:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">21:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">22:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">23:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle">24:00</td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_1" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_2" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_3" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_4" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_5" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_6" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_7" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_8" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_9" title="流畅度60%"></div></td>
+                        <td align="" valign="middle"><div class="video_lcd_10" title="流畅度60%"></div></td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+        <div class="viewpane_pages"></div>
+    </div>
+</div>
+</body>
+</html>

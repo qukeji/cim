@@ -1,0 +1,821 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico"/>
+<title>编辑文档 太原十号线桥全线贯通 年底通车 聚视演示版>APP管理>栏目管理>首页>要闻 TideCMS</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/summernote/summernote-bs4.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link rel="stylesheet"  type="text/css" href="../../style/jquery.tagit.css" />
+<link href="../../lib/2018/jquery-toggles/toggles-full.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../style/timepicker/jquery-ui.css" />
+<link rel="stylesheet"  type="text/css" href="../../style/timepicker/jquery-ui-timepicker-addon.css" />
+<link rel="stylesheet" href="../../style/2018/bracket.css"> 
+
+<style>
+	.collapsed-menu .br-mainpanel-file{margin-left: 60px;margin-bottom: 30px;}		
+	#nav-header{line-height: 60px;margin-left: 20px;color: #a4aab0;font-style: normal;}
+	#nav-header a{color: #a4aab0;}
+	.table-bordered {border: 1px solid #dee2e6;text-align: center;}
+	#tabTable td{padding: 0.3rem !important;cursor: pointer;}
+	.selTab{border: 1px solid #17A2B8 !important;background-color: #17A2B8;color: #fff;}
+    .edui-default .edui-editor-breadcrumb{line-height: 30px;}
+    .ui-widget-content{border: 1px solid rgba(0, 0, 0, 0.15) ;}
+	.bs-tooltip-bottom .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #f8f9fa;opacity: 1;}
+	.tooltip.bs-tooltip-bottom .arrow::before,
+	.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {border-bottom-color: #f8f9fa;	}
+	/*.edui-editor {z-index: 0 !important;}*/
+	.btn-box a{color:#fff }
+	/*tooltip相关样式*/
+	.bs-tooltip-right .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #00b297;opacity: 1;}
+	.tooltip.bs-tooltip-right .arrow::before,
+	.tooltip.bs-tooltip-auto[x-placement^="right"] .arrow::before {			
+		border-right-color: #00b297;			
+	}
+	
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../common/2018/common2018.js"></script>
+<script src="../common/document.js"></script>
+<script type="text/javascript" src="../../common/2018/TideDialog2018.js"></script>
+<script src="../../common/tag-it.js"></script>
+<!--百度编辑器-->
+<script type="text/JavaScript" charset="utf-8" src="../../ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- <script type="text/javascript" charset="utf-8" src="../ueditor/toupiaoDialog.js"></script> -->
+<!-- <script type="text/javascript" charset="utf-8" src="../ueditor/photosDialog.js"></script> -->
+<script type="text/javascript" charset="utf-8" src="../../ueditor/imgeditorDialog.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/imagesDialog.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/insertGoodDialog.js"></script>
+
+<script>
+var SerialNo = 's53_a_a_a_g';
+var Pages=1;
+var curPage = 1;
+var Contents = new Array();
+Contents[Contents.length] = "";
+var userId = 40;
+var userName = "方志伟";
+var userGroupName = "Tide";
+var userGroupId = 4;
+var channelid = 15981;
+var groupnum = 4;
+var begin_time=1546570904;
+var SiteAddress = "http://jushi-yanshi.tidemedia.com";
+var GlobalID = 1098182;
+var inner_url = "http://jushi-yanshi.tidemedia.com";
+var outer_url = "http://jushi-yanshi.tidemedia.com";
+var is_auto_save = false;//自动保存
+var timer = null;//定时器
+
+var NoCloseWindow = 0;//是否关闭页面
+var unload = true ;//关闭页面是否提示
+
+window.onresize = function(){	
+	if(document.getElementsByClassName("content-edit-frame")[0]){		
+		if(navigator.userAgent.indexOf("MSIE")>0||navigator.userAgent.indexOf("rv:11")>0||navigator.userAgent.indexOf("Firefox")>0){ 
+			var _height = document.getElementsByClassName("content-edit-frame")[0].contentWindow.document.body.scrollHeight ;
+		}else{
+			var _height = document.getElementsByClassName("content-edit-frame")[0].contentWindow.document.documentElement.scrollHeight ;		
+		}
+		document.getElementsByClassName("content-edit-frame")[0].style.height = _height
+	}
+}
+//调整iframe的高度 
+function changeFrameHeight(_this){   
+	if(navigator.userAgent.indexOf("MSIE")>0||navigator.userAgent.indexOf("rv:11")>0||navigator.userAgent.indexOf("Firefox")>0){     		
+		_this.style.height = _this.contentWindow.document.body.scrollHeight +5;				
+	}else{		
+		_this.style.height = _this.contentWindow.document.documentElement.scrollHeight +5;				
+	}
+}
+</script>
+
+<script>
+
+function Save_approve()
+{
+	document.form.Approve.value = 1;
+	Save();
+}
+
+
+function Save()
+{ 
+	if(check())
+	{
+	//有内容拦的情况下，保存前先处理内容栏
+	if(document.getElementById("tabTableRow"))
+		Save_Content();
+
+	document.getElementById("Image1Href").href = "javascript:void(0);";
+	
+		document.getElementById("Image2Href").href = "javascript:void(0);";
+	
+
+	if(is_auto_save)
+	{
+		document.getElementById("Image1Href").href = "javascript:void(0);";
+		
+			document.getElementById("Image2Href").href = "javascript:void(0);";
+		
+	}
+	 
+	var _form_data = $("#form").serialize();
+	if(form_data == _form_data && is_auto_save)// 自动保存 数据没有变化时不进行数据提交
+	{  
+		// $("#display_auto_save").removeClass("auto_save_hide").addClass("auto_save").text("数据没有变化"+getNowFormatDate());
+		return ;
+	}
+	//如果有数据变化 把新的表单值赋值给form_data
+	form_data =_form_data ;
+	//编辑互斥
+	isSaved();
+	$("#display_auto_save").removeClass("auto_save_hide").addClass("auto_save").text("正在保存"+getNowFormatDate());
+	$.ajax({
+         type: "POST",
+         url:"../content/document_submit.jsp",
+         data:$('#form').serialize(),
+		 dataType:'json',
+         success: function(result) 
+		 {
+			if(!is_auto_save)
+			{//非自动保存
+				if(result.message=="")
+				{	
+					unload = false ;
+					
+						if(window.opener!=null)
+						{
+							window.opener.document.location.reload();					
+						}
+						window.close();
+					
+
+									
+				 }else{
+					if(result.message=="auto save")
+					{
+					}
+					else
+					{
+						ddalert(result.message,"(function dd(){getDialog().Close({suffix:'html'});})()");
+						//alert(result.message);
+					}
+					document.getElementById("Image1Href").href = "javascript:Save();";
+					
+					document.getElementById("Image2Href").href = "javascript:Save_Publish();";
+					
+				 } 
+			}
+			else
+			{
+				//自动保存刷新页面
+				//window.location.href="document.jsp?NoCloseWindow=1&ItemID=" + result.id+ "&ChannelID="+result.channelid
+				document.form.NoCloseWindow.value = '1';
+				document.form.Action.value='Update';
+				document.form.ItemID.value=result.id;
+
+				document.getElementById("Image1Href").href = "javascript:Save();";
+				
+					document.getElementById("Image2Href").href = "javascript:Save_Publish();";
+				
+                            
+                         
+			}
+			$("#display_auto_save") .addClass("auto_save").text("保存完成"+getNowFormatDate());
+		  // $("#display_auto_save").removeClass("auto_save").addClass("auto_save_hide");   
+	    },
+		error: function (XMLHttpRequest, textStatus, errorThrown) 
+		{ 
+			alert("保存没有成功，请重新尝试。");
+			
+			document.getElementById("Image1Href").href = "javascript:Save();";
+			
+			document.getElementById("Image2Href").href = "javascript:Save_Publish();";
+			
+		} 
+     });
+
+	
+	}
+}
+
+
+
+function init()
+{	
+	$(".date").datetimepicker({
+		   timeText: '时间',  
+		   hourText: '小时',  
+		   minuteText: '分钟',  
+		   secondText: '秒',  
+		   currentText: '现在',  
+		   closeText: '完成',  
+		   showSecond: true, //显示秒  
+		    dateFormat:"yy-mm-dd",
+		    timeFormat: 'HH:mm:ss',//格式化时间  
+		    monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],  
+            dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],  
+            dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],  
+            dayNamesMin: ['日','一','二','三','四','五','六']
+	});
+
+    var sampleTags = [];
+    $("#Keyword").tagit({availableTags: sampleTags    });
+    $("#Tag").tagit({availableTags: sampleTags    });
+document.form.Action.value = 'Update';
+
+	checkTitle();
+	document.body.disabled  = false;
+	auto_save();
+}
+
+//获取当前时间
+function getNowFormatDate()
+{
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+}
+
+//自动保存
+function auto_save()
+{
+		if($("#auto_save").attr("checked"))//勾选了才自动保存
+		{
+					is_auto_save = true;
+					document.form.NoCloseWindow.value = '1';
+					timer = window.setInterval("Save()","30000");
+		}
+			//自动保存
+		$("#auto_save").change(
+				function()
+				{
+					if(this.checked)
+					{//选中 自动保存
+							is_auto_save = true;
+							document.form.NoCloseWindow.value = '1';
+							timer = window.setInterval("Save()","30000");
+					}
+					else
+					{//取消自动保存
+						  is_auto_save = false;
+						  document.form.NoCloseWindow.value = '0';
+						  window.clearInterval(timer); 
+					}
+			}
+		);
+
+}
+
+function initContent1()
+{
+	
+	if(document.getElementById("tabTableRow"))
+		try{
+		{
+			
+		}
+		}catch(er){	window.setTimeout("initContent1()",5);}
+		document.form.Action.value = "Update";//alert(Contents["t2"]);
+	
+}
+
+function initContent()
+{
+	window.setTimeout("initContent1()",1);
+}
+
+//上传图片 
+function selectImage(fieldname)
+{
+	var item_type = $("input[name='item_type']:checked").val();
+	if(item_type==undefined){
+		item_type = 0;
+		//alert("请选择列表展现形式");
+		ddalert("请选择列表展现形式","(function dd(){getDialog().Close({suffix:'html'});})()");
+	}
+	
+	var	dialog = new TideDialog();
+	dialog.setWidth(600);
+	dialog.setHeight(440);
+	dialog.setLayer(2);
+	dialog.setUrl("../content/insertfile.jsp?photoType="+item_type+"&ChannelID="+channelid+"&Type=Image&fieldname="+fieldname);
+	dialog.setTitle("上传图片");
+	dialog.show();
+}
+
+
+var curField = 0;
+
+function previewFile(fieldname)
+{
+	var name = document.getElementById(fieldname).value;
+	//图片库采用本地预览
+	var reg = new RegExp(outer_url,"g");
+	if(name=="") return;
+
+	if(name.indexOf("http://")!=-1)  window.open(name.replace(reg,inner_url));
+	else	window.open("http://jushi-yanshi.tidemedia.com/" + name);
+}
+
+function selectByKeyword()
+{
+	var ByKeyword = document.getElementById("ByKeyword");
+	var ByTitle = document.getElementById("ByTitle");
+	document.getElementById("related_doc_list").src = "related_doc_list.jsp?GlobalID=1098182&ChannelID=15981&ByKeyword="+ByKeyword.checked + "&ByTitle="+ByTitle.checked + "&keyword=" + encodeURIComponent(document.form.ByKeywordText.value);
+}
+
+
+</script>
+</head>
+
+<body class="collapsed-menu email" id="withSecondNav">
+<script type="text/javascript">document.body.disabled  = true;</script>
+<form name="form" action="../content/document_submit.jsp" method="post" id = "form">
+<div class="br-logo"><img src="../images/2018/system-logo.png"></div>
+<div class="br-sideleft overflow-y-auto">
+	<label class="sidebar-label pd-x-15 mg-t-20"></label>
+	
+	<div class="br-sideleft-menu">
+		<a href="javascript:showTab('1')" class='br-menu-link active' id="form1_td" groupid="8433" data-toggle="tooltip" data-placement="right" title="内容编辑">
+			<div class="br-menu-item">
+				<i class="menu-item-icon fa fa-edit tx-22"></i>
+				<span class="menu-item-label">内容编辑</span>
+			</div><!-- menu-item -->
+		</a><!-- br-menu-link -->
+	</div><!-- br-sideleft-menu -->
+	
+	<div class="br-sideleft-menu">
+		<a href="javascript:showTab('2')" class='br-menu-link' id="form2_td" groupid="8437" data-toggle="tooltip" data-placement="right" title="图片集">
+			<div class="br-menu-item">
+				<i class="menu-item-icon fa fa-edit tx-22"></i>
+				<span class="menu-item-label">图片集</span>
+			</div><!-- menu-item -->
+		</a><!-- br-menu-link -->
+	</div><!-- br-sideleft-menu -->
+	
+	<div class="br-sideleft-menu">
+		<a href="javascript:showTab('3')" class='br-menu-link' id="form3_td" groupid="8495" data-toggle="tooltip" data-placement="right" title="按钮集合组">
+			<div class="br-menu-item">
+				<i class="menu-item-icon fa fa-edit tx-22"></i>
+				<span class="menu-item-label">按钮集合组</span>
+			</div><!-- menu-item -->
+		</a><!-- br-menu-link -->
+	</div><!-- br-sideleft-menu -->
+
+	<div class="br-sideleft-menu">
+		<a href="javascript:showTab('4')" class="br-menu-link" id="form4_td" data-toggle="tooltip" data-placement="right" title="二维码">
+			<div class="br-menu-item">
+				<i class="menu-item-icon fa fa-edit tx-22"></i>
+				<span class="menu-item-label">二维码</span>
+			</div><!-- menu-item -->
+		</a><!-- br-menu-link -->
+	</div><!-- br-sideleft-menu -->
+
+</div><!-- br-sideleft -->  
+ <div class="br-header">
+	<div class="br-header-left">
+		<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+		<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+		<div id="nav-header" class="hidden-md-down flex-row align-items-center">
+			聚视演示版 / APP管理 / 栏目管理 / 首页 / 要闻
+		</div>
+	</div>  <!-- br-header-left -->
+	<div class="br-header-right">
+		<div class="btn-box" >	      	
+			<a class="btn btn-primary tx-size-xs mg-r-5" href="javascript:Save();" id="Image1Href">保存</a>
+			
+					<a class="btn btn-secondary tx-size-xs mg-r-5" id="Image2Href" href="javascript:Save_Publish();">保存并发布</a>
+			
+			<a class="btn btn-secondary tx-size-xs mg-r-10" href="javascript:self.close();">关闭</a>			   
+		</div>
+	</div><!-- br-header-right -->
+</div><!-- br-header -->
+
+		<div class="br-mainpanel br-mainpanel-file overflow-hidden">
+			<div class="row row-sm mg-t-10">
+				<!--内容编辑-->
+				<div class="col-sm-8 ">
+					<div class="br-pagebody bg-white mg-l-20 mg-r-20 " url="" id="form1">						
+						<div class="br-content-box pd-20">
+							<div class="center">		
+								<div class="article-title mg-l-15 mg-b-15 pd-r-30">
+		
+									<div class="row flex-row align-items-center mg-b-15" id="tr_Title">
+										<label class="left-fn-title wd-150 " id="tr_Title">标题：</label>
+										<label class="wd-content-lable d-flex" id="field_Title">
+											<input class="form-control" placeholder="" type="text" id="Title" name="Title" size="80" value="太原十号线桥全线贯通 年底通车" onkeyup="checkTitle();">
+										 </label>
+										<label><span id="TitleCount" class="mg-l-10"></span></label>
+									</div>
+		
+									<div class="row flex-row align-items-center mg-b-15" id="tr_item_type"><label class="left-fn-title wd-150" id='desc_item_type'>列表展现形式：</label><label class="wd-content-ckx d-flex " id="field_item_type"><label class="rdiobox mg-r-15"><input type="radio" value="0" id="item_type_0" name="item_type" ><span for='item_type_0'>单图</span></label>
+										<label class="rdiobox mg-r-15"><input type="radio" value="1" id="item_type_1" name="item_type" ><span for='item_type_1'>三图</span></label>
+										<label class="rdiobox mg-r-15"><input type="radio" value="2" id="item_type_2" name="item_type" ><span for='item_type_2'>大图</span></label>
+										<label class="rdiobox mg-r-15"><input type="radio" value="3" id="item_type_3" name="item_type" ><span for='item_type_3'>无图</span></label>
+										
+										</label>
+									</div>
+									
+									<div class="row flex-row align-items-center mg-b-15" id="tr_content_type"><label class="left-fn-title wd-150" id='desc_content_type'>自定义内容标识：</label><label class="wd-content-lable d-flex " id="field_content_type"><input type="text" class="textfield form-control" size="80" name="content_type" id="content_type" value=""> </label></div>
+		
+									<div class="row flex-row align-items-center mg-b-15" id="tr_showbuttontitle"><label class="left-fn-title wd-150" id='desc_showbuttontitle'>是否隐藏按钮组标题：</label><label class="wd-content-ckx d-flex " id="field_showbuttontitle"><label class="rdiobox mg-r-15"><input type="radio" value="0" id="showbuttontitle_0" name="showbuttontitle" checked><span for='showbuttontitle_0'>显示</span></label>
+										<label class="rdiobox mg-r-15"><input type="radio" value="1" id="showbuttontitle_1" name="showbuttontitle" ><span for='showbuttontitle_1'>隐藏</span></label>
+										</label>
+									</div>
+		
+									<div class="row flex-row align-items-center mg-b-15" id="tr_Summary"><label class="left-fn-title wd-150" id='desc_Summary'>摘要：</label><label class="wd-content-lable d-flex " id="field_Summary"><textarea cols="81" class="textfield form-control" rows=5 name="Summary" onDblClick="showEditor('Summary')" id="Summary"></textarea></label></div>
+		
+									<div class="row flex-row align-items-center mg-b-15 edit" id="tr_Content">
+										<input type="hidden" id="baiduEditor1" name="baiduEditor1" value="" style="display:none" />
+										<script id="editor" type="text/plain" style="width:100%;height:600px;"></script>
+										<script type="text/javascript">
+											var currcontent = "";
+		
+											currcontent = '<p>&nbsp;<br\/><\/p><p>11月27日，记者从十号线桥项目部得知，随着主线西立交最后一节钢箱梁的建设成功，十号线桥实现了全线贯通。这意味着，从滨河东路的大桥东立交出发，已经可以顺畅到达滨河西路的西立交，距离最后的建成通车又进了一步。<\/p><p>　　今年，太原市实施了迎宾桥、十号线桥、通达桥“三桥”重点工程，其中十号线桥是太原市横跨汾河的第19座大桥。该桥位于省城南部新城，西临晋阳古城，跨越汾河，东接太原综改区，全长2025.81米。主桥桥型选择古典与现代结合的下承式钢桁架拱桥，造型独特。拱桥是传统特色明显的古老桥型，形如彩带、态似彩虹，优美的弧线清新悦目，气质典雅，给人一种富有弹性的力度感。拱的形式采用钢桁架结构，极具现代气息。在拱脚外侧对称设计了桥头堡，给人一种大气磅礴的直观感受。<\/p><p>　　目前，主桥钢梁、钢拱、吊杆已全部完成，受力体系已经形成，正在进行桥面打砂、防腐、防水，做浇筑式沥青施工准备以及桥面附属施工，钢拱装饰、景观亮化及桥头堡装饰也在同步进行。另外，东立交引桥、西立交引桥的钢箱梁架设全部完成，实现东西贯通，目前道路正在沥青摊铺中。<\/p><p>　　十号线桥设计时速为60公里，主桥宽47.5米，双向八车道，将于今年12月30日通车，将成为二青会举办期间前往场馆的重要通道。<\/p><p><\/p>';
+		
+											currcontent = currcontent.replace(/src=\"\//g, 'src=\"http://jushi-yanshi.tidemedia.com\/');
+		
+											$("#baiduEditor1").val(currcontent);
+		
+											var ChannelID = 15981;
+		
+											var ue = UE.getEditor('editor');
+											ue.ready(function() {
+												UE.getEditor('editor').setHeight(600)
+												setContent(currcontent, false);
+											});
+											//获得内容
+											function getContent() {
+												var content = ue.getContent();
+												content = content.replace(/(<img class="tide_video_fake".*?)>/gi, "");
+												content = content.replace(/(<img class="tide_photo_fake".*?)>/gi, "");
+												return content;
+											}
+											//写入内容
+											function setContent(content, isAppendTo) {
+												var img = "<img class=\"tide_video_fake\" src=\"../editor/images/spacer.gif\" _fckfakelement=\"true\" _fckrealelement=\"1\">";
+												var img1 = "<img class=\"tide_photo_fake\" src=\"../editor/images/spacer.gif\" _fckfakelement=\"true\" _fckrealelement=\"1\">";
+		
+												content = content.replace(/(<span id="tide_video">(.+?)<\/span>)/gi, "$1" + img);
+												content = content.replace(/(<span id="tide_photo">(.+?)<\/span>)/gi, "$1" + img1);
+												ue.setContent(content, isAppendTo);
+											}
+											//获得纯文本
+											function getContentTxt() {
+												return ue.getContentTxt();
+											}
+											//返回当前编辑器对象
+											function getUE() {
+												return ue;
+											}
+										</script>
+										<table id="tabTable" CELLPADDING=0 CELLSPACING=0 class="table table-bordered mg-b-0">
+											<tr id="tabTableRow" onclick="changeTabs()">
+												<td id="t1" class="selTab" page="1" height="20">第1页</td>
+											</tr>
+										</table>
+										<input type="button" value="删除当前页" onclick="DeletePage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+										<input type="button" value="插入一页" onclick="AddPage();" class="btn btn-primary tx-size-xs mg-r-10 mg-t-10">
+									</div>
+		
+									<div class="row flex-row align-items-center mg-b-15" id="tr_anuor"><label class="left-fn-title wd-150" id='desc_anuor'>作者：</label><label class="wd-content-lable d-flex " id="field_anuor"><input type="text" class="textfield form-control" size="80" name="anuor" id="anuor" value=""> </label></div>
+		
+								</div>
+							</div>
+						</div>
+					</div>				
+				</div>
+				<!--审核预览-->
+				<div class="col-sm-4 pd-x-0-force">
+		        	<div class="br-pagebody  mg-l-0 mg-r-30 pd-x-0-force" >
+			            <div class="card bg-white shadow-base bd-0">
+			              <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+			                <h6 class="card-title tx-uppercase tx-12 mg-b-0">审核结果</h6>
+			                <!--<span class="tx-12 tx-uppercase">June 20-27, 2017</span>-->
+			              </div><!-- card-header -->
+			              <div class="card-body  bg-white">
+			              	
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">提交</span>
+			              				<span class="mg-r-7">编辑2</span>
+			              				<span>提交审核</span>
+			              			</p>
+			                		<p class="mg-b-0 tx-sm">2018.10.12 10:30</p>
+			              		</div>
+			              		
+			              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              					              		
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">一审</span>
+			              				<span class="mg-r-7">责编1</span>
+			              				<span class="tx-warning">审核中</span>
+			              			</p>
+			                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+			              		</div>
+			              	    <textarea class="form-control ht-100 mg-t-10" cols="5"  placeholder="驳回理由，如审核通过则不需要输入"></textarea>
+			              	    
+			              	    <div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              	    
+			              	    <div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">二审</span>
+			              				<span class="mg-r-7">2人</span>
+			              				<span>并签</span>
+			              			</p>
+			              		</div>
+			              		
+			              		<div class="bg-gray-300 pd-x-10 pd-y-5 mg-y-5 tx-gray-700">须责编2、责编3全部审核通过</div>
+			              		
+			              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+			              		
+			              		<div class="sh-item d-flex justify-content-between align-items-center">
+			              			<p class="mg-b-0 tx-inverse tx-lato">
+			              				<span class="mg-r-7">三审</span>
+			              				<span class="mg-r-7">主编</span>
+			              				<span class="" style="color:#868ba1">等待审核</span>
+			              			</p>
+			              		</div>
+			              		
+			              </div><!-- card-body -->
+			              
+			            </div><!-- card -->
+		                
+		                <div class="card-body mg-t-20 bg-white  shadow-base bd-0">			              	
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">提交</span>
+		              				<span class="mg-r-7">编辑2</span>
+		              				<span>提交审核</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">2018.10.12 10:30</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-success">通过</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-warning">审核中</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		
+		              		<div class=" pd-l-20 tx-14"><i class="fa fa-ellipsis-v"></i> </div>
+		              		
+		              		<div class="sh-item d-flex justify-content-between align-items-center">
+		              			<p class="mg-b-0 tx-inverse tx-lato">
+		              				<span class="mg-r-7">一审</span>
+		              				<span class="mg-r-7">责编1</span>
+		              				<span class="tx-danger">驳回</span>
+		              			</p>
+		                		<p class="mg-b-0 tx-sm">已等待30分钟</p>
+		              		</div>
+		              		<div class="sh-reason mg-t-5">
+		              			<p class="bd pd-x-10 pd-y-5">理由：摘要中含有敏感政治人物名字理由：理由：摘要中含有敏感政治人物名字</p>
+		              		</div>
+		              	   
+			            </div><!-- card-body -->
+		        	
+		        	</div>
+
+		        </div><!-- col-4 -->
+			</div>	
+		</div>
+		<div class="br-mainpanel br-mainpanel-file overflow-hidden">	
+			<div class="br-pagebody bg-white mg-l-20 mg-r-20 clear-padding" url="../photo/document_photo_list.jsp?&itemid=856&globalid=1098182&channelid=15981&fieldgroup=2" id="form2" style="display:none;">
+				<div class="br-content-box pd-20">
+					<div class="center">
+						<iframe id="iframe2" class="content-edit-frame" frameborder="0" style="width:100%;min-height:500px;height:100%;" marginheight="0" marginwidth="0" scrolling="auto" src="../null.jsp" onload="changeFrameHeight(this)"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	    <div class="br-mainpanel br-mainpanel-file overflow-hidden">
+			<div class="br-pagebody bg-white mg-l-20 mg-r-20 clear-padding" url="../content/content_gather_button.jsp?LinkChannelID=15922&itemid=856&globalid=1098182&channelid=15981&fieldgroup=3" id="form3" style="display:none;">
+				<div class="br-content-box pd-20">
+					<div class="center">
+						<iframe id="iframe3" class="content-edit-frame" frameborder="0" style="width:100%;min-height:500px;height:100%;" marginheight="0" marginwidth="0" scrolling="auto" src="../null.jsp" onload="changeFrameHeight(this)"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="br-mainpanel br-mainpanel-file overflow-hidden">
+			<div class="br-pagebody bg-white mg-l-20 mg-r-20" style="display:none;" id="form4">
+				<div class="br-content-box pd-20">
+					<!--标签组-->
+					<div class="center" url="">
+						<div class="article-title mg-l-15 mg-b-15 pd-r-30">
+							<div class="row flex-row align-items-center">
+								<label class="left-fn-title wd-150 ">二维码分享功能：</label>
+								<label class="wd-content-lable d-flex">
+									<div><img src="http://jushi-yanshi.tidemedia.com/qrcode/2018/11/28/15981_856.png"></div>
+									<div>二维码标签分享功能</div>
+									<div>左侧的二维码是本内容是由移动终端分享地址生成。<br>通过手机、PAD客户端或微信“扫一扫”功能拍摄扫描二维码实现移动设备的内容浏览，并可以通过分享工具分享给移动设备用户。<br>也可以将本二维码发布到网页中，实现基于网页的二维码拍摄分享功能。</div>
+								 </label>
+							</div>
+						</div>
+						<div class="article-title mg-l-15 mg-b-15 pd-r-30">
+							<div class="row flex-row align-items-center">
+								<label class="left-fn-title wd-150 ">二维码图片地址：</label>
+								<label class="wd-content-lable d-flex">http://jushi-yanshi.tidemedia.com/qrcode/2018/11/28/15981_856.png</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+<input type="hidden" name="From" value="">
+<input type="hidden" name="Action" value="Add">
+<input type="hidden" name="Content" value="">
+<input type="hidden" id="ItemID" name="ItemID" value="856">
+<input type="hidden" name="ChannelID" value="15981">
+<input type="hidden" name="Status" value="0">
+<input type="hidden" name="Approve" value="0">
+<input type="hidden" id="GlobalID" name="GlobalID" value="1098182">
+<input type="hidden" name="ParentGlobalID" value="0">
+<input type="hidden" name="RelatedItemsList" value="">
+<input type="hidden" name="Page" value="1">
+<input type="hidden" id="RecommendGlobalID" name="RecommendGlobalID" value="0">
+<input type="hidden" name="RecommendChannelID" value="0">
+<input type="hidden" name="RecommendItemID" value="0">
+<input type="hidden" name="NoCloseWindow" id="NoCloseWindow" value="0">
+<input type="hidden" name="ContinueNewDocument" value="0">
+<input type="hidden" id="RecommendType" name="RecommendType" value="0"><div id="ajax_script" style="display:none;"></div>
+</form>
+<!--6ms-->
+
+<script type="text/javascript">
+var form_data = $("#form").serialize();//获取表单数据
+
+</script>
+
+<!--兼容性提示弹窗-->
+<div class="editorTipsModal modal" id="editorTipsModal" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">系统提示</h4>
+			</div>
+			<div class="modal-body">
+				<p>系统检测到您正在使用低版本浏览器，为保证您的正常使用，请升级浏览器到最新版本。</p>
+				<p>推荐使用浏览器：谷歌浏览器，其他浏览器及版本：360浏览器最新版、IE9及以上版本。</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-close" data-dismiss="modal">关闭</button>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+<script src="../../lib/2018/medium-editor/medium-editor.js"></script>
+<script src="../../lib/2018/select2/js/select2.min.js"></script>
+<script src="../../lib/2018/jquery-toggles/toggles.min.js"></script>
+<script type="text/javascript" src="../../common/jquery-ui-timepicker-addon.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+
+<script>
+	
+  $(function(){
+		'use strict';
+
+		//show only the icons and hide left menu label by default
+		$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+		
+		
+		$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+		$('#showMailBoxLeft').on('click', function(e){
+			e.preventDefault();
+			if($('body').hasClass('show-mb-left')) {
+			$('body').removeClass('show-mb-left');
+			$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+			} else {
+			$('body').addClass('show-mb-left');
+			$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+			}
+		});
+		
+		  $('.br-sideleft [data-toggle="tooltip"]').tooltip({
+				shadowColor:"#ffffff",
+				textColor:"000000",
+				trigger:"hover"
+			});
+		
+  });
+</script>
+
+<script>
+$(function() {
+	//判断是否为ie8及以下浏览器
+	var DEFAULT_VERSION = 8.0;
+	var _ua = navigator.userAgent.toLowerCase();
+	var _isIE = _ua.indexOf("msie")>-1;
+	var browserVersion;
+	if(_isIE){
+		browserVersion =  _ua.match(/msie ([\d.]+)/)[1];
+	}
+	if(browserVersion <= DEFAULT_VERSION ){
+		$('#editorTipsModal').show().css("opacity",1)
+	};   
+    $(".editorTipsModal .btn-close,.editorTipsModal button.close").click(function(){
+    	$('#editorTipsModal').hide().css("opacity",0)
+    })
+    
+    //加帮助指南的问号
+    var helpHtml = '<a href="../help/content.html" target="_blank" class="valign-middle tx-gray-900 mg-l-10" data-toggle="tooltip" data-placement="top">'+
+          	     '<i class="icon ion-help-circled tx-18"></i></a>'   
+    $("#desc_item_type").append(helpHtml);
+	//初始化赋值聚现企业编号
+    var media_extra2= 0;
+    $('#juxian_companyid').val(media_extra2);
+
+    if($('#mediatype_1').attr('checked') == 'checked'){
+	  document.getElementById("tr_td_liveid").style.display="none";
+	}   tr_mediatype
+	$('#tr_mediatype input[type=radio]').change(function() {
+      if($("#mediatype_1").is(":checked")){
+		 document.getElementById("tr_td_liveid").style.display="none"; 
+	  }else{
+		 document.getElementById("tr_td_liveid").style.display=""; 
+	  }
+})
+});
+
+$(function(){
+	$("#field_href_app").after("\r\n<label><input type=\"button\" value=\"选择\" onclick=\"getListHref()\" class=\"btn btn-primary tx-size-xs mg-l-10\"></label>");
+	$("#field_secondcategory").after("\r\n<label><input type=\"button\" value=\"选择\" onclick=\"getSecondcategoryList()\" class=\"btn btn-primary tx-size-xs mg-l-10\"></label>");
+});
+
+$.getScript("../common/controlfield.js");
+
+function getSecondcategoryList(){
+	var	dialog = new top.TideDialog();
+		dialog.setWidth(500);
+		dialog.setHeight(400);
+		dialog.setUrl("../content/secondcategoryList.jsp?ChannelID=15894&fieldName=secondcategory");
+		dialog.setTitle('选择');
+		dialog.show();
+}
+function getListHref(){
+	var	dialog = new top.TideDialog();
+		dialog.setWidth(500);
+		dialog.setHeight(400);
+		dialog.setUrl("../content/listHref.jsp?ChannelID=15894&fieldName=href_app&TargetName=list_1_0.shtml");
+		dialog.setTitle('选择');
+		dialog.show();
+}
+
+</script>
+
+</body>
+</html>
+

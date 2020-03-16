@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1, ">
+		<meta name="robots" content="noindex, nofollow">
+		<title>Tide点播播放器示例</title>
+		
+		<!--框架依赖文件，与播放器文件无关-->
+		<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+		<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+		<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../style/2018/bracket.css">
+		<link rel="stylesheet" href="../../style/2018/common.css">
+		<!--框架依赖文件，与播放器文件无关-->
+		
+		<script src="tidePlayer.js"></script>
+		<script src="../../lib/2018/jquery/jquery.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: verdana, "宋体";
+				line-height: 160%;
+				font-size: 12px;
+			}
+			
+			.wrap {
+				/*min-width: 1200px;
+				overflow: hidden;*/
+			}
+			
+			textarea {
+				border: 1px solid #a4a4a4;
+				padding: 5px;
+				border-radius: 3px;
+				box-shadow: 4px 2px 10px #dddddd inset;
+				background: #f7f7f7;
+				font-size: 12px;
+				color: #4b4b4b;
+				line-height: 20px;
+				overflow: auto;
+				width: 591px;
+				min-height: 60px;
+			}
+			
+			h2 {
+				margin: 10px 0 10px;
+			}
+			
+			h3 {
+				margin: 10px 0 10px;
+			}
+			
+			.red {
+				color: red;
+			}
+			
+			.ver {
+				font-weight: 700;
+				color: red;
+				line-height: 150%;
+			}
+			
+			.ex {
+				/*float: left;*/
+				width: 620px;
+			}
+			
+			.parameter {
+				/*float: left;*/
+				width: 500px;
+			}
+			
+			.parameter table,
+			.parameter table td {
+				border: 1px solid #efefef;
+				border-collapse: collapse;
+			}
+			
+			.parameter table td {
+				padding: 4px;
+			}
+			.player{
+				width: 602px;
+				height: 480px;
+			}
+			.textarea-box{
+				overflow: auto;
+				width: 602px;
+			}
+			input,textarea{
+	            box-sizing: border-box !important;
+	            -webkit-box-sizing: border-box !important;
+	            -moz-box-sizing: border-box !important;
+	        }
+
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="ver pd-x-20 mg-t-20">播放器最新版本号：v1.4.05</div>
+			<div class="pd-20">
+				<div class="row mg-x-0-force">   
+					<div class="ex">
+						<h2>调用视频地址示例</h2>
+												
+						<div class="player" id="showplayerbox1"></div>
+						<script>
+							_player1 = new tidePlayer({
+		                        json: "http://app.qguiyang.com/api/vmsVideo.php?GlobalID=2137615",
+		                        speed: true,
+		                        divid: "showplayerbox1"
+		                    });
+						</script>
+						
+						<h3>标准点播播放器，JSON地址传递为明文地址</h3>
+						<div class="textarea-box mg-b-20">
+							<textarea class="form-control" rows="3" placeholder>_player1 = new tidePlayer({json: "http://app.qguiyang.com/api/vmsVideo.php?GlobalID=2137615",speed: true,divid: "showplayerbox1"});</textarea>
+						</div>
+						
+						
+						<div class="player" id="showplayerbox2"></div>								
+						<h3>标准点播播放器，JSON地址传递为加密地址(带片前、暂停广告)</h3>
+						<script>
+							_player2 = new tidePlayer({
+		                        json: "aHR0cDovL2FwcC5xZ3VpeWFuZy5jb20vYXBpL3Ztc1ZpZGVvLnBocD9HbG9iYWxJRD0yMTM3NjE1",
+		                        callback: "funcname",
+		                        channel: "ad.json",
+		                        bigPlay: false,
+		                        divid: "showplayerbox2"
+		                    });
+						</script>
+						<div class="textarea-box mg-b-20">
+							<textarea class="form-control" rows="3" >_player2 = new tidePlayer({json: "aHR0cDovL2FwcC5xZ3VpeWFuZy5jb20vYXBpL3Ztc1ZpZGVvLnBocD9HbG9iYWxJRD0yMTM3NjE1",callback: "funcname",channel: "ad.json",bigPlay: false,divid: "showplayerbox2"});</textarea>
+		                </div>
+		                
+		                <div class="player" id="showplayerbox3"></div>								
+						<h3>标准直播播放器，通过video参数传递明文M3U8地址</h3>
+						<script>
+							_player = new tidePlayer({
+		                        video: "https://sztv-live.cutv.com/AxeFRth/500/i27Ape0.m3u8",
+		                        divid: "showplayerbox3"
+		                    });
+						</script>
+						<div class="textarea-box mg-b-20">
+							<textarea class="form-control" rows="3" >_player = new tidePlayer({video: "https://sztv-live.cutv.com/AxeFRth/500/i27Ape0.m3u8",divid: "showplayerbox3"});</textarea>
+						</div>
+						
+						<div class="player" id="showplayerbox4"></div>								
+						<h3>标准直播播放器，通过video参数传递加密M3U8地址</h3>
+						<script>
+							_player = new tidePlayer({
+		                        video: "aHR0cDovLzE5Mi4xNjguMzEuMTk4L1VlOVUwUGkvNTAwL2xpdmUubTN1OA==",
+		                        divid: "showplayerbox4"
+		                    });
+						</script>
+						<div class="textarea-box mg-b-20">
+							<textarea class="form-control" rows="3" >_player = new tidePlayer({video: "aHR0cDovLzE5Mi4xNjguMzEuMTk4L1VlOVUwUGkvNTAwL2xpdmUubTN1OA==",divid: "showplayerbox4"});</textarea>
+						</div>
+						
+					</div>
+					<div class="parameter">
+						<h2>参数说明</h2>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>json</td>
+									<td>必须	播放信息JSON地址或者JSON对象数据<br><span class="red">此参数支持BASE64加密</span></td>
+								</tr>
+								<tr>
+									<td>callback</td>
+									<td>可选	JSONP调用的callback字段名，默认为funcname</td>
+								</tr>
+								<tr>
+									<td>video</td>
+									<td>可选	如果仅作为播放某个视频的播放器，则只传video参数即可</td>
+								</tr>
+								<tr>
+									<td>width</td>
+									<td>可选	播放器宽，如果外部有标签，100%则贴合外部标签样式，默认800px</td>
+								</tr>
+								<tr>
+									<td>height</td>
+									<td>可选	播放器高，如果外部有标签，100%则贴合外部标签样式，默认600px</td>
+								</tr>
+								<tr>
+									<td>recommand</td>
+									<td>可选	相关推荐视频列表接口地址</td>
+								</tr>
+								<tr>
+									<td>channel</td>
+									<td>可选	广告位ID，不设置表示没有广告，替换到广告接口的{CHANNEL}</td>
+								</tr>
+								<tr>
+									<td>autoplay</td>
+									<td>可选	是否自动播放，默认为不自动播放</td>
+								</tr>
+								<tr>
+									<td>divid</td>
+									<td>可选	设置一个标签的ID，播放器将写入指定的标签</td>
+								</tr>
+								<tr>
+									<td>id</td>
+									<td>可选	播放器的全局ID，默认系统将分配一个</td>
+								</tr>
+								<tr>
+									<td>noad</td>
+									<td>可选	当为true的时候将不显示广告</td>
+								</tr>
+								<tr>
+									<td>userCall</td>
+									<td>可选	判断当前是否需要显示关闭广告（财新已经内部配置，不需要单独设置）</td>
+								</tr>
+								<tr>
+									<td>adshowtype</td>
+									<td>可选	广告字样显示方式，1-只显示广告字样 2-同时显示倒计时</td>
+								</tr>
+								<tr>
+									<td>playCall</td>
+									<td>可选	播放判断函数，判断是否能开始播放</td>
+								</tr>
+								<tr>
+									<td>waveform</td>
+									<td>可选	是否显示音频柱，默认为false</td>
+								</tr>
+								<tr>
+									<td>speed</td>
+									<td>可选	是否显示倍速选项，默认为false</td>
+								</tr>
+								<tr>
+									<td>vol</td>
+									<td>可选	初始音量，0-100，默认100</td>
+								</tr>
+								<tr>
+									<td>bigPlay</td>
+									<td>可选	是否显示大播放按钮，默认显示</td>
+								</tr>
+								<tr>
+									<td>minimize</td>
+									<td>可选	传递初始化小窗播放的函数名称，如果不传则不会有小窗播放效果</td>
+								</tr>
+								
+		
+							</tbody>
+						</table>
+		
+						<!--<h2>页面交互说明</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>_getPlayer.loadJson</td>
+									<td>播放器函数，传递一个JSON的地址让播放器马上播出</td>
+								</tr>
+								<tr>
+									<td>_getPlayer.loadVideo</td>
+									<td>播放器函数，传递一个视频文件的地址让播放器马上播出</td>
+								</tr>
+								<tr>
+									<td>Td_videoPlayStart</td>
+									<td>页面函数，当播放器开始播放的时候，将调用页面上的此函数</td>
+								</tr>
+								<tr>
+									<td>Td_videoPlayOver</td>
+									<td>页面函数，当播放器播放结束的时候，将调用页面上的此函数</td>
+								</tr>
+								<tr>
+									<td>controlLight</td>
+									<td>页面函数，但点击播放器右侧工具栏的关灯/开灯的时候调用此函数，并传递true/false</td>
+								</tr>
+		
+							</tbody>
+						</table>-->
+					</div>
+				</div>
+				
+			</div>
+		
+		</div>
+		<!--框架依赖文件，与播放器无关-->
+		<script src="../../lib/2018/popper.js/popper.js"></script>
+		<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+		<script src="../../lib/2018/moment/moment.js"></script>
+		<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+		<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+		<!--<script src="../../lib/2018/peity/jquery.peity.js"></script>-->
+		
+		<script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+		<script src="../../lib/2018/select2/js/select2.min.js"></script>
+		<!--<script src="../../common/2018/bracket.js"></script>-->
+		<!--框架依赖文件，与播放器无关-->
+	</body>
+
+</html>

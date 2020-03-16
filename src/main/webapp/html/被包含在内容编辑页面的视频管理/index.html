@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 视频管理</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<style> 
+body{background:none;} 
+</style>
+<script type="text/javascript" src="../../common/common.js"></script>
+<script type="text/javascript" src="../../common/jquery.js"></script>
+<script type="text/javascript" src="../../common/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="../../common/ui.core.js"></script>
+<script type="text/javascript" src="../../common/ui.sortable.js"></script>
+<script type="text/javascript" src="../../common/ui.draggable.js"></script>
+<script type="text/javascript" src="../../common/jquery-ui-1.8.2.datepicker.min.js"></script>
+<script type="text/javascript" src="../../common/content.js"></script>
+<script type="text/javascript" src="../../common/jquery.contextmenu.js"></script>
+<script>
+var listType = 1;
+var rows = 10;
+var cols = 5;
+var ChannelID = 6962;
+var currRowsPerPage = 20;
+var currPage = 1;
+var Parameter = "&ChannelID="+ChannelID+"&rowsPerPage="+currRowsPerPage+"&currPage="+currPage;
+var pageName = "video_flv_list_ugc.jsp";
+if(pageName=="") pageName = "content.jsp";
+
+function gopage(currpage)
+{
+	var url = pageName + "?currPage="+currpage+"&id=6962&rowsPerPage=20&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0";
+	this.location = url;
+}
+
+function list(str)
+{
+	var url = pageName + "?id=6962&rowsPerPage=20";
+	if(typeof(str)!='undefined')
+		url += "&" + str;
+	this.location = url;
+}
+
+function Preview22(id)
+{
+	tidecms.dialog("../custom/video_player_ugc.jsp?id="+id,640,510,"视频预览");
+}
+
+function editDocument(itemid)
+{
+  	var url = $("#item_"+itemid).attr("url");
+  	window.open(url);
+}
+</script>
+</head>
+<body>
+<div class="video_manage">
+	<div class="v_m_player">视频尺寸：385x305</div>
+    <div class="v_m_info">
+<table width="100%" border="0">
+  <tr>
+    <td width="80" align="right" valign="middle"><div class="line">源地址：</div></td>
+    <td><div class="line"><input type="text" name="" id="" value="http://www.tidedemo.com/video/2012/8/3/2012831343964214883_157.png" class="w450">&nbsp;<input type="button" value="重新选择视频源" class="tidecms_btn3"></div></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle"><div class="line">视频时长：</div></td>
+    <td><div class="line"><input type="text" name="" id="" value="127" class="w50"></div></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle"><div class="line">已转格式：</div></td>
+    <td><div class="line">标清 高清</div></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle"><div class="line">重新编码：</div></td>
+    <td><div class="line">
+<input type="checkbox" value="1" name="videotype" id="videotype_0"><label for="videotype_0">标清(250k)</label>&nbsp;&nbsp;
+<input type="checkbox" value="2" name="videotype" id="videotype_1"><label for="videotype_1">高清(482k)</label>&nbsp;&nbsp;
+<input type="checkbox" value="3" name="videotype" id="videotype_2"><label for="videotype_2">超清(1047k)</label>&nbsp;&nbsp;
+<br><br>
+<input type="checkbox" value="4" name="videotype" id="videotype_3"><label for="videotype_3">iphone(480*320)</label>&nbsp;&nbsp;
+<input type="checkbox" value="5" name="videotype" id="videotype_4"><label for="videotype_4">ipad</label>&nbsp;&nbsp;</div></td>
+  </tr>
+  <tr>
+    <td valign="middle">&nbsp;</td>
+    <td><div class="line"><input type="button" value="开始转码" class="tidecms_btn3"></div></td>
+  </tr>
+</table>
+  </div>
+</div>
+<div class="viewpane">
+        <div class="viewpane_tbdoy">
+<table width="100%" border="0" id="oTable" class="view_table">
+<thead>
+		<tr id="oTable_th">
+    				<th class="v1" width="25" align="center" valign="middle"><img src="../../images/viewpane1.png" /></th>
+    				<th class="v3" align="left">flv地址</th>
+    				<th class="v1" align="left" valign="middle">格式</th>
+    				<th class="v8" align="left" valign="middle">码流</th>
+    				<th class="v4" align="left" valign="middle">作者</th>
+    				<th class="v9" width="" align="center" valign="middle">>></th>
+  				</tr>
+</thead>
+
+ <tbody> 
+
+  <tr No="1" ItemID="540160" OrderNumber="4"  status="1" GlobalID="0" id="item_540160" class="tide_item">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="540160" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_1" src="../../images/tree6.png"/>http://videofile1.cutv.com/originfile/010005_t/2012/01/14/A16/A16ghggglhjimljpjmises_cuhd.mp4</td>
+	<td class="v1" align="center" valign="middle"></td>
+    <td class="v8" ></td>
+     <td class="v4" style="color:#666666;"></td>
+	<td align="center" class="v9">
+    <span onclick="Preview22(540160);" style="cursor:pointer;"><img src="../../images/v9_button_2.gif" title="视频预览" /></span>
+	</td>
+  </tr>
+  
+  <tr No="2" ItemID="540159" OrderNumber="3"  status="1" GlobalID="0" id="item_540159" class="tide_item">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="540159" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_2" src="../../images/tree6.png"/>http://videofile1.cutv.com/originfile/010005_t/2012/01/14/A16/A16ghggglhjimljpjmises_cusd.mp4</td>
+	<td class="v1" align="center" valign="middle"></td>
+    <td class="v8" ></td>
+     <td class="v4" style="color:#666666;"></td>
+	<td align="center" class="v9">
+    <span onclick="Preview22(540159);" style="cursor:pointer;"><img src="../../images/v9_button_2.gif" title="视频预览" /></span>	
+	</td>
+  </tr>
+  
+  <tr No="3" ItemID="540158" OrderNumber="2"  status="1" GlobalID="0" id="item_540158" class="tide_item">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="540158" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_3" src="../../images/tree6.png"/>http://videofile1.cutv.com/originfile/010005_t/2012/01/14/A16/A16ghggglhjimljpjmises_cug.mp4</td>
+	<td class="v1" align="center" valign="middle"></td>
+    <td class="v8" ></td>
+     <td class="v4" style="color:#666666;"></td>
+	<td align="center" class="v9">
+    <span onclick="Preview22(540158);" style="cursor:pointer;"><img src="../../images/v9_button_2.gif" title="视频预览" /></span>
+	</td>
+  </tr>
+  
+  <tr No="4" ItemID="540157" OrderNumber="1"  status="1" GlobalID="0" id="item_540157" class="tide_item">
+    <td class="v1" width="25" align="center" valign="middle"><input name="id" value="540157" type="checkbox"/></td>
+    <td class="v3" style="font-weight:700;" ondragstart="OnDragStart (event)">
+	<img id="img_4" src="../../images/tree6.png"/>http://videofile1.cutv.com/originfile/010005_t/2012/01/14/A16/A16ghggglhjimljpjmises_cul.mp4</td>
+	<td class="v1" align="center" valign="middle"></td>
+    <td class="v8" ></td>
+     <td class="v4" style="color:#666666;"></td>
+	<td align="center" class="v9">
+    <span onclick="Preview22(540157);" style="cursor:pointer;"><img src="../../images/v9_button_2.gif" title="视频预览" /></span>
+	</td>
+  </tr>
+  
+ </tbody> 
+</table>
+</div>
+<script>
+var page={id:'6962',currPage:'1',rowsPerPage:'20',querystring:'&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0',TotalPageNumber:1};
+</script>        
+ 
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll">全部</span><span id="selectNo">无</span>			</div>
+        	<div class="left">共4条 1/1页 
+			</div>
+			
+            <div class="right">
+
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="rowsPerPage" onChange="change('#rowsPerPage','6962');" id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">条</div>
+
+            </div>
+        </div>
+  </div>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	sortable();
+	sortableDisable();
+var beforeShowFunc = function() {}
+var menu = [
+  {'<img src="../../images/inner_menu_release.gif" title="发布"/>发布':function(menuItem,menu) {approve();} },
+  {'<img src="../../images/inner_menu_preview.gif" title="预览"/>预览':function(menuItem,menu) {Preview(); }},
+  {'<img src="../../images/inner_menu_edit.gif" title="编辑"/>编辑':function(menuItem,menu) {editDocument1(); }},
+  {'<img src="../../images/inner_menu_recall.gif" title="撤稿"/>撤稿':function(menuItem,menu) {deleteFile2(); }},
+  {'<img src="../../images/inner_menu_taxis.gif" title="排序"/>排序':function(menuItem,menu) {sortableEnable(); }},
+  {'<img src="../../images/inner_menu_cache.gif" title="刷新Cache"/>刷新Cache':function(menuItem,menu) {RefreshItem(); }},
+  {'<img src="../../images/inner_menu_del.gif" title="删除"/><font style="color:red;">删除</font>':function(menuItem,menu) {deleteFile(); }}
+];
+$('.tide_item').contextMenu(menu,{theme:'vista',beforeShow:beforeShowFunc});
+});
+//$("#img_1").draggable({ iframeFix: true } );
+</script>
+<!--0ms-->
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
+     
+     <link rel="Shortcut Icon" href="../../favicon.ico">
+    <title>TideCMS 9.1 开发测试环境</title>
+
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/2018/bracket.css">
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    
+    <script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../common/2018/common2018.js"></script>
+    <script type="text/javascript" src="../../common/2018/content.js"></script>
+   
+	<script type="text/javascript" src="../../lib/2018/vue/vue.min.js"></script>
+	<script type="text/javascript" src="../../lib/2018/vue/vue-router-v3.0.1.js"></script>
+   
+    <script>
+        var  jsonarr = [{"url":"/tcenter/work/myarticles_info.jsp"},{"url":"/tcenter/work/my_approve.jsp"},{"url":"/tcenter/work/renwu_info.jsp"},{"url":"/tcenter/work/mytask_info.jsp"},{"url":"/vms/video/myvideo/myshiping_info.jsp"}];
+        var  userinfo_sessionid=40;
+        var  listType="";
+    </script>
+
+    <script>
+        function init() {
+            window.status = "当前用户：方志伟  角色：系统管理员";
+           // set_main_class("index");
+        }
+
+        function reSize() {
+            document.getElementById("main").style.height = Math.max(document.body.clientHeight - document.getElementById("main").offsetTop, 0) + "px";
+        }
+
+        function set_main_class(str) {
+            jQuery('.header_menu  li').removeClass('on');
+            jQuery('#home_' + str).addClass('on');
+        }
+
+        function feed() {
+            title = '反馈'
+            url = "http://123.125.148.3:888/cms/feedback.jsp";
+            var dialog = new top.TideDialog();
+            dialog.setWidth(500);
+            dialog.setHeight(500);
+            dialog.setUrl(url);
+            dialog.setTitle(title);
+            dialog.show();
+        };
+    </script>
+   
+</head>
+<body onLoad="init();" class="collapsed-menu  email" id="withSecondNav">
+<div id="app">
+	<div class="br-logo">
+		<a class="d-flex align-items-center tx-center ht-100p wd-100p"  href="http://123.56.71.230:889/tcenter/main.jsp">
+			<img class="ht-100p" src="http://123.56.71.230:889/tcenter/img/2019/system_logo.png">
+		</a>
+	</div>
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>
+		<div class="br-sideleft-menu">
+
+			<router-link to="/overview" class="br-menu-link menu-home">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-random  tx-22"></i>
+					<span class="menu-item-label">流矩阵</span>
+				</div>
+				<!-- menu-item -->
+			</router-link>
+			<!--<router-link to="/article" class="br-menu-link menu-article">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-file-text-o tx-20"></i>
+					<span class="menu-item-label">我的稿件</span>
+				</div>
+			</router-link>
+
+			<router-link to="/check" class="br-menu-link menu-check">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-hand-lizard-o tx-18"></i>
+					<span class="menu-item-label">我的审核</span>
+				</div>
+			</router-link>
+			<router-link to="/subject" class="br-menu-link menu-task">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-check-square-o tx-22"></i>
+					<span class="menu-item-label">我的选题</span>
+				</div>
+			</router-link>
+			<router-link to="/task" class="br-menu-link menu-renwu">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-tasks tx-20"></i>
+					<span class="menu-item-label">我的任务</span>
+				</div>
+			</router-link>
+			<router-link to="/video" class="br-menu-link menu-shiping">
+				<div class="br-menu-item">
+					<i class="menu-item-icon fa fa-youtube-play tx-20"></i>
+					<span class="menu-item-label">我的视频</span>
+				</div>
+			</router-link>-->
+		</div>
+		<!-- br-sideleft-menu -->
+	</div>
+	<!-- br-sideleft -->
+	<div class="br-header">
+		<div class="br-header-left">
+			<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>工作流</a></div>
+		</div>
+		<!-- br-header-left -->
+		<ul id="fast-nav" class="nav nav-outline align-items-center flex-row mg-l-auto mg-r-30" role="tablist">
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">线索汇聚</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/Index2018.jsp?channelid=16318" data-newpage="0">主流微信采集</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/Index2018.jsp?channelid=16352" data-newpage="0">主流微博采集</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/Index2018.jsp?channelid=16385" data-newpage="0">主流网站采集</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/Index2018.jsp?channelid=13097" data-newpage="0">本地内容采集</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/content/content2018_baoliao.jsp?id=22617" data-newpage="1">网友爆料线索</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/wenzheng/wenzheng_transaction.jsp?id=1" data-newpage="0">问政提交线索</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/app/appIndex2018.jsp?childGroup=3" data-newpage="0">社区内容线索</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/Index2018.jsp?channelid=16409" data-newpage="0">互联网热度排行</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">策划指挥</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/subject/main.jsp" data-newpage="0">选题管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://47.92.74.192:8080/ncc_show/" data-newpage="1">指挥平台(PRO)</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://123.56.71.230:65524/b/b/1541656281751.shtml" data-newpage="1">指挥大屏</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">内容库</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/pgc/main.jsp" data-newpage="0">PGC内容</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/ugc/ugc_main.jsp" data-newpage="0">UGC内容</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/vms/main.jsp" data-newpage="0">全媒体资源</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/collect/main.jsp" data-newpage="0">内容采集资源</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">生产工具</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="" data-newpage="0">文稿工具</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/vms/vodedit/main.jsp" data-newpage="1">云快编</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://console.juyun.tv/director/Index/index" data-newpage="1">云导播</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://console.juyun.tv/index.php/index/index/index" data-newpage="1">云直播</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="https://xiumi.us/" data-newpage="1">H5制作工具</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="" data-newpage="1">流转编码工具</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/live/index_tcenter.jsp" data-newpage="1">直播分发管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/shenpian/index_tcenter.jsp" data-newpage="0">移动审片</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="" data-newpage="1">直播流测试工具</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://123.56.71.230:889/weixin/newsTemplateController.do?goSuView" data-newpage="1">微信群发工具</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/special/special_list.jsp" data-newpage="1">云专题</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="http://47.107.54.145:8080/web/index.html" data-newpage="1">收录剪辑工具</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">多端发布</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/app/main.jsp" data-newpage="0">APP管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/web/main.jsp" data-newpage="0">网站管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/weixin/loginController.do?loginByToken" data-newpage="0">微信管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/epaper/main.jsp" data-newpage="0">电子报</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/cms_main.jsp" data-newpage="0">发布管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/content/push_message_content2018.jsp?id=15943" data-newpage="1">信息推送</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">应用管理</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/wenzheng/wenzheng_main.jsp" data-newpage="0">问政系统</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/emap/main.jsp" data-newpage="0">电子地图</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="" data-newpage="0">社区系统</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/content/content2018_baoliao.jsp?id=22617" data-newpage="1">报料管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="#" data-newpage="0">广播互动运营</a>
+					
+				</nav>
+				
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="javascript:;" role="tab" aria-expanded="false" data-url="" data-newpage="0">运营支撑</a>
+				
+				<nav class="nav flex-column fast-nav-child">
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/yuqing/main.jsp" data-newpage="1">舆情系统</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/appuser/main.jsp" data-newpage="0">用户数据中心</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tongji/index_tcenter.jsp" data-newpage="0">数据统计系统</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/screen/daping_main.jsp" data-newpage="0">数据展示系统</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/system/index_2018.jsp?id=8" data-newpage="0">系统监测</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/tcenter/company/company_index.jsp" data-newpage="0">租户管理</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/tcenter/main_system2018.jsp" data-newpage="0">统一管理平台</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="" data-newpage="0">帮助中心</a>
+					
+						<a href="javascript:;" class="nav-link" data-url="/tcenter/tcenter/media2019.jsp" data-newpage="1">省级平台演示</a>
+					
+				</nav>
+				
+			</li>
+			
+		</ul>
+		<div class="br-header-right">
+			<div class="navicon-right">
+				<a id="workstate" href="/tcenter/work_main.jsp"  class="pos-relative" title="个人工作台">
+					<i class="icon fa fa-th-large tx-26-force"></i>
+				</a>
+			</div>
+			<div class="navicon-right">
+				<a id="workflow" href="javascript:;" class="pos-relative" title="个人工作流">
+					<i class="icon fa fa-random tx-warning tx-26-force"></i>
+				</a>
+			</div>
+			<nav class="nav">
+				<div class="dropdown">
+					<a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+						
+						<img src="http://123.56.71.230:889/tcenter/images/2018/img1.jpg" class="wd-32 rounded-circle" alt="">
+					</a>
+					<div class="dropdown-menu dropdown-menu-header wd-200">
+						<span class="logged-name mg-l-15 pd-y-5">你好，方志伟</span>
+						<ul class="list-unstyled user-profile-nav">
+							<li><a href="person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+							<li><a href="logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+						</ul>
+					</div>
+					<!-- dropdown-menu -->
+				</div>
+				<!-- dropdown -->
+			</nav>
+		 </div>
+		<!-- br-header-right -->
+	</div>
+		<!-- br-header -->
+	<!-- ########## START: MAIN PANEL ########## -->
+	<div class="br-mainpanel with-first-nav">
+		
+		<iframe src="workflow_content.html" id="content_frame" style="width: 100%; height: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+		
+		<router-view></router-view>
+	</div>
+<!-- br-mainpanel -->
+<!-- ########## END: MAIN PANEL ########## -->
+</div>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+
+<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+<script src="../../common/2018/TideDialog2018.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+
+<script>
+
+    $(function() {
+        'use strict'
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+    
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+              menuText.css({
+                  "display":"block",
+                  "opacity":"1"
+              })
+            } else {
+              $('body').removeClass('expand-menu');
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+        $(window).resize(function() {
+            minimizeMenu();
+        });
+
+        minimizeMenu();
+
+        function minimizeMenu() {
+            if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+                // show only the icons and hide left menu label by default
+                $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+                $('body').addClass('collapsed-menu');
+                $('.show-sub + .br-menu-sub').slideUp();
+            } else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+                $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+                $('body').removeClass('collapsed-menu');
+                $('.show-sub + .br-menu-sub').slideDown();
+            }
+        }
+    })
+
+</script>
+
+<script>
+var channel_taskid="16085";
+var channel_renwuid="25852";
+var channel_shipingid="8800";
+var userid="40";
+// 概览：
+var overview = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', 'workflow_content.html')
+		}
+	},
+}
+
+//我的稿件：
+var myarticle = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', '/tcenter/work/myarticles_content.jsp')
+		}
+	},
+}
+
+// 我的审核：：
+var mycheck = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', '/tcenter/work/myapprove_content.jsp')
+		}
+	},
+}
+//我的选题：
+var mysubject = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', '/tcenter/work/mytask_content.jsp?id='+channel_taskid)
+		}
+	},
+}
+//我的任务：
+var mytask = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', '/tcenter/work/my_renwu_content.jsp?id='+channel_renwuid)
+			$("#mapmut").css({
+				'margin-top': '0px',
+				'display': 'block'
+			})
+
+		}
+	},
+}
+//我的视频：
+var myvideo = {
+	template: `<div></div>`,
+	created() {
+		this.item()
+	},
+	mounted() {
+		this.item()
+
+	},
+	methods: {
+		item() {
+			$("#content_frame").attr('src', '/vms/video/myshiping_content.jsp?id='+channel_shipingid+'&userId='+userid)
+
+		}
+	},
+}
+
+var router = new VueRouter({
+	routes: [
+		{
+			path: '/',
+			redirect: '/overview'
+		},
+		{
+			path: '/',
+			component: overview
+		},
+		{
+			path:'/overview',
+			component:overview,
+		},
+		{
+			path: '/article',
+			component: myarticle
+		},
+		{
+			path: '/check',
+			component: mycheck
+		},
+		{
+			path: '/subject',
+			component: mysubject
+		},
+		{
+			path: '/task',
+			component: mytask
+		},
+		{
+			path: '/video',
+			component: myvideo
+		}
+	],
+	linkActiveClass: 'active'
+})
+
+var vm = new Vue({
+	el: '#app',
+	data: {
+	},
+	methods: {},
+	created() {},
+	router,
+	
+})
+
+</script>
+</body>
+
+</html>

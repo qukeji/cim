@@ -1,0 +1,404 @@
+/**
+ * Highlight style classes
+ * .a background color
+ * .b underline
+ * .c underline + font color
+ */
+
+.felttip,.felttip a,.felttip em,.felttip span,.felttip div,.felttip dl,.felttip dt,.felttip dd,.felttip ul,.felttip ol,.felttip li,.felttip h1,.felttip h2,.felttip h3,.felttip h4,.felttip h5,.felttip h6,.felttip pre,.felttip form,.felttip fieldset,.felttip p,.felttip blockquote,.felttip th,.felttip td,.felttip input,.felttip textarea,.felttip select,.felttip *{background:transparent none;padding:0;margin:0;border:#000 0 solid;text-align:left;text-decoration:none;text-transform:none;text-indent:0;line-height:normal;word-break:normal;word-wrap:normal;width:auto;height:auto;color:inherit;font:inherit;float:none;cursor:default;}.felttip{color:#000;font:normal normal normal 13px arial,helvetica,clean,sans-serif;}.felttip input,.felttip textarea,.felttip select,.felttip fieldset{background-color:#FFF;border:1px #999 solid;padding:1px;font-size:11px;display:inline;}.felttip textarea{white-space:normal!important;}.felttip input.diigo-check{border:none;vertical-align:middle;}.felttip input.diigo-button{background:#09f url(http://184.73.178.245/felttip/images/btn_diigo_1.gif) repeat-x scroll center;border-color:#EEE #4291e3 #4291e3 #eee;border-style:solid;border-width:1px;color:#FFF;font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;margin-right:10px;text-align:center;}#felttipFNSubmit{width:50px;}.felttip table{border-collapse:collapse;border-spacing:0;width:auto;}.felttip label{cursor:pointer!important;display:inline;vertical-align:middle;}.felttip fieldset,.felttip img{border:0;}.felttip address,.felttip caption,.felttip cite,.felttip code,.felttip dfn,.felttip em,.felttip strong,.felttip th,.felttip var{font-style:normal;font-weight:bold;}.felttip ol,.felttip ul,.felttip li{list-style:none;}.felttip caption,.felttip th{text-align:left;}.felttip h1,.felttip h2,.felttip h3,.felttip h4,.felttip h5,.felttip h6{font-weight:bold;}.felttip q:before,.felttip q:after{content:'';}.felttip abbr,.felttip acronym{border:0;}.felttip a:link,.felttip a:visited,.felttip a:hover,.felttip a:active{text-decoration:none;color:#00F;cursor:pointer!important;}.felttip a:hover{text-decoration:underline;}#felttip-tray{position:fixed;top:0;left:10;width:16px;height:16px;background:transparent url("http://184.73.178.245/felttip/images/felttipIconv3.gif") no-repeat left -4px;z-index:99998;}.felttip a.felttip-Help:link,.felttip a.felttip-Help:visited{color:#06F;}.felttip a.felttip-Help:hover,.diigo a.felttip-Help:active{color:#00F;}.felttip label{margin-left:3px;}.felttip span.noComments{color:#AAA;font-size:10px;}
+
+#felttip-toolbar{border:none;width:100%;position:absolute;top:0;left:0;z-index:2147483647;color:#333;}#felttip-tb-content{padding:3px 5px;background:#EFEDDE url(http://184.73.178.245/felttip/images/felttip-toolbar-bg2.gif) repeat scroll 0;}#felttip-tb-bar span,#felttip-tb-bar div,#felttip-tb-bar a,#felttip-tb-bar em{line-height:24px;}#felttip-tb-shadow{height:5px;background:transparent url(http://184.73.178.245/felttip/images/felttip-toolbar-shadow.png) repeat-x left top;}* html #felttip-tb-shadow.ie6{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://184.73.178.245/felttip/images/felttip-toolbar-shadow.png");overflow:hidden;background:none;}#felttip-help{display:none;position:absolute;top:29px;right:10px;width:200px;border:1px #ccc solid;background-color:#FFC;padding:6px 16px 6px 6px;}.felttip a.felttipButton{height:24px;float:left;padding-right:4px;cursor:pointer!important;}.felttip a.felttipButton:hover{text-decoration:none;color:#000;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn3_r.png") no-repeat right top;}.felttip a.felttipButton:active{background-position:right bottom;}.felttip a.felttipButton b{font-weight:normal;color:#000;line-height:24px;float:left;padding-left:4px;height:24px;}#felttip-button-highlight-dropdown{width:8px;height:16px;margin-right:4px;background:transparent url('http://184.73.178.245/felttip/images/down_arrow.gif') no-repeat scroll left 2px;}#felttip-button-highlight-dropdown.mouseovered{border-left:1px solid #888;margin-right:0;text-decoration:none;width:11px;height:24px;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn4.png") no-repeat left top!important;}#felttip-button-highlight-dropdown.mouseoveredIe{border-left:1px solid #888;margin-right:1px;text-decoration:none;width:11px;height:24px;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn4.png") no-repeat left top!important;}#felttip-button-highlight-dropdown.checked{border-left:1px solid #888;margin-right:0;text-decoration:none;width:11px;height:24px;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn4_s.png") no-repeat left top!important;}#felttip-button-highlight.mouseovered{text-decoration:none;color:#000;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn3_r.png") no-repeat right top!important;}#felttip-button-highlight.mouseoveredIe{text-decoration:none;color:#000;background:transparent url("http://184.73.178.245/felttip/images/felttipBtn3_r.png") no-repeat right top!important;}#felttip-button-highlight.mouseovered b.outer{background:transparent url('http://184.73.178.245/felttip/images/felttipBtn3.png') no-repeat left top;}#felttip-button-highlight.mouseoveredIe b.outer{background:transparent url('http://184.73.178.245/felttip/images/felttipBtn3.png') no-repeat left top;}a#felttip-button-highlight b.outer{padding-right:5px;}a#felttip-button-highlight{padding-right:0!important;}a.felttipButton:hover b.outer{background:transparent url('http://184.73.178.245/felttip/images/felttipBtn3.png') no-repeat left top;}a.felttipButton:active b.outer{background-position:left bottom;}.felttip a.felttipButton b b{font-size:12px;padding-left:20px;background:transparent url("http://184.73.178.245/felttip/images/felttipIconv3.gif") no-repeat left 50%;}.felttip a.felttipButton:active b b{position:relative;top:1px;left:1px;}.felttip a.felttipButton.felttipDisabled{cursor:default;}.felttip a.felttipButton.felttipDisabled b b{color:#999;position:static;}.felttip a.felttipButton.felttipDisabled:hover{background:none transparent;}.felttip a.felttipButton.felttipDisabled:hover b.outer{background:none transparent;}.felttip a.felttipButton.checked{background:transparent url("http://184.73.178.245/felttip/images/felttipBtn3_r.png") no-repeat right top;background-position:right bottom;}.felttip a.felttipButton.checked b.outer{background:transparent url('http://184.73.178.245/felttip/images/felttipBtn3.png') no-repeat left top;background-position:left bottom;}.felttip a.felttipButton.checked b b{position:relative;top:1px;left:1px;}#felttip-tb-btnSidebar b b{background-position:left -24px;}#felttip-tb-btnSidebar.toClose b b{background-position:left -48px;}#felttip-tb-btnBookmark b b{background-position:left -144px;}#felttip-tb-btnBookmark.saved b b{background-position:left -120px;}#felttip-button-highlight b b{background-position:left -72px;}#felttip-button-highlight.dontShow b b{background-position:left -96px;}#felttip-button-highlight.yellow b b{background-position:left -355px;}#felttip-button-highlight.blue b b{background-position:left -375px;}#felttip-button-highlight.green b b{background-position:left -395px;}#felttip-button-highlight.pink b b{background-position:left -415px;}.felttip .colorItem{padding-left:20px;height:16px;background:transparent url("http://184.73.178.245/felttip/images/felttipIconv3.gif") no-repeat left -440px;}#felttip-context-yellow b,#felttip-colorMenu-yellow b{background-position:left -440px;}#felttip-context-blue b,#felttip-colorMenu-blue b{background-position:left -460px;}#felttip-context-green b,#felttip-colorMenu-green b{background-position:left -480px;}#felttip-context-pink b,#felttip-colorMenu-pink b{background-position:left -500px;}#felttip-context-yellow.colorchecked b,#felttip-colorMenu-yellow.colorchecked b{background-position:left -520px;}#felttip-context-blue.colorchecked b,#felttip-colorMenu-blue.colorchecked b{background-position:left -540px;}#felttip-context-green.colorchecked b,#felttip-colorMenu-green.colorchecked b{background-position:left -560px;}#felttip-context-pink.colorchecked b,#felttip-colorMenu-pink.colorchecked b{background-position:left -580px;}#felttip-tb-btnFloatNote b b{background-position:left -167px;}#felttip-tb-btnTwitter b b{background:transparent url("http://twitter.com/favicon.ico") no-repeat left 50%;}#felttip-tb-btnComment b b{background-position:left -192px;}#felttip-tb-btnComment.commented b b{background-position:left -192px;}#felttip-tb-btnMore b b{background-position:left 0;}#felttip-tb-btnSignIn b b{background-position:left -264px;}#felttip-tb-btnHide{float:right;height:24px;width:16px;background:transparent url("http://184.73.178.245/felttip/images/felttipIconv3.gif") no-repeat left -240px;}div.diigoIcon{cursor:pointer!important;margin:0;padding:0;position:absolute;display:none;width:24px!important;z-index:9999;height:23px!important;background:transparent url('http://184.73.178.245/felttip/images/edit-highlight.png') no-repeat left;}div.diigoIcon span{color:#000;display:block;font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;line-height:18px;text-align:center;text-shadow:0 1px 1px #FFF;}div.diigoHighlightcommented{display:block!important;}div.ImageIcon{background-color:transparent!important;}div.diigoIcon:hover{background-background:transparent!important;background-repeat:no-repeat!important;background-position:right!important;}div.diigoHighlightcommented.TextIcon{left:0;top:-8px;}div.diigoHighlightcommented.public{background:#FFF url('http://184.73.178.245/felttip/images/public-annotation.png') no-repeat left;}div.diigoHighlightcommented.private{background:#FFF url('http://184.73.178.245/felttip/images/private-annotation.png') no-repeat left;}div.diigoHighlightcommented.group{background:#FFF url('http://www.diigo.com/client/ietoolbar/group-annotation.png') no-repeat left;}#felttip-toolbar .dropdownMenu{display:none;border:1px solid #999;font:12px arial,helvetica,clean,sans-serif;background-color:Menu;padding:2px 0;z-index:99999;position:absolute;top:30px;width:140px;}#felttip-toolbar .dropdownMenu a,#felttip-toolbar .dropdownMenu a:link,#felttip-toolbar .dropdownMenu a:visited,#felttip-toolbar .dropdownMenu a:hover,#felttip-toolbar .dropdownMenu a:active{display:block;padding:2px 12px;font-weight:normal;text-decoration:none;color:#000;background:#fff;cursor:default;}#felttip-toolbar .dropdownMenu a:hover,#felttip-toolbar .dropdownMenu a:active{color:#fff;background:#09f;}#felttip-notify{display:none;position:absolute;top:33px;left:0;border:1px #ccc solid;background-color:#FFC;padding:6px 16px 6px 6px;z-index:99999;}#felttip-notify.right{left:auto;right:0;text-align:right;}#felttip-twitter{background-color:threedface;font-family:Arial,sans-serif;font-size:13px;color:windowtext;padding:5px 5px;margin:0;left:0;top:30px;z-index:99998;width:380px;position:static;border:1px #09F solid;border-left-width:0;}#felttip-twitter input{vertical-align:middle;}#felttip-twitter input,textarea{font-family:Calibri,Arial,sans-serif;}.twitterlogo{width:210px;height:49px;FILTER:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://184.73.178.245/felttip/images/twitter.png");}#felttip-tagForward{border:1px #09F solid;border-left-width:0;width:460px;position:static;left:0;top:30px;z-index:99998;background-color:#FFF;}#felttip-tagForward .tabContainer{text-align:center;margin:5px;}#felttip-tagForward .tab{margin-right:8px;margin-left:8px;padding:0 8px 2px 8px;font-weight:bold;}#felttip-tagForward .tabContainer a:link,#felttip-tagForward .tabContainer a:visited{padding:4px;border:1px #fff solid;font-weight:bold;color:#06c;text-decoration:none;}#felttip-tagForward .tabContainer a.active:link,#felttip-tagForward .tabContainer a.active:visited{border:none;background-color:#09f;color:#fff;padding:5px;}#felttip-tagForward .tabContainer a:hover,#felttip-tagForward .tabContainer a:active{border:1px #09f solid;}#felttip-tagForward div.tabContent{display:none;}#felttip-tagForward div.tabContent.active{display:block;}#felttip-tagForward .diigo-hr{width:420px;border-top:1px #ccc solid;margin:0 auto;height:1px;overflow:hidden;}.felttip .diigo-table{margin:10px 20px;}.felttip .diigo-table td{padding:2px 0;}.felttip .diigo-table th{color:#666;font-weight:bold;padding-right:5px;width:62px;text-align:left;font-size:12px;}.felttip .felttip-input{width:350px;padding:1px;font-size:11px;}#Diigo-Bookmark-Description,#Diigo-Forward-PS{width:350px;height:65px;margin:5px 0;}.felttip .felttip-submit{width:140px;height:25px;text-align:center;}#felttip-txtPermalink{background-color:#eee;padding:3px;font-size:13px;}.felttipContexMenu{border:1px solid #999;font:12px arial,helvetica,clean,sans-serif;padding:2px;background-color:Menu;z-index:99997;}.felttipContexMenu a:link,.felttipContexMenu a:visited{display:block;padding:2px 12px;text-decoration:none;color:#000;cursor:default;white-space:nowrap;}.felttipContexMenu a:hover,.felttipContexMenu a:active{color:#fff;background:#09f;}*html .felttipContexMenu ._selection a{width:45px;}*html .felttipContexMenu ._highlight a{width:90px;}.felttip.felttipFN{z-index:99995;}.felttip.felttipFN a:link,.felttip.felttipFN a:visited{color:#06c;}.felttip.felttipFN a:hover,.felttip.felttipFN a:active{color:#333;text-decoration:none;}.felttip .felttipFNL{width:21px;background:transparent url(http://184.73.178.245/felttip/images/float_note_l.png) no-repeat left top;}.felttip .felttipFNT{height:32px;background:transparent url(http://184.73.178.245/felttip/images/float_note_t.png) no-repeat right top;cursor:move!important;}.felttip .felttipFNR{width:16px;background:transparent url(http://184.73.178.245/felttip/images/float_note_r.png) no-repeat left bottom;overflow:hidden;vertical-align:bottom;}.felttip .felttipFNB{height:34px;background:transparent url(http://184.73.178.245/felttip/images/float_note_b.png) no-repeat left bottom;}.felttip .felttipFNTH{vertical-align:top;width:12px;}.felttip .felttipFNTH div{width:12px;height:12px;background:transparent url(http://184.73.178.245/felttip/images/float_note_h_rt.gif) no-repeat right top;position:relative;top:5px;left:-22px;overflow:hidden;cursor:ne-resize!important;}.felttip .felttipFNB{vertical-align:top;overflow:hidden;}.felttip .felttipFNPosN .felttipFNXjjR,.felttip .felttipFNPosN .felttipFNXjjT,.felttip .felttipFNPosN .felttipFNXjjB,.felttip .felttipFNPosN .felttipFNTH div,.felttip .felttipFNPosN .felttipFNB div{display:none;}.felttip .felttipFNT h1{font:12px/19px Arial,Helvetica,sans-serif;font-weight:bold;color:#666;margin:5px 0 0 5px;padding:0;}.felttip .felttipFNT div.menu{margin:3px 25px 10px 0;background-color:#fff9a4;border-right:1px solid #f2e984;border-left:1px solid #c9b822;}.felttip .felttipFNT div.menu a{display:block;line-height:19px;float:left;color:#666;padding:0 5px;border-right:1px solid #c9b822;text-decoration:none;}.felttip .felttipFNT div.menu a:hover,.felttip .felttipFNT div.menu a:active{background-color:#fff587;color:#333;}.felttip .felttipFNT div.menu a.felttipFNOpt{background:transparent url(http://184.73.178.245/felttip/images/float_note_downdot.gif) no-repeat right top;padding-right:14px;}.felttip .felttipFNT{font:12px/32px Arial,Helvetica,sans-serif;}.felttip .felttipFNContent,.felttip .felttipFNComment{background-color:#fff89f;color:#666;font-family:Arial,Helvetica,sans-serif;font-size:11px;overflow:auto;zoom:1;border-bottom:1px solid #E0DB9D;}.felttip .felttipFNContent .felttipFNAuthorP{font-size:10px;font-weight:normal;color:#666;margin:0 11px 5px 0;padding:2px 5px;line-height:100%;}.felttip .felttipFNContent .felttipFNAuthorP .felttipFNAuthor{border-bottom:1px dotted #ccc;color:#06c;}.felttip .felttipFNContent .felttipFNAuthorP .felttipFNAuthor:hover,.felttipFNContent .felttipFNAuthorP .felttipFNAuthor:active{border-bottom:1px solid #ccc;color:#333;}.felttip .felttipFNContent .felttipFNAuthorP a{color:#999;}.felttip .felttipFNContent .felttipFNAuthorP a:hover,.felttipFNContent .felttipFNAuthorP a:active{color:#666;}.felttip.felttipFN blockquote{color:#333;font-size:12px;padding:0 5px;}.felttip .felttipFNComment select,.felttip .felttipFNComment input,.felttip .felttipFNComment textarea{font:11px/15px Verdana,Arial,Helvetica,sans-serif;}.felttip .felttipFNComment p{margin:5px 0;}.felttip .felttipFNTDiv{height:32px;overflow:hidden;}.felttip.felttipFN .menu{float:right;height:19px;overflow:hidden;}.felttip .labelList label{margin-right:2px;background-color:#eee;color:#666;white-space:nowrap;font-weight:normal;font-size:9px;}.felttip .labelList span{padding:0 2px;}.felttip .labelList a{padding:0 2px;background-color:#ffe76a;}.felttip .labelList a:hover{color:#fef5c7;text-decoration:none;}.felttip .labelList a.del{border:none;padding-right:2px;font-weight:normal;}.felttip a.del{cursor:pointer;background:url("http://184.73.178.245/felttip/images/felttipIconv3.gif") no-repeat left -343px;}.felttip a.del:hover{filter:alpha(opacity=100);-moz-opacity:1;background-position:1px -342px;text-decoration:none;}.felttip ul.felttipFNDropdown{position:absolute;display:none;left:10px;background-color:#fff89f;border:1px solid #c9b822;z-index:99999;}.felttip ul.felttipFNDropdown li{padding-left:25px;}.felttip ul.felttipFNDropdown a:link,.felttip ul.felttipFNDropdown a:visited{color:#666;display:block;width:85px;font:11px Arial,Helvetica,sans-serif;}.felttip ul.felttipFNDropdown a:hover,.felttip ul.felttipFNDropdown a:active{background-color:#fff567;color:#333;}.felttip.felttipFNIEPatch .felttipFNL{background:transparent url(http://184.73.178.245/felttip/images/float_note_l.gif) no-repeat left top;}.felttip.felttipFNIEPatch .felttipFNT{background:transparent url(http://184.73.178.245/felttip/images/float_note_t.gif) no-repeat right top;}.felttip.felttipFNIEPatch .felttipFNR{background:transparent url(http://184.73.178.245/felttip/images/float_note_r.gif) no-repeat left bottom;}.felttip.felttipFNIEPatch .felttipFNB{background:transparent url(http://184.73.178.245/felttip/images/float_note_b.gif) no-repeat left bottom;}.felttip.felttipFNIEPatch .felttipFNT{height:23px;}.felttip.felttipFNIEPatch .felttipFNTDiv{height:23px;}.felttipFN.editing .felttipFNComment{display:block;}.personalText{color:#555!important;font-size:10px!important;}.IconFeild{float:left!important;margin-left:8px!important;margin-top:5px!important;}.IconFeild:hover .editIcon{background-position:right!important;}.editIcon{cursor:pointer!important;width:24px!important;height:19px!important;background-image:url('http://184.73.178.245/felttip/images/edit-highlight-2.png')!important;background-attachment:no-repeat!important;background-color:transparent!important;background-position:left;}.multipalCol{padding-top:0!important;}.singleCol{padding-top:7px!important;}.myCommentSpan{margin-left:35px!important;}.notMyCommentSpan{margin-left:15px!important;}.footText{line-height:1.5;}div.floatNote{position:absolute!important;width:29px;height:36px;text-align:center;background:transparent url('http://184.73.178.245/felttip/images/float_icon.png') no-repeat 50% 50%!important;z-index:9996;}div.floatNote span{color:#000;font:bold 13px Arial,Helvetica,sans-serif;cursor:default;line-height:37px;text-shadow:#fff 0 1px 0;}html div.floatNote{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src="http://184.73.178.245/felttip/images/float_icon.png");overflow:hidden;background:none;}em.diigoHighlight{text-align:inherit;text-decoration:inherit;line-height:inherit;font:inherit;color:inherit;display:inline;position:relative;zoom:1;}em.diigoHighlight.diigoHighlightcommented{padding-left:25px;}em.diigoHighlight.mouseOvered{background-color:#ffc62a!important;}em.diigoHighlight.yellow{background-color:#FF9;}img.diigoHighlight.yellow{cursor:pointer;outline:2px solid #FF9!important;}em.diigoHighlight.blue{background-color:#ABD5FF;}img.diigoHighlight.blue{cursor:pointer;outline:2px solid #ABD5FF!important;}em.diigoHighlight.green{background-color:#B2E57E;}img.diigoHighlight.green{cursor:pointer;outline:2px solid #B2E57E!important;}em.diigoHighlight.pink{background-color:#fcc;}img.diigoHighlight.pink{cursor:pointer;outline:2px solid #fcc!important;}img.diigoHighlight.mouseOvered{cursor:pointer;outline:2px solid #ffc62a!important;}.felttip .felttip-closeBtn{position:absolute;background:transparent url(http://184.73.178.245/felttip/images/close1.gif);width:14px;height:14px;top:2px;right:2px;cursor:pointer!important;}.ac_results{border:1px solid #000;background:#EEE none repeat scroll 0;cursor:pointer!important;font-size:11px;left:0;position:absolute;width:200px;z-index:99999;}.ac_results ul{margin:0;padding:0;}.ac_results li{list-style-image:none;list-style-position:outside;list-style-type:none;padding:2px 5px;}.ac_results a{width:100%;}.ac_results li.over{background:#ccf none repeat scroll 0;}#d3df-sidebar{border:1px #ccc solid;z-index:99997;}#d3df-sidebar div.heading{padding:3px;font-size:13px;border-top:1px #E8EEF7 solid;font-weight:bold;zoom:1;}#d3df-sidebar div.popOut{width:16px;height:16px;background:transparent url(http://www.diigo.com/javascripts/webtoolbar/images/popout.gif) no-repeat scroll left top;cursor:pointer;}#d3df-sidebar div.popOut.popIn{background-image:url(http://www.diigo.com/javascripts/webtoolbar/images/popin.gif);}#d3df-sidebar div.popOut.close{background-image:url(http://184.73.178.245/felttip/images/close1.gif);}#d3df-sidebar div.heading a.add{background:transparent url(http://184.73.178.245/felttip/images/felttipIconv1.gif) no-repeat scroll left -172px;padding-left:18px;display:block;float:right;font-weight:normal;}#d3df-sidebar a.togglePanel{background:transparent url(http://184.73.178.245/felttip/images/eoc.gif) no-repeat scroll left top;display:block;float:right;width:16px;height:16px;}#d3df-sidebar a.togglePanel.collapsed{background-position:left bottom;}#d3df-sidebar ul,#d3df-sidebar ul li{list-style:none;overflow:hidden;zoom:1;}#d3df-sidebar li.highlight a.highlight{overflow:hidden;height:24px;zoom:1;}#d3df-sidebar ul.highlights li{margin:1px;}#d3df-sidebar ul.comments li{margin:1px;padding:2px;}#d3df-sidebar div.noComments{font-size:11px;text-align:center;padding:15px 5px;}#d3df-sidebar p.commentBody,#d3df-sidebar p.commentBody a{font-size:11px;}#d3df-sidebar a.avatar{float:left;margin-right:3px;}#d3df-sidebar a.avatar img{padding:1px;border:1px #CCC solid;width:32px;height:32px;}#d3df-sidebar .commentInfo{font-size:12px;}#d3df-sidebar .commentInfo a{border-bottom:1px dotted #999;}#d3df-sidebar a.highlight{line-height:24px;padding-left:18px;display:block;background:transparent url(http://184.73.178.245/felttip/images/felttipIconv1.gif) no-repeat scroll left -192px;}#d3df-sidebar a.floatNote{padding-left:16px;background:transparent url(http://184.73.178.245/felttip/images/felttipIconv1.gif) no-repeat scroll left -144px;}#d3df-sidebar a.highlight .jumpTo{line-height:24px;padding-left:5px;font-size:12px;font-style:italic;}#d3df-sidebar.themeDefault .bgColor1{background-color:#C3D9FF;}#d3df-sidebar.themeDefault .bgColor2{background-color:#E8EEF7;}#d3df-sidebar.themeDefault .bgColor3{background-color:#FFF;}#d3df-sidebar.themeDefault .color1{color:#999;}#d3df-sidebar.themeDefault .color2{color:#333;}
+
+@media screen{
+layer.felttipHighlight {
+	text-align:inherit;
+	text-decoration: inherit;
+	line-height:inherit;
+	font:inherit;
+	color:inherit;
+	display:inline;
+	position:relative;
+}
+
+	
+layer.felttipHighlight.c {
+	color: #000099;
+}
+
+layer.felttipHighlight.a.yellow {
+	background-color: #FF9;
+}
+
+layer.felttipHighlight.b.yellow, layer.felttipHighlight.c.yellow {
+	border-bottom: solid 2px #FF9;
+}
+	
+img.felttipHighlight.yellow {/*image highlight*/
+	cursor: pointer; 
+	border:2px solid #FF9;
+}
+
+layer.felttipHighlight.a.blue {
+	background-color: #ABD5FF;
+}
+
+layer.felttipHighlight.b.blue, layer.felttipHighlight.c.blue {
+	border-bottom: solid 2px #ABD5FF;
+}
+	
+img.felttipHighlight.blue {/*image highlight*/
+	cursor: pointer; 
+	border:2px solid #ABD5FF;
+}
+	
+	
+layer.felttipHighlight.a.green {
+	background-color: #B2E57E;
+}
+
+layer.felttipHighlight.b.green, layer.felttipHighlight.c.green {
+	border-bottom: solid 2px #B2E57E;
+}
+	
+img.felttipHighlight.green {/*image highlight*/
+	cursor: pointer; 
+	border:2px solid #B2E57E;
+}	
+	
+	
+layer.felttipHighlight.a.pink {
+	background-color: #ffcccc;
+}
+
+layer.felttipHighlight.b.pink, layer.felttipHighlight.c.pink {
+	border-bottom: solid 2px #ffcccc;
+}
+	
+img.felttipHighlight.pink {/*image highlight*/
+	cursor: pointer; 
+	border:2px solid #ffcccc;
+}	
+
+	
+
+/*highlight label*/
+.felttipHighlight .felttipHighlightLabel sup {
+	font:normal normal normal 8px/8px "lucida grande",tahoma,verdana,arial,sans-serif;
+	text-decoration:none;
+	background-color:inherit;
+	cursor:default;
+}
+	
+body.felttipHiPen.yellow{
+	cursor:url(http://184.73.178.245/felttiplet/images/highlighter-orange.cur), text !important
+}
+	
+body.felttipHiPen.blue{
+	cursor:url(http://184.73.178.245/felttiplet/images/highlighter-blue.cur), text !important
+}
+
+body.felttipHiPen.green{
+	cursor:url(http://184.73.178.245/felttiplet/images/highlighter-green.cur), text !important
+}	
+	
+body.felttipHiPen.pink{
+	cursor:url(http://184.73.178.245/felttiplet/images/highlighter-pink.cur), text !important
+}
+	
+div.felttipHighlight.type_2 {
+	position:absolute;
+	width:29px;
+	height:36px;
+	text-align:center;
+	background:transparent url('http://www.felttip.com/client/ietoolbar/float.png') no-repeat 50% 50%;
+	z-index:9996;
+}
+
+div.felttipHighlight.type_2:hover {
+	position:absolute;
+	width:29px;
+	height:36px;
+	text-align:center;
+	background:transparent url('http://www.felttip.com/client/ietoolbar/float.png') no-repeat 50% 50%;
+	z-index:9996;
+}	
+
+div.felttipHighlight.type_2 span {
+	color:#000;
+	font:bold 13px Arial, Helvetica, sans-serif;
+	cursor: default;
+	line-height: 37px;
+	text-shadow: #fff 0 1px 0;
+}
+	
+	
+/*mouse over effect*/
+/*
+.felttipHighlight.id_190e5778b533dc0fa1b1660653a4f6f5 {outline: 2px dotted green !important;}
+*/
+div.felttipIcon{
+	cursor:pointer !important;
+	margin: 0pt; 
+	padding: 0px 0px 0px 0px;
+	position: absolute;
+	display:none;
+	width: 24px; 
+	z-index:9999;
+	height: 23px;
+}
+
+div.felttipIcon span{
+	color:#000000;
+	display:block;
+	font-family:Helvetica,Arial,sans-serif;
+	font-size:13px;
+	font-weight:700;
+	line-height:18px;
+	text-align:center;
+	text-indent:0px;
+	text-shadow:0 1px 1px #FFFFFF;
+}
+
+.showIcon
+{
+	display:block !important;
+}
+
+.notShowIcon
+{
+	display:none !important;
+}
+
+div.DiigoHighlightCommented.ImageIcon{
+	display:block;
+	background-color: transparent !important;
+}
+	
+div.felttipIcon:hover{
+	background-background: transparent !important;
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+		
+div.DiigoHighlightCommented.TextIcon{
+	display:block;
+	left:0px;
+	top:-8px;
+}
+	
+div.DiigoHighlightCommented.public{
+	background: #FFFFFF url('http://184.73.178.245/felttiplet/images/public-annotation.png') no-repeat left;
+}
+
+div.DiigoHighlightCommented.private{
+	background: #FFFFFF url('http://184.73.178.245/felttiplet/images/private-annotation.png') no-repeat left;
+}
+
+div.felttipIcon.nocommented{
+	background: transparent url('http://184.73.178.245/felttiplet/images/edit-highlight.png') no-repeat left !important;
+}
+	
+div.DiigoHighlightCommented.group{
+	background: #FFFFFF url('http://www.felttip.com/client/ietoolbar/group-annotation.png') no-repeat left;
+}	
+
+div.DiigoHighlightCommented.felttipEdit{
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+	
+
+layer.felttipHighlight.DiigoHighlightCommented {	
+	padding-left:30px;
+}
+	
+	
+.felttiptb-border{
+	position: absolute!important;
+	z-index:11000000!important;
+	margin:0!important;
+	background-color: #4b8cdc!important;
+}
+
+
+#felttiptb-imagepanel{
+	height:22px!important;
+	position: absolute!important;
+	z-index:11000022!important;
+	margin:0!important;
+}
+
+#felttiptb-imagepanel .felttiptb-btn{
+	cursor:pointer!important;
+	width:20px!important;
+	height:20px!important;
+	margin:2px!important;
+	float:left !important;
+	background:transparent url(http://www.felttip.com/client/ietoolbar/save-image-action-icons.png) no-repeat scroll!important;
+}	
+	
+	
+#felttiptb-imagepanel #felttiptb-quick-save{
+	background-position:0 0!important;
+}
+		
+#felttiptb-imagepanel.processing #felttiptb-quick-save{
+	background-position:0 -20px!important;
+	cursor:default!important;
+}
+
+		
+#felttiptb-imagepanel.needpremium #felttiptb-quick-save{
+	background-position:0 -20px!important;
+	cursor:default!important;
+}	
+
+#felttiptb-imagepanel.hassaved #felttiptb-quick-save{
+	background-position: -60px 0!important;
+	cursor: pointer !important;
+}
+
+
+.hassaved .felttiptb-imagetip-text-saved
+{
+	display:block;
+}
+
+.hassaved .felttiptb-imagetip-text-process
+{
+	display:none;
+}
+
+.processing .felttiptb-imagetip-text-saved
+{
+	display:none;
+}
+
+.processing .felttiptb-imagetip-text-process
+{
+	display:block;
+}
+
+.felttiptb-imagetip{
+	background:transparent url(http://www.felttip.com/client/ietoolbar/notice-bar-bg-right.png) no-repeat scroll right center !important;
+	height:21px !important;
+	margin:0 !important;
+	position:absolute !important;
+	z-index:11000022 !important;
+	width:106px;
+}
+	
+.felttiptb-imagebg{
+	background:transparent url(http://www.felttip.com/client/ietoolbar/notice-bar-bg-left.png) repeat-x scroll left center !important;
+	height:21px !important;
+	margin:0 !important;
+	padding-left:6px !important;
+	width:90px;
+}
+
+	
+.felttiptb-imagetip-text-process{
+	padding-left:20px!important;
+	font:11px/13px Helvetica,Arial,sans-serif!important;
+	color:white!important;
+	line-height:20px!important;
+	float:left;
+	background:transparent url(http://www.felttip.com/client/ietoolbar/processing-fb.gif) no-repeat scroll left center !important;
+}
+	
+.felttiptb-imagetip-text-saved{
+	padding-left:20px!important;
+	font:11px/13px Helvetica,Arial,sans-serif!important;
+	color:white!important;
+	line-height:20px!important;
+	float:left;
+	background:transparent url(http://www.felttip.com/client/ietoolbar/icon-done.png) no-repeat scroll left center !important;
+}
+
+/*-----------notice msg--------------*/
+.felttiptb-notice-img  {
+	float:left!important;
+	height:16px!important;
+	width:16px!important;
+	margin-top:6px!important;
+	margin-right:3px!important;
+}
+.success .felttiptb-notice-img{
+	background:url("http://www.felttip.com/client/ietoolbar/notice-icons.png") no-repeat scroll 0 0 transparent!important;
+}
+.failed .felttiptb-notice-img{
+	background:url("http://www.felttip.com/client/ietoolbar/notice-icons.png") no-repeat scroll -16px 0 transparent!important;
+}
+.info .felttiptb-notice-img{
+	background:url("http://www.felttip.com/client/ietoolbar/notice-icons.png") no-repeat scroll -32px 0 transparent!important;
+}
+.process .felttiptb-notice-img{
+	background:url("http://www.felttip.com/client/ietoolbar/indicator.gif") no-repeat scroll left 0 transparent!important;
+}	
+	
+.felttiptb-notice-msg-rt  {
+	background:url("http://www.felttip.com/client/ietoolbar/notice-bar-2-bg-left.png") no-repeat scroll left bottom transparent!important;
+	line-height:28px!important;
+	padding-left:10px!important;
+	height:30px!important;
+}
+.failed .felttiptb-notice-msg-rt  {
+	background:url("http://www.felttip.com/client/ietoolbar/notice-bar-2-bg-left.png") no-repeat scroll left top transparent!important;
+}
+	
+#felttiptb-notice-close{
+	float:right!important;
+	height:16px!important;
+	width:16px!important;
+	margin-left:20px!important;
+	margin-top:6px!important;
+	cursor:pointer;
+	background:url("http://www.felttip.com/client/ietoolbar/notice-icons.png") no-repeat scroll -48px 0 transparent!important;
+}
+
+.
+#felttiptb-notice-close:hover{
+	background-position: -63px 0!important;
+}
+	
+#felttiptb-notice-msg  {
+	background:url("http://www.felttip.com/client/ietoolbar/notice-bar-2-bg-right.png") no-repeat scroll right bottom transparent!important;
+	float:right!important;
+	height:30px!important;
+	padding:0 11px 0 0!important;
+	border: none!important;
+	margin:0!important;
+	position:fixed!important;
+	font:12px/14px Helvetica,Arial,sans-serif!important;
+	z-index:100000!important;
+}
+#felttiptb-notice-msg a {
+	color:#0044cc!important; 
+	text-decoration:underline!important;
+}
+	
+#felttiptb-notice-msg.failed  {
+	background:url("http://www.felttip.com/client/ietoolbar/notice-bar-2-bg-right.png") no-repeat scroll right top transparent!important;
+}
+	
+}
+
+@media print{
+layer.felttipHighlight.a, layer.felttipHighlight.b, layer.felttipHighlight.c {
+	border-bottom:0.5pt dashed Black;
+}
+
+
+/*image highlight*/
+img.felttipHighlight {
+	border:0.5pt dashed Black
+}
+
+/*float note*/
+div.felttipHighlight.type_2 {
+	display:none
+}
+div.felttipHighlight.type_2 span {
+	display:none
+}
+}

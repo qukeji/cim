@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>TideCMS 列表</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../style/2018/sidebar-menu-template.css">
+<link rel="stylesheet" href="../../style/2018/bracket.css">  
+<link rel="stylesheet" href="../../style/2018/common.css">
+<style>
+	.pagebody-left .br-content-box , .pagebody-right{min-height: 500px;}
+	.td-handle{display: flex;}
+	ul,li{list-style: none;}
+	.dpnone{display: none;}
+	.collapsed-menu .br-mainpanel-file{margin-left: 0;margin-top: 0;}
+	.push-col-row #push-nav{display:flex;height:42px;padding:0;margin:0;background:#e8ecef;line-height:40px;padding:0 20px;border-radius:3px;justify-content:space-between;}
+	.push-col-row #push-nav li{border-bottom:2px solid transparent;display:inline-block;margin:0 20px 0 0;position:relative;top:1px;cursor:pointer;color:#9b9ea0;font-size:14px;white-space:nowrap}
+	.push-col-row #push-nav li.ac{color:#333;border-bottom:2px solid #000}
+	.push-col-row #push-body{min-height:200px}
+    .push-item{display: none;}
+    .push-item:nth-child(1){display: block;}
+    .tx-warning{color: #f49917 !important;}
+    @media only screen and (max-width: 640px) {
+    	.td-handle{display: block;}
+    	.pagebody-right{margin-left: 10px;}
+    }
+</style>
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script>
+	var dir = "" ;
+</script>
+</head>
+<body class="collapsed-menu email"> 	
+	<div class="br-mainpanel br-mainpanel-file">      
+		<div class="row row-sm mg-t-0 mg-x-0-force">
+			<div class="col-sm-8 pd-x-0-force">
+				<div class="br-pagebody pd-x-20 pagebody-left">
+			  		<div class="br-content-box pd-20 bg-white">
+						<div class="bd">
+							<table class="table mg-b-0">
+								<thead>
+									<tr>	               
+										<th class="tx-12-force tx-mont tx-medium wd-7p">类型</th>
+										<th class="tx-12-force tx-mont tx-medium wd-20p">发布节点</th>
+										<th class="tx-12-force tx-mont tx-medium wd-45p">标题</th>  
+										<th class="tx-12-force tx-mont tx-medium wd-8p">状态</th>  
+										<th class="tx-12-force tx-mont tx-medium wd-20p">操作</th>	               
+									</tr>
+								</thead>
+								<tbody class="tx-12">
+								<tr>
+									<td>网站</td>
+									<td><a href="javascript:;" class="pd-l-5">网站>本地>一周质量报告网站>本地></span></td>
+									<td>标题plus标题plus标题plus标题plus标题plus标题plus标题plus标题plus标题plus</td>
+									<td>已发布</td>	                												
+									<td class="td-handle">
+										<button class="btn btn-info btn-sm mg-r-5 tx-13" onclick="">编辑</button>
+										<button class="btn btn-info btn-sm mg-r-5 tx-13" onclick="">撤稿</button>
+										<button class="btn btn-info btn-sm tx-13" onclick="">删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>网站</td>
+									<td><a href="javascript:;" class="pd-l-5">网站>本地>一周质量报告网站>本地></span></td>
+									<td>标题plus标题plus标题plus标题plus标题plus标题plus标题plus标题plus标题plus</td>
+									<td>已发布</td>	                												
+									<td class="td-handle">
+										<button class="btn btn-info btn-sm mg-r-5 tx-13" onclick="">编辑</button>
+										<button class="btn btn-info btn-sm mg-r-5 tx-13" onclick="">撤稿</button>
+										<button class="btn btn-info btn-sm tx-13" onclick="">删除</button>
+									</td>
+								</tr>
+								</tbody>
+							</table>								
+						</div>
+				  	</div>
+				</div>		
+			</div>
+			<div class="col-sm-4 pd-x-0-force push-col-row">
+				<div class="br-pagebody bg-white mg-l-0 mg-r-20 pd-x-0-force pagebody-right">
+					<div class="br-content-box pd-20"> 
+						<div class="push-container">
+							<ul id="push-nav" class="">
+					          <li data-nav="" class="ac">网站</li> 
+					          <li data-nav="" class="">APP</li> 
+					          <li data-nav="" class="">两微</li> 
+					          <li data-nav="" class="">三方媒体</li> 
+					          <li data-nav="" class="">电视端</li> 
+					          <li data-nav="" class="">其他</li> 
+					        </ul>
+					        <ul id="push-body">
+					        	<li class="push-item">
+					        		<div class="sidebar-menu-box ht-100p-force overflow-auto">
+										<ul class="sidebar-menu mg-t-0-force">
+											<li class="treeview">
+												<a href="#" load="0" channelid="0"><i class="fa fisrtNav fa-home" have="1"></i> <span>推荐</span></a>
+												<ul class="treeview-menu" style="display: block;">
+													<li>
+														<a href="#" load="undefined" channelid="15894"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15894"><span style="padding:0"></span></label><span>栏目管理</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="1" channelid="15895"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15895"><span style="padding:0"></span></label><span>首页</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15904"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15904"><span style="padding:0"></span></label><span>视听</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="21821"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21821"><span style="padding:0"></span></label><span>报料</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="21822"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21822"><span style="padding:0"></span></label><span>直播</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15907"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15907"><span style="padding:0"></span></label><span>圈子</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16243"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16243"><span style="padding:0"></span></label><span>周边</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15911"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15911"><span style="padding:0"></span></label><span>发现</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15913"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15913"><span style="padding:0"></span></label><span>媒体号内容管理</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15995"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15995"><span style="padding:0"></span></label><span>专题</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16244"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16244"><span style="padding:0"></span></label><span>活动</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="22617"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="22617"><span style="padding:0"></span></label><span>爆料1</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="24137"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="24137"><span style="padding:0"></span></label><span>精品推荐内容管理</span></a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#" load="undefined" channelid="15922"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15922"><span style="padding:0"></span></label><span>按钮内容</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="0" channelid="15923"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15923"><span style="padding:0"></span></label><span>资讯</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15924"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15924"><span style="padding:0"></span></label><span>媒体</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15925"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15925"><span style="padding:0"></span></label><span>服务</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15972"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15972"><span style="padding:0"></span></label><span>按钮图标库</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15993"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15993"><span style="padding:0"></span></label><span>专题按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16031"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16031"><span style="padding:0"></span></label><span>首页按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16275"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16275"><span style="padding:0"></span></label><span>shipin</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="17737"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="17737"><span style="padding:0"></span></label><span>普通频道</span></a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#" load="undefined" channelid="15933"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15933"><span style="padding:0"></span></label><span>网站管理</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="0" channelid="15934"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15934"><span style="padding:0"></span></label><span>首页</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15935"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15935"><span style="padding:0"></span></label><span>轮播图</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15936"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15936"><span style="padding:0"></span></label><span>首页新闻</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15940"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15940"><span style="padding:0"></span></label><span>底部栏</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15941"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15941"><span style="padding:0"></span></label><span>通栏广告</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15942"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15942"><span style="padding:0"></span></label><span>底部栏文字</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16834"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16834"><span style="padding:0"></span></label><span>测试</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="18957"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="18957"><span style="padding:0"></span></label><span>一键换肤</span></a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#" load="undefined" channelid="15943"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15943"><span style="padding:0"></span></label><span>信息推送</span></a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+					        	</li>
+					        	<li class="push-item"></li>
+					        	<li class="push-item">
+					        		<div class="sidebar-menu-box ht-100p-force overflow-auto">
+										<ul class="sidebar-menu mg-t-0-force">
+											<li class="treeview">
+												<a href="#" load="0" channelid="0"><i class="fa fisrtNav fa-wechat tx-warning" have="1"></i> <span>微信</span></a>
+												<ul class="treeview-menu" style="display: block;">
+													<li>
+														<a href="#" load="undefined" channelid="15894"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15894"><span style="padding:0"></span></label><span>栏目管理</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="1" channelid="15895"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15895"><span style="padding:0"></span></label><span>首页</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15904"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15904"><span style="padding:0"></span></label><span>视听</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="21821"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21821"><span style="padding:0"></span></label><span>报料</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="21822"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21822"><span style="padding:0"></span></label><span>直播</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15907"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15907"><span style="padding:0"></span></label><span>圈子</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16243"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16243"><span style="padding:0"></span></label><span>周边</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15911"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15911"><span style="padding:0"></span></label><span>发现</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15913"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15913"><span style="padding:0"></span></label><span>媒体号内容管理</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15995"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15995"><span style="padding:0"></span></label><span>专题</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16244"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16244"><span style="padding:0"></span></label><span>活动</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="22617"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="22617"><span style="padding:0"></span></label><span>爆料1</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="24137"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="24137"><span style="padding:0"></span></label><span>精品推荐内容管理</span></a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#" load="undefined" channelid="15922"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15922"><span style="padding:0"></span></label><span>按钮内容</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="0" channelid="15923"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15923"><span style="padding:0"></span></label><span>资讯</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15924"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15924"><span style="padding:0"></span></label><span>媒体</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15925"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15925"><span style="padding:0"></span></label><span>服务</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15972"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15972"><span style="padding:0"></span></label><span>按钮图标库</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15993"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15993"><span style="padding:0"></span></label><span>专题按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16031"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16031"><span style="padding:0"></span></label><span>首页按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16275"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16275"><span style="padding:0"></span></label><span>shipin</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="17737"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="17737"><span style="padding:0"></span></label><span>普通频道</span></a>
+															</li>
+														</ul>
+													</li>
+													
+												</ul>
+											</li>
+										</ul>
+									</div>
+									<div class="sidebar-menu-box ht-100p-force overflow-auto">
+										<ul class="sidebar-menu mg-t-0-force">
+											<li class="treeview">
+												<a href="#" load="0" channelid="0"><i class="fa fisrtNav fa-weibo tx-warning" have="1"></i> <span>微博</span></a>
+												<ul class="treeview-menu" style="display: block;">
+													<li>
+														<a href="#" load="undefined" channelid="15894"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15894"><span style="padding:0"></span></label><span>栏目管理</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="1" channelid="15895"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15895"><span style="padding:0"></span></label><span>首页</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15904"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15904"><span style="padding:0"></span></label><span>视听</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="21821"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21821"><span style="padding:0"></span></label><span>报料</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="21822"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="21822"><span style="padding:0"></span></label><span>直播</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15907"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15907"><span style="padding:0"></span></label><span>圈子</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16243"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16243"><span style="padding:0"></span></label><span>周边</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15911"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15911"><span style="padding:0"></span></label><span>发现</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15913"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15913"><span style="padding:0"></span></label><span>媒体号内容管理</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15995"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15995"><span style="padding:0"></span></label><span>专题</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="16244"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16244"><span style="padding:0"></span></label><span>活动</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="22617"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="22617"><span style="padding:0"></span></label><span>爆料1</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="24137"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="24137"><span style="padding:0"></span></label><span>精品推荐内容管理</span></a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a href="#" load="undefined" channelid="15922"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15922"><span style="padding:0"></span></label><span>按钮内容</span></a>
+														<ul class="treeview-menu" style="display: none;">
+															<li>
+																<a href="#" load="0" channelid="15923"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15923"><span style="padding:0"></span></label><span>资讯</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="15924"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15924"><span style="padding:0"></span></label><span>媒体</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15925"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15925"><span style="padding:0"></span></label><span>服务</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15972"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15972"><span style="padding:0"></span></label><span>按钮图标库</span></a>
+															</li>
+															<li>
+																<a href="#" load="1" channelid="15993"><i class="fa fa-angle-double-right op-5" hava="1"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="15993"><span style="padding:0"></span></label><span>专题按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16031"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16031"><span style="padding:0"></span></label><span>首页按钮</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="16275"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="16275"><span style="padding:0"></span></label><span>shipin</span></a>
+															</li>
+															<li>
+																<a href="#" load="0" channelid="17737"><i class="fa fa-angle-right op-5" hava="0"></i><label class="ckbox mg-b-0 mg-r-10"><input type="checkbox" name="id" value="17737"><span style="padding:0"></span></label><span>普通频道</span></a>
+															</li>
+														</ul>
+													</li>
+													
+												</ul>
+											</li>
+										</ul>
+									</div>
+					        	</li>
+					        	
+					        	<li class="push-item"></li>
+					        	<li class="push-item"></li>
+					        	<li class="push-item"></li>
+					        </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+ 
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+	
+    <script src="../../common/2018/bracket.js"></script>  
+    <script src="../../common/2018/sidebar-menu-channel.js"></script>
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+
+            } else {
+              $('body').removeClass('expand-menu');
+
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+         
+  
+      });
+    </script>
+    
+    <!--自定义函数-->
+    <script>
+	    $(function(){	    	
+		    $.sidebarMenu('.sidebar-menu');
+		    
+			$.sidebarMenu = function(menu) {
+				var animationSpeed = 300;
+			  
+				$(menu).on('click', 'li a', function(e) {
+					var $this = $(this);
+					var checkElement = $this.next();
+	
+					checkElement = $this.next();
+					sidebarMenu_show(checkElement,animationSpeed,$this);
+					
+				});
+			}	
+	    })
+	    
+	    
+	    
+	    //切换
+	    $("#push-nav li").click(function(){
+	    	var _index = $(this).index();
+	    	$("#push-nav li").removeClass("ac");
+	    	$(this).addClass("ac")
+	    	$(".push-item").hide().eq(_index).show() ;
+	    })
+	    
+	  </script>
+
+
+<!--16ms-->
+</body>
+</html>

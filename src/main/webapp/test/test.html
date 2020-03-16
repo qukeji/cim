@@ -1,0 +1,356 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Menu</title>
+<link href="../style/menu.css" type="text/css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="../common/xtree.css" />
+<link href="../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<style>
+html{*padding:69px 0 4px;}
+</style>
+<script type="text/javascript" src="../common/jquery.js"></script>
+<script type="text/javascript" src="../common/xtree.js"></script>
+<script type="text/javascript" src="../common/xmlextras.js"></script>
+<script type="text/javascript" src="../common/xloadtree.js"></script>
+<script type="text/javascript" src="../common/common.js"></script>
+<script type="text/javascript">
+function getCheckbox(){
+	var obj={length:500,id:'id'};
+	return obj;
+}
+</script>
+<script type="text/javascript" src="../common/jquery.contextmenu.js"></script>
+<script language=javascript>
+var folder_tree_id_path = getCookie("folder_path");
+var SiteId_path=getCookie("SiteId");
+
+var node = null;
+var num = 0;
+function init()
+{
+	
+	if(folder_tree_id_path)
+	{
+		 node = tree;
+		parent.frames["ifm_right"].location = "file_list.jsp?FolderName=" + encodeURI(folder_tree_id_path)+"&SiteId="+SiteId_path;
+		doExpandByCookie();
+	}
+}
+
+function doExpandByCookie()
+{//alert(channel_tree_id_path + ":" + node.src);
+
+	var SiteId;
+   for(var i=0;tree.childNodes.length;i++){
+     SiteId=document.getElementById(tree.childNodes[i].id + '-anchor').getAttribute("SiteId");
+     if(SiteId==SiteId_path){
+     node=tree.childNodes[i];
+	 node.expand();
+       break;
+     }
+   }
+   
+ 
+	//if(!folder_tree_id_path || folder_tree_id_path=="") return;
+	var array = folder_tree_id_path.split("/");
+	for(var i = 0; i < array.length; i++)
+	{//alert(node.text + ":" + node.src+":"+array.length);
+		var id = "";
+		for(j=0;j<=num;j++)
+		{
+			if(id=="") id = array[j];
+			else id = id + "/" + array[j];
+		}
+
+		if(node && node.src!="" &&node.src!=undefined)
+		{
+			break;
+		}
+		else
+		{
+			node = getNodeByFolderName(node,id);//alert(node.text);
+			if(id!="" && i!=array.length-1){ node.expand();num=num+1;}
+		}
+
+		if(array.length-1 == i && node) 	{num=i+1;node.select();
+		      node.expand();
+		 }
+	}
+}
+
+
+function getNodeByFolderName(node,id)
+{
+	if(id=="") return tree;
+	if(node==null || node.childNodes==null) return null;
+	for (var i = 0; i < node.childNodes.length; i++) {//alert(document.getElementById(node.childNodes[i].id+"-anchor").FolderName);
+		if(document.getElementById(node.childNodes[i].id+"-anchor").getAttribute("FolderName")==id){
+			return node.childNodes[i];
+		}
+	}
+	return null;
+}
+
+function doExpandXmlNodeByCookie()
+{//alert(folder_tree_id_path);
+	if(!folder_tree_id_path || folder_tree_id_path=="") return;
+	var array = folder_tree_id_path.split("/");
+
+		var id = "";
+		for(j=0;j<=num;j++)
+		{
+			if(id=="") id = array[j];
+			else id = id + "/" + array[j];
+		}
+//alert(id+":"+num);
+		node = getNodeByFolderName(node,id);
+
+		if(array.length-1 == num && node) 	{node.select();node.parentNode.deSelect();}
+		else if(node){node.expand();num=num+1;}
+}
+
+function ListFile(str){
+	var str;
+	var SiteId;
+
+	if (tree.getSelected()) 
+		{ 
+		
+		str =  getFolderName();
+	   SiteId =getSite();
+		if(str && str!="\\"){
+			document.cookie = "folder_path=" + str; //alert(document.cookie);
+			document.cookie = "SiteId=" + SiteId;
+			}
+		else{
+			document.cookie = "folder_path=";
+			document.cookie = "SiteId=" + SiteId;
+			}
+
+		var channeltype = ($("#"+tree.getSelected().id + '-anchor').attr("channeltype"));
+		alert(channeltype);
+		if(channeltype==5)
+		{
+			tree.getSelected().toggle();
+		}
+	}
+   
+	if(parent.frames["ifm_right"])
+	{
+		if(str && str!="\\")
+			parent.frames["ifm_right"].location = "file_list.jsp?FolderName=" + encodeURI(str)+"&SiteId="+SiteId;
+		else
+			parent.frames["ifm_right"].location = "file_list.jsp?FolderName=&SiteId="+SiteId;
+	}
+
+}
+
+function newFolder()
+{
+    var FolderName;
+	var SiteId 
+		FolderName = getFolderName();
+		SiteId = getSite();
+
+	if(FolderName=="")
+		return;
+
+		var	dialog = new top.TideDialog();
+			dialog.setWidth(300);
+			dialog.setHeight(200);
+			dialog.setUrl("explorer/newfolder.jsp?SiteId="+SiteId+"&FolderName="+encodeURI(FolderName));
+			dialog.setTitle("新建目录");
+			dialog.show();
+	
+}
+
+function getFolderName()
+{
+	if(tree.getSelected())
+		return document.getElementById(tree.getSelected().id + '-anchor').getAttribute("FolderName");
+	else
+		return "";
+}
+
+function getSite()
+{
+	if(tree.getSelected())
+		return document.getElementById(tree.getSelected().id + '-anchor').getAttribute("SiteId");
+	else
+		return 0;
+}
+
+function deleteFolder()
+{
+ var SiteId;
+	if (tree.getSelected()) 
+		{ 
+		FolderName = getFolderName();
+		SiteId=getSite();
+
+		if(FolderName=="\\")
+		{
+			alert("\"站点根目录\"不能删除!");
+			return false;
+		}
+		if(confirm("确实要删除\"" + FolderName + "\"吗?\r\n注意：目录被删除后不能恢复，而且其下面的文件和子目录将一并删除!")) 
+		{
+	    var nodeDel=getDelNode(tree.getSelected());
+		var	str = document.getElementById(nodeDel.id + '-anchor').FolderName;
+		 document.cookie = "folder_path=" + str;
+		
+			this.location = "folder_delete.jsp?Action=Delete&FolderName="+encodeURI(FolderName)+"&SiteId="+SiteId;
+		}
+	}else{
+		return false;
+	}
+}
+
+
+function getDelNode(selectDel){
+        var nodeDel="";
+		var parentDel=selectDel.parentNode;
+		 if(selectDel.getPreviousSibling()&& selectDel.getPreviousSibling().parentNode==parentDel){
+		   nodeDel=selectDel.getPreviousSibling();
+		 }else{
+		   if(selectDel.getNextSibling()&&selectDel.getNextSibling().parentNode==parentDel){
+		    nodeDel=selectDel.getNextSibling();
+		   }else{
+		   nodeDel=parentDel;
+		   }
+		 } 
+		 
+ return nodeDel; 
+    	//var	str = document.getElementById(nodeDel.id + '-anchor').FolderName;
+}
+function publishFolder()
+{
+  var SiteId;
+	if (tree.getSelected()) 
+		{ 
+		FolderName =getFolderName();
+		SiteId=getSite();
+
+		if(confirm("确实要发布\"" + FolderName + "\"吗?\r\n提示：发布目录有可能需要较长时间!")) 
+		{
+			this.location = "folder_publish.jsp?Action=Publish&FolderName="+encodeURI(FolderName)+"&SiteId="+SiteId;
+		}
+	}else{
+		return false;
+	}
+}
+
+function downloadFolder()
+{
+   var SiteId;
+	if (tree.getSelected()) 
+		{ 
+		FolderName =getFolderName();
+        SiteId=getSite();
+		window.frames["Download"].location = "../download.jsp?Type=Folder&FolderName="+encodeURI(FolderName)+"&SiteId="+SiteId;		
+	}else{
+		return false;
+	}
+}
+
+function renameFolder()
+{
+  var SiteId;
+	if (tree.getSelected()) 
+		{ 
+		FolderName = getFolderName();
+		SiteId=getSite();
+		if(FolderName=="\\")
+		{
+			alert("\"站点根目录\"不能重命名!");
+			return false;
+		}    
+		var	dialog = new top.TideDialog();
+			dialog.setWidth(300);
+			dialog.setHeight(200);
+			dialog.setUrl("explorer/renamefolder.jsp?SiteId="+SiteId+"&FileName="+encodeURI(FolderName));
+			dialog.setTitle("重命名");
+			dialog.show();	
+	}else{
+		return false;
+	}
+}
+
+function newFile()
+{
+	var FolderName;
+	var SiteId;
+	if (tree.getSelected()){ 
+		var	dialog = new top.TideDialog();
+		dialog.setWidth(300);
+		dialog.setHeight(200);
+		dialog.setUrl("explorer/newfile.jsp?FolderName="+getFolderName()+"&SiteId="+getSite());
+		dialog.setTitle("新建文件");
+		dialog.show();
+	}	
+}
+
+function viewSource()
+{
+	location='view-source:'+location;
+}
+
+</script>
+</head>
+
+<body onload="init();">
+<div class="menu_top">
+<div class="manage">
+	<div class="manage_box">
+		<div class="manage_boxr">
+			<div class="manage_boxm">
+				<div class="manage_boxm_title"><img src="../images/manage_user.gif" />文件管理</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="menu_top_main"><div class="left"></div><div class="right"></div></div>
+</div>
+<div class="menu_main" id="div1">
+<script language="javascript">
+//var curPath=top.ReadValue("curPath");
+if (document.getElementById) {
+	var tree = new WebFXTree('文件管理','');
+    tree.setBehavior('explorer');
+   var varName=new WebFXLoadTreeItem("主站","folder_xml.jsp?Path=/&SiteId=3","javascript:ListFile('/')\" ChannelType=5 FolderName=/  SiteId=3  ","","../images/tree/16_channel_site_icon.png","../images/tree/16_channel_site_icon.png");
+tree.add(varName);
+var varName=new WebFXLoadTreeItem("新闻频道","folder_xml.jsp?Path=/&SiteId=4","javascript:ListFile('/')\" ChannelType=5 FolderName=/  SiteId=4  ","","../images/tree/16_channel_site_icon.png","../images/tree/16_channel_site_icon.png");
+tree.add(varName);
+var varName=new WebFXLoadTreeItem("视频","folder_xml.jsp?Path=/&SiteId=5","javascript:ListFile('/')\" ChannelType=5 FolderName=/  SiteId=5  ","","../images/tree/16_channel_site_icon.png","../images/tree/16_channel_site_icon.png");
+
+    tree.setType('noroot');
+	//document.write(tree);
+}
+</script>
+
+<div id="webfx-tree-object-4" style=display:none; class="webfx-tree-item" onkeydown="return webFXTreeHandler.keydown(this, event)"><img id="webfx-tree-object-4-icon" class="webfx-tree-icon" src="../images/tree/foldericon.png"><a href="javascript:void(0);" id="webfx-tree-object-4-anchor" >文件管理</a></div>
+
+<div id="webfx-tree-object-4-cont" class="webfx-tree-container" style="display: block;">
+
+<div id="webfx-tree-object-5" ondblclick="webFXTreeHandler.toggle(this);" class="webfx-tree-item" >
+<img id="webfx-tree-object-5-icon" class="webfx-tree-icon" src="../images/tree/16_channel_site_icon.png" onclick="webFXTreeHandler.select(this);">
+<a href="javascript:ListFile('/')" ChannelType=5 FolderName=/  SiteId=3  " id="webfx-tree-object-5-anchor" onfocus="webFXTreeHandler.focus(this);" onclick="webFXTreeHandler.focus(this);" onblur="webFXTreeHandler.blur(this);">主站</a>
+</div>
+
+<div id="webfx-tree-object-7" ondblclick="webFXTreeHandler.toggle(this);" class="webfx-tree-item" >
+<img id="webfx-tree-object-7-icon" class="webfx-tree-icon" src="../images/tree/16_channel_site_icon.png" onclick="webFXTreeHandler.select(this);">
+<a href="javascript:ListFile('/')" ChannelType=5 FolderName=/  SiteId=4  " id="webfx-tree-object-7-anchor" onfocus="webFXTreeHandler.focus(this);" onclick="webFXTreeHandler.focus(this);" onblur="webFXTreeHandler.blur(this);">新闻频道</a>
+</div>
+
+
+
+</div>
+<div class="menu_bottom"><div class="left"></div><div class="right"></div></div>
+<div style="display:none"><iframe id="Download" name="Download" style="width: 0; height: 0;"></iframe></div>
+</body>
+</html>

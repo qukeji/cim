@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>图片列表</title>
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <link href="../../lib/highlightjs/github.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/datatables/jquery.dataTables.css" rel="stylesheet">-->
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <style>
+    	.collapsed-menu .br-mainpanel-file{margin-left: 0;margin-top: 0;}
+    	table.table-fixed{table-layout: fixed;word-break: break-all;word-wrap: break-word}
+    	table.table-fixed,table.table-fixed th,table.table-fixed td{border:1px solid #dee2e6;
+    	border-collapse: collapse !important;}
+    	.list-pic-box{width: 100%;height: 0;padding-bottom: 56.25%;overflow: hidden;text-align: center;position: relative;}
+    	/*.list-pic-box img{max-width: 100%;min-width:100%;min-height: 100%;height: auto;display: block;}*/
+    	.list-pic-box .list-img-contanier{width: 100%;position: absolute;left: 0;top: 0;height: 100%;display: flex;justify-content: center;align-items: center;}
+    	.list-pic-box .list-img-contanier img{width: auto;max-height: 100%;max-width: 100%;}
+    </style>
+  </head>
+
+  <body class="collapsed-menu">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="js-source">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+        </nav>
+      </div><!-- br-pageheader -->
+
+      <div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+
+        <!-- <button id="showSubLeft" class="btn btn-secondary mg-r-10 hidden-lg-up"><i class="fa fa-navicon"></i></button> -->
+
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown hidden-sm-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+          <div class="dropdown-menu pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">全部</a>
+		          <a href="#" class="nav-link">草稿</a>
+		          <a href="#" class="nav-link">已发</a>
+		          <a href="#" class="nav-link">已删除</a>
+		          <a href="#" class="nav-link">搜索</a>
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+
+        <div class="btn-group hidden-xs-down">
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-th"></i></a>
+          <a href="#" class="btn btn-outline-info active"><i class="fa fa-th-list"></i></a>
+        </div><!-- btn-group -->
+        <div class="btn-group mg-l-10 hidden-xs-down">
+          <a href="#" class="btn btn-outline-info active">全部</a>
+          <a href="#" class="btn btn-outline-info">草稿</a>
+          <a href="#" class="btn btn-outline-info">已发</a>
+          <a href="#" class="btn btn-outline-info">已删除</a>
+          <a href="#" class="btn btn-outline-info btn-search">搜索</a>
+         
+        </div><!-- btn-group -->
+
+        <div class="btn-group mg-l-auto hidden-sm-down">
+          <a href="#" class="btn btn-outline-info">发布</a>
+          <a href="#" class="btn btn-outline-info">预览</a>
+          <a href="#" class="btn btn-outline-info">编辑</a>
+          <a href="#" class="btn btn-outline-info">撤稿</a>
+          <a href="#" class="btn btn-outline-info">推荐</a>
+          <a href="#" class="btn btn-outline-info">引用</a>
+          <a href="#" class="btn btn-outline-info">排序</a>
+          <a href="#" class="btn btn-outline-info">删除</a>          
+        </div><!-- btn-group -->
+        
+        <div class="btn-group mg-l-10 hidden-sm-down">
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-left"></i></a>
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-right"></i></a>
+          
+        </div><!-- btn-group -->
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown mg-l-auto hidden-md-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+          <div class="dropdown-menu dropdown-menu-right pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">发布</a>
+		          <a href="#" class="nav-link">预览</a>
+		          <a href="#" class="nav-link">编辑</a>
+		          <a href="#" class="nav-link">撤稿</a>
+		          <a href="#" class="nav-link">推荐</a>
+		          <a href="#" class="nav-link">引用</a>
+		          <a href="#" class="nav-link">排序</a>
+		          <a href="#" class="nav-link">删除</a>         
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+      </div><!-- d-flex -->
+      <!--搜索-->
+      <div class="search-box pd-x-20 pd-sm-x-30" style="display:none;">
+      	<div class="search-content bg-white">
+      		<div class="row">
+      			<!--标题-->
+            <div class="mg-r-10 mg-b-30 search-item">
+              <input class="form-control search-title" placeholder="标题" type="text" >
+            </div>
+            <!--日期-->
+            <div class="wd-200 mg-b-30 mg-r-10 search-item">
+	            <div class="input-group">
+	              <span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+	              <input type="text" class="form-control fc-datepicker search-time" placeholder="MM/DD/YYYY">
+	            </div>
+	          </div>
+            <div class="wd-20 mg-b-30 mg-r-10 ht-40 d-flex align-items-center justify-content-start">至</div>
+            <div class="wd-200 mg-b-30 mg-r-10 search-item">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+                <input type="text" class="form-control fc-datepicker search-time" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+            <!-- wd-200 -->
+	          <!--作者-->
+	          <div class="mg-r-10 mg-b-30 search-item">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon ion-person tx-16 lh-0 op-6"></i></span>
+                <input type="text" class="form-control search-author" placeholder="作者">
+              </div>
+            </div>
+            <!--状态-->
+            <div class=" mg-lg-t-0 mg-r-10 mg-b-30 search-item">
+              <select class="form-control select2" data-placeholder="状态">
+                <option label="Choose one"></option>             
+                <option value="">&nbsp;</option> 
+                <option value="Firefox">已发</option>
+                <option value="Chrome">草稿</option>                
+              </select>
+            </div>
+            <div class="search-item mg-b-30">
+              <button class="btn btn-outline-info active pd-x-10 pd-y-10 tx-uppercase tx-bold tx-spacing-6 tx-14">搜索</button>
+            </div>
+          </div><!-- row -->
+      	</div>
+      </div>
+      <div class="br-pagebody pd-x-20 pd-sm-x-30">
+        <div class="card bd-0 shadow-base">
+          <table class="table mg-b-0 table-fixed" id="content-table">
+            <thead style="display: none;">
+              <tr>
+                
+                <th class="tx-12-force tx-mont tx-medium wd-20p-force">标题</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-20p-force">点击量</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-20p-force">状态</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-20p-force">日期</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-20p-force">作者</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>                
+                <td>
+                  <div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+				                	<div class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://media.tcloud.sxrtv.com/21/79/2179c7bd-3087-bb2f-285a-2b930c130781/t.jpg" alt="Image">
+				                	</div>
+		                			
+		                		</div>	
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">健身，真的是最好的美颜方式，从脸美到心(已发) </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  				          
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://media.tcloud.sxrtv.com/21/79/2179c7bd-3087-bb2f-285a-2b930c130781/t.jpg" alt="Image">
+				                	</di>
+		                		</div>	
+				                <div class="card-body  bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://wx4.sinaimg.cn/large/a1b61d0aly1fn2h3xwat6j20dw0dwtbp.jpg" alt="Image">
+				                	</di>
+		                		</div>	
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on.</p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+		                		<div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="https://img11.360buyimg.com/cms/jfs/t17200/136/1081596667/238318/4d21572e/5abb04d1Nccc96c9f.jpg" alt="Image">
+				                	</di>
+		                		</div>				                		                		
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on the </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+				                	<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="https://img11.360buyimg.com/n7/jfs/t19252/232/1223818018/85617/2b4ccc02/5ac2f8acNd387b169.jpg" alt="Image">
+				                	</di>
+		                		</div>
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <div class="btn-group">
+					                  	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                						<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  					<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+					                  </div>
+					                  
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                
+              </tr>
+              <tr>                
+                <td>
+                  <div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+				                	<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://media.tcloud.sxrtv.com/21/79/2179c7bd-3087-bb2f-285a-2b930c130781/t.jpg" alt="Image">
+				                	</di>
+		                			
+		                		</div>	
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">健身，真的是最好的美颜方式，从脸美到心(已发) </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  				          
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://img.daimg.com/uploads/allimg/130902/1-130Z2000247.jpg" alt="Image">
+				                	</di>
+		                		</div>	
+				                <div class="card-body  bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://img3.redocn.com/tupian/20141202/xiaochaoyeshanjunmeishi_3491615.jpg" alt="Image">
+				                	</di>
+		                		</div>	
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on.</p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+		                		<div class="list-pic-box">
+		                			<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://pic31.nipic.com/20130802/13163193_145819676170_2.jpg" alt="Image">
+				                	</di>
+		                		</div>				                		                		
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on the </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                					<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  				<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                <td class="hidden-xs-down">
+                	<div class="row">
+            				<div class="col-md">
+		                	<div class="card bd-0">
+				                <div class="list-pic-box">
+				                	<di class="list-img-contanier">
+				                		<img class="card-img-top img-fluid" src="http://img.juimg.com/tuku/yulantu/140218/330598-14021R23A410.jpg" alt="Image">
+				                	</di>
+		                		</div>
+				                <div class="card-body bd-t-0 rounded-bottom">
+				                  <p class="card-text">Some quick example text to build on </p>
+				                  <div class="row mg-l-0 mg-r-0 mg-t-5">				                  					                  
+					                  <label class="ckbox mg-b-0 d-inline-block mg-r-5">
+					                    <input type="checkbox"><span></span>
+					                  </label>
+					                  <div class="btn-group">
+					                  	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+	                						<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+	                  					<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+					                  </div>
+					                  
+				                  </div>
+				                </div>
+				              </div>
+				          	</div>
+				          </div>  			
+                </td>
+                
+              </tr>
+           
+            </tbody>
+          </table>
+          <div id="tide_content_tfoot">
+          	<label class="ckbox mg-b-0 mg-r-30 ">
+            	<input type="checkbox" id="checkAll_1"><span></span>
+          	</label> 
+          	<span class="mg-r-20 ">共666条</span>
+          	<span class="mg-r-20 ">1/16页</span>
+          	<div class="jump_page ">
+          		<span class="">跳至:</span>
+          		
+          		<label class="wd-60 mg-b-0">
+                <input class="form-control" placeholder="" type="text">
+              </label>
+          		<!--<select class="form-control select2 wd-80" data-placeholder="状态">
+		                        
+		            <option value="1">1</option> 
+		            <option value="Firefox">2</option>
+		            <option value="Chrome">3</option>                
+		          </select>-->
+		          <span class="">页</span>
+		          <a href="javascript:;" class="tx-14">Go</a>
+          	</div>
+          	<div class="each-page-num mg-l-20 ">
+          		<span class="">每页显示:</span>
+          		<select class="form-control select2 wd-80" data-placeholder="状态">
+		            <!--<option label="Choose one"></option>-->             
+		            <option value="1" >10</option> 
+		            <option value="Firefox" selected="selected">20</option>
+		            <option value="Chrome">30</option>                
+		          </select>
+		          <span class="">条</span>
+          	</div>
+          </div>
+          
+        </div>
+      </div><!-- br-pagebody -->
+      
+            
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    <script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+	  <script src="../../lib/highlightjs/highlight.pack.js"></script>
+    <!--<script src="../../lib/2018/datatables/jquery.dataTables.js"></script>
+    <script src="../../lib/2018/datatables-responsive/dataTables.responsive.js"></script>-->
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    <script src="../../common/2018/bracket.js"></script>    
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+       
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+        
+    
+		    $("#checkAll,#checkAll_1").click(function(){
+		    	if($("#content-table").hasClass("table-fixed")){
+		    		var checkboxAll = $("#content-table tr").find("td").find(":checkbox") ;
+		    	}else{
+		    		var checkboxAll = $("#content-table tr").find("td:first-child").find(":checkbox") ;
+		    	}		    	
+		    	var existChecked = false ;
+		    	for (var i=0;i<checkboxAll.length;i++) {
+		    		if(!checkboxAll.eq(i).prop("checked")){
+		    			existChecked = true ;
+		    		}
+		    	}
+		    	if(existChecked){
+		    		checkboxAll.prop("checked",true);
+		    		$(this).prop("checked",true);
+		    	}else{
+		    		checkboxAll.removeAttr("checked");
+		    		$(this).removeAttr("checked");
+		    	}
+		    	return;
+		    })
+		  
+		     
+		   
+      });
+    </script>
+  </body>
+</html>

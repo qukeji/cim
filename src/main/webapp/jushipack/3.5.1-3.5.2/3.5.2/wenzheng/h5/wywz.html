@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>我要问政</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<link type="text/css" rel="stylesheet" href="../css/font-awesome/css/font-awesome.css" />	
+	<script src="../js/fontSize.js"></script>	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	
+	</head>
+	<body id="wywz">
+		<div class="types select-item">
+			<p>类型：</p>
+			<div class="select ">
+				<select class="form-style" placeholder="类型">	                      
+		            <option value="1" selected="selected">投诉</option> 
+		            <option value="2">咨询</option>
+		            <option value="3">问题</option> 
+		            <option value="4">建议</option>
+		            <option value="5">反馈</option>  
+		        </select>
+		        <i class="fa fa-caret-down"></i>
+			</div>			
+		</div>
+		<div class="wz-part select-item">
+			<p>部门：</p>
+			<div class="select">
+				<select class="form-style" placeholder="类型">	                      
+		            <!--<option value="0" selected="selected">人力资源社会保障部</option> -->
+		            <!--<option value="1">公安部</option>-->
+		            <!--<option value="2">交通部</option>                -->
+		        </select>
+		        <i class="fa fa-caret-down"></i>
+			</div>			
+		</div>
+		<div class="wz-public select-item">
+			<p>是否公开：</p>
+			<div class="select">
+				<select class="form-style" placeholder="类型">	                      
+		            <option value="0" selected="selected">公开</option> 
+		            <option value="1">保密</option>
+		                           
+		        </select>
+		        <i class="fa fa-caret-down"></i>
+			</div>			
+		</div>
+		<div class="wz-zhuti input-item">
+			<input type="text" value="" name="" placeholder="请输入您的主题"/>
+		</div>
+		<div class="wz-detail textarea-item">
+			<textarea class="" cols="5" placeholder="请输入您的详细问题"></textarea>
+		</div>
+		<div class="wz-name input-item">
+			<input type="name" value="" placeholder="请输入您的姓名"/>
+		</div>
+		<div class="wz-phone input-item">
+			<input type="tel" value="" name="" placeholder="请输入您的手机号码"/>
+		</div>
+		<div class="submit">
+        	<a href="javascript:;" class="submit-a">提交</a>
+        </div>
+        <div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		<div class="backpage">
+    		<span class=""></span>
+    	</div>
+	</body>
+	<script>
+	    //是否显示部门
+	    var dispalyPart = false ;
+	    $.ajax({
+			type:"get",
+			url: "/config/appconfig.json",				  		
+			dataType:"json",
+			success:function(data){
+				if(data.selectionDepartment==0){
+				    $(".wz-part").hide();
+				    dispalyPart = true ;
+				}else{
+				    $(".wz-part").show();
+				    dispalyPart = false ;
+				}
+			},error:function(e){
+				console.log(e)
+			}
+		})
+		
+        //请求部门列表
+        getPartsList();
+        function getPartsList(){
+			$.ajax({
+				type:"get",
+				url: siteUrl+"/channel_list.jsp",				  		
+				dataType:"jsonp",
+				success:function(data){
+					var optionHtml = "" ;
+					console.log(data.result)
+					for(var i=0;i<data.result.length;i++){
+					    if(i==0){
+							optionHtml += '<option value="'+i+'" data-id="'+data.result[i].id+'" selected="selected">'+data.result[i].name+'</option> '
+						}else{
+							optionHtml += '<option value="'+i+'" data-id="'+data.result[i].id+'">'+data.result[i].name+'</option> '
+						}	
+					}
+					console.log(optionHtml)
+					$(".wz-part select").append(optionHtml) ;
+				}
+			});
+		}
+        var sssPhone = sSs("wz_phone") ;
+        var everClick = false ;
+        $(".submit-a").click(function(){
+        	var type =  $(".types option:selected").val() ;
+		    var ChannelId  =  $(".wz-part option:selected").attr("data-id") ;
+		    var isPublic = $(".wz-public option:selected").val() ;
+	        var title = $(".wz-zhuti input").val() ;
+	        var question = $(".wz-detail textarea").val() ;
+	        var name = $(".wz-name input").val() ;
+	        var phone = $(".wz-phone input").val() ;
+	        
+	        if($.trim(title)==""){
+	            commonPop("请输入您的主题！");
+	            return false;
+	        }
+	        if($.trim(question)==""){
+	            commonPop("请输入您的问题！");
+	            return false;
+	        }
+	        if($.trim(name)==""){
+	            commonPop("请输入您的名字！");
+	            return false;
+	        }
+	        var re = /^(1[3456789][0-9]{9})$/;
+            if (re.test(phone)==false) {
+                commonPop("请输入正确的手机号！");
+                return false; 
+            }
+            
+            if(dispalyPart){
+                ChannelId ="" ;
+            }
+            if(everClick){
+                return false ;
+            }
+            everClick = true ;
+			$.ajax({
+				type:"get",
+				url: siteUrl+"/publish_wenzheng.jsp",				  		
+				dataType:"jsonp",
+				data:{
+					"type":type,"channelid":ChannelId,"show":isPublic,"title":title,
+					"summary":question,"username":name,"phone":phone,"userid":"1212"
+				},
+				success:function(data){
+				   // if(sssPhone){
+				   //     window.location.href = "wdwz-list.html?phone="+sssPhone ;
+				   // }else{
+				        sSs("wz_phone",phone) ;
+				        window.location.href = "wdwz-list.html?phone="+phone ;
+				   // }
+				}
+			});
+
+        })
+	</script>
+</html>

@@ -1,0 +1,150 @@
+.cursor-pointer{cursor: pointer;}
+html,body{min-height: 100%;height: 100%;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
+.login{min-height: 100%;display: flex;justify-content: space-between;align-items: center;flex-direction: column;}
+.login-top{height: 130px;width: 100%;flex: 0 0 86px;display: flex;justify-content: center;min-height: 130px;}
+.login_footer{height: 100px;width: 100%;flex: 0 0 100px;}
+.login-mid{display: flex;flex-direction: column;justify-content: center;align-items: center;flex: 1;overflow-y: auto;overflow-x: hidden;margin-top: -85px;}
+.login-mid>.wd-lg-1000{display: flex;justify-content: flex-start;flex-direction: column;height: 100%;flex: 1;}
+
+.anystretch img{height: 100% !important;top: 0 !important;}
+ul,li{list-style: none;}
+.logo{height: 60px;width: 230px;top: 35px;left: 45px;overflow: hidden;position: absolute;z-index: 2;display: flex;align-items: center;color: white;}
+.logo img{height: 100%;max-width:100%;margin-right: 10px;}
+.logo p{color: rgb(255, 255, 255);font-style: normal; letter-spacing: 0px;text-decoration: none;font-weight: 400;margin:0;padding:0;}
+.logo p:nth-child(1){font-size: 14px;line-height: 20px;color:#008fe1;}
+.logo p:nth-child(2){font-size: 16px;line-height: 24px;}
+.login_out {position: absolute;top: 35px;right: 45px;height: 44px;line-height: 44px;font-size: 14px;display: flex;align-items: center;}
+.login_footer {text-align: center;position: static;height: 100px;display: flex;align-items: center;justify-content: center;}
+.login_footer a:hover,.login_out a:hover{color: #999;}
+
+.system-info{line-height: 26px;margin-top: 60px;display:none;}
+.system-info .info-box{max-height:90px;overflow-y:auto;padding-bottom: 10px;overflow: hidden;max-width: 600px;min-height: 60px;}
+.system-info *::-webkit-scrollbar { display: none;}
+.system-info-wap{display: none !important;}
+.lh-40px{line-height: 40px;}
+.login_in_menu_box{display: none;}
+.login_in_menu_box:nth-child(1){display: block;}
+.login_in_menu_box ul{display: flex;flex-direction: row;flex-wrap: wrap;}
+.login_in_menu_box ul li{width: 86px;height: 86px;	font-size: 12px;transition: ease-in-out 0.3s;list-style: none;margin-right: 10px;margin-bottom: 10px;}
+.login_in_menu_box ul li a{width: 86px;height: 86px;display: flex;justify-content: center;align-items: center;flex-direction: column;border-radius: 5px;font-size: 12px;color: #fff;background-color: #F49917 ;}
+.login_in_menu_box ul li a span{margin-top: 8px;}
+
+/*运营支撑背景色*/
+.login_in_menu_box .yyzc ul li a{background-color: #F49917 ;}
+/*应用发布背景色*/
+.login_in_menu_box .yyfb ul li a{background-color: rgba(255, 64, 95, 0.75) ;}
+/*资源汇聚背景色*/
+.login_in_menu_box .zyhj ul li a{background-color:rgb(139, 195, 74);}
+/*生产工具背景色*/
+.login_in_menu_box .scgj ul li a{background-color: rgba(37, 185, 255, 0.75);}
+
+/*策划指挥*/
+.login_in_menu_box .chzh ul li a{background-color: rgba(105, 213, 63, 0.75);}
+/*采集汇聚*/
+.login_in_menu_box .cjhj ul li a{background-color: rgba(139, 195, 74, 0.75);}
+/*内容生产管理*/
+.login_in_menu_box .nrscgl ul li a{background-color: rgba(37, 185, 255, 0.75);}
+/*融合发布*/
+.login_in_menu_box .rhfb ul li a{background-color: rgba(255, 152, 0, 0.75);}
+/*综合服务*/
+.login_in_menu_box .zhfw ul li a{background-color: rgba(26, 214, 221, 0.75);}
+/*融合应用*/
+.login_in_menu_box .rhyy ul li a{background-color: rgba(255, 64, 95, 0.75);}
+/*数据分析*/
+.login_in_menu_box .sjfx ul li a{background-color: rgba(129, 103, 227, 0.75);}
+
+/*工具*/
+.login_in_menu_box .gj ul li a{background-color: rgba(31, 139, 232, 0.75);}
+/*运营管理*/
+.login_in_menu_box .yygl ul li a{background-color: rgba(165, 232, 31, 0.75);}
+/*宣管协作*/
+.login_in_menu_box .xgxz ul li a{background-color: rgba(255, 152, 0, 0.75);}
+/*资源管理*/
+.login_in_menu_box .zygl ul li a{background-color: rgba(60, 152, 210, 0.75);}
+/*接口管理*/
+.login_in_menu_box .jkgl ul li a{background-color: rgba(63, 81, 181, 0.75);}
+/*安全管理*/
+.login_in_menu_box .aqgl ul li a{background-color: rgba(0, 150, 136, 0.75);}
+
+.login_in_menu_box ul li:hover {opacity: 1;}
+.login_in_menu_box ul li:hover i {animation:pulse 1s ;}
+
+.index-nav{height: 60px;}
+.index-nav ul{display: flex;justify-content: center;align-items: center;color: #fff;}
+.index-nav ul li a{color: #fff;font-weight: 700;font-size: 20px;padding: 0 20px;}
+.index-nav ul li.ac a{color: rgba(255, 152, 0, 1);}
+
+/*自定义显示模块*/
+#display-select .config-box ul{display: flex;flex-direction: row;flex-wrap: wrap;}
+#display-select .config-box ul li{width: 86px;height: 118px;	font-size: 12px;transition: ease-in-out 0.3s;list-style: none;margin-right: 15px;margin-bottom: 25px;display: flex;justify-content: space-between;flex-direction: column;align-items: center;}
+#display-select .config-box ul li a{width: 86px;height: 86px;display: flex;justify-content: center;align-items: center;flex-direction: column;border-radius: 5px;font-size: 12px;color: #fff;background-color: #F49917 ;margin-bottom: 10px;}
+#display-select .config-box ul li a span{margin-top: 4px;}
+/*运营支撑背景色*/
+#display-select .config-box.yyzc ul li a{background-color: #F49917 ;}
+/*应用发布背景色*/
+#display-select .config-box.yyfb ul li a{background-color: rgba(255, 64, 95, 0.75) ;}
+/*资源汇聚背景色*/
+#display-select .config-box.zyhj ul li a{background-color:rgb(139, 195, 74);}
+/*生产工具背景色*/
+#display-select .config-box.scgj ul li a{background-color: rgba(37, 185, 255, 0.75);}
+
+/*策划指挥*/
+#display-select .config-box.chzh ul li a{background-color: rgba(105, 213, 63, 0.75);}
+/*采集汇聚*/
+#display-select .config-box.cjhj ul li a{background-color: rgba(139, 195, 74, 0.75);}
+/*内容生产管理*/
+#display-select .config-box.nrscgl ul li a{background-color: rgba(37, 185, 255, 0.75);}
+/*融合发布*/
+#display-select .config-box.rhfb ul li a{background-color: rgba(255, 152, 0, 0.75);}
+/*综合服务*/
+#display-select .config-box.zhfw ul li a{background-color: rgba(26, 214, 221, 0.75);}
+/*融合应用*/
+#display-select .config-box.rhyy ul li a{background-color: rgba(255, 64, 95, 0.75);}
+/*数据分析*/
+#display-select .config-box.sjfx ul li a{background-color: rgba(129, 103, 227, 0.75);}
+
+/*工具*/
+#display-select .config-box.gj ul li a{background-color: rgba(31, 139, 232, 0.75);}
+/*运营管理*/
+#display-select .config-box.yygl ul li a{background-color: rgba(165, 232, 31, 0.75);}
+/*宣管协作*/
+#display-select .config-box.xgxz ul li a{background-color: rgba(255, 152, 0, 0.75);}
+/*资源管理*/
+#display-select .config-box.zygl ul li a{background-color: rgba(60, 152, 210, 0.75);}
+/*接口管理*/
+#display-select .config-box.jkgl ul li a{background-color: rgba(63, 81, 181, 0.75);}
+/*安全管理*/
+#display-select .config-box.aqgl ul li a{background-color: rgba(0, 150, 136, 0.75);}
+
+@media (max-width: 750px){
+	.login-top {flex: unset;display: flex;align-content: center;justify-content: space-between;margin: 10px 0 0 0;height:auto;min-height: 50px;}
+	.logo {margin: 0;background-size:40px ;text-indent: 0;font-size: 14px;top: 0;left: 0;
+		line-height: 20px;color: #fff;width: auto;padding-left: 15px;line-height: 51px;}
+	.logo img{height: 40px;margin-right: 6px;}	
+	.logo p:nth-child(1){font-size: 12px;line-height: 18px;}
+	.logo p:nth-child(2){font-size: 14px;line-height: 22px;}
+	.login_out{top: 0;right: 7px;padding-right: 0px;height: 51px;}
+	.login_out i{display: none;}
+	.login-mid{margin-top: 0;}
+	.system-info{display: none !important;}
+	.system-info-wap{display: none !important;margin-top:0;}
+	.login_in_menu_box ul{justify-content: space-between;}	
+	.login_in_menu_box ul li{margin-right: 0;margin-bottom: 20px;}
+	.login_in_menu_box ul li.add-li{display: none;}
+	.login-mid{padding:0 12px}
+	.wd-lg-1000{margin-top:10px;}
+	.system-info .info-box{max-height:90px;line-height:24px;min-height: 0;}
+	.index-nav{height: auto;}
+	.index-nav ul{flex-wrap: wrap;justify-content: flex-start;}
+	.index-nav ul li{margin-bottom: 10px;}
+	.index-nav ul li a{padding: 0 10px}
+}
+
+@media (max-width: 360px){	
+	.logo {background-size:30px ;font-size: 12px; padding-left: 10px;}
+	.login_out{font-size: 12px;}
+	.logo img {height: 34px;margin-right: 4px;}
+	.logo p:nth-child(2) {font-size: 12px;}
+}

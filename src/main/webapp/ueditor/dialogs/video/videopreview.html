@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="robots" content="noindex, nofollow">
+		<title>TideCMS</title>
+		<link href="../../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="../../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+		<link href="../../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../../style/2018/bracket.css">
+		<link rel="stylesheet" href="../../../style/2018/common.css">
+		<script src="../../../lib/2018/jquery/jquery.js"></script>
+		<script type="text/javascript" src="../../../common/2018/tidePlayer.js"></script>
+		<style>
+			html, body { width: 100%; height: 100%; }
+		    .config-box.picview{height: 100%;}
+			.config-box.picview ul,.config-box.picview ul li{height: 100%;}
+			.text-content{padding: 10px 10px 20px 10px ;}
+			.swiper-slide-thumb-active .img-box{border: 1px solid #ff3030;}
+			.video-content{height: 100%;}
+			#videobox{max-height: 100%;overflow: hidden;width: 960px;height: 488px;}
+		</style>
+	</head>
+	<body>
+		<div class="bg-white modal-box">
+			<div class="modal-body modal-body-btn pd-15 overflow-y-auto">
+				<div class="config-box picview">
+					<ul>
+						
+						<!--视频区-->
+						<li class="li-item video-content block">
+							<div id="videobox">
+							
+							</div>					
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--modal-body-->
+
+			<div class="btn-box">
+				<div class="modal-footer">
+					<!--<button name="startButton" type="submit" class="btn btn-primary tx-size-xs" id="startButton">确认</button>-->
+					<button name="btnCancel1" type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal" id="btnCancel1">关闭</button>
+				</div>
+			</div>
+		</div>
+		<!-- modal-box -->
+	</body>
+	<script src="../../../common/2018/common2018.js"></script>
+	<script src="../../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../../lib/2018/moment/moment.js"></script>
+	<script src="../../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	<!--<script src="../../../lib/2018/peity/jquery.peity.js"></script>-->
+	<script src="../../../lib/2018/select2/js/select2.min.js"></script>
+	<script src="../../../common/2018/bracket.js"></script>
+	<script>
+		//获取地址栏参数
+		function getUrl(name) {
+		    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+		var videoUrl = getUrl("videoUrl") ;
+		
+		tidePlayer({video:videoUrl,divid:"videobox"}) ;
+	</script>
+
+</html>

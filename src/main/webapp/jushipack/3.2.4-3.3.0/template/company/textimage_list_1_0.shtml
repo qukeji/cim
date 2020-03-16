@@ -1,0 +1,74 @@
+{"list_id":"$channel.getId()",
+"list_name":"$channel.getName()",
+"cache_key":"$channel.getSerialNo()",
+"cache_time":"600",
+"pagecount":"$Controller.getPageNumber()",
+#set($config_bl_channel= $Controller.getChannel("s$channel.getSite().getId()_baoliao_button_control"))
+#set($config_bl_channel_id=$config_bl_channel.getId())
+#set($current_channelid=$channel.getId())
+#set($baoliao=false)
+#set($location=0)
+#set($buttonname="")
+#set($photo="")
+#set($serial="")
+#set($showcategory=0)
+#set($baoliao_doc_type=0)
+#set($baoliao_contenturl="")
+#set($baoliaotitle="")
+#set($mybaoliaotitle="")
+#foreach($subitem1 in $Controller.getItemUtil().listItems($config_bl_channel_id," where Status=1 and channelid=$current_channelid "))          
+      #set($baoliao=true)
+      #set($location=$subitem1.getValue("location"))
+      #set($buttonname=$subitem1.getTitle())
+      #set($photo=$subitem1.getValue("Photo"))
+      #set($serial=$subitem1.getValue("serial"))
+      #set($showcategory=$subitem1.getValue("showcategory"))
+      #set($baoliao_doc_type=$subitem1.getValue("doc_type"))
+      #set($baoliao_contenturl=$subitem1.getValue("href_app"))
+      #set($baoliaotitle=$subitem1.getValue("baoliaotitle"))
+      #set($mybaoliaotitle=$subitem1.getValue("mybaoliaotitle"))
+#end
+"baoliao":$baoliao,"location":$location,"buttonname":"$buttonname","photo":"$photo","serial":"$serial","showcategory":$showcategory,"doc_type":"$baoliao_doc_type","contentUrl":"$baoliao_contenturl","baoliaotitle":"$baoliaotitle","mybaoliaotitle":"$mybaoliaotitle",
+#set($config_channel= $Controller.getChannel("s$channel.getSite().getId()_config"))
+#set($allowcomment=0)
+#set($showread=0)
+#set($showcomment=0)
+#set($showtime=0)
+#set($showtype=0)
+#foreach($subitem2 in $Controller.getItemUtil().listItems($config_channel.getId(),"  where status=1 "))     
+      #set($allowcomment=$subitem2.getValue("allowcomment"))
+      #set($showread=$subitem2.getValue("showread"))
+      #set($showcomment=$subitem2.getValue("showcomment"))
+      #set($showtime=$subitem2.getValue("showtime"))  
+      #set($showtype=$subitem2.getValue("showtype"))    
+#end
+#set($button_channel = $Controller.getChannel("s$channel.getSite().getId()_button"))
+#set($button_channelid = $button_channel.getId())
+$Controller.setChannel($channel)
+#if($Controller.hasPrevious())    
+"list":[  
+#set($i=0)
+#set($total= $Controller.listItems('Photo').size())
+#foreach( $item in $Controller.listItems("*","and item_type!=5 and doc_type=0 "," order by  DocTop desc ,DocTopTime  desc  ,OrderNumber desc "))#if($i>0),#end
+#set($total_custom = $item.listChildItems(14145).size()+0)
+{"contentID":"$item.getGlobalID()","title":"#if($item.getIntValue('showbuttontitle')==0)$util.JSQuote($item.getTitle())#else#end","sharepicurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#else""#end,"summary":"$util.JSONQuote($item.getValue('Summary'))","shareliveurl":"$item.getValue('live_shareurl')","docfrom":"$item.getValue('DocFrom')","parent":"$item.getValue('Parent')","photo":#if(($item.getValue('item_type')==2||$item.getValue('item_type')==5)&&$item.getValue('Photo4')!="")"$item.getValue('Photo4')"#else"$item.getValue('Photo')"#end,"photo2":"$item.getValue('Photo2')","photo3":"$item.getValue('Photo3')","pdf":"$item.getValue('pdf')","sharewapurl":#if($item.getValue("doc_type")==3||$item.getValue("doc_type")==7)"$item.getValue("href_app")"#elseif($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#elseif($item.getValue("doc_type")==1)"$item.getFullHref('video')"#elseif($item.getValue("doc_type")==8)"$item.getFullHref('live')"#else"$item.getFullHref()"#end,"contentUrl":#if(($item.getValue('Parent')!=""&&$item.getValue('Parent')!=0)||$item.getValue("doc_type")==3||$item.getValue("doc_type")==7)"$item.getValue("href_app")"#elseif($item.getValue("doc_type")==2)"$item.getFullHref('pic')"#else"$item.getFullHref('app')"#end,"content_type":"$item.getValue("content_type")","doc_type":#if($item.getValue("doc_type")==6||$item.getValue("doc_type")==7)"0"#elseif($item.getValue("doc_type")==8)"1"#else"$item.getValue("doc_type")"#end,"mediatype":"$item.getValue("mediatype")","audio":#if($item.getValue("doc_type")==8)"1"#else"$item.getValue("isAudio")"#end,"duration":"$util.formatDuration($item.getIntValue('duration'),'##:##:## ##').trim()","item_type":"$item.getValue("item_type")","juxian_liveid":"$item.getValue("juxian_liveid")","juxian_companyid":"$item.getValue("juxian_companyid")","showcompanyinfo":"#if($item.getValue("juxian_companyid")!=0&&$item.getValue("juxian_liveid")==0)0#else 1 #end","showcomment":"#if($item.getValue("href_app")!=""&&($item.getValue("Parent")==0 ||$item.getValue("Parent")==""))1#else$showcomment#end","showread":"$showread","showcollect":"$item.getValue("showcollect")","allowcomment":"#if($item.getValue("href_app")!=""&&($item.getValue("Parent")==0 ||$item.getValue("Parent")==""))1#else$allowcomment#end","showtime":"$showtime","showtype":"$showtype","frame":"$item.getValue("frame")","secondcategory":"$item.getValue("secondcategory")","jumptype":#if($item.getValue("doc_type")==6)"1"#else"$item.getValue("jumptype")"#end,"buttonlist":[#set($ii=0)#foreach($subitem  in $item.listLinkChildItems_())#if($ii>0),#end
+{"contentID":"$subitem.getGlobalID()","title":"$util.JSQuote($subitem.getTitle())","sharepicurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#else""#end,"docfrom":"$item.getValue('DocFrom')","parent":"$subitem.getValue('Parent')","photo":#if(($subitem.getValue('item_type')==2||$subitem.getValue('item_type')==5)&&$subitem.getValue('Photo4')!="")"$subitem.getValue('Photo4')"#else"$subitem.getValue('Photo')"#end,"photo2":"$subitem.getValue('Photo2')","photo3":"$subitem.getValue('Photo3')","contentUrl":#if($subitem.getValue("doc_type")==3||$subitem.getValue("doc_type")==7)"$subitem.getValue("href_app")"#elseif($subitem.getValue("doc_type")==2)"$subitem.getFullHref('pic')"#else"$subitem.getFullHref('app')"#end,"content_type":"$subitem.getValue("content_type")","doc_type":#if($subitem.getValue("doc_type")==6||$subitem.getValue("doc_type")==7)"0"#elseif($subitem.getValue("doc_type")==8)"1"#else"$subitem.getValue("doc_type")"#end,"juxian_liveid":"$item.getValue("juxian_liveid")","item_type":"$subitem.getValue("item_type")","showcomment":"#if($subitem.getValue("href_app")!=""&&($subitem.getValue("Parent")==0 ||$subitem.getValue("Parent")==""))1#else$showcomment#end","showread":"$showread","showcollect":"$subitem.getValue("showcollect")","allowcomment":"#if($subitem.getValue("href_app")!=""&&($subitem.getValue("Parent")==0 ||$subitem.getValue("Parent")==""))1#else$allowcomment#end","showtime":"$showtime","showtype":"$showtype","frame":"$subitem.getValue("frame")","secondcategory":"$subitem.getValue("secondcategory")","jumptype":#if($subitem.getValue("doc_type")==6)1#else"$subitem.getValue("jumptype")"#end}
+#set($ii=$ii+1)
+#end]}
+#set($i=$i+1)
+#end]
+#else
+"list":[
+#set($i=0)
+#set($total= $Controller.listItems('Photo').size())
+#foreach( $item in $Controller.listItems("*","and item_type!=5 and doc_type=0 "," order by  DocTop desc ,DocTopTime  desc  ,OrderNumber desc "))#if($i>0),#end
+#set($total_custom = $item.listChildItems(14145).size()+0)
+{"contentID":"$item.getGlobalID()","title":"#if($item.getIntValue('showbuttontitle')==0)$util.JSQuote($item.getTitle())#else#end","sharepicurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#else""#end,"summary":"$util.JSONQuote($item.getValue('Summary'))","shareliveurl":"$item.getValue('live_shareurl')","docfrom":"$item.getValue('DocFrom')","parent":"$item.getValue('Parent')","photo":#if(($item.getValue('item_type')==2||$item.getValue('item_type')==5)&&$item.getValue('Photo4')!="")"$item.getValue('Photo4')"#else"$item.getValue('Photo')"#end,"photo2":"$item.getValue('Photo2')","photo3":"$item.getValue('Photo3')","pdf":"$item.getValue('pdf')","sharewapurl":#if($item.getValue("doc_type")==3||$item.getValue("doc_type")==7)"$item.getValue("href_app")"#elseif($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#elseif($item.getValue("doc_type")==1)"$item.getFullHref('video')"#elseif($item.getValue("doc_type")==8)"$item.getFullHref('live')"#else"$item.getFullHref()"#end,"contentUrl":#if(($item.getValue('Parent')!=""&&$item.getValue('Parent')!=0)||$item.getValue("doc_type")==3||$item.getValue("doc_type")==7)"$item.getValue("href_app")"#elseif($item.getValue("doc_type")==2)"$item.getFullHref('pic')"#else"$item.getFullHref('app')"#end,"content_type":"$item.getValue("content_type")","doc_type":#if($item.getValue("doc_type")==6||$item.getValue("doc_type")==7)"0"#elseif($item.getValue("doc_type")==8)"1"#else"$item.getValue("doc_type")"#end,"mediatype":"$item.getValue("mediatype")","audio":#if($item.getValue("doc_type")==8)"1"#else"$item.getValue("isAudio")"#end,"duration":"$util.formatDuration($item.getIntValue('duration'),'##:##:## ##').trim()","item_type":"$item.getValue("item_type")","juxian_liveid":"$item.getValue("juxian_liveid")","juxian_companyid":"$item.getValue("juxian_companyid")","showcompanyinfo":"#if($item.getValue("juxian_companyid")!=0&&$item.getValue("juxian_liveid")==0)0#else 1 #end","showcomment":"#if($item.getValue("href_app")!=""&&($item.getValue("Parent")==0 ||$item.getValue("Parent")==""))1#else$showcomment#end","showread":"$showread","showcollect":"$item.getValue("showcollect")","allowcomment":"#if($item.getValue("href_app")!=""&&($item.getValue("Parent")==0 ||$item.getValue("Parent")==""))1#else$allowcomment#end","showtime":"$showtime","showtype":"$showtype","frame":"$item.getValue("frame")","secondcategory":"$item.getValue("secondcategory")","jumptype":#if($item.getValue("doc_type")==6)"1"#else"$item.getValue("jumptype")"#end,"buttonlist":[#set($ii=0)#foreach($subitem  in $item.listLinkChildItems_())#if($ii>0),#end
+{"contentID":"$subitem.getGlobalID()","title":"$util.JSQuote($subitem.getTitle())","sharepicurl":#if($item.getValue("doc_type")==2)"$item.getFullHref('picwap')"#else""#end,"docfrom":"$item.getValue('DocFrom')","parent":"$subitem.getValue('Parent')","photo":"$subitem.getValue('Photo')","photo2":#if(($subitem.getValue('item_type')==2||$subitem.getValue('item_type')==5)&&$subitem.getValue('Photo4')!="")"$subitem.getValue('Photo4')"#else"$subitem.getValue('Photo')"#end,"photo3":"$subitem.getValue('photo3')","contentUrl":#if($subitem.getValue("doc_type")==3||$subitem.getValue("doc_type")==7)"$subitem.getValue("href_app")"#elseif($subitem.getValue("doc_type")==2)"$subitem.getFullHref('pic')"#else"$subitem.getFullHref('app')"#end,"content_type":"$subitem.getValue("content_type")","doc_type":#if($subitem.getValue("doc_type")==6||$subitem.getValue("doc_type")==7)"0"#elseif($subitem.getValue("doc_type")==8)"1"#else"$subitem.getValue("doc_type")"#end,"juxian_liveid":"$item.getValue("juxian_liveid")","audio":"$subitem.getValue("isAudio")","item_type":"$subitem.getValue("item_type")","showcomment":"#if($subitem.getValue("href_app")!=""&&($subitem.getValue("Parent")==0 ||$subitem.getValue("Parent")==""))1#else$showcomment#end","showread":"$showread","showcollect":"$subitem.getValue("showcollect")","allowcomment":"#if($subitem.getValue("href_app")!=""&&($subitem.getValue("Parent")==0 ||$subitem.getValue("Parent")==""))1#else$allowcomment#end","showtime":"$showtime","showtype":"$showtype","frame":"$subitem.getValue("frame")","secondcategory":"$subitem.getValue("secondcategory")","jumptype":#if($subitem.getValue("doc_type")==6)1#else"$subitem.getValue("jumptype")"#end}
+#set($ii=$ii+1)
+#end]}
+#set($i=$i+1)
+#end]
+,"list_slide":<!--\#include virtual="${channel.getFullPath()}list_slide_1_0.json" -->
+#end
+}    

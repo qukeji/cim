@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>$item.getTitle()</title>
+
+<meta name="format-detection" content="telephone=no" />
+<meta itemprop="name" content="$item.getTitle()"/>
+<meta itemprop="image" content="#if($item.getValue('Photo4')!="")#if($item.getValue('Photo4').startsWith("http")==true)$item.getValue('Photo4')#else$channel.getSite().getExternalUrl2()$item.getValue('Photo4')#end#else#if($item.getValue('Photo').startsWith("http")==true)$item.getValue('Photo')#else$channel.getSite().getExternalUrl2()$item.getValue('Photo')#end#end" />
+<meta name="description" itemprop="description" content="$util.JSONQuote($item.getSummary())" />
+<script src="/js/flexible_css.js"></script>
+<script src="/js/flexible.js"></script>
+
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/imgattr.js"></script>
+
+<script type="text/javascript">
+	item_info = window.item_info || {
+		title:"$util.JSQuote($item.getTitle())",
+		url:"$util.JSQuote($item.getHttpHref())",	
+		photo:"$util.JSQuote($item.getValue('Photo'))",	
+		summary:"$util.JSQuote($item.getSummary())",
+		globalid:"$item.getGlobalID()",
+		channelcode:"$item.getChannel().getChannelCode()",
+		userid:"$item.getUser()",
+		publish_date:"$item.getPublishDate()"
+    }
+    var GlobalID = $item.getGlobalID(); 
+    var siteId = $item.getChannel().getSiteID(); 
+    
+    var contentUrl = #if(($item.getValue('Parent')!=""&&$item.getValue('Parent')!=0)||$item.getValue("doc_type")==3||$item.getValue("doc_type")==7)"$item.getValue("href_app")"#elseif($item.getValue("doc_type")==2)"$item.getFullHref('pic')"#else"$item.getFullHref('app')"#end ;
+    var juxian_liveid = "$item.getValue("juxian_liveid")" ;
+    var doc_type = #if($item.getValue("doc_type")==6||$item.getValue("doc_type")==7)"0"#elseif($item.getValue("doc_type")==8)"1"#else"$item.getValue("doc_type")"#end ;
+    var allowcomment = "$item.getValue("allowcomment")"  ;
+    var mediatype = "$item.getValue("mediatype")";
+    var secondcategory = "$item.getValue("secondcategory")";
+    var jumptype = #if($item.getValue("doc_type")==6)"1"#else"$item.getValue("jumptype")"#end ;
+    var frame = "$item.getValue("frame")";
+
+</script>
+<link type="text/css" rel="stylesheet" href="/css/article.css" />
+<link rel="stylesheet" href="/css/pinlun_wap.css">
+<link href="/css/live_con_2_wap.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="width:auto;">
+<!--\#include virtual="/Downloadprompt/down.html" -->
+<input type="hidden" class="globalid" value="$item.getGlobalID()" />
+<input type="hidden" class="siteid" value="$item.getChannel().getSiteID()" />
+
+<div class="content-wrapper">
+      <div class="m-container" id="contentHolder">
+            <article class="articleList" style="display: block;">
+                <div class="head clearfix" id="ucScreen">
+                    <h1 class="article-title">$item.getTitle()</h1>
+                    <div>
+                        <span class="data">$item.FormatDate("yyyy-MM-dd",$item.getPublishDate()) 来源：$item.getValue("DocFrom") <div id="houtianjiayingchang" style="display:none;">浏览：<ga id="number"></ga>次</div></span>
+                    </div>
+                </div>
+                <div class="text clearfix imglistbox">
+                    <div class="text1"><div class="page-content page-on">
+	#foreach($subitem in $item.listChildItems(14145))
+	<img src="$subitem.getValue("Photo")"/>
+	<p>$subitem.getSummary()</p>
+	#end
+	<!--内容页的更多开始--->
+	<script>
+	var total=$item.getTotalPage();
+	</script>
+	<script src="/js/addContent.js"></script>
+	<!--内容页的更多结束--->
+	<!--广告页开始-->
+	  <div id="gg" >
+	   <div id="gg1"style="width: 100%;display:none;">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			</div>
+			<div id="gg2"style="display:none">
+				<div id="gg2_1"style="width: 49.5%;margin-right:1% ;float: left;">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			   </div>
+			   <div id="gg2_2"style="width: 49.5%;float: left; ">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			   </div>
+			</div>
+			<div id="gg3"style="display:none">
+				<div id="gg3_1"style="width: 32.6%;margin-right:1% ;float: left;">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			   </div>
+			   <div id="gg3_2"style="width: 32.6%;margin-right:1% ;float: left;">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			   </div>
+			   <div id="gg3_3"style="width: 32.6%;float: left;">
+				<a href=""><img src="" style="height: 100%;width: 100%;"/></a>
+			   </div>
+			</div>
+	  </div>
+
+	<!--广告页结束-->
+	
+	
+	
+	
+	    #if($channel.getParentChannel().getParentChannel().getParentChannel().getName()=="内容中心")
+	        #if($channel.getParentChannel().getName()=="观事"||$channel.getParentChannel().getName()=="观民")
+	        <!--\#include virtual="${channel.getParentChannel().getFullPath()}banner.html" -->
+	        #end
+	    #elseif($channel.getParentChannel().getParentChannel().getName()=="内容中心")
+	        #if($channel.getName()=="娱乐"||$channel.getName()=="生活"||$channel.getName()=="天下"||$channel.getName()=="热点")
+	        
+	        
+	        
+	        #elseif($channel.getParentChannel().getName()=="栏目")
+	        <!--\#include virtual="${channel.getParentChannel().getFullPath()}banner.html" -->
+	        #end
+	    #end
+	
+	                    </div></div>
+	                </div>
+	            </article>
+	      </div>
+	</div>
+<!--相关新闻-->
+<div class="relative-news">
+	<div class="tl">
+	    <h5>相关新闻</h5>
+	</div>		
+	<div class="news-list">
+		
+	</div>
+</div>
+<!-- <div class="m-top"><a href="#top">回顶部</a></div> -->
+
+<!-- 返回顶部 -->
+<div class="top">
+	<span class=""></span>
+</div>
+<script>
+	var site=4;
+	var siteId = $(".siteid").val();
+    var GlobalID = $(".globalid").val();
+</script>
+<!--<script src="http://as.qguiyang.com/js/tide_stat.js"></script>-->
+<script>
+/*后加*/
+function getImageUrls() {
+    var imgs = document.getElementsByTagName("img");
+    var imgSrcs = [];
+
+    for (var i = 0; i < imgs.length; i++) {
+    	if (parseInt(imgs[i].getAttribute("data-show")) == 1) {
+    		imgSrcs.push(imgs[i].src);
+    	}
+        
+    }
+
+    return JSON.stringify(imgSrcs);
+}
+
+try {
+	window.image.setSource(getImageUrls());
+} catch(e) {
+}
+</script>
+<script>
+    var siteUrl = "$channel.getSite().getUrl()";
+    var Title="$util.JSONQuote($item.getTitle())";
+    var Summary="$util.JSONQuote($item.getSummary())";
+    var pImg  = "#if($item.getValue('Photo4')!="")$item.getValue('Photo4')#else$item.getValue('Photo')#end";
+    if(pImg.substr(0,4)!="http"){
+       pImg  = ""+siteUrl + pImg  ;
+    }    
+    //var UrlLink="$item.getFullHref()";
+    var shareUrl = "$item.getHttpHref()";
+   
+</script>
+<script type="text/javascript" src="/js/history.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/js/js_wap.js"></script>
+<script>
+    relationNews(); //相关新闻
+</script>
+</body>
+</html>

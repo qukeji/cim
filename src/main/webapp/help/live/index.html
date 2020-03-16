@@ -1,0 +1,381 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tide直播播放器调用示例</title>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href="liveplayer.css" rel="stylesheet" type="text/css" />
+<style>
+body{padding:20px;}
+.note{line-height: 23px;color:green;margin:10px 0 0;}
+h2{font-size:24px;font-weight:700;padding:15px 0 10px;}
+.note h3{font-family:"微软雅黑";color:darkred;margin-top:15px;}
+.note ol{padding:0 0 0 20px;}
+.note ol li{padding:3px 0;}
+.note table{width:980px;}
+.note table,.note table td{border:1px solid #ddd;border-collapse:collapse;}
+.note table td{padding:4px;}
+label {
+    border: 0 none;
+    display: block;
+    float: left;
+    margin: 0 8px 5px 0;
+    padding-left: 1px;
+    padding-top: 8px;
+    width:90px;
+    text-align: right;
+    font-size:18px;
+}
+input {
+    background: none repeat scroll 0 0 #f8f8f8;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-top:3px;
+    margin-bottom: 8px;
+    padding: 5px 3px;
+    width: 160px;
+    display: block;
+    float: left;
+}
+input:hover, textarea:hover {
+    box-shadow: 0 0 6px #c0c0c0;
+}
+input:focus, textarea:focus {
+    border: 1px solid #0885c7;
+    box-shadow: 0 0 12px #c0c0c0;
+    outline: medium none;
+}
+.changeform{
+    margin-left: 0px;
+    padding-top: 35px;
+    padding-left: 20px;
+    width:560px;
+    background: cornflowerblue;
+    height:285px;
+    overflow: auto;
+    font-size:20px;
+    position:absolute;
+    top:561px;
+    left:675px;
+    display:none;
+    border-radius: 15px;
+}
+.changeform h3{
+    margin-left: 100px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-family:fantasy;
+}
+.error{
+    width:500px;
+    height:50px;
+}
+#toggleDemo{
+
+    cursor:pointer;
+    background: none repeat scroll 0 0 #ccc;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding-top:10px;
+    display: block;
+    height: 40px;
+    left: 76%;
+    position: absolute;
+    top: 490px;
+    width: 150px;
+}
+
+</style>
+<script src="jquery-1.11.2.min.js"></script>
+<script src="jCarouselLite.js"></script>
+<script src="liveplayer.js"></script>
+<script src="liveList.js"></script>
+</head>
+
+<body>
+<h2>时移直播演示及调用方法（支持移动端播放）</h2>
+<!--  播放器html代码开始 -->
+<div id="main"><!-- main为定义整个播放器的位置的div，可修改 -->
+    <div id="playlist">
+        <div id="datelist">
+            <ul id="days">
+            </ul>
+        </div>
+        <div id="item">
+            <ul id="lists">
+            </ul>
+        </div>
+        <div id="channels"> <a class="prev"></a>
+            <div id="jCarousel">
+                <ul id="chatab">
+                    <li c="zyys888" onclick="liveList.selectChannel(this)" class="on">新闻综合</li>
+                    <li c="rk8Z088" onclick="liveList.selectChannel(this)">文化娱乐</li>
+                    <li c="z6NexHK" onclick="liveList.selectChannel(this)">公共民生</li>
+                </ul>
+            </div>
+            <a class="next"></a> </div>
+    </div>
+    <div id="player"></div>
+</div>
+<!-- 播放器html代码结束 --> 
+
+<div class="note">
+ <h3>修改历史</h3>
+    
+<ol>
+<li>2014.11.19 bug修复，代码优化,接受单个频道单天的json</li>
+<li>2014.11.14 更新liveList.js,将playLink.js添加到html文件末尾可播放如index.html?liveid=wdftQdP&time=1415551500000链接，跳转到相应条目
+<li>2014.11.11 解决liveplayer代码错误，并修改video的autoplay为默认true，设置为false则ios无法切换流</li>
+<li>2014.11.06 更新播放器UI；更新播放器全屏下左上角显示文字功能</li>
+<li>2014.10.23 添加直播自动跳转到下一条目的功能</li>
+<li>2014.10.21 给每天的节目添加div来区分，解决点击过快重复获取的问题</li>
+</ol>
+    <h3>参数说明</h3>
+    <table>
+        <tr>
+            <td>参数名字</td>
+            <td>默认值</td>
+            <td>参数作用</td>
+        </tr>
+        <tr>
+            <td>path</td>
+            <td>player/liveplayer-2.26.01.swf</td>
+            <td>播放器swf文件路径</td>
+        </tr>
+        <tr>
+            <td>amf</td>
+            <td>无</td>
+            <td>时移直播的AMF相关信息，需要有页面js配合，必需</td>
+        </tr>
+        <tr>
+            <td>channelId</td>
+            <td>无</td>
+            <td>默认播放直播频道ID，必需</td>
+        </tr>
+        <tr>
+            <td>server</td>
+            <td>无</td>
+            <td>直播流服务域名或者IP,用于html5的m3u8流，如m3u8的流有端口，则需要加上端口，必需</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>590</td>
+            <td>播放器宽度，单位为px</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>400</td>
+            <td>播放器高度，单位为px</td>
+        </tr>
+        <tr>
+            <td>notool</td>
+            <td>flase</td>
+            <td>是否显示侧栏</td>
+        </tr>
+        <tr>
+            <td>autoplay</td>
+            <td>true</td>
+            <td>是否默认播放</td>
+        </tr>
+        <tr>
+            <td>divid</td>
+            <td>无</td>
+            <td>视频播放器显示的位置,不提供则显示在此脚本所在的位置</td>
+        </tr>
+        <tr>
+            <td>logo</td>
+            <td>无</td>
+            <td>定义播放器logo，位置为播放器右上角</td>
+        </tr>
+        <tr>
+            <td>position</td>
+            <td>无</td>
+            <td>传递时移位置时间值，如果传递此参数，播放器将直接开始以时移方式播放</td>
+        </tr>
+        <tr>
+            <td>site</td>
+            <td>无</td>
+            <td>如果客户需要对播出站点进行统计，则传递播出站点信息</td>
+        </tr>
+        <tr>
+            <td>safe</td>
+            <td>false</td>
+            <td>当直播系统启用防盗链播出的时候，此参数必须传递为true</td>
+        </tr>
+        <tr>
+            <td>lang</td>
+            <td>无</td>
+            <td>当传递en的时候，播放器显示为英文模式</td>
+        </tr>
+        <tr>
+            <td>tslnc</td>
+            <td>无</td>
+            <td>当客户使用CDN服务的时候，此参数传递直播服务器源站域名或者IP，用以支持时移直播</td>
+        </tr>
+ <tr>
+            <td>skin</td>
+            <td>无</td>
+            <td>设为"1,1,1"显示右边3个控件，为0的则不显示</td>
+        </tr>
+    </table>
+    <h3>引用文件</h3>
+    <ol>
+        <li>http://tidedemo.com/livedemo/jquery-1.9.0.min.js（jquery插件，必需）</li>
+        <li>http://tidedemo.com/livedemo/jCarouselLite.js（滚动插件，非必需）</li>
+        <li>http://tidedemo.com/livedemo/liveplayer.js（直播播放器插件，必需）</li>
+        <li>http://tidedemo.com/livedemo/liveList.js（调用节目单插件，非必需）</li>
+        <li>http://tidedemo.com/livedemo/reset.css（reset样式，可使用项目中的reset样式）</li>
+        <li>http://tidedemo.com/livedemo/liveplayer.css（节目单样式，可根据项目样式进行修改，结构和类名以及ID不能更改，除#main外，必需）</li>
+        <li>http://tidedemo.com/livedemo/player/liveplayer-2.26.02.swf（播放器，必需）</li>
+    </ol>
+    <h3>部署方法</h3>
+    <ol>
+        <li>将此页面源代码中div#main的内容复制到页面的相应div中，可包含div#main，也可不包含，div#main只起到一个容器的作用。</li>
+        <li>如有直播频道切换，则将div#chatab里面的li的c属性为直播频道id和对应的频道名，并且把此页面源代码中script标签“直播频道切换滚动插件调用方法”复制到项目相应的页面中。</li>
+        <li>将此页面源代码中script标签“时移播放器js调用方法”复制到相应的页面中。</li>
+        <li>如有节目单展示，则将此页面源代码中script标签“节目单调用方法”复制到相应的页面中，并且将节目单地址修改为项目中地址，注意json格式确保为liveList.jsonpCallback(json数据)</li>
+        <li>根据参数说明，调整liveplayer.showPlayer的设置。</li>
+    </ol>
+   
+</div>
+<div id="toggleDemo">实时demo</div>
+<script>
+//时移播放器js调用方法开始
+liveplayer.showPlayer(
+	{
+		channelId:"zyys888",//默认播放直播频道ID，必需
+		amf:"JS:liveStreamInfo",//需要有页面js配合，必需
+		server:"61.175.232.155",//直播流服务域名或者IP,用于html5的m3u8流，如m3u8的流有端口，则需要加上端口，必需
+		width:580,//播放器宽（可以在liveplayer.js中定义默认，这里就可以不传）
+		height:467,//播放器高（可以在liveplayer.js中定义默认，这里就可以不传）
+		//path:"player/liveplayer-2.26.02.swf",	//播放器flash路径(可以在liveplayer.js中定义默认，这里就可以不传)
+                //tslnc:"218.249.39.190",//如果cdn不支持时移的话，此参数可以将时移改为走直播源
+		//notool:true,//是否显示侧栏，默认值为false，
+		//logo:"http://cms.tidedemo.com/cms_test/img/login_logo.png",//自定义LOGO
+		autoplay:true,//是否自动播放，默认值为true
+		divid:"player"//视频播放器显示的位置,不提供则显示在此脚本所在的位置
+	}
+);
+function liveStreamInfo(cid){
+    return {
+//wdftQdP是直播频道ID，name为播放器全屏时左上角显示的频道或者电视台名字，数字开头的话加上引号218.249.39.190是直播流服务器ip/域名，或者是cdn加速后的域名
+           zyys888:{ip:"61.175.232.157"},
+           rk8Z088:{ip:"61.175.232.157"},
+           z6NexHK:{ip:"61.175.232.157"}
+    }[cid];
+}
+//时移播放器js调用方法结束
+
+//节目单调用方法开始
+liveList.setOptions({urlPre:'http://admin.hzitv.cn/cmsvideo//epg/zhtv_epg.json'});//节目单地址
+liveList.init();
+//节目单调用方法结束
+
+$('<div id="ajaxloading" style="display: none;"><p>loading...</p></div>').appendTo($('#item'));
+
+$(document).bind("ajaxSend", function(){
+$("#ajaxloading").show();
+}).bind("ajaxComplete", function(){
+$("#ajaxloading").hide();
+});
+
+//直播频道切换滚动插件调用方法开始
+$("#jCarousel").jCarouselLite({
+    auto:0,
+    speed:1000,
+    visible:4,
+    scroll:2,
+    btnNext: ".next",
+    btnPrev: ".prev",
+    stop:$("#jCarousel"),
+    btnGoOver:true
+});
+//直播频道切换滚动插件调用方法结束
+
+//以下js为调试直播播放器使用，项目中请不要调用。
+(function($,undefined){
+
+    LiveChange=function(options,func){
+
+        this.options=options;
+        this.func=func;
+        this._init();
+
+    };
+
+    LiveChange.prototype= {
+
+        _init: function(){
+            this._createForm();
+            this._createItemHandlers();
+        },
+
+        _createForm: function () {
+            var form='<div class="changeform"><h3>实时demo</h3>';
+
+            $.each(this.options, function (key,value) {
+                var input='<label for="'+key+'">'+key+':</label><input name="'+key+'" value="'+value+'">';
+                form+=input;
+            })
+            form+='</div>';
+            $(form).appendTo($('body'));
+        },
+
+        _createItemHandlers: function(){
+            var self=this;
+
+            $(".changeform input").keyup(function(){
+                self._setChange(this.name,this.value);
+                self._handleChange();
+            })
+        },
+        _setChange:function(name,val){
+             eval("this.options."+name+"=val");
+        },
+
+        _handleChange:function(){
+
+            $("#player").empty();
+            $('.error').detach();
+            if(typeof this.func==='function'){
+                try {console.dir(this.options)
+                    this.func(this.options);
+                }catch (e){
+                     $("<div class=\"error\">参数错误 "+e+"</div>").appendTo($('.changeform'));
+
+                }
+            }
+        },
+
+        send:function(){
+            this._handleChange();
+        }
+
+    }
+
+})($,undefined);
+var defaults={
+    channelId:"zyys888",
+    amf:"JS:liveStreamInfo",
+    server:"61.175.232.155",
+    width:600,
+    height:467,
+    path:"player/liveplayer-2.26.01.swf",
+    autoplay:true,
+    divid:"player",
+    skin:"1,1,1"
+};
+new LiveChange(defaults,function(opt){
+    liveplayer.showPlayer(opt)
+})
+$('#toggleDemo').click(function(e){
+    var target=$('.changeform');
+    if (target.is(':visible')) target.hide();
+        else {target.show();}
+})
+</script>
+<script src="playLink.js"></script>
+
+</body>
+</html>

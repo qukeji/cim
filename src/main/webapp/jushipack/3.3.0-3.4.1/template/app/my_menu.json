@@ -1,0 +1,6 @@
+[
+#set($i=0)
+#foreach( $item in $Controller.listItems("*") )#if($i>0),#end #set($i=$i+1)
+ {"Title":"$item.getTitle()","photo":"$item.getValue("Photo")","photo1":"$item.getValue("Photo1")","href":"$item.getValue("href")","code":"$item.getValue("code")","device_type":"$item.getValue("device_type")"}
+#end
+]

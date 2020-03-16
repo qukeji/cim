@@ -1,0 +1,13 @@
+html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:transparent}
+body,html{font-family:"Microsoft Yahei",helvetica,sans-serif}
+body,body *{user-select:none;-webkit-user-select:none;-webkit-overflow-scrolling:touch}
+[contenteditable=true],input,textarea{-webkit-user-select:auto!important;-khtml-user-select:auto!important;-moz-user-select:auto!important;-ms-user-select:auto!important;-o-user-select:auto!important;user-select:auto!important}
+a,div,header,span{-webkit-tap-highlight-color:rgba(255,255,255,0)}
+article,aside,blockquote,body,button,code,dd,details,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,legend,li,menu,nav,ol,p,pre,section,td,textarea,th,ul{margin:0;padding:0}
+button,input,select,textarea{font-size:100%;font-family:"Heiti SC",helvetica,sans-serif,"Microsoft Yahei"}
+li,ol,ul{list-style:none;-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0;-webkit-padding-start:0}button,input,select{outline:0;border:none;-webkit-appearance:none;appearance:none;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#fff}
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+fieldset,img{border:0}
+a{text-decoration:none;background-color:transparent;-webkit-tap-highlight-color:transparent}
+i{font-style:normal}
+.clearfix:after{content:'';display:block;clear:both;height:0;visibility:hidden}

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 7 列表</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<style>
+body{background:#efefef;}
+.form_button{text-align:center;padding:15px 0;}
+.channel_icon ul{overflow:auto;}
+.channel_icon li{float:left;text-align:center;padding:10px 8px;}
+.channel_icon li img{display:block;margin:0 auto;}
+.toolbar{padding:0 0 15px 10px;border-bottom:1px solid #bbb;}
+</style>
+</head>
+
+<body>
+<div class="content-top">
+	<div class="left"></div>
+    <div class="right"></div>
+</div>
+<div class="content">
+	<div class="toolbar">
+    	<span class="toolbar1">操作：</span>
+        <ul class="toolbar2">
+        	<li class="first"><a href="javascript:approve();">上传</a></li>
+			<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+        </ul>
+    </div>
+	<div class="channel_icon">
+    	<ul>
+        	<li><img src="http://123.125.148.3:889/cms/images/channel_icon/01.png" /><input type="radio" value="01.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/02.png" /><input type="radio" value="02.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/03.png" /><input type="radio" value="03.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/04.png" /><input type="radio" value="04.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/05.png" /><input type="radio" value="05.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/06.png" /><input type="radio" value="06.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/07.png" /><input type="radio" value="07.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/09.png" /><input type="radio" value="08.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/09.png" /><input type="radio" value="09.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/10.png" /><input type="radio" value="10.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/11.png" /><input type="radio" value="11.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/12.png" /><input type="radio" value="12.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/13.png" /><input type="radio" value="13.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/14.png" /><input type="radio" value="14.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/15.png" /><input type="radio" value="15.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/17.png" /><input type="radio" value="16.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/17.png" /><input type="radio" value="17.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/18.png" /><input type="radio" value="18.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/19.png" /><input type="radio" value="19.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/20.png" /><input type="radio" value="20.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/21.png" /><input type="radio" value="21.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/22.png" /><input type="radio" value="22.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/23.png" /><input type="radio" value="23.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/25.png" /><input type="radio" value="24.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/25.png" /><input type="radio" value="25.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/26.png" /><input type="radio" value="26.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/27.png" /><input type="radio" value="27.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/28.png" /><input type="radio" value="28.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/29.png" /><input type="radio" value="29.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/30.png" /><input type="radio" value="30.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/31.png" /><input type="radio" value="31.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/33.png" /><input type="radio" value="32.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/33.png" /><input type="radio" value="33.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/34.png" /><input type="radio" value="34.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/35.png" /><input type="radio" value="35.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/36.png" /><input type="radio" value="36.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/37.png" /><input type="radio" value="37.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/38.png" /><input type="radio" value="38.png" name="id"></li>
+            <li><img src="http://123.125.148.3:889/cms/images/channel_icon/39.png" /><input type="radio" value="39.png" name="id"></li>
+        </ul>
+    </div>
+</div>
+<div class="content_bot">
+	<div class="left"></div>
+    <div class="right"></div>
+</div>
+
+<div class="form_button">
+	<input type="button" onclick="submit_btn();" id="startButton" value="确定" class="button" name="startButton"/>
+	<input type="button" onclick="top.getDialog().Close();" id="btnCancel1" value="取消" class="button" name="btnCancel1"/>
+</div>
+</body>
+</html>

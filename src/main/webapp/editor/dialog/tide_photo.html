@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<!--
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2008 Frederico Caldeira Knabben
+ *修改插入图片集功能 2013/7/17   张赫东
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Special Chars Selector dialog window.
+-->
+<html>
+	<head>
+		<meta name="robots" content="noindex, nofollow">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+				.Hand
+				{
+					cursor: pointer ;
+					cursor: hand ;
+				}
+				.Sample { font-size: 24px; }
+		</style>
+		<script src="../../common/jquery.js" type="text/javascript"></script>
+		<script src="common/fck_dialog_common.js" type="text/javascript"></script>
+		<script type="text/javascript">
+
+
+var oEditor = window.parent.InnerDialogLoaded() ;
+var dialog		= window.parent ;
+var oSample ;
+
+
+function setDefaults()
+{
+	// Gets the sample placeholder.
+	oSample = document.getElementById("SampleTD") ;
+
+	// First of all, translates the dialog box texts.
+	oEditor.FCKLanguageManager.TranslatePage(document) ;
+
+	window.parent.SetOkButton( true ) ;
+	window.parent.SetAutoSize( true ) ;
+}
+
+function Ok()
+{
+	var html;
+	if(document.getElementById("divSelectVideo").style.display!="none"){
+		var gid=window.frames["video"].getRadio();
+		//alert("gid="+gid);
+		
+		//return false;
+
+		var url="../../photo/editor_photo_js.jsp?gid="+gid;
+		//alert(url);	
+				$.ajax({
+					type:"GET", 
+					url:url,
+					success:function(msg){
+						//alert(msg);
+	html = "<span id=\"tide_photo\" photoid=\"\"><script>"+msg+"tidecms.showPic();<\/script></span>";
+	if(html!="")
+	{
+		oEditor.FCKUndo.SaveUndoStep() ;
+		oEditor.FCK.InsertHtml(html) ;
+		dialog.CloseDialog() ;
+	}
+					}
+
+				});
+		html=gid.html;
+	}else{
+		html = GetE('code').value;
+	}
+	return false ;
+}
+	</script>
+	</head>
+	<body onload="setDefaults()" style="overflow: hidden">
+	
+	<div id="divSelectVideo">
+		<table cellpadding="0" cellspacing="0" width="100%" height="100%">
+			<tr>
+				<td width="100%">
+					<table cellpadding="1" cellspacing="1" align="center" border="0" width="100%" height="100%">
+					<tbody >
+					<tr><td><iframe  marginheight="0" frameborder="no"  id="video" name="video" marginwidth="0" scrolling="auto" height="380" width="750" src="../../photo/editor_photo_index.jsp"></iframe></td><td></td></tr>
+					</tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tidemedia.tcenter.mapper.WorkOrderMapper">
+
+    <!-- 查询工单列表 -->
+    <select id="searchWorkOrders" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+      select id,GlobalID,Title,PublishDate,Summary,question_sort,operation_status,userid,companyid from channel_work_order where Active = 1
+        <if test="Title != null">
+            and Title like CONCAT('%',#{Title},'%')
+        </if>
+        <if test="userid != null">
+            and userid = #{userid}
+        </if>
+        <if test="operation_status != null">
+            and operation_status = #{operation_status}
+        </if>
+        <if test="question_sort != null">
+            and question_sort = #{question_sort}
+        </if>
+        <if test="startDate != null">
+            and PublishDate <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test="endDate != null">
+            and PublishDate <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test="companyid != null">
+            and companyid = #{companyid}
+        </if>
+        <if test="category != 0">
+            and category = #{category}
+        </if>
+        order by ordernumber desc
+        limit #{start},#{limit};
+    </select>
+
+    <!-- 查询工单列表总数 -->
+    <select id="searchWorkOrdersTotalNum" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+        select count(*)  AS totalNum from channel_work_order where Active = 1
+        <if test="Title != null">
+            and Title like CONCAT('%',#{Title},'%')
+        </if>
+        <if test="userid != null">
+            and userid = #{userid}
+        </if>
+        <if test="operation_status != null">
+            and operation_status = #{operation_status}
+        </if>
+        <if test="question_sort != null">
+            and question_sort = #{question_sort}
+        </if>
+        <if test="startDate != null">
+            and PublishDate <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test="endDate != null">
+            and PublishDate <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test="companyid != null">
+            and companyid = #{companyid}
+        </if>
+        <if test="category != 0">
+            and category = #{category}
+        </if>
+    </select>
+
+    <!-- 查看工单详情 -->
+    <select id="getWorkOrderDetail" resultType="java.util.HashMap" parameterType="java.lang.String">
+        select a.id,a.GlobalID,a.Title,a.PublishDate,a.Summary,a.question_sort,a.operation_status,a.userid,a.companyid,b.Summary as replySummary,b.from_userid,b.PublishDate as replyDate from channel_work_order a
+        left join channel_work_order_reply b on a.id = b.parent
+        where  a.Active = 1  and a.id = #{id}
+    </select>
+
+
+    <!-- 更新用户信息  至 工单记录 -->
+    <update id="updateWorkerUserInfo" parameterType="java.util.HashMap">
+        update channel_work_order set userid = #{userid} , companyid = #{companyid}
+        where  `id`=#{id}
+    </update>
+
+</mapper>

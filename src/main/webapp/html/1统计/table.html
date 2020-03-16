@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>TideCMS 列表</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link href="../../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<style>
+	.collapsed-menu .br-mainpanel-file {margin-left: 0;margin-top: 0;}
+	table th,table td{border-collapse: collapse !important;text-align: center;}
+	.nav-pills .nav-link{max-width: 100px;}
+	.nav-pills .nav-link:focus, .nav-pills .nav-link:hover{background-color:#e9ecef ;}
+	.line-chart-box{background: #f3f3f3;}
+	.table th,.table td{padding: 0.75rem 0.3rem;}
+	@media (max-width: 575px){
+		table .hidden-xs-down {word-break: normal;	}	
+	}
+	@media (max-width: 1366px){
+		.table-responsive {	overflow-x: auto;-ms-overflow-style: -ms-autohiding-scrollbar;}
+	}
+		
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+</head>
+
+<body class="collapsed-menu email">
+	<div class="br-mainpanel br-mainpanel-file" id="js-source">
+		<div class="br-pageheader pd-y-15 pd-md-l-20">
+			<nav class="breadcrumb pd-0 mg-0 tx-12">
+				<!--<span class="breadcrumb-item active">当前位置：专题频道</span>-->
+				<span class="breadcrumb-item active">视频统计 / 流畅度分析</span>
+			</nav>
+		</div>
+		<!-- br-pageheader --> 
+		<!--列表-->
+		<div class="br-pagebody pd-x-0-force mg-t-0-force">
+			<div class="card shadow-base">
+				<div class="pd-x-30 pd-y-30 pd-b-15">
+					<div class="d-flex align-items-center justify-content-start flex-wrap">
+	                    <div class="rounded d-flex align-items-center mg-r-20">				                    
+				    		<ul class="nav nav-pills flex-column flex-md-row rounded flex-lg-nowrap wd-300" id="nav-day" role="tablist">
+				    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8 active" data-toggle="tab" href="#" role="tab" aria-expanded="false">今天</a></li>
+				    			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="false">昨天</a></li>
+		              			<li class="nav-item mg-r-10"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="false">最近7天</a></li>
+		              			<li class="nav-item"><a class="nav-link bg-gray-200 pd-x-15 pd-y-8" data-toggle="tab" href="#" role="tab" aria-expanded="true">近30天</a></li>					              					             
+		            		</ul>
+						</div><!-- pd-10 -->	
+	                     <div class="mg-r-10 d-flex align-items-center">
+	                     	<span class="mg-r-2">起始时间: </span>
+	                     	<div class="wd-160 mg-r-10 search-item">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+									<input type="text" class="form-control fc-datepicker search-time" placeholder="YYYY-MM-DD" name="startDate" value="" id="startDate">
+								</div>
+							</div>
+	                     </div>
+	                     <input type="submit" name="Submit" value="查询" class="btn btn-outline-info active pd-x-10 pd-y-10 tx-uppercase tx-bold tx-spacing-6 tx-14">						
+	                 </div>
+	                 <div class="bd rounded table-responsive mg-t-20">
+			            <table class="table table-bordered mg-b-0">
+			              <thead>
+			                <tr class="bg-gray-200">
+			                  <th>时段</th>
+			                  <th title="2019-07-01">01</th>
+			                  <th title="2019-07-02">02</th>
+			                  <th title="2019-07-02">02</th>
+			                  <th title="2019-07-04">04</th>
+			                  <th title="2019-07-05">05</th>
+			                  <th title="2019-07-06">06</th>
+			                  <th title="2019-07-07">07</th>
+			                  <th title="2019-07-01">07</th>
+			                  <th title="2019-07-01">09</th>		                  
+			                  <th title="2019-07-01">10</th>
+			                  <th title="2019-07-01">11</th>
+			                  <th title="2019-07-01">12</th>
+			                  <th title="2019-07-01">13</th>
+			                  <th title="2019-07-01">14</th>
+			                  <th title="2019-07-01">15</th>
+			                  <th title="2019-07-01">16</th>
+			                  <th title="2019-07-01">17</th>
+			                  <th title="2019-07-01">18</th>
+			                  <th title="2019-07-01">19</th>
+			                  <th title="2019-07-01">20</th>
+			                  <th title="2019-07-01">21</th>
+			                  <th title="2019-07-01">22</th>
+			                  <th title="2019-07-01">23</th>
+			                  <th title="2019-07-01">24</th>
+			                  <th title="2019-07-01">25</th>
+			                  <th title="2019-07-01">26</th>
+			                  <th title="2019-07-01">27</th>
+			                  <th title="2019-07-01">28</th>
+			                  <th title="2019-07-01">29</th>
+			                  <th title="2019-07-01">30</th>			                 
+			                </tr>
+			              </thead>
+			              <tbody>
+			                <tr>
+			                  <th>01:00</th>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                </tr>
+			                <tr>
+			                  <th>02:00</th>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td></td>
+			                </tr>
+			                
+			              </tbody>
+			            </table>
+			          </div>
+					
+				</div>											
+			</div>
+		 
+		</div>
+		<!--列表-->
+
+
+	<script src="../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../lib/2018/moment/moment.js"></script>
+	<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	
+	<script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+	<script src="../../lib/2018/select2/js/select2.min.js"></script>
+	<script src="../../common/2018/bracket.js"></script>
+	<script>
+		
+		$(function() {
+			'use strict';
+	
+			//show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+	
+			$(document).on('mouseover', function(e) {
+				e.stopPropagation();
+				if ($('body').hasClass('collapsed-menu')) {
+					var targ = $(e.target).closest('.br-sideleft').length;
+					if (targ) {
+						$('body').addClass('expand-menu');
+	
+						// show current shown sub menu that was hidden from collapsed
+						$('.show-sub + .br-menu-sub').slideDown();
+	
+						var menuText = $('.menu-item-label,.menu-item-arrow');
+						menuText.removeClass('d-lg-none');
+						menuText.removeClass('op-lg-0-force');
+	
+					} else {
+						$('body').removeClass('expand-menu');
+	
+						// hide current shown menu
+						$('.show-sub + .br-menu-sub').slideUp();
+	
+						var menuText = $('.menu-item-label,.menu-item-arrow');
+						menuText.addClass('op-lg-0-force');
+						menuText.addClass('d-lg-none');
+					}
+				}
+			});
+	
+			$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+	
+			$('#showMailBoxLeft').on('click', function(e) {
+				e.preventDefault();
+				if ($('body').hasClass('show-mb-left')) {
+					$('body').removeClass('show-mb-left');
+					$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+				} else {
+					$('body').addClass('show-mb-left');
+					$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+				}
+			});
+	
+	
+	       
+			// Datepicker
+			tidecms.setDatePicker(".fc-datepicker");
+	
+		});
+	
+	</script>
+
+    </div>
+
+</body>
+
+</html>

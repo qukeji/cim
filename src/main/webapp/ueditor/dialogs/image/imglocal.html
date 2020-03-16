@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="robots" content="noindex, nofollow">
+		<title>TideCMS</title>
+		<link href="../../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="../../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+		<link href="../../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../../style/2018/bracket.css">
+		<link rel="stylesheet" href="../../../style/2018/common.css">
+		<style>
+			html,body {width: 100%;height: 100%;}
+			ul,li{list-style: none;}
+			.table{table-layout: fixed;}
+			table th,table td{font-size: 12px !important;padding: 5px 10px !important;word-break: break-all;}
+			#confirm,#startButton,#btnCancel1{display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="bg-white modal-box">
+			<div class="modal-body modal-body-btn pd-20 overflow-y-auto">
+				<div class="config-box">
+					<ul>
+						<li class="block">
+							<div class="bd">	       		  		
+								<table class="table mg-b-0">
+									<thead>
+									  <tr>	               
+										<th class="wd-20"><span class="pd-l-5">编号</span></th>
+										<th class="wd-100">图片原地址</th>
+										<th class="wd-30">状态</th>	  
+										<th class="wd-100">图片现地址</th>
+										<th class="wd-40">原因</th>
+									  </tr>
+									</thead>
+								   <tbody>
+									   <!-- <tr id="tr_57851" itemid="57851">
+										 <td><span class="pd-l-5">1</span></td>
+										 <td class="">http://dev-video.tidemedia.com/v/b/nas/photo/20201201579489558889_1_1.jpg </td>
+										 <td class="">成功</td>
+										 <td class="">http://dev-video.tidemedia.com/v/b/nas/photo/20201201579489558889_1_1.jpg</td>
+										 <td class="">无法被本地化</td>
+									   </tr> -->
+								   </tbody>
+								  </table>
+							</div>
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--modal-body-->
+
+			<div class="btn-box" style="position: absolute;bottom: 0;width: 100%;">
+				<div class="modal-footer">
+					<button name="startButton" type="button" class="btn btn-primary tx-size-xs" id="confirm">确认</button>
+					<button name="startButton" type="button" class="btn btn-primary tx-size-xs" id="startButton">本地化</button>
+					<button name="btnCancel1" type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal" id="btnCancel1">关闭</button>
+				</div>
+			</div>
+		</div>
+		<!-- modal-box -->
+	</body>
+	<script src="../../../lib/2018/jquery/jquery.js"></script>
+	<script src="../../../common/2018/common2018.js"></script>
+	<script src="../../../lib/2018/popper.js/popper.js"></script>
+	<script src="../../../lib/2018/bootstrap/bootstrap.js"></script>
+	<script src="../../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../../../lib/2018/moment/moment.js"></script>
+	<script src="../../../lib/2018/jquery-ui/jquery-ui.js"></script>
+	<script src="../../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+	<script src="../../../lib/2018/select2/js/select2.min.js"></script>
+	<script src="../../../common/2018/bracket.js"></script>
+
+	<script>
+		var dialog = new top.TideDialog() ;
+		var isEverLoacl  = false ; //是否有成功本地化的
+		var excludeSpecial = function(s) {   // 去掉转义字符  
+		    s = s.replace(/\\/g, "");  
+		    return s;  
+		};
+		var autolocal = getUrl("autolocal") ;
+		if(autolocal==1){
+			$("#confirm").show();
+			$("#btnCancel1").hide();
+			$("#startButton").hide();
+		}else{
+			$("#startButton").show();
+			$("#btnCancel1").show();
+			$("#confirm").hide();
+		}
+		
+		$("#confirm").click(function(){
+			top.TideDialogClose();
+		})
+		;$(function(){
+			var content = parent.getContent() ; 
+			//console.log(content);
+			$.ajax({
+				type:"post",
+				url: "../../../content/editor_content_images_list",	
+				data:{content:content},
+				dataType:"json",
+				success:function(data){
+					//console.log(data)
+					if(data.list.length>0){
+						var html = "";
+						for(var i=0 ; i < data.list.length ; i++){
+							html +='<tr>'+
+									'<td><span class="pd-l-5">'+ data.list[i].count+'</span></td>'+
+									'<td class="">'+ data.list[i].old_src+'</td>'+
+									'<td class=""></td>'+
+									'<td class=""></td>'+
+									'<td class=""></td>'+
+								'</tr>';
+						}
+						$("tbody").html(html);
+						if(autolocal==1){
+							imgLocal() ;
+						}
+					}else{
+						dialog.showAlert("没有图片需要本地化！","danger")
+					}
+				},
+				error:function(e){
+					console.log(e)
+				}
+			});
+			
+			$("#startButton").click(function(){
+				imgLocal() ;
+			})
+			
+			function imgLocal(){
+				isEverLoacl = false ;
+				var tr = $("tbody tr") ;
+				if(tr.length==0){
+					dialog.showAlert("没有图片需要本地化!","danger") ;
+					//top.TideDialogClose();
+				}else{
+					$.ajax({
+						type:"post",
+						url: "../../../api/img_tocms.jsp",	
+						data:{content:content},
+						dataType:"json",
+						success:function(data){
+							//console.log(data);
+							if(data.status==0){
+								dialog.showAlert("本地化失败!","danger") ;
+							}else{
+								if( data.list.length > 0){
+									var html = "";
+									for(var i=0 ; i < data.list.length ; i++){
+										html +='<tr>'+
+												'<td><span class="pd-l-5">'+ data.list[i].count+'</span></td>'+
+												'<td class="">'+ data.list[i].old_src+'</td>';
+												if(data.list[i].status==0){
+													html +='<td class="tx-danger">失败</td>' ;
+												}else if(data.list[i].status==1){
+													isEverLoacl = true ;
+													html +='<td class="tx-success">成功</td>' ;
+												}
+												html += '<td class="">'+data.list[i].new_src+'</td>'+
+												'<td class="">'+data.list[i].message+'</td>'+
+											'</tr>';
+									}
+									$("tbody").html(html);
+								}else{
+									dialog.showAlert("没有图片需要本地化!","danger") ;
+								}
+								if( isEverLoacl ){
+									 parent.setContent(excludeSpecial(data.content), false);
+								}
+							}
+							
+						},
+						error:function(e){
+							console.log(e)
+						}
+					});
+				}
+			}
+		})
+		
+	</script>
+
+</html>

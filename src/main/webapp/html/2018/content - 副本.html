@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>内容列表</title>
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <link href="../lib/highlightjs/github.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/datatables/jquery.dataTables.css" rel="stylesheet">-->
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+    <!-- Bracket CSS -->
+    
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <style>
+    	.collapsed-menu .br-mainpanel-file{margin-left: 0;margin-top: 0;}
+    	
+    	.bs-tooltip-bottom .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #f8f9fa;opacity: 1;}
+			.tooltip.bs-tooltip-bottom .arrow::before,
+			.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {border-bottom-color: #f8f9fa;	}
+			.edui-editor {z-index: 0 !important;}
+		    /*tooltip相关样式*/
+		  .bs-tooltip-left .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #00b297;opacity: 1;}
+			.tooltip.bs-tooltip-left .arrow::before,
+			.tooltip.bs-tooltip-auto[x-placement^="left"] .arrow::before {			
+				border-left-color: #00b297;			
+			}
+    </style>
+  </head>
+
+  <body class="collapsed-menu">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="js-source">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+        </nav>
+      </div><!-- br-pageheader -->
+
+      <div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+
+        <!-- <button id="showSubLeft" class="btn btn-secondary mg-r-10 hidden-lg-up"><i class="fa fa-navicon"></i></button> -->
+
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown hidden-sm-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+          <div class="dropdown-menu pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">全部</a>
+		          <a href="#" class="nav-link">草稿</a>
+		          <a href="#" class="nav-link">已发</a>
+		          <a href="#" class="nav-link">已删除</a>
+		          <a href="#" class="nav-link">搜索</a>
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+
+        <div class="btn-group hidden-xs-down">
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-th"></i></a>
+          <a href="#" class="btn btn-outline-info active"><i class="fa fa-th-list"></i></a>
+        </div><!-- btn-group -->
+        <div class="btn-group mg-l-10 hidden-xs-down">
+          <a href="#" class="btn btn-outline-info active">全部</a>
+          <a href="#" class="btn btn-outline-info">草稿</a>
+          <a href="#" class="btn btn-outline-info">已发</a>
+          <a href="#" class="btn btn-outline-info">已删除</a>
+          <a href="#" class="btn btn-outline-info btn-search">搜索</a>
+         
+        </div><!-- btn-group -->
+
+        <div class="btn-group mg-l-auto hidden-sm-down">
+          <a href="#" class="btn btn-outline-info">发布</a>
+          <a href="#" class="btn btn-outline-info">预览</a>
+          <a href="#" class="btn btn-outline-info">编辑</a>
+          <a href="#" class="btn btn-outline-info">撤稿</a>
+          <a href="#" class="btn btn-outline-info">推荐</a>
+          <a href="#" class="btn btn-outline-info">引用</a>
+          <a href="#" class="btn btn-outline-info">排序</a>
+          <a href="#" class="btn btn-outline-info">删除</a>          
+        </div><!-- btn-group -->
+        
+        <div class="btn-group mg-l-10 hidden-sm-down">
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-left"></i></a>
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-right"></i></a>
+          
+        </div><!-- btn-group -->
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown mg-l-auto hidden-md-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+          <div class="dropdown-menu dropdown-menu-right pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">发布</a>
+		          <a href="#" class="nav-link">预览</a>
+		          <a href="#" class="nav-link">编辑</a>
+		          <a href="#" class="nav-link">撤稿</a>
+		          <a href="#" class="nav-link">推荐</a>
+		          <a href="#" class="nav-link">引用</a>
+		          <a href="#" class="nav-link">排序</a>
+		          <a href="#" class="nav-link">删除</a>         
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+      </div><!-- d-flex -->
+      <!--搜索-->
+      <div class="search-box pd-x-20 pd-sm-x-30" style="display:none;">
+      	<div class="search-content bg-white">
+      		<div class="row">
+      			<!--标题-->
+            <div class="mg-r-10 mg-b-30 search-item">
+              <input class="form-control search-title" placeholder="标题" type="text" >
+            </div>
+            <!--日期-->
+            <div class="wd-200 mg-b-30 mg-r-10 search-item">
+	            <div class="input-group">
+	              <span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+	              <input type="text" class="form-control fc-datepicker search-time" placeholder="MM/DD/YYYY">
+	            </div>
+	          </div>
+            <div class="wd-20 mg-b-30 mg-r-10 ht-40 d-flex align-items-center justify-content-start">至</div>
+            <div class="wd-200 mg-b-30 mg-r-10 search-item">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+                <input type="text" class="form-control fc-datepicker search-time" placeholder="MM/DD/YYYY">
+              </div>
+            </div>
+            <!-- wd-200 -->
+	          <!--作者-->
+	          <div class="mg-r-10 mg-b-30 search-item">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon ion-person tx-16 lh-0 op-6"></i></span>
+                <input type="text" class="form-control search-author" placeholder="作者">
+              </div>
+            </div>
+            <!--状态-->
+            <div class=" mg-lg-t-0 mg-r-10 mg-b-30 search-item">
+              <select class="form-control select2" data-placeholder="状态">
+                <option label="Choose one"></option>             
+                <option value="">&nbsp;</option> 
+                <option value="Firefox">已发</option>
+                <option value="Chrome">草稿</option>                
+              </select>
+            </div>
+            <div class="search-item mg-b-30">
+              <button class="btn btn-outline-info active pd-x-10 pd-y-10 tx-uppercase tx-bold tx-spacing-6 tx-14">搜索</button>
+            </div>
+          </div><!-- row -->
+      	</div>
+      </div>
+      <div class="br-pagebody pd-x-20 pd-sm-x-30">
+        <div class="card bd-0 shadow-base">
+          <table class="table mg-b-0" id="content-table">
+            <thead>
+              <tr>
+                <th class="wd-5p">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox" id="checkAll"><span></span>
+                  </label>
+                </th>
+                <th class="tx-12-force tx-mont tx-medium">标题</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">点击量</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">状态</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">日期</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">作者</th>
+                <th class="tx-12-force wd-150 tx-mont tx-medium hidden-xs-down">操作</th>
+               <!-- <th class="wd-5p">操作</th>-->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">[]</i>
+                  <span class="pd-l-5 tx-black">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">666</td>
+                <td class="hidden-xs-down"><span data-toggle="tooltip" data-placement="left" title="功能组3未审核未审核未审核未审核未审核未审核未审核,未审核未审核未审核未审核未审核未审核">未审核</span></td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-0 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">iil图文</i>
+                  <span class="pd-l-5 tx-black">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">666</td>
+                <td class="hidden-xs-down">未审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">yyyy图文</i>
+                  <span class="pd-l-5 tx-black">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">666</td>
+                <td class="hidden-xs-down">未审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">图文ll</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">666</td>
+                <td class="hidden-xs-down">未审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">图文12</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">666</td>
+                <td class="hidden-xs-down">你审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">图文lli</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">656</td>
+                <td class="hidden-xs-down">打审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">图文哦</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">636</td>
+                <td class="hidden-xs-down">曹审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">[2017]live_100001235_1521112187782.mp4</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">667</td>
+                <td class="hidden-xs-down">报审核</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">[2017]吧</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">669</td>
+                <td class="hidden-xs-down">啊审核1</td>
+                <td class="hidden-xs-down">2018-04-19 10:27 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">[其它]无题</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">6667</td>
+                <td class="hidden-xs-down">没审核1</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>
+                  <i class="article-type">[2017]啊</i>
+                  <span class="pd-l-5">Camera Uploads</span>
+                </td>
+                <td class="hidden-xs-down">9</td>
+                <td class="hidden-xs-down">啊审核2</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+                  <a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+        
+                  <a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+                  <div class="dropdown-menu dropdown-menu-right pd-10">
+                    <nav class="nav nav-style-1 flex-column">
+                      <a href="" class="nav-link">发布</a>
+                      <a href="" class="nav-link">预览</a>
+                      <a href="" class="nav-link">编辑</a>
+                      <a href="" class="nav-link">撤稿</a>
+                      <a href="" class="nav-link">推荐</a>
+                      <a href="" class="nav-link">引用</a>
+                      <a href="" class="nav-link">排序</a>
+                      <a href="" class="nav-link">删除</a>
+                    </nav>
+                  </div><!-- dropdown-menu -->
+                </td>
+              </tr>
+										<tr>
+											<td class="valign-middle">
+												<label class="ckbox mg-b-0">
+													<input type="checkbox"><span></span>
+												</label>
+											</td>
+											<td>
+												<i class="article-type">[2017]123</i>
+												<span class="pd-l-5">Camera Uploads</span>
+											</td>
+											<td class="hidden-xs-down">9</td>
+											<td class="hidden-xs-down">啊审核aa</td>
+											<td class="hidden-xs-down">2018-04-19 10:26 </td>
+											<td class="hidden-xs-down">管理员</td>
+											<td class="dropdown hidden-xs-down">
+												<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+												<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+												<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+							
+												<a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+												<div class="dropdown-menu dropdown-menu-right pd-10">
+													<nav class="nav nav-style-1 flex-column">
+														<a href="" class="nav-link">发布</a>
+														<a href="" class="nav-link">预览</a>
+														<a href="" class="nav-link">编辑</a>
+														<a href="" class="nav-link">撤稿</a>
+														<a href="" class="nav-link">推荐</a>
+														<a href="" class="nav-link">引用</a>
+														<a href="" class="nav-link">排序</a>
+														<a href="" class="nav-link">删除</a>
+													</nav>
+												</div><!-- dropdown-menu -->
+											</td>
+										</tr>
+													<tr>
+														<td class="valign-middle">
+															<label class="ckbox mg-b-0">
+																<input type="checkbox"><span></span>
+															</label>
+														</td>
+														<td>
+															<i class="article-type">[2017]mive</i>
+															<span class="pd-l-5">Camera Uploads</span>
+														</td>
+														<td class="hidden-xs-down">9</td>
+														<td class="hidden-xs-down" data-toggle="tooltip" data-placement="right" title="功能组2">啊审核b</td>
+														<td class="hidden-xs-down">2018-04-19 10:26 </td>
+														<td class="hidden-xs-down">管理员</td>
+														<td class="dropdown hidden-xs-down">
+															<a href="javascript:;" class="btn pd-0 mg-r-5" title="发布"><i class="fa fa-cloud-upload tx-18 handle-icon" aria-hidden="true"></i></a>
+															<a href="javascript:;" class="btn pd-0 mg-r-5" title="预览"><i class="fa fa-search tx-18 handle-icon" aria-hidden="true"></i></a>
+															<a href="javascript:;" class="btn pd-0 mg-r-5" title="正式地址预览"><i class="fa fa-eye tx-18 handle-icon" aria-hidden="true"></i></a>
+										
+															<a href="#" data-toggle="dropdown" class="btn pd-y-3 tx-gray-500 hover-info"><i class="icon ion-more"></i></a>
+															<div class="dropdown-menu dropdown-menu-right pd-10">
+																<nav class="nav nav-style-1 flex-column">
+																	<a href="" class="nav-link">发布</a>
+																	<a href="" class="nav-link">预览</a>
+																	<a href="" class="nav-link">编辑</a>
+																	<a href="" class="nav-link">撤稿</a>
+																	<a href="" class="nav-link">推荐</a>
+																	<a href="" class="nav-link">引用</a>
+																	<a href="" class="nav-link">排序</a>
+																	<a href="" class="nav-link">删除</a>
+																</nav>
+															</div><!-- dropdown-menu -->
+														</td>
+													</tr>
+            </tbody>
+          </table>
+          <div id="tide_content_tfoot">
+          	<label class="ckbox mg-b-0 mg-r-30 ">
+            	<input type="checkbox" id="checkAll_1"><span></span>
+          	</label> 
+          	<span class="mg-r-20 ">共666条</span>
+          	<span class="mg-r-20 ">1/16页</span>
+          	<div class="jump_page ">
+          		<span class="">跳至:</span>
+          		
+          		<label class="wd-60 mg-b-0">
+                <input class="form-control" placeholder="" type="text">
+              </label>
+          		<!--<select class="form-control select2 wd-80" data-placeholder="状态">
+		                        
+		            <option value="1">1</option> 
+		            <option value="Firefox">2</option>
+		            <option value="Chrome">3</option>                
+		          </select>-->
+		          <span class="">页</span>
+		          <a href="javascript:;" class="tx-14">Go</a>
+          	</div>
+          	<div class="each-page-num mg-l-20 ">
+          		<span class="">每页显示:</span>
+          		<select class="form-control select2 wd-80" data-placeholder="状态">
+		            <!--<option label="Choose one"></option>-->             
+		            <option value="1" >10</option> 
+		            <option value="Firefox" selected="selected">20</option>
+		            <option value="Chrome">30</option>                
+		          </select>
+		          <span class="">条</span>
+          	</div>
+          </div>
+          
+          <div class="table-page-info" style="display: none;">
+          	<div class="ckbox-parent">
+          		<label class="ckbox mg-b-0">
+		            <input type="checkbox" id="checkAll"><span></span>
+		          </label>
+          	</div>
+          	
+          </div>
+        </div>
+      </div><!-- br-pagebody -->
+      
+            <div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+
+        <!-- <button id="showSubLeft" class="btn btn-secondary mg-r-10 hidden-lg-up"><i class="fa fa-navicon"></i></button> -->
+
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown hidden-sm-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+          <div class="dropdown-menu pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">全部</a>
+              <a href="#" class="nav-link">草稿</a>
+              <a href="#" class="nav-link">已发</a>
+              <a href="#" class="nav-link">已删除</a>
+              <a href="#" class="nav-link">搜索</a>
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+
+        <div class="btn-group hidden-xs-down">
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-th"></i></a>
+          <a href="#" class="btn btn-outline-info active"><i class="fa fa-th-list"></i></a>
+        </div><!-- btn-group -->
+        <div class="btn-group mg-l-10 hidden-xs-down">
+          <a href="#" class="btn btn-outline-info all-table-tr">全部</a>
+          <a href="#" class="btn btn-outline-info">草稿</a>
+          <a href="#" class="btn btn-outline-info">已发</a>
+          <a href="#" class="btn btn-outline-info">已删除</a>
+          <a href="#" class="btn btn-outline-info btn-search">搜索</a>
+         
+        </div><!-- btn-group -->
+
+        <div class="btn-group mg-l-auto hidden-sm-down">
+          <a href="#" class="btn btn-outline-info">发布</a>
+          <a href="#" class="btn btn-outline-info">预览</a>
+          <a href="#" class="btn btn-outline-info">编辑</a>
+          <a href="#" class="btn btn-outline-info">撤稿</a>
+          <a href="#" class="btn btn-outline-info">推荐</a>
+          <a href="#" class="btn btn-outline-info">引用</a>
+          <a href="#" class="btn btn-outline-info">排序</a>
+          <a href="#" class="btn btn-outline-info">删除</a>          
+        </div><!-- btn-group -->
+        
+        <div class="btn-group mg-l-10 hidden-sm-down">
+          <a href="#" class="btn btn-outline-info "><i class="fa fa-chevron-left"></i></a>
+          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-right"></i></a>
+          
+        </div><!-- btn-group -->
+        <!-- START: 只显示在移动端 -->
+        <div class="dropdown mg-l-auto hidden-md-up">
+          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+          <div class="dropdown-menu dropdown-menu-right pd-10">
+            <nav class="nav nav-style-1 flex-column">
+              <a href="#" class="nav-link">发布</a>
+              <a href="#" class="nav-link">预览</a>
+              <a href="#" class="nav-link">编辑</a>
+              <a href="#" class="nav-link">撤稿</a>
+              <a href="#" class="nav-link">推荐</a>
+              <a href="#" class="nav-link">引用</a>
+              <a href="#" class="nav-link">排序</a>
+              <a href="#" class="nav-link">删除</a>         
+            </nav>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+        <!-- END: 只显示在移动端 -->
+      </div><!-- d-flex -->
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    <script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+	  <script src="../lib/highlightjs/highlight.pack.js"></script>
+    <!--<script src="../../lib/2018/datatables/jquery.dataTables.js"></script>
+    <script src="../../lib/2018/datatables-responsive/dataTables.responsive.js"></script>-->
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    <script src="../../common/2018/bracket.js"></script> 
+    
+    <!--<script type="text/javascript" src="https://cdn.bootcss.com/jquery.tablesorter/2.30.5/js/jquery.tablesorter.js"></script>-->
+    <script type="text/javascript" src="../../common/jquery.tablesorter.js"></script>
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+
+            } else {
+              $('body').removeClass('expand-menu');
+
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+        
+    
+        $("#content-table tr:gt(0)").click(function () {     
+		        console.log($(this).find(":checkbox").prop("checked"))    
+		        if ($(this).find(":checkbox").prop("checked"))// 此处要用prop不能用attr，至于为什么你测试一下就知道了。    
+		        {    
+		            $(this).find(":checkbox").removeAttr("checked");    
+		            // $(this).find(":checkbox").attr("checked", 'false');     
+		        }else{    
+		            $(this).find(":checkbox").prop("checked", true);    
+		        }     
+		    }); 
+		    $("#checkAll,#checkAll_1").click(function(){
+		    	var checkboxAll = $("#content-table tr").find("td:first-child").find(":checkbox") ;
+		    	var existChecked = false ;
+		    	for (var i=0;i<checkboxAll.length;i++) {
+		    		if(!checkboxAll.eq(i).prop("checked")){
+		    			existChecked = true ;
+		    		}
+		    	}
+		    	if(existChecked){
+		    		checkboxAll.prop("checked",true);
+		    		$(this).prop("checked",true);
+		    	}else{
+		    		checkboxAll.removeAttr("checked");
+		    		$(this).removeAttr("checked");
+		    	}
+		    	return;
+		    })
+		    $(".btn-search").click(function(){
+		    	$(".search-box").toggle(100);
+		    })
+		     
+		     $('table [data-toggle="tooltip"]').tooltip({
+       	  shadowColor:"#ffffff",
+       	  textColor:"000000",
+       	  trigger:"hover"
+       	});
+		     
+		     
+		    // Datepicker
+        $('.fc-datepicker').datepicker({
+          showOtherMonths: true,
+          selectOtherMonths: true,
+          dateFormat: "yy-mm-dd"
+        });
+        
+        jQuery("#content-table").tablesorter();
+      });
+    </script>
+  </body>
+</html>

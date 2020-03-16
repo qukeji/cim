@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="Shortcut Icon" href="../../favicon.ico">
+<title>群发推送</title>
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link href="../../style/contextMenu.css" type="text/css" rel="stylesheet" />
+<style>
+	.collapsed-menu .br-mainpanel-file {margin-left: 0;margin-top: 0;}
+	table.table-fixed{table-layout: fixed;word-break: break-all;word-wrap: break-word}
+	table.table-fixed,table.table-fixed th,table.table-fixed td{border:1px solid #dee2e6;border-collapse: collapse !important;}
+	.preview-article-list{width:100%}
+	.preview-article-item{position:relative;width:23%;width:280px;margin-right:15px;float:left;display:inline;margin-bottom:30px}
+	.preview-article-item .preview-article-top{position:relative;padding:12px}
+	.preview-article-item .preview-article-bg{position:absolute;left:0;top:0;height:100%;width:100%;background:rgba(0,0,0,0.5);text-align:center;line-height:100%;display:flex;justify-content:center;align-items:center;display:none}
+	.preview-article-item .preview-article-bg a{color:#fff;font-size:16px;padding:20px}
+	.preview-article-top .preview-top-title{color:#353535;font-size:16px;line-height:24px;padding:5px 0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+	.preview-article-top .preview-art-summary{font-weight:400;font-size:14px;color:rgba(154,154,154,1);font-style:normal;line-height:22px;padding:8px 0;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5}
+	.preview-article-top:hover .preview-article-bg{display:flex}
+	.preview-article-item .preview-img-box{position:relative;height:0;padding-bottom:56.25%;overflow:hidden;width:100%;overflow:hidden}
+	.preview-article-item .preview-img-box img{position:relative;left:0;top:0;max-width:100%;min-width:100%}
+	.preview-article-item .preview-img-box .preview-article-tl{position:absolute;left:0;bottom:0;line-height:22px;font-size:15px;background:rgba(0,0,0,0.55);width:100%;padding:5px 3%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+	.preview-article-item .preview-article-bot{display:flex;justify-content:space-between;align-items:center;padding:10px;height:40px}
+	.preview-article-item .preview-article-bot .handle-icon{display:none;color:#9A9A9A;font-size:18px}
+	.preview-article-item .handle-icon i{cursor:pointer}
+	.preview-article-item:hover .preview-article-bot .handle-icon{display:block}
+	.preview-child-list .child-item{margin:10px 0;padding:0 10px;position:relative}
+	.preview-child-list .child-item:hover .preview-article-bg{display:flex}
+	.preview-child-list .child-item-box{display:flex;justify-content:space-between;padding:10px 5px;border-top:1px solid #E4E8EB}
+	.preview-child-list .child-item-box .child-img-box{flex:0 0 60px;width:60px;height:60px;position:relative;overflow:hidden;display:flex;justify-content:center;align-items:center;background:#f2f2f2}
+	.preview-child-list .child-item-box .child-title{line-height:22px;font-size:14px;color:#353535;width:100%;padding:5px 2%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;height:44px}
+	.preview-child-list .child-item-box .child-img-box img{max-height:100%;max-width:100%}
+		
+	@media (max-width: 575px){
+		#content-table .hidden-xs-down {word-break: normal;	}
+	}
+</style>
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+<script type="text/javascript" src="../../common/2018/content.js"></script>
+<script src="../../common/2018/jquery.masonry.min.js"></script>
+</head>
+
+<body class="collapsed-menu email">
+	<div class="br-mainpanel br-mainpanel-file" id="js-source">
+		<div class="br-pageheader pd-y-15 pd-md-l-20">
+			<nav class="breadcrumb pd-0 mg-0 tx-12">
+				<span class="breadcrumb-item active">群发推送</span>
+			</nav>
+		</div>
+		<!-- br-pageheader -->
+		<!--操作-->
+		<div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+			<!-- START: 只显示在移动端 -->
+			<div class="dropdown hidden-sm-up">
+				<a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+				<div class="dropdown-menu pd-10">
+					<nav class="nav nav-style-1 flex-column">
+						<a href="javascript:list();" class="nav-link list_all">全部</a>
+						<a href="javascript:list('IsDelete=1');" class="nav-link list_delete">已删除</a>
+						<a href="#" class="nav-link">搜索</a>
+					</nav>
+				</div>
+				<!-- dropdown-menu -->
+			</div>
+			<!-- dropdown -->
+			<!-- END: 只显示在移动端-->
+
+			<!-- btn-group -->
+			<div class="btn-group mg-l-10 hidden-xs-down">
+				<a href="javascript:list();" class="btn btn-outline-info list_all">全部</a>				
+				<a href="javascript:list('IsDelete=1');" class="btn btn-outline-info list_delete">已删除</a>
+				<a href="#" class="btn btn-outline-info btn-search">搜索</a>
+			</div>
+			<!-- btn-group -->
+
+			<div class="btn-group mg-l-auto hidden-sm-down">
+				<a href="javascript:addDocument();" class="btn btn-outline-info">新建</a>
+			</div>
+			
+			<!-- START: 只显示在移动端 -->
+			<div class="dropdown mg-l-auto hidden-md-up">
+				<a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+				<div class="dropdown-menu dropdown-menu-right pd-10">
+					<nav class="nav nav-style-1 flex-column">
+						<a href="javascript:addDocument();" class="nav-link">新建</a>
+					</nav>
+				</div>
+				<!-- dropdown-menu -->
+			</div>
+			<!-- dropdown -->
+			<!-- END: 只显示在移动端 -->
+			<!--上一页 下一页-->
+			<div class="btn-group mg-l-10">
+			
+			</div>
+			<!-- btn-group -->
+			
+		</div>
+		<!--操作-->
+
+		<!--搜索-->
+		<div class="search-box pd-x-20 pd-sm-x-30" style="display:none;">
+			<div class="search-content bg-white">
+				<form name="search_form" action="content2018.jsp?id=15893&rowsPerPage=20" method="post" onsubmit="return check();">
+					<div class="row">
+						<!--标题-->
+						<div class="mg-r-10 mg-b-30 search-item">
+							<input class="form-control search-title" placeholder="标题" type="text" name="Title" value="" onClick="this.select()">
+						</div>
+						<!--日期-->
+						<div class="wd-200 mg-b-30 mg-r-10 search-item">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+								<input type="text" class="form-control fc-datepicker search-time" placeholder="YYYY-MM-DD" name="startDate" value="" id="startDate">
+							</div>
+						</div>
+						<div class="wd-20 mg-b-30 mg-r-10 ht-40 d-flex align-items-center justify-content-start">至</div>
+						<div class="wd-200 mg-b-30 mg-r-10 search-item">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+								<input type="text" class="form-control fc-datepicker search-time" placeholder="YYYY-MM-DD" name="endDate" value="" id="endDate">
+							</div>
+						</div>
+						<!-- wd-200 -->
+						<!--作者-->
+						<div class="mg-r-10 mg-b-30 search-item">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="icon ion-person tx-16 lh-0 op-6"></i></span>
+								<input type="text" class="form-control search-author" placeholder="作者" name="User" value="">
+							</div>
+						</div>
+						<!--状态-->
+						<div class=" mg-lg-t-0 mg-r-10 mg-b-30 search-item">
+							<select class="form-control select2" data-placeholder="状态" name="Status">
+								<option label="Choose one"></option>
+								<option value="0">全部</option>
+								<option value="2" >已发</option>
+								<option value="1" >草稿</option>
+							</select>
+						</div>
+						<div class="search-item mg-b-30">
+							<input type="hidden" name="IsIncludeSubChannel" value="1">
+							<input type="submit" name="Submit" value="搜索" class="btn btn-outline-info active pd-x-10 pd-y-10 tx-uppercase tx-bold tx-spacing-6 tx-14">
+							<input type="hidden" name="OpenSearch" id="OpenSearch" value="1">
+						</div>
+					</div>
+					<!-- row -->
+				</form>
+			</div>
+		</div>
+		<!--搜索-->
+		<!--列表-->
+	
+		<div class="br-pagebody pd-x-20 pd-sm-x-30">			
+			<div class="preview-article-list wd-100p clearfix">
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-top-title">这是标题1这是标题1这是标题1这是标题1这是标题1</div>
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<!--<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>-->
+						</div>
+						<div class="preview-art-summary">
+							这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述
+						这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述
+						这是摘要描述这是摘要描述这是摘要描述这是摘要描述这是摘要描述
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+			
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						
+						<!--<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>-->
+						
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+			
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				<div class="preview-article-item pd-10 card bd-0 shadow-base">
+					<div class="preview-article-top">
+						<div class="preview-img-box">
+							<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+							<div class="preview-article-tl wd-100p tx-white">1122报辅导班辅导班发不发达部</div>
+						</div>
+						<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>							
+					</div>
+					<div class="preview-child-list">
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						<div class="child-item">
+							<div class="child-item-box">
+								<p class="child-title">下面文章1</p>
+								<div class="child-img-box">
+									<img src="http://jushi-yanshi.tidemedia.com/images/videoqj.png" />
+								</div>
+							</div>
+							<div class="preview-article-bg"><a href="javascript:;" >预览文章</a></div>		
+						</div>
+						
+					</div>
+					<div class="preview-article-bot ">
+						<span class="update-time">更新于5月31号</span>
+						<p class="handle-icon">
+							<i class="fa fa-edit mg-r-5"></i>
+							<i class="fa fa-trash-o"></i>
+						</p>
+					</div>
+						
+				</div>
+				
+			
+			
+			</div>
+
+		</div>
+		<!--列表-->
+
+		<!--操作-->
+		<div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+
+			<!--<button id="showSubLeft" class="btn btn-secondary mg-r-10 hidden-lg-up"><i class="fa fa-navicon"></i></button>-->
+
+			<!-- START: 只显示在移动端 -->
+			<div class="dropdown hidden-sm-up">
+				<a href="#" class="btn btn-outline-secondary" data-toggle="dropdown"><i class="icon ion-more"></i></a>
+				<div class="dropdown-menu pd-10">
+					<nav class="nav nav-style-1 flex-column">
+						<a href="javascript:list();" class="nav-link list_all">全部</a>						
+						<a href="javascript:list('IsDelete=1');" class="nav-link list_delete">已删除</a>
+						<a href="#" class="nav-link">搜索</a>
+					</nav>
+				</div>
+				<!-- dropdown-menu -->
+			</div>
+			<!-- dropdown -->
+			<!-- END: 只显示在移动端 -->
+			<!-- btn-group -->
+			<div class="btn-group mg-l-10 hidden-xs-down">
+				<a href="javascript:list();" class="btn btn-outline-info list_all">全部</a>
+				<a href="javascript:list('IsDelete=1');" class="btn btn-outline-info list_delete">已删除</a>
+				<a href="#" class="btn btn-outline-info btn-search">搜索</a>
+			</div>
+			<!-- btn-group -->
+
+			<div class="btn-group mg-l-auto hidden-sm-down">
+				<a href="javascript:addDocument();" class="btn btn-outline-info">新建</a>
+				
+			</div>
+			
+           
+			<!-- START: 只显示在移动端 -->
+			<div class="dropdown mg-l-auto hidden-md-up">
+				<a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+				<div class="dropdown-menu dropdown-menu-right pd-10">
+					<nav class="nav nav-style-1 flex-column">
+						<a href="javascript:addDocument();" class="nav-link">新建</a>
+					
+					</nav>
+				</div>
+				<!-- dropdown-menu -->
+			</div>
+			<!-- dropdown -->
+			<!-- END: 只显示在移动端 -->
+			<!-- btn-group -->
+			<!--<div class="btn-group mg-l-10 hidden-sm-down">-->
+			<div class="btn-group mg-l-10">
+			
+			</div>
+			<!-- btn-group -->
+		</div>
+		<!--操作-->
+
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../lib/2018/jt.timepicker/jquery.timepicker.js"></script>
+<script src="../../lib/2018/select2/js/select2.min.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+<script type="text/javascript" src="../../common/2018/jquery.contextmenu.js"></script>
+<script>
+	
+	//===========================================
+	$(function() {
+		'use strict';
+
+		//show only the icons and hide left menu label by default
+		$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+
+		$(document).on('mouseover', function(e) {
+			e.stopPropagation();
+			if ($('body').hasClass('collapsed-menu')) {
+				var targ = $(e.target).closest('.br-sideleft').length;
+				if (targ) {
+					$('body').addClass('expand-menu');
+
+					// show current shown sub menu that was hidden from collapsed
+					$('.show-sub + .br-menu-sub').slideDown();
+
+					var menuText = $('.menu-item-label,.menu-item-arrow');
+					menuText.removeClass('d-lg-none');
+					menuText.removeClass('op-lg-0-force');
+
+				} else {
+					$('body').removeClass('expand-menu');
+
+					// hide current shown menu
+					$('.show-sub + .br-menu-sub').slideUp();
+
+					var menuText = $('.menu-item-label,.menu-item-arrow');
+					menuText.addClass('op-lg-0-force');
+					menuText.addClass('d-lg-none');
+				}
+			}
+		});
+
+		$('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+		$('#showMailBoxLeft').on('click', function(e) {
+			e.preventDefault();
+			if ($('body').hasClass('show-mb-left')) {
+				$('body').removeClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+			} else {
+				$('body').addClass('show-mb-left');
+				$(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+			}
+		});
+		
+		$(".btn-search").click(function() {
+			$(".search-box").toggle(100);
+		})
+       
+		// Datepicker
+		tidecms.setDatePicker(".fc-datepicker");
+
+	});
+	
+	//瀑布流
+	var Mymasonry = new Masonry('.preview-article-list',{
+	  columnWidth: 310
+	});
+	$(window).resize(function(){
+        Mymasonry.layout();
+    })
+
+</script>
+
+    </div>
+    
+    <!--2ms-->
+</body>
+
+</html>

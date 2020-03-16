@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>我的问政</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<link type="text/css" rel="stylesheet" href="../css/font-awesome/css/font-awesome.css" />
+	<script src="../js/fontSize.js"></script>	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	
+	</head>
+	<body id="wdwz">
+		<div class="news-wz">
+			<!--<div class="wz-item">
+				<div class="avator-box">问</div>
+				<div class="text-box">
+					<p class="wz-title">荆州长江大桥收费问题，过江车收费成本大大增这个大桥收费年限确定多少？</p>
+					<p class="detail">每年开人大会议都提出了对江两岸鄂D荆州牌免费建议，也没个消息和答复。现就是想问，
+						这个长江大桥收费年限确定是多少？建桥的时候说是15年的收费年限，用于大桥建设还贷。时间已经过了？
+					</p>
+					<p class="time-state">
+						<span class="wz-time">07-02 16:16</span>
+						<span class="complain">投诉</span>
+						<span class="wz-state">待办理</span>
+					</p>										
+				</div>
+			</div>-->
+			
+			
+		</div>
+		<div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		<div id="no-data">
+			<p class=""><span>暂无数据</span></p>
+		</div>
+		<div class="loading">
+    		<div class="imgbox">
+    			<img src="../images/video_loading.gif">
+    		</div>
+    	</div>
+    	<div class="top">
+    		<span class=""></span>
+    	</div>
+    	<div class="backpage">
+    		<span class=""></span>
+    	</div>
+	</body>
+	<script>
+		$(function(){
+			//问政列表
+			
+			var status = getUrl("status")  ;
+			var phone = getUrl("phone")  ;
+			
+			wzList() ;
+			
+			var pagenum  = 1 ;
+        	var havaNextPage = true ;  //是否有下一页
+        	var _switch  = true ;   //开关，防止一次下拉触发多次接口请求
+			function wzList(){
+				$.ajax({
+					type:"get",
+					url: siteUrl+"/wenzheng_list.jsp",				  		
+					dataType:"jsonp",
+					data:{page:pagenum,status:status,phone:phone},
+					beforeSend:function(XMLHttpRequest){ 
+            	        	if(pagenum>1){
+            	        		$(".loading").show();
+            	        	}
+            	        	_switch = false ;
+            			}, 
+					success:function(data){
+					    if(data.result.length){
+						    pagenum ++ ;
+						    _switch = true ;
+						}else{
+						    _switch = false ;
+						    havaNextPage = false ;
+						    $(".loading").fadeOut("slow");
+						    if(pagenum==1){
+						       $("#no-data").show();							   
+						    }
+						    return ;
+						}
+					
+						$(".loading").fadeOut("slow");
+						//console.log(data)
+						var wzHtml = "" ;						
+						for(var i=0;i<data.result.length;i++){
+							wzHtml += '<div class="wz-item" data-id="'+data.result[i].id+'">' +
+							             	'<div class="avator-box">问</div>'+
+							             	'<div class="text-box">'+
+							             		'<p class="wz-title">'+data.result[i].Title+'</p>'+
+												'<p class="detail">'+data.result[i].Summary+'</p>'+
+												'<p class="time-state">'+
+													'<span class="wz-time">'+data.result[i].CreateDate+'</span>'+
+													'<span class="complain">'+data.result[i].type+'</span>'+													
+													'<span class="wz-state">'+data.result[i].Status2+'</span>'+
+												'</p>'+
+											'</div>'+
+										'</div>'
+						}						
+						$(".news-wz").append(wzHtml) ;
+						location();
+					},
+					error:function(){
+					    havaNextPage = false ;
+        	        	$(".loading").fadeOut("slow");
+        	        	_switch = false ;
+        	        	
+					}
+				});
+			}
+			//滚动的上拉刷新
+            $(window).scroll(function(){  	
+            	
+                if($(document).scrollTop() >= $(document).height()-$(window).height()) {	
+                	if(_switch){
+            		    wzList();	        	
+        	        	return false;
+            		}
+        	       
+            	}
+            });
+           
+			
+			//进入问政详情
+			function location(){
+		    	$(".wz-item").click(function(){
+    			    console.log("id")
+    			    var _id = $(this).attr("data-id");
+    			    var _url = "wz-detail.html?id="+_id+"&status="+status;
+    			   
+    			    window.open(_url,"_blank") 
+    			})
+			}
+		
+		})
+	</script>
+</html>

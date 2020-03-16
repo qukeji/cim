@@ -1,0 +1,14 @@
+{
+    "beforeAD": [{
+        "material": "video/ad.mp4",
+        "link": "http://cn.bing.com/",
+        "duration": 15,
+        "logs": ""
+    }],
+    "pauseAD": {
+        "material": "http://cms-bucket.ws.126.net/2019/03/07/51ba46b7d0364dbcb87e450c7fcbf774.jpeg?imageView&thumbnail=600y300&quality=85",
+        "link": "http://news.163.com/",
+        "duration": 0,
+        "logs": ""
+    }
+}

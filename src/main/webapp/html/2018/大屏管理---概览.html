@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<title>TideCMS 9.0</title>
+
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/rickshaw/rickshaw.min.css" rel="stylesheet">
+<link href="../../lib/2018/chartist/chartist.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+
+<script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+<script language=javascript>
+
+
+	
+	function reSize() {
+		document.getElementById("main").style.height = Math.max(document.body.clientHeight - document.getElementById("main").offsetTop, 0) + "px";
+	}
+
+	function set_main_class(str) {
+		jQuery('.header_menu  li').removeClass('on');
+		jQuery('#home_' + str).addClass('on');
+	}
+
+
+</script>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="init();" scroll="no">
+
+	<div class="br-logo">
+		<a href=""><img src="images/2018/system-logo.png"></a>
+	</div>
+
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>
+			<div class="br-sideleft-menu">
+				
+				<a href="main.jsp" class="br-menu-link active menu-home">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-home tx-22"></i>
+						<span class="menu-item-label">主页</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+				
+				<a href="explorer/index2018.jsp" class="br-menu-link menu-explorer">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-folder tx-20"></i>
+						<span class="menu-item-label">文件管理</span>
+					</div>
+				</a>
+				
+				
+				<a href="channel/index2018.jsp" class="br-menu-link menu-channel">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-sitemap tx-20"></i>
+						<span class="menu-item-label">结构管理</span>
+					</div>
+				</a>
+				
+				<!-- br-menu-link -->
+				<a href="source/index2018.jsp" class="br-menu-link menu-source">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-database tx-20"></i>
+						<span class="menu-item-label">资源中心</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+									
+				<a href="lib/appIndex2018.jsp?childGroup=1" class="br-menu-link menu-app" id="menu-app">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-tablet tx-26"></i>
+						<span class="menu-item-label">APP管理</span>
+					</div>
+				</a>
+				<a href="lib/appIndex2018.jsp?childGroup=2" class="br-menu-link menu-userManage" id="menu-userManage">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-user tx-26"></i>
+						<span class="menu-item-label">用户管理</span>
+					</div>
+				</a>
+			    <a href="lib/appIndex2018.jsp?childGroup=3" class="br-menu-link menu-interactive" id="menu-interactive">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-comments-o tx-20"></i>
+						<span class="menu-item-label">互动管理</span>
+					</div>                                     
+				</a>    
+				<a href="lib/webIndex.jsp" class="br-menu-link menu-standard" id="menu-standard">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-desktop tx-18"></i>
+						<span class="menu-item-label">内容管理</span>
+					</div>
+				</a>
+				
+				<a href="#" class="br-menu-link">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-gear tx-20"></i>
+						<span class="menu-item-label">系统管理</span>
+						<i class="menu-item-arrow fa fa-angle-down"></i>
+					</div>
+				</a>
+				<!-- br-menu-link -->
+				<ul class="br-menu-sub nav flex-column">
+					<li class="nav-item">
+						<a href="system/index2018.jsp" class="nav-link br-menu-item">站点配置</a>
+					</li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=1" class="nav-link">许可证</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=2" class="nav-link">系统参数</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=11" class="nav-link">审核管理</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=3" class="nav-link">操作日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=4" class="nav-link">登录日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=5" class="nav-link">错误日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=6" class="nav-link">系统日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=7" class="nav-link">备份中心</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=8" class="nav-link">系统监控</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=9" class="nav-link">调度管理</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=10" class="nav-link">图片尺寸</a></li>
+					<li class="nav-item"><a href="template/index2018.jsp" class="nav-link">模板管理</a></li>
+					<li class="nav-item"><a href="user/index2018.jsp" class="nav-link">用户管理</a></li>
+					<li class="nav-item"><a href="publish/index2018.jsp" class="nav-link">发布进程管理</a></li>
+					<li class="nav-item"><a href="report/index2018.jsp" class="nav-link">工作量统计</a></li>
+					<li class="nav-item"><a href="spider/index2018.jsp" class="nav-link">采集系统</a></li>
+				</ul>
+				
+
+			
+			</div>
+			<!-- br-sideleft-menu -->
+		</div>
+        <!-- br-sideleft -->
+
+		<div class="br-header">
+			<div class="br-header-left">
+				<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+				<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+				<div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>内容汇聚发布</a></div>
+			</div>
+			<!-- br-header-left -->
+			<div class="br-header-right">
+				<nav class="nav">
+					<div class="dropdown">
+						<a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+							<span class="logged-name hidden-md-down">方志伟</span>
+							<img src="images/2018/img1.jpg" class="wd-32 rounded-circle" alt="">
+							<span class="square-10 bg-success"></span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-header wd-200">
+							<ul class="list-unstyled user-profile-nav">
+								<li><a href="person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+								<li><a href="logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+							</ul>
+						</div>
+						<!-- dropdown-menu -->
+					</div>
+					<!-- dropdown -->
+				</nav>
+			</div>
+			<!-- br-header-right -->
+		</div>
+		<!-- br-header -->
+
+
+
+		
+		<!-- ########## START: MAIN PANEL ########## -->
+		<div class="br-mainpanel with-first-nav">
+			<div class="pd-30">
+				<h4 class="tx-gray-800 mg-b-5">概览</h4>
+				<p class="mg-b-0">本系统下目前管理 5个屏幕管理方案、 208个内容输入源；</p>
+			</div>
+			<!-- d-flex -->
+
+			<div class="br-pagebody mg-t-5 pd-x-30">
+				<div class="row row-sm">
+					
+					<div class="col-sm-6 col-xl-3 mg-y-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xl-3 mg-y-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xl-3 mg-y-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xl-3 mg-y-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-xl-3 mg-y-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					<div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+						<div class="bg-primary rounded overflow-hidden">
+							<div class="pd-25 d-flex align-items-center">
+								<!--<i class="fa fa-line-chart tx-60 lh-0 tx-white op-7"></i>-->
+								<div class="mg-l-0 wd-100p">
+									<p class="tx-16 tx-spacing-1 tx-bold tx-mont tx-medium tx-uppercase tx-white mg-b-10">这是方案名称</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">分辨率：3840x1080</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 " id="">显示模块：9</p>
+									<p class="tx-12 tx-white-8 tx-lato  mg-b-2 1" id="">内容源：12</p>
+									<div class="d-flex justify-content-end">
+										<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-18 "> </i></a>
+										<a class="mg-l-10" href="javascript:;"><i class="tx-white fa fa-gear tx-18"> </i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- col-3 -->
+					
+				</div>
+				<!-- row -->
+
+			
+			</div>
+			<!-- br-pagebody -->
+			<footer class="br-footer">
+				<div class="footer-left">
+					<div class="mg-b-2">软件版权所有 © 泰德网聚.</div>
+				</div>
+			</footer>
+		</div>
+		<!-- br-mainpanel -->
+		<!-- ########## END: MAIN PANEL ########## -->
+		
+
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+
+<script src="../../common/2018/bracket.js"></script>
+
+<script>
+	window.onresize = function() {
+		if (document.getElementById("content_frame")) {
+			document.getElementById("content_frame").style.height = Math.max(document.documentElement.clientHeight - 70, 0) + "px";
+		}
+	}
+
+	function changeFrameHeight(_this) {
+		$(_this).css("height", document.documentElement.clientHeight - 70);
+	}
+
+
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+
+	
+});
+
+$(function(){
+	
+	
+});	
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+/*隐藏头部*/
+#root .header{
+	height: 0;
+	display: none;	
+}
+/*header .production-area{
+	display: none;
+}
+header .account-area{
+	display: none;
+}
+header .head-tab{
+	display: none;
+}*/
+.container{
+	top: 0px;
+}
+/*隐藏导航*/
+.menu-my,.menu-tmpl{
+	display: none !important; 
+}
+/*隐藏收藏按钮*/
+.style-list-item .style-like-tag{
+	display: none !important; 
+}
+
+/*隐藏右侧不需要的按钮*/
+#J_include_btn,
+#J_preview_btn{
+	display: none;
+}
+.side-bar{
+	width:0px;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.edui-for-insert-image{display: none !important;}

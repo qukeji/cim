@@ -1,0 +1,68 @@
+/* ------------------------------
+css for TideCms 7
+design by ZhangLiang & mezeroz@gmail.com
+date 2009-5-21
+---------------------------- */
+
+/* Reset */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none;}
+a:hover{text-decoration:none;color:#096ed5;}
+body{font-size:12px;background:#ffffff;}
+
+.header{background:url(../images/bg_header.png) repeat-x;height:37px;overflow:hidden;position:relative;}
+.logo{float:left;width:160px;margin-right:55px;}
+.header-info{position:absolute;top:0;right:0;color:#9b9b9b;line-height:37px;}
+.header-info a{padding:0 8px;color:#9b9b9b;}
+.header-info a.messages{color:#ffae00;}
+
+.edit-info{width:470px;position:absolute;right:0;}
+.edit-info .txt{line-height:37px;float:left;color:#817b7b;}
+.edit-info .button{float:right;margin-right:10px;}
+.edit-info .button li{float:left;height:23px;*height:24px;margin:7px 6px 0 0;line-height:24px;overflow:hidden;}
+.edit-info .button li a{line-height:24px;padding:0 0 0 10px;float:left;background:url(../images/bg_edit_info_button.png) no-repeat left top;color:#000000;}
+.edit-info .button li a:hover{text-decoration:none;}
+.edit-info .button li a span{padding:0 10px 0 0;cursor:pointer;float:left;background:url(../images/bg_edit_info_button_r.png) no-repeat 100% top;}
+
+/* Gecko hack;Pre-FF3 Gecko uses -moz-inline-box instead of inline-block. */
+html>body .button_inline_block{
+display:-moz-inline-box;/* This is ignored by FF3 and later */
+display:inline-block;}/* This is ignored by pre-FF3 Gecko */
+
+/* Default rule;only Safari,Webkit,and Opera handle it without hacks. */
+.button_inline_block{position:relative;display:inline-block;cursor:pointer;}
+.button_inline_block a{padding:0;margin:0;height:auto;width:auto;line-height:normal;float:none;}
+
+/* Pre-IE7 IE hack. On IE,"display:inline-block" only gives the element */
+/* layout,but doesn't give it inline behavior. Subsequently setting display */
+/* to inline does the trick. */
+* html .button_inline_block{display:inline;}
+
+/* IE7-only hack. On IE,"display:inline-block" only gives the element */
+/* layout,but doesn't give it inline behavior. Subsequently setting display */
+/* to inline does the trick. */
+*:first-child+html .button_inline_block{display:inline;}
+
+/* Pre-IE7 IE hack;ignored by IE7 and all non-IE browsers. */
+* html .top_button_inner,* html .list_button_inner{
+/* IE6 needs to have the box shifted to make the borders line up. */
+left:-1px}
+
+/* IE7-only hack;ignored by all other browsers. */
+*:first-child+html .top_button_inner,*:first-child+html .list_button_inner{
+/* IE7 needs to have the box shifted to make the borders line up. */
+left:-1px}
+
+.top_button{height:24px;margin:0 5px 0 0;background:url(../images/top_button_bg.gif) repeat-x left top;}
+.top_button_outer{border-color:#bfcbdf;border-style:solid;border-width:1px 0;}
+.top_button_inner{border-color:#bfcbdf;border-style:solid;border-width:0 1px;margin:0 -1px;padding:0 4px 0px;}
+.top_button_inner span{float:left;height:19px;margin:3px 0 0;}
+.top_button_inner span.txt{line-height:16px;_line-height:18px;padding:0 5px;}
+.top_button_inner span.img img{vertical-align:middle;margin:0 1px 0 1px;}
+
+.edit_page_topbar{background:url(../images/edit_page_topbar_bg.gif) repeat-x;height:40px;}
+.edit_page_title{float:left;padding:15px 0 0 15px;}
+.edit_page_tools{float:right;padding:8px 8px 0 0;}

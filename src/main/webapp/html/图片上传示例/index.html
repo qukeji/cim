@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片上传示例 - TideCMS</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<style>label{margin:0 0 0 2px;}</style>
+<script type="text/javascript" src="../common/jquery.js"></script>
+<script type="text/javascript" src="../swfupload/swfupload.js"></script>
+<script type="text/javascript" src="../swfupload/fileprogress_2010.js"></script>
+<script type="text/javascript" src="../swfupload/handlers.js"></script>
+	<script type="text/javascript">
+		var swfu;
+	window.onload = function() {
+			var settings = {
+				flash_url : "/cms_test/swfupload/swfupload.swf",
+				upload_url: "/cms_test/content/insertfile_submit.jsp",	// Relative to the SWF file
+				post_params: {},
+				file_size_limit : "0",
+				file_types : "*.gif;*.jpg;*.png;*.jpeg",
+				file_types_description : "图片文件",
+				file_upload_limit : 1,
+				file_queue_limit :1,
+				custom_settings : {
+					progressTarget : "fsUploadProgress",
+					cancelButtonId : "btnCancel1",
+					startButton:"startButton",
+					percentage:"percentage",
+					oneormore:"0", //o单选 1 多选
+					action:"document_upload",
+					fileinput:"fileinput"
+				},
+				debug: false,
+				// Button settings
+				button_image_url: "../images/upload_select.gif",	// Relative to the Flash file
+				button_width: "71",
+				button_height: "24",
+				button_placeholder_id: "spanButtonPlaceHolder",
+				//button_text: '<span class="theFont">选择..</span>',
+				//button_text_style: ".theFont { font-size: 14; }",
+				button_text_left_padding: 12,
+				button_text_top_padding: 0,
+				button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+				button_cursor: SWFUpload.CURSOR.HAND,
+				
+				// The event handler functions are defined in handlers.js
+				file_dialog_start_handler : fileDialogStart,
+				file_queued_handler : fileQueued,
+				file_queue_error_handler : fileQueueError,
+				file_dialog_complete_handler : fileDialogComplete,
+				upload_start_handler : uploadStart,
+				upload_progress_handler : uploadProgress,
+				upload_error_handler : uploadError,
+				upload_success_handler : uploadSuccess,
+				upload_complete_handler : uploadComplete
+			};
+
+			swfu = new SWFUpload(settings);
+
+			if(top.CompressWidth)
+				$("#CompressWidth").val(top.CompressWidth);
+			if(top.CompressHeight)
+				$("#CompressHeight").val(top.CompressHeight);
+	    };
+
+function startSWFU(){
+	var ReWrite;
+	var browser;
+	var option;
+
+	if(jQuery.browser.msie){
+		browser="msie";
+	option={"browser":browser,"ChannelID":"230","Type":"Image","fieldname":"Photo"};
+	}else{
+		browser="mozilla";
+		option={"browser":browser,"ChannelID":"230","Type":"Image","fieldname":"Photo","Username":"zhangliang","Password":"22fafcd3482a0f2f914dc2adf16ee57c"};
+	}
+	
+	var Watermark="";
+	var IsCompress = "";
+	var UseCompress = "";
+	var mask_location="";
+	if(jQuery("#Watermark").is(':checked')){
+			Watermark="Yes";
+			mask_location = $("#mask_location").val();
+			//alert("watermark="+Watermark+",mask_location="+mask_location);
+	}
+	//alert("2/watermark="+Watermark+",mask_location="+mask_location);
+	if(jQuery("#IsCompress").is(':checked')){
+			IsCompress="1";
+	}
+	if(jQuery("#UseCompress").is(':checked')){
+			UseCompress="1";
+	}
+	jQuery.extend(option,{"Watermark":Watermark,"IsCompress":IsCompress,"CompressHeight":$("#CompressHeight").val(),"CompressWidth":$("#CompressWidth").val(),"UseCompress":UseCompress,"mask_location":mask_location});
+	
+	
+	swfu.setPostParams(option);
+	swfu.startUpload();
+}
+	</script>
+
+</head>
+<body>
+<form action="file_upload_submit.jsp" enctype="multipart/form-data" method="post"  name="form" onSubmit="return check();">
+<div class="iframe_form">
+    <div class="form_main">
+        <div class="form_main_m" style="height:160px;">
+            <table border="0" width="560">
+                <tr>
+                    <td colspan="2">
+                        <div class="upload_img_options">
+                            <div class="u_i_o_box1">
+                                <input type="checkbox" name="IsCompress" value="1" id="IsCompress" checked><label for="IsCompress">压缩图片</label>
+                                <select id="">
+                                    <option value="">尺寸方案</option>
+                                </select>
+                            </div>
+                            <div class="u_i_o_box2">
+                                <label for="CompressWidth">宽度：</label><input type="text" value="" name="CompressWidth" size=5 id="CompressWidth">
+                                <label for="CompressHeight">高度：</label><input type="text" value="" name="CompressHeight" id="CompressHeight" size=5>
+                            </div>
+                            <div class="u_i_o_box3"><input type="checkbox" name="UseCompress" value="1" id="UseCompress"><label for="UseCompress">使用压缩后图片</label></div>
+                        </div>
+                        <div class="upload_img_options">
+                            <div class="u_i_o_box1">
+                                <input type="checkbox" id="Watermark" name="Watermark" value="yes"><label for="Watermark" style="margin:0 2px 0 2px;">加上水印</label>
+                                <select id="mask_location">
+                                    <option value="rightbottom">右下方</option>
+                                    <option value="righttop">右上方</option>
+                                    <option value="middle">居中</option>
+                                    <option value="leftbottom">左下方</option>
+                                    <option value="lefttop">左上方</option>
+                                </select>
+                            </div>
+                            <div class="u_i_o_box2"><span class="file_upload_dir">图片上传：</span><div class="file_upload_choose"><span id="spanButtonPlaceHolder"></span></div></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="middle" colspan="2">
+            		<table width="100%" border="0" id="fsUploadProgress" class="view_table">
+            			<tr id="oTable_th">
+            				<th class="v3" width="200">名称</th>
+            				<th class="v8" >进度</th>
+            				<th class="v8" width="60">大小</th>
+            				<th class="v9" width="40" align="center" valign="middle">操作</th>
+            			</tr>
+            		</table>   
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="form_button">
+	<input name="startButton" type="button" class="tidecms_btn2" value="确定" id="startButton"  onclick="startSWFU();"/>
+	<input name="btnCancel1" type="button" class="tidecms_btn2" value="取消" id="btnCancel1"  onclick="cancelQueue(swfu);top.TideDialogClose('');"/>
+</div>
+</form>
+</body>
+</html>

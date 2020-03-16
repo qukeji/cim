@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+    <title>结构管理</title>
+    <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    <link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">
+    <link href="../../lib/2018/morris.js/morris.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/datatables/jquery.dataTables.css" rel="stylesheet">-->
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <!--<link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">-->
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../common/2018/common2018.js"></script>
+     <script src="../../common/2018/TideDialog2018.js"></script>
+  </head>
+ <style>
+ 	.glyphicon-question-sign:before {
+	    content: "\e085";
+	}
+ </style>
+  <body class="collapsed-menu email content_pages">
+   
+    <div class="br-mainpanel br-mainpanel-file" id="channel-manage">      
+      <div class="br-pageheader pd-y-15 pd-md-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">聚视v1.0</a>
+          <a class="breadcrumb-item" href="pages.html">内容中心</a>
+          <span class="breadcrumb-item active">资讯</span>
+          <a href="/html/help-to-edit.html" target="_blank" class="valign-middle tx-gray-900 mg-l-10" data-toggle="tooltip" data-placement="top">
+          	<i class="icon ion-help-circled tx-18"></i>
+          </a>
+          
+         
+         </nav>
+      </div><!-- br-pageheader -->
+      <div class="channel-name mg-l-30 mg-r-30">
+      	<div class="channel-name-box">
+      		<div class="set-img-box">
+      			<!--<i class="icon ion-ios-gear-outline tx-52 lh-72"></i>-->
+      			<!--<i class="fa fa-gear tx-52 lh-72"></i>-->
+      			<img src="../../images/2018/channel-setting.png" />
+      		</div>
+      		<div class="right-info">
+      			<h5 class="tx-22">体育赛事</h5>
+      			<p class="tx-12">共计<span class="channel-data-total">3245</span>条内容资源，其中<span class="channel-data-pub">3200</span>条为审核发布数据、<span class="channel-data-no">45</span>条未审核数据。</p>
+      		</div>
+      	</div>      	
+      </div>
+      <div class="br-pagebody">
+	  		<div class="br-section-wrapper">
+	  			<div class="channel-preview">
+	  				<span class="tx-14 mg-r-10">频道名称：首页管理</span>
+	  				<span class="tx-14 mg-r-10">目录名：index</span>
+	  				<span class="tx-14 mg-r-10">频道地址：/index</span>
+	  				<span class="tx-14 mg-r-10">编号：215</span>
+	  				<span class="tx-14 mg-r-10">标识：S3c_o</span>
+	  			</div>
+	  			<div class="channel-handle mg-t-20 mg-b-20">
+	  				<div class="">
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="newAll()">发布频道</a>
+			          <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="ddalert()">修改频道属性</a>
+			          <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="uploadFile()">表单定义</a>
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10">添加频道模板</a>
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" id="new_child_channel" onclick="newChannel()">新建子频道</a>
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="setChannel()">排序</a>
+	                  <a href="javascript:;" class="btn btn-danger mg-r-5 mg-b-10" onclick="testConfirm()">删除</a>  
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="editPower()">用户权限编辑</a> 
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="setPower()">设置权限</a> 
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="testConfirm()">测试confirm</a> 
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="testConfirm2()">测试confirm2</a> 
+	                  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="testalert2()">测试testalert2</a>
+					  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="viewVideo()">视频预览</a>
+					  <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="licence()">许可证</a>
+		        	</div>
+	  			</div>
+	  			<div class="bd">
+		  		    <table class="table mg-b-0" id="templet-table">
+			            <thead>
+			              <tr>	               
+			                <th class="tx-12-force tx-mont tx-medium">编号</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">类型</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">模板</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">目标文件</th>	                
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-300">操作</th>	               
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>	                
+			                <td><span class="pd-l-5">1</span></td>
+			                <td class="hidden-xs-down">附加页模板</td>
+			                <td class="hidden-xs-down">search_keywords.html<span class="mg-l-10">searc</span></td>	                
+			                <td class="hidden-xs-down">h_keywords.html</td>
+			                <td class=" hidden-xs-down">	                  	                  
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">配置</button>	               
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">查看</button>
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">删除</button>
+			                </td>
+			              </tr>
+			              <tr>	                
+			                <td><span class="pd-l-5">1</span></td>
+			                <td class="hidden-xs-down">附加页模板</td>
+			                <td class="hidden-xs-down">search_keywords.html<span class="mg-l-10">searc</span></td>	                
+			                <td class="hidden-xs-down">h_keywords.html</td>
+			                <td class="dropdown hidden-xs-down">	                  	                  
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">配置</button>	               
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">查看</button>
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">删除</button>
+			                </td>
+			              </tr>
+			            </tbody>
+		          	</table>	          
+	  			</div>
+	  		</div>
+	  	</div>	
+      	<div class="br-pagebody">
+	  		<div class="br-section-wrapper pd-t-30">
+	  			<h6 class="tx-gray-800 tx-uppercase tx-bold tx-16 mg-b-20">用户权限</h6>
+                <div class="bd">
+		  		    <table class="table mg-b-0 tx-gray-700" id="templet-table">
+			            <thead>
+			              <tr>	               
+			                <th class="tx-12-force tx-mont tx-medium">类型</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">目标用户或用户群组</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down"> </th>
+			                              
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>	                
+			                <td><span class="pd-l-5">浏览</span></td>			                
+			                <td class="hidden-xs-down">
+			                	<span class="mg-r-20"><i class="fa fa-user mg-r-5"></i>张小军</span>
+			                	<span class="mg-r-20"><i class="fa fa-users mg-r-5"></i>编辑一部</span>
+			                </td>	                			              
+			                <td class=" hidden-xs-down">	                  	                  
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">配置</button>	               			                
+			                </td>
+			              </tr>
+			              <tr>	                
+			                <td><span class="pd-l-5">浏览</span></td>			                
+			                <td class="hidden-xs-down">
+			                	<span class="mg-r-20"><i class="fa fa-user mg-r-5"></i>张小军</span>
+			                	<span class="mg-r-20"><i class="fa fa-user mg-r-5"></i>张大军</span>
+			                	<span class="mg-r-20"><i class="fa fa-users mg-r-5"></i>审核组</span>
+			                </td>	                			              
+			                <td class=" hidden-xs-down">	                  	                  
+			                  <button class="btn btn-info btn-sm mg-r-8 tx-13">配置</button>	               			                
+			                </td>
+			              </tr>
+			              
+			            </tbody>
+		          	</table>	          
+	  			</div>
+	  		  
+	  		</div>
+	  	</div>
+	  	<div class="br-pagebody mg-b-30" >
+	  		<div class="br-section-wrapper pd-t-30">
+	  			<h6 class="tx-gray-800 tx-uppercase tx-bold tx-16 mg-b-20">审核流程</h6>
+	  			<div class="channel-handle mg-t-20 mg-b-20">	  				
+	                <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="newStep()">新建步骤</a>
+			        <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="insertCase()">导入审核方案</a>
+			        <a href="javascript:;" class="btn btn-info mg-r-5 mg-b-10" onclick="saveCase()">保存审核方案</a>	              
+	  			</div>
+                <div class="bd">
+		  		    <table class="table mg-b-0 tx-gray-700" id="templet-table">
+			            <thead>
+			              <tr>	               
+			                <th class="tx-12-force tx-mont tx-medium">步骤</th>
+			                <th class="tx-12-force tx-mont tx-medium">名称</th>
+			                <th class="tx-12-force tx-mont tx-medium">方式</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">目标用户或用户群组</th>
+			                <th class="tx-12-force tx-mont tx-medium hidden-xs-down">操作</th>			                              
+			              </tr>
+			            </thead>
+			            <tbody>
+				            <tr>	                
+				                <td><span class="pd-l-5">1</span></td>
+				                <td>一审</td>
+				                <td>并签</td>
+				                <td class="hidden-xs-down">
+				                	<span class="mg-r-20"><i class="fa fa-user mg-r-5"></i>张小军</span>
+				                	<span class="mg-r-20"><i class="fa fa-users mg-r-5"></i>编辑一部</span>
+				                </td>	                			              
+				                <td class=" hidden-xs-down">	                  	                  
+				                  <button class="btn btn-info btn-sm mg-r-8 tx-13" onclick="CaseConfig()">配置</button>	   
+				                  <button class="btn btn-info btn-sm mg-r-8 tx-13">查看</button>
+				                  <button class="btn btn-info btn-sm mg-r-8 tx-13">删除</button>
+				                </td>
+				            </tr>
+			              
+			              
+			            </tbody>
+		          	</table>	          
+	  			</div>
+	  		  
+	  		</div>
+	  	</div>	
+     
+
+
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    
+	<script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+    <!--<script src="../../lib/2018/datatables/jquery.dataTables.js"></script>
+    <script src="../../lib/2018/datatables-responsive/dataTables.responsive.js"></script>-->
+    <!--<script src="../../lib/2018/morris.js/morris.js"></script>
+    <script src="../../lib/2018/raphael/raphael.min.js"></script>-->
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    
+    <script src="../../common/2018/bracket.js"></script>  
+ 
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        
+        $(document).on('mouseover', function(e){
+          e.stopPropagation();
+          if($('body').hasClass('collapsed-menu')) {
+            var targ = $(e.target).closest('.br-sideleft').length;
+            if(targ) {
+              $('body').addClass('expand-menu');
+
+              // show current shown sub menu that was hidden from collapsed
+              $('.show-sub + .br-menu-sub').slideDown();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.removeClass('d-lg-none');
+              menuText.removeClass('op-lg-0-force');
+
+            } else {
+              $('body').removeClass('expand-menu');
+
+              // hide current shown menu
+              $('.show-sub + .br-menu-sub').slideUp();
+
+              var menuText = $('.menu-item-label,.menu-item-arrow');
+              menuText.addClass('op-lg-0-force');
+              menuText.addClass('d-lg-none');
+            }
+          }
+        });
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+         
+  
+      });
+    </script>
+    
+    <!--自定义函数-->
+    <script>
+	  $('[data-toggle="tooltip"]').tooltip({
+       	shadowColor:"#ffffff",
+       	textColor:"000000"
+       });
+
+//	    function newChannel(){	    	
+//        window.parent.showModal();    
+//	    }
+	    function newChannel(){	    	
+          var url = "form-config.html";
+          
+		  	var	dialog = new top.TideDialog();
+				dialog.setWidth(700);
+				dialog.setHeight(650);
+				dialog.setUrl(url);
+				dialog.setTitle('新建子频道111');
+				dialog.setChannelName('资讯');
+				dialog.show();
+	    }
+	    
+	     function newAll(){	    	
+          var url = "channel-all.html";
+         
+		  	var	dialog = new top.TideDialog();
+				dialog.setWidth(500);
+				dialog.setHeight(370);
+				dialog.setUrl(url);
+				dialog.setTitle('新建子频道111');
+				dialog.setChannelName('资讯');
+				dialog.show();
+	    }
+	    //表单设置
+	    function setChannel(){	    	
+          var url = "form-setting.html";
+          
+		  	var	dialog = new top.TideDialog();
+				dialog.setWidth(800);
+				dialog.setHeight(650);
+				dialog.setUrl(url);
+				dialog.setTitle('表单设置');
+				dialog.setChannelName('资源栏目');
+				dialog.show();
+	    }
+	    
+	    //上传文件
+	    function uploadFile(){
+	    	var url = "upload-file.html";
+          
+		  	var	dialog = new top.TideDialog();
+				dialog.setWidth(700);
+				dialog.setHeight(550);
+				dialog.setUrl(url);
+				dialog.setTitle('文件上传');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+	    }
+	    
+	    function testConfirm(){
+	    	console.log($.MsgBox)
+	    	$.MsgBox.Alert("测试弹窗", "确定要删除吗吗？");  
+	    }
+	    
+	    function ddalert(){
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(320);
+				dialog.setHeight(230);
+				//dialog.setUrl(url);
+				dialog.setTitle('提示');
+				dialog.setMsg("您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗？");
+				dialog.setMsgJs('(function dd(){alert(555)})()');
+				dialog.ShowMsg();
+	    }
+	    function editPower(){
+	    	var url = "../../user/user_add_2.jsp";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(800);
+				dialog.setHeight(650);
+				dialog.setUrl(url);
+				dialog.setTitle('权限编辑');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+	    }
+	    
+	    function setPower(){
+	    	var url = "setpower.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(600);
+				dialog.setHeight(450);
+				dialog.setUrl(url);
+				dialog.setTitle('设置权限');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+	    }
+	    
+	    function testConfirm(){
+	    	var url = "testconfirm.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(600);
+				dialog.setHeight(450);
+				dialog.setUrl(url);
+				dialog.setTitle('test-confirm');
+				dialog.setMsgJs('ffff');				
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+	    }
+	    
+	    function testConfirm2(){
+	    	var	dialog = new top.TideDialog();
+	    	    dialog.setWidth(320);
+				dialog.setHeight(230);
+				//dialog.setUrl(url);
+				dialog.setTitle('提示');
+				dialog.setMsg("您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗？");
+				dialog.setPosition('content');
+				dialog.setMsgJs('ffff');
+				dialog.ShowMsg();
+	    }
+	    
+	    function  ffff(){
+	    	alert(133)
+	    }
+	     
+	    function testalert2(){
+	    	var	dialog = new top.TideDialog();
+	    	    dialog.setWidth(320);
+					  dialog.setHeight(230);
+					//dialog.setUrl(url);
+					  dialog.setTitle('提示');
+					  dialog.setMsg("您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗您确定要删除吗？");
+	//				dialog.setMsgJs('ffff');
+					  dialog.ShowMsg();
+	    }
+			
+		function viewVideo(){
+			var url = "../../video/videopreview.html";
+			var	dialog = new top.TideDialog();
+				dialog.setWidth(950);
+				dialog.setHeight(580);
+				dialog.setUrl(url);
+				dialog.setTitle('视频预览');
+				dialog.setMsgJs('ffff');				
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+		function licence(){
+			var url = "../../system/license_notify.jsp";
+			var	dialog = new top.TideDialog();
+				dialog.setWidth(500);
+				dialog.setHeight(300);
+				dialog.setUrl(url);
+				dialog.setTitle('视频预览');
+				dialog.setMsgJs('ffff');				
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+		
+		function newStep(){
+			var url = "newStep.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(500);
+				dialog.setHeight(350);
+				dialog.setUrl(url);
+				dialog.setTitle('新建步骤');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+		
+		function insertCase(){
+			var url = "导入审核方案.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(700);
+				dialog.setHeight(500);
+				dialog.setUrl(url);
+				dialog.setTitle('导入审核方案');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+		
+		function saveCase(){
+			var url = "保存审核方案.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(480);
+				dialog.setHeight(280);
+				dialog.setUrl(url);
+				dialog.setTitle('保存审核方案');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+		
+		function CaseConfig(){
+			var url = "配置修改.html";
+	    	var	dialog = new top.TideDialog();
+				dialog.setWidth(550);
+				dialog.setHeight(350);
+				dialog.setUrl(url);
+				dialog.setTitle('配置');
+				//dialog.setChannelName('资源栏目');
+				dialog.show();
+		}
+	  </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+td {font:9pt;}
+
+.dir {color:black;text-decoration: none } 
+.dir:hover {color: white; background-color: blue}
+
+tr{color:black;text-decoration: none;cursor:default;} 
+tr.fileitem{color: white; background-color: blue}
+
+
+.titlebar {background: buttonface;border-top: 1px solid buttonhighlight;
+	border-left: 1px solid buttonhighlight;	border-bottom: 2px solid buttonshadow;
+	border-right: 2px solid buttonshadow; padding: 1px; font: menu;cursor:default;}
+.menuItem {padding-left:10;cursor:default;font-size:9pt;background-Color:menu;color:black}
+.menuItemDisable {padding-left:10;cursor:default;font-size:9pt;background-Color:menu;color:gray}
+.highlightItem {padding-left:10;cursor:default;font-size:9pt;background-Color:highlight;color:white}
+.menu {position:absolute;visibility:hidden;background: buttonface;border-top: 1px solid buttonhighlight;
+	border-left: 1px solid buttonhighlight;	border-bottom: 2px solid buttonshadow;
+	border-right: 2px solid buttonshadow; padding: 2px; font: menu;cursor:default;font-size:9pt;width:60pt;}
+.menushow {position:absolute;visibility:visible;background: buttonface;border-top: 1px solid buttonhighlight;
+	border-left: 1px solid buttonhighlight;	border-bottom: 2px solid buttonshadow;cursor:hand;
+	border-right: 2px solid buttonshadow; padding: 2px; font: menu;cursor:default;font-size:9pt;width:60pt;}

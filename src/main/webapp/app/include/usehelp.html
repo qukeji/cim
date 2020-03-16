@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html id="appManage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<title>TideCMS 9.0演示环境 </title>
+
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../lib/2018/rickshaw/rickshaw.min.css" rel="stylesheet">
+<link href="../../lib/2018/chartist/chartist.css" rel="stylesheet">
+<link href="../../lib/2018/morris.js/morris.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+
+<link rel="stylesheet" href="../../style/2018/common.css">
+<link rel="stylesheet" href="../../style/2018/tcenter.css">
+<link rel="stylesheet" href="../../style/2018/theme.css">
+<script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+</head>
+
+<body>
+			            
+			            
+    <div class="card shadow-base bd-0 pd-b-20 use-help ">			              
+      <div class="bg-white pd-x-30 pd-y-20 rounded-bottom d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <i class="fa fa-question-circle tx-20 theme-tx-color"></i>
+          <span class="mg-l-8 tx-black tx-18">使用帮助</span>
+        </div><!-- d-flex -->
+        <a class="a-index-url-s tx-black tx-12" href="javascript:;">更多</a>
+      </div><!-- d-flex -->
+      <div class="pd-x-30 mg-l-15 tx-gray-700">
+      	<ul>
+      		<li class="mg-b-7">  <a class="tx-gray-700" target="_blank"  href="javascript:;">新建用户操作流程</a></li>
+      		<li class="mg-b-7">  <a class="tx-gray-700" target="_blank"   href="javascript:;">用户权限配置操作流程</a></li>
+      		<li class="mg-b-7">  <a  class="tx-gray-700" target="_blank"  href="javascript:;">新建用户操作流程</a></li>
+      		<li class="mg-b-7">  <a class="tx-gray-700" target="_blank"    href="javascript:;">用户权限配置操作流程</a></li>
+			              	
+      	</ul>
+      </div>			              
+    </div>
+						  
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+
+<script src="../../common/2018/bracket.js"></script>
+
+<script>
+	
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+	
+	//var chIndex = null ;
+
+	
+
+});
+
+
+</script>
+</body>
+
+</html>

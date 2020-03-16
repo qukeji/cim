@@ -1,0 +1,279 @@
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.color-aaa{
+	color: #aaaaaa;
+}
+.tooltip-inner {
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.tooltip.bs-tooltip-bottom .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+    border-bottom-color: #e9ecef;
+}
+
+.tooltip.bs-tooltip-top .arrow::before,
+.tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+    border-top-color: #e9ecef;
+}
+
+.mg-t--10 {
+    margin-top: -10px;
+}
+
+/* 列表显示 样式 */
+.float-right {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.tab-item {
+    display: inline-block;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #000;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-right: 10px;
+    cursor: default;
+    background-color: #e9eff3;
+    margin-bottom: 10px;
+}
+
+.icon-create {
+    display: inline-block;
+    padding-left: 10px;
+    margin-left: 5px;
+    border-left: 1px solid #d1dce3;
+    height: 100%;
+}
+
+.icon-btn {
+    cursor: pointer;
+    vertical-align: top;
+}
+.delete-btn,
+.add-btn {
+    position: absolute;
+    cursor: pointer;
+    top: -18px;
+    right: -6px;
+    height: 0;
+}
+
+.delete-btn {
+    color: red;
+}
+.add-btn {
+    color: #0070d0;
+}
+
+#rdiobox {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.modal-body .config-box label.ckbox{
+	width: auto;
+}
+#ckbox {
+    display: inline;
+    margin-right: 5px;
+
+}
+
+.left-menu {
+    margin-right: 30px;
+    width: 340px;
+    min-height: 200px;
+}
+
+.right-menu {
+    width: 386px;
+}
+
+.left-menu-item,
+.right-menu-item {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    background-color: #e9eff3;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+}
+.left-menu-item .fa:first-child,
+.right-menu-item .fa:first-child{
+    color: #4598e1;
+    font-size: 18px;
+    vertical-align: middle;
+    width: 20px;
+    margin: 0 8px 0 10px;
+}
+
+.left-menu-item {
+    width: 340px;
+}
+.left-menu-item .list-menu-edit{
+	cursor: pointer;
+	margin: 0 3px;
+}
+.right-menu-item {
+    float: left;
+    width: 173px;
+    margin-right: 20px;
+}
+.right-menu-item:nth-child(2n+2) {
+    margin-right: 5px;
+}
+.right-menu .list-menu-edit{
+    float: right;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.list-show {
+    margin-right: 15px;
+    font-size: 12px;
+}
+
+.menu-icon {
+    color: #4598e1;
+    font-size: 20px;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.menu-text {
+    color: #101010;
+    font-size: 14px;
+
+}
+.toggle-wrapper{
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.fa-sort {
+    font-size: 24px;
+    vertical-align: middle;
+    margin: 0 10px;
+    cursor: move;
+}
+
+.menu-delete,
+.menu-add {
+    position: absolute;
+    right: -7px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.menu-delete {
+    color: red;
+}
+
+.menu-add {
+    color: #4598e1;
+}
+
+.add-function {
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-function-btn {
+    color: #9ba9b7;
+    font-weight: 600;
+    font-size: 25px !important;
+}
+
+.residual-filter-list,
+.residual-filter-show {
+    margin-top: 15px;
+}
+
+.cut-off {
+    margin: 20px 0;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 2px solid #dddddd;
+}
+
+.toggle-slide .toggle-blob {
+    cursor: pointer;
+}
+
+.customize-switch {
+    display: inline-block;
+    width: 50px;
+    height: 30px !important;
+    vertical-align: middle;
+    /* vertical-align: middle; */
+}
+
+.list-procedure {
+    width: 468px;
+    height: 32px;
+    
+}
+
+.list-script {
+    width: 468px;
+    height: 148px;
+    resize: none;
+}
+.icon-color{
+	color: #9ba9b7;
+}
+
+/*搜索项*/
+.cur-search-box,
+.rest-search-box,
+.search-config-box,
+.rest-search-config-box{
+	float: left;
+}
+.ion-plus{
+	color: #9ba9b7;
+}
+.cur-fast-search .menu-delete,
+.search-config .menu-delete{
+	top: -20px;
+}
+/*定制化列表*/
+.lock-unlock{
+	min-width: 20px;
+}
+
+.sortable-chosen,.cursor-move{
+	cursor: move !important;
+}
+
+.tab-title-i{
+	font-style: normal;
+	cursor: move;
+	display: inline-block;
+}

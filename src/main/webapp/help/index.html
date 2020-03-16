@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html id="wxMain">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="../favicon.ico">
+<title>帮助中心</title>
+
+<link href="../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link rel="stylesheet" href="../style/2018/bracket.css">
+
+<link rel="stylesheet" href="../style/2018/common.css">
+<link rel="stylesheet" href="../style/2018/tcenter.css">
+
+
+<script type="text/javascript" src="../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../common/2018/common2018.js"></script>
+<script type="text/javascript" src="../lib/2018/vue/vue.min.js"></script>
+<script type="text/javascript" src="../lib/2018/vue/vue-router-v3.0.1.js"></script>
+<style>
+	.navicon-right{display: none !important; }
+	.br-menu-link.active{background:rgb(11, 148, 213)}
+	.sidebar-menu .treeview-menu>li.active>a,#blue .sidebar-menu>li.active>a{background-color:rgb(11, 148, 213)}
+	.sidebar-menu .treeview-menu>li.active>a span,#blue .sidebar-menu>li.active>a span{background-color:rgb(11, 148, 213)}
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="no">
+<div id="app">
+	<div class="br-logo">
+		<a href="/tcenter/main.jsp"><img src="../img/2019/system_logo.png"></a>
+	</div>
+
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>
+			<div class="br-sideleft-menu">
+				
+				<!--<a href="help/doc.jsp" class="gl br-menu-link active menu-home">-->
+				<!--	<div class="br-menu-item">-->
+				<!--		<i class="menu-item-icon fa fa-home tx-22"></i>-->
+				<!--		<span class="menu-item-label">产品文档</span>-->
+				<!--	</div>-->
+					
+				<!--</a>				-->
+				<router-link to="/live" class="br-menu-link menu-home">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-television  tx-20"></i>
+						<span class="menu-item-label">直播示例</span>
+					</div>
+				</router-link>
+				<router-link to="/flow" class="br-menu-link menu-article">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-random tx-20"></i>
+						<span class="menu-item-label">推流测试</span>
+					</div>
+				</router-link>
+				<router-link to="/video" class="br-menu-link menu-article">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-film tx-18"></i>
+						<span class="menu-item-label">点播示例</span>
+					</div>
+				</router-link>
+				<router-link to="/config" class="br-menu-link menu-article">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-cog tx-22"></i>
+						<span class="menu-item-label">拆条配置规范</span>
+					</div>
+				</router-link>
+				<router-link to="/info" class="br-menu-link menu-article">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-info-circle tx-20"></i>
+						<span class="menu-item-label">视频信息在线查看</span>
+					</div>
+				</router-link>
+				<router-link to="/code" class="br-menu-link menu-article">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-code tx-20"></i>
+						<span class="menu-item-label">脚本示例</span>
+					</div>
+				</router-link>
+				
+				
+				<!--<a href="http://tidedemo.com/help/livedemo/index.html" class="gl br-menu-link active menu-home">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-television tx-20"></i>
+						<span class="menu-item-label">直播示例</span>
+					</div>
+				</a>-->
+				
+				<!--<a href="help/jisuanqi.jsp" class="gl br-menu-link menu-home">-->
+				<!--	<div class="br-menu-item">-->
+				<!--		<i class="menu-item-icon fa fa-calculator tx-20"></i>-->
+				<!--		<span class="menu-item-label">存储带宽计算器</span>-->
+				<!--	</div>-->
+				
+				<!--</a>-->
+				
+		        								
+			</div>
+			<!-- br-sideleft-menu -->
+		</div>
+    <!-- br-sideleft -->
+
+	<div class="br-header">
+		<div class="br-header-left">
+			<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+			<!--<div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>内容汇聚发布</a></div>-->
+		</div>
+		<!-- br-header-left -->
+		<div class="br-header-right">
+			<!--<nav class="nav">
+				<div class="dropdown">
+					<a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+						<i class="icon fa fa-user-circle-o  tx-26-force"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-header wd-200">
+						<ul class="list-unstyled user-profile-nav">
+							<li><a href="../person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+							<li><a href="../logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>-->
+		</div>
+		<!-- br-header-right -->
+	</div>
+	<!-- br-header -->
+	<!-- ########## START: MAIN PANEL ########## -->
+			
+	<div class="br-mainpanel with-first-nav">
+		<iframe src="http://tidedemo.com/help/livedemo/index.html" id="content_frame" style="width: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+		<router-view></router-view>
+	</div>	
+	<!-- br-mainpanel -->
+	<!-- ########## END: MAIN PANEL ########## -->
+</div>
+<script src="../lib/2018/jquery/jquery.js"></script>
+<script src="../lib/2018/popper.js/popper.js"></script>
+<script src="../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../lib/2018/moment/moment.js"></script>
+<script src="../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../lib/2018/peity/jquery.peity.js"></script>
+<script src="../common/2018/bracket.js"></script>
+
+<script>
+	
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+	
+	
+});
+
+</script>
+
+<script>
+	// 直播示例：
+var liveExamp = {
+	template: '<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'http://tidedemo.com/help/livedemo/index.html');
+			
+		}
+	},
+}
+//推流测试：
+var flowTest = {
+	template:'<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'live_test.html');
+		
+		}
+	},
+}
+//点播示例：
+var videoExamp = {
+	template:'<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'player/index.html')
+		}
+	},
+}
+
+// 拆条配置规范：：
+var ctConfig = {
+	template: '<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'chaitiao_spec.jsp')
+		}
+	},
+}
+//视频信息在线查看：
+var videoInfo = {
+	template: '<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'video_info.jsp')
+		}
+	},
+}
+//脚本示例：
+var codeExamp = {
+	template: '<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', 'script_description.jsp')
+			
+		}
+	},
+}
+//我的视频：
+var myvideo = {
+	template: '<div></div>',
+	created: function() {
+		this.item()
+	},
+	mounted: function() {
+		this.item()
+
+	},
+	methods: {
+		item: function() {
+			$("#content_frame").attr('src', '/vms/video/my_shipinContent.jsp?id='+channel_shipingid+'&userId='+userid)
+			$(".navicon-right i").removeClass("tx-warning")
+		}
+	},
+}
+
+var router = new VueRouter({
+	routes: [
+		{
+			path: '/',
+			redirect: '/live'
+		},
+		{
+			path: '/',
+			component: liveExamp
+		},
+		{
+			path:'/live',
+			component:liveExamp,
+		},
+		{
+			path: '/flow',
+			component: flowTest
+		},
+		{
+			path: '/video',
+			component: videoExamp
+		},
+		{
+			path: '/config',
+			component: ctConfig
+		},
+		{
+			path: '/info',
+			component: videoInfo
+		},
+		{
+			path: '/code',
+			component: codeExamp
+		}
+	],
+	linkActiveClass: 'active'
+})
+
+var vm = new Vue({
+	el: '#app',
+	data: {
+	},
+	methods: {
+	},
+	created: function() {},
+	router:router
+	
+})
+
+
+</script>
+</body>
+
+</html>

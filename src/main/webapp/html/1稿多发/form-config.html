@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+
+    <title>聚视后台</title>
+
+    <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    
+    <link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-toggles/toggles-full.css" rel="stylesheet">
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    
+  </head>
+  <style>
+  	html,body{width: 100%; height: 100%;}
+  	.tooltip-inner {padding: 8px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #e9ecef;opacity: 1;}
+		.tooltip.bs-tooltip-bottom .arrow::before,
+		.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {border-bottom-color: #e9ecef;	}
+		.tooltip.bs-tooltip-top .arrow::before,
+		.tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before {border-top-color: #e9ecef;}
+		.mg-t--10{margin-top: -10px;}
+  </style>
+  <body class="" >
+ 
+    <div class="bg-white modal-box">
+      <div class="ht-60 pd-x-20 bg-gray-200 rounded d-flex align-items-center justify-content-center">
+        <ul id="form_nav" class="nav nav-outline align-items-center flex-row" role="tablist">
+          <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#" role="tab">基本信息</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">拓展信息</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">推荐设置</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">列表设置</a></li>
+          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#" role="tab">内容设置</a></li>
+        </ul>
+      </div>
+	    <div class="modal-body pd-20 overflow-y-auto">
+	        <div class="config-box">
+	       	  <ul>
+	       	  	<!--基本信息-->
+	       		  <li class="block">
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">开关：</label>
+			              <label class="wd-230">
+			                <div class="toggle-wrapper">
+		            				<div class="toggle toggle-modern primary" data-toggle-on="true"></div>
+		          				</div>
+			              </label>									            
+	       		  	  </div>
+	       		  	 	
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">名称：</label>
+			              <label class="wd-230">
+			                <input class="form-control" placeholder="" type="text">
+			              </label>									            
+	       		  	  </div>
+	       		  	  <div class="row">                  		  	  	
+	   		  	  		  <label class="left-fn-title">表单方式：</label>
+			              <label class="rdiobox">
+			                <input name="rdio" type="radio"><span>继承上级表单</span>
+			              </label>
+				            <label class="rdiobox">
+			                <input name="rdio" type="radio"><span>独立表单</span>
+			              </label>
+	       		  	  </div>
+	       		  	  <div class="row">                  		  	  	
+	   		  	  		  <label class="left-fn-title">模板方式：
+	   		  	  		  <a href="../help/content.html" target="_blank" class="valign-middle tx-gray-900 mg-l-10" data-toggle="tooltip" data-placement="top"><i class="icon ion-help-circled tx-18"></i></a>
+	   		  	  		  </label>
+			              <label class="rdiobox">
+			                <input name="rdio" type="radio"><span>继承上级模板</span>
+			              </label>
+				            <label class="rdiobox">
+			                <input name="rdio" type="radio"><span>独立模板</span>
+			              </label>
+	       		  	  </div>
+	       		  	  
+	       		  	  <!--标识名-->
+	       		  	  <div class="row" >                   		  	  	
+	   		  	  		  <label class="left-fn-title">标识名：</label>
+			              <label class="wd-230">
+			                <input class="form-control" placeholder="" type="text">
+			              </label>									            
+	       		  	  </div>
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">目录名：</label>
+			              <label class="wd-230">
+			                <input class="form-control" placeholder="" type="text">
+			              </label>									            
+	       		  	  </div>
+	       		  	  <div class="row mg-t--10">                   		  	  	
+	   		  	  		  <label class="left-fn-title"> </label>
+			              <label class="d-flex align-items-center tx-gray-800 tx-12">
+			                <i class="icon ion-information-circled tx-16 tx-gray-900 mg-r-5"></i>说明：结合“PGC移动创作平台”使用。
+			              </label>									            
+	       		  	  </div>
+	       		  	  <!---->
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">图片上传目录：</label>
+			              <label class="wd-230">
+			                <input class="form-control" placeholder="" type="text">
+			              </label>
+			              <label class="mg-l-5"> *为空使用站点默认目录</label>
+	       		  	  </div>
+	       		  	  <!--图片目录规则-->
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">图片目录规则：</label>               		  	  		 
+		  	  		  	  <select class="form-control wd-230 ht-40 select2" data-placeholder="系统默认1">
+						                <option label="choose one"></option>             
+						                <option value="aa">系统默认1</option> 
+						                <option value="bb">系统默认2</option>								                           
+						              </select>               		  	  		 						            
+	       		  	  </div>
+	       		  	  
+	       		  	  <div class="row">                  		  	  	
+	   		  	  		  <label class="left-fn-title">类型：</label>
+			              <label class="rdiobox" title="<img style='height:150px' src='http://123.56.71.230:889/cms/images/movie00.png'>"  data-toggle="tooltip" data-html="true" data-placement="bottom" >
+			                <input name="rdio" type="radio" ><span>电影</span>
+			              </label>
+				            <label class="rdiobox" title="<img style='height:150px' src='http://123.56.71.230:889/cms/images/tv00.png'>"  data-toggle="tooltip" data-html="true" data-placement="bottom" >
+			                <input name="rdio" type="radio"><span>电视剧</span>
+			              </label>
+			              <label class="rdiobox" title="<img style='height:150px' src='http://123.56.71.230:889/cms/images/shortvideo00.png'>"  data-toggle="tooltip" data-html="true" data-placement="bottom">
+			                <input name="rdio" type="radio"><span>短视频</span>
+			              </label>
+	       		  	  </div>
+	       		  	  <!--是否在导航出现-->
+	       		  	  <div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title">是否在导航出现：</label>
+			              <label class="ckbox">
+			                <input type="checkbox"><span></span>
+			              </label>								             
+	       		  	  </div>
+	       		  </li>
+	       		 
+       	      <!--拓展信息-->
+       	      <li>
+       		  	  <div class="row">                   		  	  	
+   		  	  		  <label class="left-fn-title">附加属性1：</label>
+		              <div class="col-lg pd-l-0 pd-r-0 wd-350">
+			              <textarea rows="3" class="form-control" placeholder=""></textarea>
+			            </div>									            
+       		  	  </div> 
+       		  	  <div class="row">                   		  	  	
+   		  	  		  <label class="left-fn-title">附加属性2：</label>
+		              <div class="col-lg pd-l-0 pd-r-0 wd-350">
+			              <textarea rows="3" class="form-control" placeholder=""></textarea>
+			            </div>										            
+       		  	  </div> 
+	       		  </li>
+	       		  <!--推荐设置-->
+       	      <li>
+								<div class="push-setting">
+									<div class="d-flex mg-b-10 align-items-center justify-content-between">
+										<div class="d-flex align-items-center">
+											<span>推荐设置：</span>
+										  <div class="bth-group">
+												<button class="btn btn-primary btn-sm mg-r-8 tx-13" onclick="pushSet()">配置</button>	               
+												<button class="btn btn-primary btn-sm mg-r-8 tx-13">应用到子频道</button>
+												<button class="btn btn-primary btn-sm mg-r-8 tx-13">继承上级</button>
+											</div>
+										</div>
+										<div class="d-flex align-items-center">
+											<label class="mg-b-0">继承上级：</label>
+											<div class="toggle-wrapper">
+												<div class="toggle toggle-light success" data-toggle-on="true"></div>
+											</div>
+											<label><span id="" class="mg-l-10"></span></label>								
+										</div>
+									</div>
+									<div class="bd">
+										<table class="table mg-b-0" id="templet-table">
+												<thead>
+													<tr>	               
+														<th class="tx-12-force tx-mont tx-medium wd-50p">目标频道</th>
+														<th class="tx-12-force tx-mont tx-medium wd-15p">类型</th>
+														<th class="tx-12-force tx-mont tx-medium wd-20p">对应关系</th>               
+														<th class="tx-12-force tx-mont tx-medium wd-15p">操作</th>	               
+													</tr>
+												</thead>
+												<tbody class="tx-12">
+												<tr>	                
+													<td><span class="pd-l-5">网站>本地>一周质量报告网站>本地></span></td>
+													<td class="hidden-xs-down">三方媒体</td>
+													<td class="hidden-xs-down">自定义关系</td>	                												
+													<td class=" hidden-xs-down">
+														<a href="javascript:;" class="btn pd-0 mg-r-5" title="配置"><i class="fa fa-cog tx-18"></i></a>
+														<a href="javascript:;" class="btn pd-0" title="配置"><i class="fa fa-trash-o tx-18"></i></a>									
+													</td>
+												</tr>
+												<tr>	                
+													<td><span class="pd-l-5">网站>本地>一周质量报告网站>本地>一周质量报告网站>本地>一周质量报告网站>本地>一周质量报告</span></td>
+													<td class="hidden-xs-down">APP</td>
+													<td class="hidden-xs-down">自定义关系</td>	                												
+													<td class=" hidden-xs-down">
+														<a href="javascript:;" class="btn pd-0 mg-r-5" title="配置"><i class="fa fa-cog tx-18"></i></a>
+														<a href="javascript:;" class="btn pd-0" title="配置"><i class="fa fa-trash-o tx-18"></i></a>									
+													</td>
+												</tr>
+											</tbody>
+										</table>								
+									</div>
+								</div>
+       		  	  <div class="pull-setting mg-t-30">
+       		  	  	<div class="d-flex mg-b-10 align-items-center justify-content-between">
+       		  	  		<div class="d-flex align-items-center">
+	       		  	  		<span>引用设置：</span>
+	       		  	  	  <div class="bth-group">
+	       		  	  			<button class="btn btn-primary btn-sm mg-r-8 tx-13">配置</button>	               
+	       		  	  			<button class="btn btn-primary btn-sm mg-r-8 tx-13">应用到子频道</button>
+	       		  	  			<button class="btn btn-primary btn-sm mg-r-8 tx-13">继承上级</button>
+	       		  	  		</div>
+       		  	  		</div>
+       		  	  		<div class="d-flex align-items-center">
+											<label class="mg-b-0">继承上级：</label>
+											<div class="toggle-wrapper">
+												<div class="toggle toggle-light success" data-toggle-on="false"></div>
+											</div>
+											<label><span class="mg-l-10"></span></label>								
+										</div>
+									</div>
+       		  	  	<div class="bd">
+       		  	  		<table class="table mg-b-0" id="templet-table">
+       		  	  				<thead>
+       		  	  					<tr>	               
+       		  	  						<th class="tx-12-force tx-mont tx-medium wd-50p">源频道</th>
+       		  	  						<th class="tx-12-force tx-mont tx-medium wd-15p">类型</th>
+       		  	  						<th class="tx-12-force tx-mont tx-medium wd-20p">对应关系</th>               
+       		  	  						<th class="tx-12-force tx-mont tx-medium wd-15p">操作</th>	               
+       		  	  					</tr>
+       		  	  				</thead>
+       		  	  				<tbody class="tx-12">
+       		  	  				<tr>	                
+       		  	  					<td><span class="pd-l-5">网站>本地>一周质量报告网站>本地>一周质量报告网站>本地>一周质量报告网站>本地>一周质量报告</span></td>
+       		  	  					<td class="hidden-xs-down">三方媒体</td>
+       		  	  					<td class="hidden-xs-down">自定义关系</td>	                												
+       		  	  					<td class=" hidden-xs-down">
+       		  	  						<a href="javascript:;" class="btn pd-0 mg-r-5" title="配置"><i class="fa fa-cog tx-18"></i></a>
+       		  	  						<a href="javascript:;" class="btn pd-0" title="配置"><i class="fa fa-trash-o tx-18"></i></a>									
+       		  	  					</td>
+       		  	  				</tr>
+       		  	  				<tr>	                
+       		  	  					<td><span class="pd-l-5">网站>本地>一周质量报告网站</span></td>
+       		  	  					<td class="hidden-xs-down">三方媒体</td>
+       		  	  					<td class="hidden-xs-down">自定义关系</td>	                												
+       		  	  					<td class=" hidden-xs-down">
+       		  	  						<a href="javascript:;" class="btn pd-0 mg-r-5" title="配置"><i class="fa fa-cog tx-18"></i></a>
+       		  	  						<a href="javascript:;" class="btn pd-0" title="配置"><i class="fa fa-trash-o tx-18"></i></a>									
+       		  	  					</td>
+       		  	  				</tr>
+       		  	  			</tbody>
+       		  	  		</table>								
+       		  	  	</div>
+       		  	  </div>
+       		  	
+	       		  </li>
+	       	    <!--列表设置-->
+       	      <li>
+       		  	  <div class="row">                  		  	  	
+   		  	  		  <label class="left-fn-title">默认视图：</label>
+		              <label class="rdiobox">
+		                <input name="rdio" type="radio"><span>文字</span>
+		              </label>
+			            <label class="rdiobox">
+		                <input name="rdio" type="radio"><span>详细</span>
+		              </label>
+		               <label class="rdiobox">
+		                <input name="rdio" type="radio"><span>图片</span>
+		              </label>
+       		  	  </div> 
+       		  	  <div class="row ckbox-row">                  		  	  	   		  	  		  
+			              <label class="ckbox">
+			                <input type="checkbox"><span>使用权重</span>
+			              </label>
+			              <label class="ckbox">
+			                <input type="checkbox"><span>显示评论</span>
+			              </label>	
+			              <label class="ckbox">
+			                <input type="checkbox"><span>显示点击数</span>
+			              </label>
+			              <label class="ckbox">
+			                <input type="checkbox"><span>显示草稿数</span>
+			              </label>
+			              <label class="ckbox">
+			                <input type="checkbox"><span>包含子频道</span>
+			              </label>	
+			              <label class="ckbox">
+			                <input type="checkbox"><span>允许置顶</span>
+			              </label>	
+			              <label class="ckbox">
+			                <input type="checkbox"><span>文件发布审核</span>
+			              </label>
+			              <label class="ckbox">
+			                <input type="checkbox"><span>导入Word</span>
+			              </label>	
+			              <label class="ckbox">
+			                <input type="checkbox"><span>导出Excel</span>
+			              </label>						           
+       		  	  </div> 
+       		  	  <div class="hr_line"></div>
+       		  	  <div class="row">                  		  	  	   		  	  		  
+			              <label class="left-fn-title">使用定制列表：</label>
+       		  	  </div> 
+       		  	  <div class="row">                  		  	  	   		  	  		  
+			              <label class="left-fn-title">列表页程序：</label>
+			              <label class="wd-400">
+			                <input class="form-control textBox disabled" placeholder="" disabled="disabled" type="text">
+			              </label>	
+			              <a href="javascript:;" class="mg-l-30 tx-20 lock-unlock"><i class="fa fa-lock"></i></a>	
+       		  	  </div>
+       		  	  <div class="row">                  		  	  	   		  	  		  
+			              <label class="left-fn-title">列表页脚本：</label>
+			              <div class="col-lg pd-l-0 pd-r-0 wd-400">
+			              <textarea rows="3" class="form-control disabled textBox" disabled="disabled" placeholder=""></textarea>
+			            	</div>	
+			              <a href="javascript:;" class="mg-l-30 tx-20 lock-unlock"><i class="fa fa-lock"></i></a>	
+       		  	  </div>
+       		  	  <div class="row">                  		  	  	   		  	  		  
+			              <label class="left-fn-title">搜索字段：</label>
+			              <div class="col-lg pd-l-0 pd-r-0 wd-400">
+			              <textarea rows="3" class="form-control textBox" placeholder=""></textarea>
+			            	</div>				              
+       		  	  </div>
+       		  	  <div class="row">                  		  	  	   		  	  		  
+			              <label class="left-fn-title">列表字段：</label>
+			              <div class="col-lg pd-l-0 pd-r-0 wd-400">
+			              <textarea rows="3" class="form-control textBox" placeholder=""></textarea>
+			            	</div>				              
+       		  	  </div>
+       		  	  
+	       		  </li>
+	       		  <!--内容设置-->
+       	      <li>
+       		  	   	<div class="hr_line"></div>
+	       		  	  <div class="row">                  		  	  	   		  	  		  
+				              <label class="left-fn-title">使用定制内容模型：</label>
+	       		  	  </div> 
+	       		  	  <div class="row">                  		  	  	   		  	  		  
+				              <label class="left-fn-title">内容页程序：</label>
+				              <label class="wd-400">
+				                <input class="form-control textBox disabled" placeholder="" disabled="disabled" type="text">
+				              </label>	
+				              <a href="javascript:;" class="mg-l-30 tx-20 lock-unlock"><i class="fa fa-lock"></i></a>	
+	       		  	  </div>
+	       		  	  <div class="row">                  		  	  	   		  	  		  
+				              <label class="left-fn-title">内容页脚本：</label>
+				              <div class="col-lg pd-l-0 pd-r-0 wd-400">
+				              <textarea rows="3" class="form-control textBox disabled" disabled="disabled" placeholder=""></textarea>
+				            	</div>	
+				              <a href="javascript:;" class="mg-l-30 tx-20 lock-unlock"><i class="fa fa-lock"></i></a>	
+	       		  	  </div>	  	  
+	       		  </li>
+	       	  </ul>
+	        </div>
+	                   
+	    </div><!-- modal-body -->
+      <div class="btn-box" >
+      	<div class="modal-footer" >
+		      <button type="button" class="btn btn-primary tx-size-xs">确认</button>
+		      <button type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal">取消</button>
+		    </div> 
+      </div>
+	    
+	     
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    
+	  <script src="../../lib/2018/highlightjs/highlight.pack.js"></script>
+    
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    
+    <script src="../../lib/2018/jquery-toggles/toggles.min.js"></script>
+    <script src="../../common/2018/bracket.js"></script>    
+    
+    <script>
+      $(function(){
+      	$("#form_nav li").click(function(){
+      		var _index = $(this).index();
+      		console.log(_index)
+      		$(".config-box ul li").removeClass("block").eq(_index).addClass("block");
+      	})
+       
+       //推荐设置锁定图片切换
+      $(".lock-unlock").click(function(){    
+       	var textBox = $(this).parent(".row").find(".textBox") ;       	
+       	if($(this).find("i").hasClass("fa-lock")){      	 
+       	 	$(this).find("i").removeClass("fa-lock").addClass("fa-unlock");       	 	
+       	 	textBox.removeAttr("disabled","").removeClass("disabled")
+       	}else{      	 	
+       	 	$(this).find("i").removeClass("fa-unlock").addClass("fa-lock");
+       	 	textBox.attr("disabled",true).addClass("disabled")
+       	}
+      })
+      
+      
+      //封面图字段预览
+	    $('[data-toggle="tooltip"]').tooltip({
+       	shadowColor:"#ffffff",
+       	textColor:"000000"
+       });
+       
+        //开关相关
+        //初始化
+        $('.toggle').toggles({        
+          height: 25,
+          width:60
+        });
+        
+      });
+			
+		//推荐设置
+		function pushSet(){	    	
+			var url = "push-setting.html";			    
+			var	dialog = new top.TideDialog();
+			dialog.setWidth(750);
+			dialog.setHeight(600);
+			dialog.setUrl(url);
+			dialog.setTitle('推荐设置');
+			dialog.show();
+		}
+    </script>
+  </body>
+</html>

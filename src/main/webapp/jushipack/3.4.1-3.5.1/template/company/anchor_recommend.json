@@ -1,0 +1,4 @@
+[#set($ii=0)#foreach( $item in $Controller.listTopItems(9999))#if($ii>0),#end
+{"title":"$util.JSQuote($item.getTitle(30))","photo":"$item.getValue("Photo")","token":"$item.getValue("token")","listurl":"$item.getValue("listurl")","company_id":"$item.getValue("company_id")","virtualconcern":"$item.getValue("virtualconcern")","model_control":"$item.getValue("model_control")","summary":"$util.JSONQuote($item.getValue('Summary'))","userid":"$item.getValue("userid")","topic_category":"$item.getValue("topic_category")","hot":"$item.getValue("hot")","tv_belong":"$item.getValue("tv_belong")"}
+#set($ii=$ii+1)
+#end]

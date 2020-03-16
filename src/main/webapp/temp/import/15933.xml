@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--频道结构信息，创建时间：2019-3-5 11:17-->
+<root>
+  <channel ListProgram="" DocumentProgram="" FolderName="/" Type="0" Id="15933" Name="网站管理" ImageFolderName="" SerialNo="s53_d" SiteID="53" AutoSerialNo="s53_d_f" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+    <fields>
+      <group id="8471" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+      <field Name="Title" GroupID="8471" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="SubTitle" GroupID="8471" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="IsPhotoNews" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Summary" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Content" GroupID="8471" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Photo" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      <field Name="Href" GroupID="8471" IsHide="0" DisableBlank="0" DisableEdit="0" Description="链接" FieldType="text" Options="" DefaultValue="" Other="null" HtmlTemplate="" DictCode="" Size="0" Style="null" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+    </fields>
+    <templates/>
+    <channel ListProgram="" DocumentProgram="" FolderName="" Type="2" Id="15934" Name="首页" ImageFolderName="" SerialNo="" SiteID="53" AutoSerialNo="_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+      <templates>
+        <template TemplateID="1512" ChannelID="15934" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="4" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="index.shtml"/>
+      </templates>
+    </channel>
+    <channel ListProgram="" DocumentProgram="" FolderName="a" Type="1" Id="15935" Name="轮播图" ImageFolderName="" SerialNo="s53_d_a" SiteID="53" AutoSerialNo="s53_d_a_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="1" Company="0" Application="">
+      <templates>
+        <template TemplateID="1495" ChannelID="15935" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="banner.html"/>
+      </templates>
+    </channel>
+    <channel ListProgram="" DocumentProgram="" FolderName="b" Type="1" Id="15936" Name="首页新闻" ImageFolderName="" SerialNo="s53_d_b" SiteID="53" AutoSerialNo="s53_d_b_d" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+      <templates/>
+      <channel ListProgram="" DocumentProgram="" FolderName="a" Type="1" Id="15937" Name="第一条新闻" ImageFolderName="" SerialNo="s53_d_b_a" SiteID="53" AutoSerialNo="s53_d_b_a_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="1" Company="0" Application="">
+        <templates>
+          <template TemplateID="1506" ChannelID="15937" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="news.html"/>
+        </templates>
+      </channel>
+      <channel ListProgram="" DocumentProgram="" FolderName="b" Type="0" Id="15938" Name="文字新闻" ImageFolderName="" SerialNo="s53_d_b_b" SiteID="53" AutoSerialNo="s53_d_b_b_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+        <fields>
+          <group id="8473" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+          <field Name="Title" GroupID="8473" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="SubTitle" GroupID="8473" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="IsPhotoNews" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Summary" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Content" GroupID="8473" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Photo" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Href" GroupID="8473" IsHide="0" DisableBlank="0" DisableEdit="0" Description="链接" FieldType="text" Options="" DefaultValue="" Other="null" HtmlTemplate="" DictCode="" Size="0" Style="null" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="type" GroupID="8473" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章类型" FieldType="radio" Options="图文(0)$tidemedia$视频(1)$tidemedia$" DefaultValue="" Other="null" HtmlTemplate="" DictCode="" Size="0" Style="null" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="1" Caption="" RelationChannelID="0"/>
+        </fields>
+        <templates>
+          <template TemplateID="1511" ChannelID="15938" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="wznews.html"/>
+        </templates>
+      </channel>
+      <channel ListProgram="" DocumentProgram="" FolderName="c" Type="0" Id="15939" Name="图片新闻" ImageFolderName="" SerialNo="s53_d_b_c" SiteID="53" AutoSerialNo="s53_d_b_c_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+        <fields>
+          <group id="8475" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+          <field Name="Title" GroupID="8475" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="SubTitle" GroupID="8475" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="IsPhotoNews" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Summary" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Content" GroupID="8475" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Photo" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+          <field Name="Href" GroupID="8475" IsHide="0" DisableBlank="0" DisableEdit="0" Description="链接" FieldType="text" Options="" DefaultValue="" Other="null" HtmlTemplate="" DictCode="" Size="0" Style="null" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        </fields>
+        <templates>
+          <template TemplateID="1507" ChannelID="15939" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="picnews.html"/>
+        </templates>
+      </channel>
+    </channel>
+    <channel ListProgram="" DocumentProgram="" FolderName="e" Type="0" Id="15940" Name="底部栏" ImageFolderName="" SerialNo="s53_d_c" SiteID="53" AutoSerialNo="s53_d_c_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+      <fields>
+        <group id="8477" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+        <field Name="Title" GroupID="8477" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Content" GroupID="8477" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="IsPhotoNews" GroupID="8477" IsHide="1" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SubTitle" GroupID="8477" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Summary" GroupID="8477" IsHide="1" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Photo" GroupID="8477" IsHide="1" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      </fields>
+      <templates>
+        <template TemplateID="1496" ChannelID="15940" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="2" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="pc_content.shtml"/>
+        <template TemplateID="1498" ChannelID="15940" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="footer.html"/>
+      </templates>
+    </channel>
+    <channel ListProgram="" DocumentProgram="" FolderName="f" Type="0" Id="15941" Name="通栏广告" ImageFolderName="" SerialNo="s53_d_d" SiteID="53" AutoSerialNo="s53_d_d_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+      <fields>
+        <group id="8479" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+        <field Name="Title" GroupID="8479" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SubTitle" GroupID="8479" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="IsPhotoNews" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Summary" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Content" GroupID="8479" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Photo" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      </fields>
+      <templates>
+        <template TemplateID="1496" ChannelID="15941" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="2" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="pc_content.shtml"/>
+        <template TemplateID="1508" ChannelID="15941" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="tl.html"/>
+      </templates>
+    </channel>
+    <channel ListProgram="" DocumentProgram="" FolderName="c" Type="0" Id="15942" Name="底部栏文字" ImageFolderName="" SerialNo="s53_d_e" SiteID="53" AutoSerialNo="s53_d_e_a" IsDisplay="1" IsWeight="0" IsComment="0" IsClick="0" IsShowDraftNumber="0" Href="" Extra1="" ListJS="" DocumentJS="" TemplateInherit="0" Company="0" Application="">
+      <fields>
+        <group id="8481" Name="内容编辑" Extra="" Url="" LinkChannel="0" Type="0"/>
+        <field Name="Title" GroupID="8481" IsHide="0" DisableBlank="0" DisableEdit="0" Description="标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SubTitle" GroupID="8481" IsHide="1" DisableBlank="0" DisableEdit="0" Description="副标题" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="PublishDate" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="发布日期" FieldType="datetime" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Weight" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="权重" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="DocFrom" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="文章来源" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="IsPhotoNews" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片新闻" FieldType="checkbox" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Summary" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="摘要" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Content" GroupID="8481" IsHide="0" DisableBlank="0" DisableEdit="0" Description="内容" FieldType="textarea" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Photo" GroupID="0" IsHide="0" DisableBlank="0" DisableEdit="0" Description="图片" FieldType="image" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Keyword" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="关键词" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="Tag" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="标签" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+        <field Name="SetPublishDate" GroupID="0" IsHide="1" DisableBlank="0" DisableEdit="0" Description="定时发布" FieldType="text" Options="" DefaultValue="" Other="" HtmlTemplate="" DictCode="" Size="0" Style="" RecommendChannel="" RecommendValue="" GroupChannel="" DataType="0" Caption="" RelationChannelID="0"/>
+      </fields>
+      <templates>
+        <template TemplateID="1497" ChannelID="15942" LinkTemplate="0" Charset="" RowsPerPage="0" SubFolderType="0" TemplateType="3" FileNameType="0" FileNameField="" Rows="0" WhereSql="" Lable="" TitleWord="0" Href="" PublishInterval="0" IncludeChildChannel="0" IsInherit="0" TargetName="dlwz.html"/>
+      </templates>
+    </channel>
+  </channel>
+  <template_files>
+    <template_file id="1512" Name="总站首页" FileName="index.shtml" Description="" Title=""><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>城市联合网络电视台</title>
+<meta name="keywords" content="城市联合网络电视台" />
+<meta name="description" content="城市联合网络电视台" />
+<link href="/css/base.css" rel="stylesheet" />
+<link href="/css/index.css" rel="stylesheet" />
+<script src="/js/jquery.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/jcarousellite.js"></script>
+</head>
+
+<body>
+<!--\#include virtual="/include/header.html" -->
+<div class="index_search">
+	<div class="is_tags"><!-- TideCMS Module --></div>
+    <div class="is_form">
+    <form action="" method="get">
+    	<input name="" type="text" class="text" onfocus="if(this.value==this.defaultValue){this.value='';}" onblur="if(this.value==''){this.value=this.defaultValue;}" value="永远的忠诚" />
+        <input name="" type="submit" class="button" value="搜索" />
+    </form>
+    </div>
+    <div class="is_links"><a href="#">电视电台直播</a><a href="#">手机看直播</a></div>
+</div>
+<div class="index_menu">
+	<span class="im_index">首页</span>
+    <div class="im_box" id="im_xw">
+    	<div class="im_box2">
+    	<a href="#" class="im_first">新闻</a>
+        <ul>
+        	<li><a href="#">民生</a><a href="#">时政</a><a href="#">财经</a><a href="#">地方</a></li>
+            <li><a href="#">法制</a><a href="#">港澳台</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="im_box" id="im_ys">
+    	<div class="im_box2">
+    	<a href="#" class="im_first">影视</a>
+        <ul>
+        	<li><a href="#">电影</a><a href="#">电视剧</a><a href="#">纪录片</a></li>
+            <li><a href="#">专题</a><a href="#">影视圈</a><a href="#">影评</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="im_box" id="im_cs">
+    	<div class="im_box2">
+    	<a href="#" class="im_first">城事</a>
+        <ul>
+        	<li><a href="#">深圳</a><a href="#">郑州</a><a href="#">苏州</a><a href="#">大连</a></li>
+            <li><a href="#">珠海</a><a href="#">柳州</a><a href="#">西宁</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="im_box" id="im_sh">
+    	<div class="im_box2">
+    	<a href="#" class="im_first">生活</a>
+        <ul>
+        	<li><a href="#">交通&middot;汽车</a><a href="#">综艺&middot;娱乐</a></li>
+            <li><a href="#">房产&middot;家居</a><a href="#">旅游&middot;城市</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="im_box" id="im_se">
+    	<div class="im_box2">
+    	<a href="#" class="im_first">少儿</a>
+        <ul>
+        	<li><a href="#">深圳</a><a href="#">苏州</a><a href="#">柳州</a><a href="#">武汉</a></li>
+            <li><a href="#">宁波</a><a href="#">大连</a><a href="#">青岛</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+<div class="index_main">
+    <div class="index_c1">
+        <div class="index_hb">
+            <!-- TideCMS Module -->
+        </div>
+        <div class="ic1_txt">
+            <!-- TideCMS Module -->
+            <!-- TideCMS Module -->
+        </div>
+    </div>
+    <div class="index_c2">
+    	<div class="ic_title" id="ic_title_tbbd">特别报道</div>
+        <div class="ic_tbbd">
+        	<!-- TideCMS Module -->
+        </div>
+    </div>
+    <div class="index_c3" id="i_lhgz">
+    	<div class="ic3_left">
+        	<div class="ic3_left_bg">
+        		<div class="ic3_l_title">联合关注</div>
+            	<div class="lhgz_box1"><!-- TideCMS Module --></div>
+                <div class="lhgz_box2">
+                    <div class="lhgz_title">关键词</div>
+                    <div class="lhgz_links1"><!-- TideCMS Module --></div>
+                </div>
+                <div class="lhgz_box3">
+                    <div class="lhgz_title">新闻评论</div>
+                    <ul class="lhgz_list1">
+                        <!-- TideCMS Module -->
+                    </ul>
+                </div>
+                <div class="lhgz_box4">
+                    <div class="lhgz_title">新闻名人</div>
+                    <!-- TideCMS Module -->
+                </div>
+            </div>
+        </div>
+        <div class="ic3_center">
+        	<!-- TideCMS Module -->
+            <div class="ic3_c_pic">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="ic3_c_txt">
+            	<!-- TideCMS Module -->
+            </div>
+        </div>
+        <div class="ic3_right">
+        	<div class="ic3_tj">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="ic3_ranks">
+            	<ul class="ic3_ranks_tabs" id="index_tabs3">
+                	<li class="on">日排行</li>
+                    <li>月排行</li>
+                </ul>
+                <div class="ic3_ranks_main" id="index_tabs3_main_1">
+                	<ul>
+                    	<li class="bt"><span class="num">1</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li class="bt"><span class="num">2</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li class="bt"><span class="num">3</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">4</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">5</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">6</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">7</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">8</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">9</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">10</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                    </ul>
+                </div>
+                <div class="ic3_ranks_main" id="index_tabs3_main_2" style="display:none;">
+                	<ul>
+                    	<li class="bt"><span class="num">1</span><a href="#">伊朗试射两国产新型防空导弹2</a></li>
+                        <li class="bt"><span class="num">2</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li class="bt"><span class="num">3</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">4</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">5</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">6</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">7</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">8</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">9</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                        <li><span class="num">10</span><a href="#">伊朗试射两国产新型防空导弹</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index_c4">
+    	<div class="index_cszb">
+        	<div class="i_cszb_title">
+            	<span class="c_title">城事直播</span>
+                <span class="c_num">28套 51个节目</span>
+            </div>
+            <div class="i_cszb_list" id="index_tabs4">
+            	<div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子2</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子3</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子4</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子5</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+            	<div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子6</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="i_cszb_list_box">
+                	<ul>
+                    	<li class="i_cszb_dst1">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子7</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst2">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst3">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst4">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst5">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst6">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst7">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                        <li class="i_cszb_dst8">
+                    		<div class="i_cszb_logo"><img src="/images/index_06.jpg" /></div>
+                        	<div class="i_cszb_txt"><a href="#">12:35 深圳影视<br />我在黑社会的日子</a></div>
+                        	<div class="i_cszb_play"><a href="#">播放</a></div>
+                    	</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="i_cszb_button" id="index_tabs4_num">
+            	<div class="i_cszb_prev">上一组</div>
+            	<ul>
+                	<li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                </ul>
+                <div class="i_cszb_next">下一组</div>
+            </div>
+        </div>
+        <div class="index_c4_center">
+        	<div class="i_jqkd">
+            	<div class="i_jqkd_title">近期看点</div>
+                <!-- TideCMS Module -->
+            </div>
+            <div class="i_jchf">
+            	<div class="i_jchf_title">精彩回放</div>
+                <!-- TideCMS Module -->
+            </div>
+        </div>
+        <div class="i_jjbc">
+        	<div class="i_jjbc_title">即将播出</div>
+            <ul class="i_jjbc_list">
+            	<li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+                <li><span class="date">07:00</span><a href="#" class="title">深视新闻</a><span class="dst">深圳影视</span></li>
+            </ul>
+            <div class="i_ad1">
+            	<!-- TideCMS Module -->
+            </div>
+        </div>
+    </div>
+    <div class="index_c3" id="i_csjc">
+    	<div class="ic3_left">
+        	<div class="ic3_left_bg">
+        		<div class="ic3_l_title">城市剧场</div>
+                <div class="i_csjc_box1">
+                	<div class="i_csjc_title">电影</div>
+                    <div class="links"><!-- TideCMS Module --></div>
+                </div>
+                <div class="i_csjc_box1">
+                	<div class="i_csjc_title">电视剧</div>
+                    <div class="links"><!-- TideCMS Module --></div>
+                </div>
+                <div class="i_csjc_box1">
+                	<div class="i_csjc_title">纪录片</div>
+                    <div class="links"><!-- TideCMS Module --></div>
+                </div>
+                <div class="i_csjc_box2">
+                	<div class="i_csjc_title">大家都在看什么</div>
+                    <div class="links">
+                    	<!-- TideCMS Module -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ic3_center">
+        	<!-- TideCMS Module -->
+            <div class="i_csjc_list2">
+            	<!-- TideCMS Module -->
+            </div>
+        </div>
+        <div class="ic3_right">
+        	<div class="i_csjc_tj">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="i_csjc_list3">
+            	<div class="i_csjc_title">影视圈</div>
+                <ul>
+                	<!-- TideCMS Module -->
+                </ul>
+            </div>
+            <div class="i_csjc_xpyg">
+            	<div class="i_csjc_title">新片预告</div>
+                <!-- TideCMS Module -->
+            </div>
+        </div>
+    </div>
+    <div class="index_c3" id="i_shwx">
+    	<div class="ic3_left">
+        	<div class="ic3_left_bg">
+        		<div class="ic3_l_title">生活万象</div>
+                <div class="i_shwx_box1">
+                	<div class="i_csjc_title">分类导读</div>
+                    <div class="links">
+                    	<!-- TideCMS Module -->
+                    </div>
+                </div>
+                <div class="i_shwx_box2">
+                	<div class="i_csjc_title">精品栏目</div>
+                    <!-- TideCMS Module -->
+                </div>
+            </div>
+        </div>
+        <div class="ic3_center">
+        	<!-- TideCMS Module -->
+        </div>
+        <div class="ic3_right">
+        	<div class="ic3_tj">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="ic3_ranks">
+            	<ul class="ic3_ranks_tabs">
+                	<li class="on">生活关注排行榜</li>
+                </ul>
+                <div class="ic3_ranks_main">
+                	<!-- TideCMS Module -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index_c3" id="i_sekj">
+    	<div class="ic3_left">
+        	<div class="ic3_left_bg">
+        		<div class="ic3_l_title">少儿空间</div>
+                <div class="i_sekj_box">
+                	<div class="i_csjc_title">分类导读</div>
+                    <div class="links">
+                    	<!-- TideCMS Module -->
+                    </div>
+                </div>
+                <div class="i_sekj_list">
+                	<div class="i_csjc_title">热点推荐</div>
+                    <ul>
+                    	<!-- TideCMS Module -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ic3_center">
+        	<div class="i_shwx_box3">
+            	<!-- TideCMS Module -->
+            </div>
+            <!-- TideCMS Module -->
+        </div>
+        <div class="ic3_right">
+        	<div class="ic3_tj">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="ic3_ranks">
+            	<ul class="ic3_ranks_tabs">
+                	<li class="on">生活关注排行榜</li>
+                </ul>
+                <div class="ic3_ranks_main">
+                	<!-- TideCMS Module -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index_c3" id="i_cstkx">
+    	<div class="ic3_left">
+        	<div class="ic3_left_bg">
+        		<div class="ic3_l_title">城市特快线</div>
+                <div class="i_sekj_box">
+                	<div class="i_csjc_title">分类导读</div>
+                    <div class="links">
+                    	<!-- TideCMS Module -->
+                    </div>
+                </div>
+                <div class="i_sekj_list">
+                	<div class="i_csjc_title">热点推荐</div>
+                    <ul>
+                    	<!-- TideCMS Module -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ic3_center">
+        	<div class="i_shwx_box3">
+            	<!-- TideCMS Module -->
+            </div>
+            <!-- TideCMS Module -->
+        </div>
+        <div class="ic3_right">
+        	<div class="ic3_tj">
+            	<!-- TideCMS Module -->
+            </div>
+            <div class="ic3_ranks">
+            	<ul class="ic3_ranks_tabs">
+                	<li class="on">城事排行榜</li>
+                </ul>
+                <div class="ic3_ranks_main">
+                	<!-- TideCMS Module -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index_c5">
+    	<div class="i_yy">
+        	<div class="i_yy_title">音乐</div>
+            <ul class="i_yy_list">
+            	<!-- TideCMS Module -->
+            </ul>
+            <ul class="i_yy_links">
+            	<!-- TideCMS Module -->
+            </ul>
+        </div>
+        <div class="i_dm">
+        	<div class="i_dm_title">动漫</div>
+            <ul class="i_dm_list">
+            	<!-- TideCMS Module -->
+            </ul>
+        </div>
+        <div class="i_ss">
+        	<div class="i_ss_title">时尚</div>
+            <!-- TideCMS Module -->
+        </div>
+    </div>
+</div>
+<!--\#include virtual="/include/footer.html" -->
+<script>
+tabs("index_tabs3","on","li");
+</script>
+</body>
+</html>]]></template_file>
+    <template_file id="1495" Name="轮播图" FileName="banner.html" Description="" Title=""><![CDATA[<div class="contmain_l fL">
+            <ul id="imgs_cont1" class="clearfix">
+#foreach( $item in $Controller.listTopItems(4))
+                <li class="fL" gsregion="1" gssnapshot="0">
+                    <a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank"><img src="$item.getValue('Photo')" alt="$item.getHtmlTitle()" title="$item.getHtmlTitle()"/></a>     
+                    <div class="ft">
+                      <a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank" class="t1">$item.getTitle()</a>
+                      <a href="$item.getValue('Href')" class="t2">$item.getSummary()<span>[详情]</span></a>
+                    </div>
+                </li>
+#end
+            </ul>
+            <ul id="icons_cont1" class="clearfix">
+#set($i=1)
+#foreach( $item in $Controller.listTopItems(4))
+#if($i!=1)
+#set($class="")
+#else
+#set($class="class='on'")
+#end	
+                    <li $class></li>
+#set($i=$i+1)
+#end
+            </ul>
+            <a rel="nofollow" href="javascript:void(0)" id="prevIcon1"></a>
+            <a rel="nofollow" href="javascript:void(0)" id="nextIcon1"></a>
+        </div>   ]]></template_file>
+    <template_file id="1506" Name="第一条新闻" FileName="news.html" Description="" Title=""><![CDATA[#foreach( $item in $Controller.listTopItems(1))
+<div class="hd clearfix"><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank">$item.getTitle(16)</a></div>
+#end]]></template_file>
+    <template_file id="1511" Name="文字新闻" FileName="wznews.html" Description="" Title=""><![CDATA[<ul class="news">
+#foreach( $item in $Controller.listTopItems(10))
+#if($item.getValue("type")==0)
+     <li><i class="icon-img"></i><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank">$item.getTitle(18)</a></li>
+#elseif($item.getValue("type")==1)
+     <li><i class="icon-video"></i><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank">$item.getTitle(18)</a></li>
+#else
+     <li><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank">$item.getTitle(20)</a></li>
+#end
+#end
+</ul>]]></template_file>
+    <template_file id="1507" Name="图片新闻" FileName="picnews.html" Description="" Title=""><![CDATA[<ul>
+#foreach( $item in $Controller.listTopItems(2))
+                        <li><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank"><img src="$item.getValue('Photo')" alt="$item.getHtmlTitle()" title="$item.getHtmlTitle()"/></a><div class="title"><a href="$item.getValue('Href')" title="$item.getHtmlTitle()" target="_blank">$item.getTitle(10)</a></div></li>
+#end
+                    </ul>]]></template_file>
+    <template_file id="1496" Name="内容页" FileName="pc_content.shtml" Description="" Title=""><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>$item.getTitle()_$channel.getName()_$channel.getSite().getName()</title>
+	<link rel="stylesheet" type="text/css" href="/css/pc/base.css">
+	<link rel="stylesheet" type="text/css" href="/css/pc/style.css">
+        <script type="text/javascript" src="/js/pc/jquery.js"></script> 
+        <script type="text/javascript" src="/js/pc/common.js"></script> 
+        <script type="text/javascript" src="/js/videoPlayer.js"></script> 
+</head>
+<body>
+<!--\#include virtual="/include/pc/header.shtml"-->
+	<div class="wrap">
+		<div class="content">
+			<h3>$item.getTitle()</h1>
+			<div class="assist">
+                <span class="time">$item.FormatDate("yyyy年MM月dd日 HH:mm:ss",$item.getPublishDate())</span> #if($item.getValue("DocFrom")!="")| <span class="source">来源：$item.getValue("DocFrom")</span>#end
+            </div>
+            #if($item.getValue("videoid")!=""&&$item.getValue("videoid")!=0)
+            #foreach($item2 in $item.getItemUtil().listChildItems($item.getIntValue("videoid"),4," limit 1"))
+            #set($video_dest=$item2.getValue("Url"))
+            <div class="player">
+                <script>tide_player.showPlayer({video:"$video_dest",cover:"$item.getValue("Photo")",autoplay:"false",width:603,height:480});</script>
+            </div>
+            #end
+            #elseif($item.getValue("videourl")!="")
+             <div class="player">
+                <script>tide_player.showPlayer({video:"$item.getValue("videourl")",cover:"$item.getValue("Photo")",autoplay:"false",width:1000,height:480});</script>
+              </div>
+            #end
+            <div class="content_center">
+                        $item.getContent()
+                </div>
+		</div>
+	</div>
+<!--\#include virtual="/include/pc/footer.shtml"-->
+#if($channel.getParentChannel().getName()=="资源栏目")
+<script>
+set_class(".wrap_nav li a","on","$channel.getName()");
+</script>e()");
+</script>
+#elseif($channel.getParentChannel().getParentChannel().getName()=="资源栏目")
+<script>
+set_class(".wrap_nav li a","on","$channel.getParentChannel().getName()");
+</script>
+#end
+</body>
+</html>
+]]></template_file>
+    <template_file id="1498" Name="底部" FileName="footer.html" Description="" Title=""><![CDATA[#set($i=0)
+#foreach( $item in $Controller.listTopItems($rows))#if($i>0) | #end
+<a href="$item.getFullHref()" title="$item.getHtmlTitle()" target="_blank">$item.getTitle()</a>
+#set($i=$i+1)
+#end]]></template_file>
+    <template_file id="1508" Name="通栏广告" FileName="tl.html" Description="" Title=""><![CDATA[#foreach( $item in $Controller.listTopItems(1))
+<div class="adv"><a href="$item.getFullHref()" title="$item.getHtmlTitle()" target="_blank"><img src="$item.getValue('Photo')" alt="$item.getHtmlTitle()" title="$item.getHtmlTitle()"/></a></div>
+#end]]></template_file>
+    <template_file id="1497" Name="底栏文字" FileName="dlwz.html" Description="" Title=""><![CDATA[#foreach( $item in $Controller.listTopItems(1))
+$item.getContent()
+#end]]></template_file>
+  </template_files>
+</root>

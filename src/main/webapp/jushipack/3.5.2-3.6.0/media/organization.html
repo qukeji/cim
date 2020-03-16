@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>组织认证</title>
+		<link rel="stylesheet" href="/css/media_register.css" />
+		<script type="text/javascript" src="/js/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+			<!-- 组织认证选择 -->
+		<div class="media-container organization">
+			<div class="media-title">
+			    <h5>组织认证</h5>
+			</div>
+			<div class="media-bind">
+				<div class="media-items" data-type="1">                				
+					<div class="items-img-box">                					
+						<img src="/images/media/massmedia.png">                				
+					</div>                				
+					<div class="items-text-box">                				    
+						<h5>群媒体</h5>                				    
+						<p>适合以公司形式专注于内容生产，并以内容为主要产出</p>                				
+					</div>            				    
+					<a href="javascript:;" class="mediaright"><img src="/images/media/mediaright.png"></a>           				    
+				</div>    
+				<div class="media-items" data-type="2"> 
+					<div class="items-img-box">                					
+						<img src="/images/media/newsmedia.png">                				
+					</div>                				
+					<div class="items-text-box">                				    
+						<h5>新闻媒体</h5>                				    
+						<p>有内容生产能力和生产资质的报刊、杂志、电台</p>                				
+					</div>            				    
+					<a href="javascript:;" class="mediaright"><img src="/images/media/mediaright.png"></a>           				    
+				</div> 
+				<div class="media-items" data-type="3">                				
+					<div class="items-img-box">                					
+						<img src="/images/media/nationalInstitutions.png">                				
+					</div>                				
+					<div class="items-text-box">                				    
+						<h5>国家机构</h5>                				    
+						<p>中央及各级各地行政机关、直属机构、党政机关</p>                				
+					</div>            				    
+					<a href="javascript:;" class="mediaright"><img src="/images/media/mediaright.png"></a>           				    
+				</div>    
+				<div class="media-items" data-type="4"> 
+					<div class="items-img-box">                					
+						<img src="/images/media/enterprise.png">                				
+					</div>                				
+					<div class="items-text-box">                				    
+						<h5>企业</h5>                				    
+						<p>适合企业、公司、分支机构，企业相关品牌产品服务</p>                				
+					</div>            				    
+					<a href="javascript:;" class="mediaright"><img src="/images/media/mediaright.png"></a>           				    
+				</div> 
+				<div class="media-items" data-type="5"> 
+					<div class="items-img-box">                					
+						<img src="/images/media/otherorganizations.png">                				
+					</div>                				
+					<div class="items-text-box">                				    
+						<h5>其他组织</h5>                				    
+						<p>适合各类公共场馆、公益机构、学校、社团、民间组织等</p>                				
+					</div>            				    
+					<a href="javascript:;" class="mediaright"><img src="/images/media/mediaright.png"></a>           				    
+				</div> 
+				
+			</div>
+				
+		</div>
+		<div id="commonpop">
+			<p><span></span></p>
+		</div>
+		<script type="text/javascript" src="/js/media_config.js" ></script>
+		<script>
+			$(function(){
+				$(".media-items").click(function(){
+					var _type=$(this).attr("data-type");
+					window.location.href="organizationalCertification.html?type="+_type;
+				});
+
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<title>TideCMS 9.0演示环境 </title>
+
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<!-- <link href="../../lib/2018/rickshaw/rickshaw.min.css" rel="stylesheet"> -->
+<link href="../../lib/2018/chartist/chartist.css" rel="stylesheet">
+<link rel="stylesheet" href="../../style/2018/bracket.css">
+<link rel="stylesheet" href="../../style/2018/common.css">
+
+<script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+<script language=javascript>
+
+	function init() {
+		window.status = "当前用户：方志伟  角色：系统管理员";
+		//	window.onresize=reSize;
+		//	reSize();
+
+		//	if (jQuery.browser.msie) {
+		//		var version=parseInt(jQuery.browser.version);
+		//		if(version==6){
+		//			alert("你当前使用的浏览器是IE6,请升级你的浏览器!");
+		//		}
+		//	}
+
+		set_main_class("index");
+		
+	}
+
+	function reSize() {
+		document.getElementById("main").style.height = Math.max(document.body.clientHeight - document.getElementById("main").offsetTop, 0) + "px";
+	}
+
+	function set_main_class(str) {
+		jQuery('.header_menu  li').removeClass('on');
+		jQuery('#home_' + str).addClass('on');
+	}
+
+
+	function feed() {
+		title = '反馈'
+		url = "http://123.125.148.3:888/cms/feedback.jsp";
+		var dialog = new top.TideDialog();
+		dialog.setWidth(500);
+		dialog.setHeight(500);
+		dialog.setUrl(url);
+		dialog.setTitle(title);
+		dialog.show();
+	};
+</script>
+<style>
+	#chindex1 svg:not(:root){
+		overflow: visible;
+	}
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="init();" scroll="no">
+
+    <div class="br-logo">
+		<a class="d-flex align-items-center"  href="http://123.56.71.230:889/tcenter/main.jsp">
+		   <img class="wd-30 ht-30 mg-l-20" src="../../img/2018/tidemedia_logo.svg">
+		   <span class="tx-16-force tx-bold-force tx-black-foce">Tcenter 20</span>
+		</a>
+	</div>
+	<div class="br-sideleft overflow-y-auto">
+		<label class="sidebar-label pd-x-15 mg-t-20"></label>
+			<div class="br-sideleft-menu">
+				
+				<a href="main.jsp" class="br-menu-link active menu-home">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-home tx-22"></i>
+						<span class="menu-item-label">主页</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+				
+				<a href="explorer/index2018.jsp" class="br-menu-link menu-explorer">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-folder tx-20"></i>
+						<span class="menu-item-label">文件管理</span>
+					</div>
+				</a>
+				
+				
+				<a href="channel/index2018.jsp" class="br-menu-link menu-channel">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-sitemap tx-20"></i>
+						<span class="menu-item-label">结构管理</span>
+					</div>
+				</a>
+				
+				<!-- br-menu-link -->
+				<a href="source/index2018.jsp" class="br-menu-link menu-source">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-database tx-20"></i>
+						<span class="menu-item-label">资源中心</span>
+					</div>
+					<!-- menu-item -->
+				</a>
+									
+				<a href="../../lib/appIndex2018.jsp?childGroup=1" class="br-menu-link menu-app" id="menu-app">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-tablet tx-26"></i>
+						<span class="menu-item-label">APP管理</span>
+					</div>
+				</a>
+				<a href="../../lib/appIndex2018.jsp?childGroup=2" class="br-menu-link menu-userManage" id="menu-userManage">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-user tx-26"></i>
+						<span class="menu-item-label">用户管理</span>
+					</div>
+				</a>
+			    <a href="../../lib/appIndex2018.jsp?childGroup=3" class="br-menu-link menu-interactive" id="menu-interactive">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-comments-o tx-20"></i>
+						<span class="menu-item-label">互动管理</span>
+					</div>                                     
+				</a>    
+				<a href="../../lib/webIndex.jsp" class="br-menu-link menu-standard" id="menu-standard">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-desktop tx-18"></i>
+						<span class="menu-item-label">内容管理</span>
+					</div>
+				</a>
+				
+				<a href="#" class="br-menu-link">
+					<div class="br-menu-item">
+						<i class="menu-item-icon fa fa-gear tx-20"></i>
+						<span class="menu-item-label">系统管理</span>
+						<i class="menu-item-arrow fa fa-angle-down"></i>
+					</div>
+				</a>
+				<!-- br-menu-link -->
+				<ul class="br-menu-sub nav flex-column">
+					<li class="nav-item">
+						<a href="system/index2018.jsp" class="nav-link br-menu-item">站点配置</a>
+					</li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=1" class="nav-link">许可证</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=2" class="nav-link">系统参数</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=11" class="nav-link">审核管理</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=3" class="nav-link">操作日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=4" class="nav-link">登录日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=5" class="nav-link">错误日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=6" class="nav-link">系统日志</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=7" class="nav-link">备份中心</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=8" class="nav-link">系统监控</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=9" class="nav-link">调度管理</a></li>
+					<li class="nav-item"><a href="system/index_2018.jsp?id=10" class="nav-link">图片尺寸</a></li>
+					<li class="nav-item"><a href="template/index2018.jsp" class="nav-link">模板管理</a></li>
+					<li class="nav-item"><a href="user/index2018.jsp" class="nav-link">用户管理</a></li>
+					<li class="nav-item"><a href="publish/index2018.jsp" class="nav-link">发布进程管理</a></li>
+					<li class="nav-item"><a href="report/index2018.jsp" class="nav-link">工作量统计</a></li>
+					<li class="nav-item"><a href="spider/index2018.jsp" class="nav-link">采集系统</a></li>
+				</ul>
+				
+
+			
+			</div>
+			<!-- br-sideleft-menu -->
+		</div>
+        <!-- br-sideleft -->
+
+		<div class="br-header">
+			<div class="br-header-left">
+				<div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+				<div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+				<div class="hidden-md-down system-name"><a href="javascript:;"><i class=""></i>内容汇聚发布</a></div>
+			</div>
+			<!-- br-header-left -->
+			<div class="br-header-right">
+				<nav class="nav">
+					<div class="dropdown">
+						<a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+							<span class="logged-name hidden-md-down">方志伟</span>
+							<img src="http://123.56.71.230:889/cms/images/2018/img1.jpg" class="wd-32 rounded-circle" alt="">
+							<span class="square-10 bg-success"></span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-header wd-200">
+							<ul class="list-unstyled user-profile-nav">
+								<li><a href="person/index2018.jsp"><i class="icon ion-ios-person"></i> 个人信息</a></li>
+								<li><a href="logout.jsp"><i class="icon ion-power"></i> 退出</a></li>
+							</ul>
+						</div>
+						<!-- dropdown-menu -->
+					</div>
+					<!-- dropdown -->
+				</nav>
+				<!--<div class="navicon-right">
+		          <a id="btnRightMenu" href="" class="pos-relative">
+		            <i class="fa fa-commenting"></i>
+		            <span class="square-8 bg-danger pos-absolute t-10 r--5 rounded-circle"></span>
+		          </a>
+		        </div>-->
+			</div>
+			<!-- br-header-right -->
+		</div>
+		<!-- br-header -->
+
+        <!-- ########## START: RIGHT PANEL ########## -->
+    <!--<div class="br-sideright">
+      <ul class="nav nav-tabs sidebar-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" role="tab" href="#contacts"><i class="fa fa-star-o tx-24"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#attachments"><i class="fa fa-user-o tx-22"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#calendar"><i class="fa fa-bell-o tx-22"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#settings"><i class="fa fa-file-o tx-22"></i></a>
+        </li>
+      </ul>
+
+ 
+      <div class="tab-content">
+        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto active" id="contacts" role="tabpanel">
+	        <div class="d-flex justify-content-center">
+	          	<a href="javascript:;" class="wd-180 btn btn-primary mg-y-10" onclick="siderightNewContent();">新建内容</a>
+	        </div>
+            <div class="item-yyzc">
+	        	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">运营支撑</label>
+	            <div class="contact-list pd-x-10">
+		            
+	          	</div>
+	        </div>
+            
+          	<div class="item-yyfb">       	
+				<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">应用发布</label>
+	            <div class="contact-list pd-x-10">
+		             
+	          	</div>
+	        </div> 	
+          	<div class="item-zyhj">
+	          	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">资源汇聚</label>
+	            <div class="contact-list pd-x-10">
+		            
+	          	</div>
+	        </div>
+          	<div class="item-scgj">
+	          	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">生产工具</label>
+	            <div class="contact-list pd-x-10">
+		               
+	          	</div>
+        	</div>
+        
+        </div>
+
+        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="attachments" role="tabpanel">
+          <div class="item-online">
+	          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">在线人员（66）</label>
+	          <div class="contact-list pd-x-10">
+	                    
+	          </div>
+	       </div>
+	       <div class="item-online">
+	          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">离线人员（88）</label>
+	          <div class="contact-list pd-x-10">
+	              
+	          </div>
+	        </div>  
+        </div>
+        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="calendar" role="tabpanel">
+          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">待审核（88）</label>
+          <div class="media-file-list">
+          	
+            
+          </div>
+          
+        </div>
+        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="settings" role="tabpanel">
+          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">最近编辑内容</label>
+
+          <div class="media-file-list">
+          	
+            
+          </div>
+
+        </div>
+      </div>
+    
+    </div>-->
+    <!-- ########## END: RIGHT PANEL ########## --->
+
+		
+		<!-- ########## START: MAIN PANEL ########## -->
+		<div class="br-mainpanel with-first-nav">
+			<iframe src="channel-content.html" name="content_frame" id="content_frame" style="width: 100%;height: 100%;"  frameborder="0" onload="changeFrameHeight(this)"></iframe>  
+		</div>
+		<!-- br-mainpanel -->
+		<!-- ########## END: MAIN PANEL ########## -->
+		
+
+
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+<script src="../../lib/2018/chartist/chartist.js"></script>
+
+<script src="../../common/2018/bracket.js"></script>
+<script src="../../common/2018/ResizeSensor.js"></script>
+<script src="../../common/2018/TideDialog2018.js"></script>
+<!--<script src="common/2018/dashboard.js"></script>-->
+<script>
+	window.onresize = function() {
+		if (document.getElementById("content_frame")) {
+			document.getElementById("content_frame").style.height = Math.max(document.documentElement.clientHeight - 70, 0) + "px";
+		}
+	}
+
+	function changeFrameHeight(_this) {
+		$(_this).css("height", document.documentElement.clientHeight - 70);
+	}
+    
+    //侧边栏新建内容弹窗
+	function siderightNewContent(){
+		var url = "侧边栏新建内容.html";
+		var	dialog = new top.TideDialog();
+			dialog.setWidth(700);
+			dialog.setHeight(550);
+			dialog.setUrl(url);
+			dialog.setTitle('选择数据节点');
+			dialog.setZindex('9999');
+			
+			//dialog.setChannelName('资源栏目');
+			dialog.show();
+	}
+	
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+
+});
+
+
+</script>
+
+<script>
+//侧边栏封装
+(function($) {
+	var ms = {
+		addMessageIcon:function(obj){
+			return(function() {
+				var iconHtml = '<div class="navicon-right"> \
+					<a id="btnRightMenu" href="javascript:;" class="pos-relative"> \
+						<i class="fa fa-commenting"></i> \
+			            <span class="square-8 bg-danger pos-absolute t-10 r--5 rounded-circle"></span> \
+			            </a> \
+			        </div>' ;
+				obj.find(".br-header-right").append(iconHtml)	;
+				obj.find("#btnRightMenu").on('click', function(){
+				    $('body').addClass('show-right');
+				    return false;
+				});
+			})();
+		},
+		addTabs : function(){
+			return(function() {
+				var siderRightHtml =  '<div class="br-sideright"> \
+			      <ul class="nav nav-tabs sidebar-tabs" role="tablist">\
+			        <li class="nav-item"> \
+			          <a class="nav-link active" data-index="0" data-toggle="tab" role="tab" href="#contacts"><i class="fa fa-star-o tx-24"></i></a>\
+			        </li>\
+			        <li class="nav-item">\
+			          <a class="nav-link " data-index="1" data-toggle="tab" role="tab" href="#attachments"><i class="fa fa-user-o tx-22"></i></a>\
+			        </li>\
+			        <li class="nav-item">\
+			          <a class="nav-link" data-index="2" data-toggle="tab" role="tab" href="#calendar"><i class="fa fa-bell-o tx-22"></i></a>\
+			        </li>\
+			        <li class="nav-item">\
+			          <a class="nav-link" data-index="3" data-toggle="tab" role="tab" href="#settings"><i class="fa fa-file-o tx-22"></i></a>\
+			        </li>\
+			      </ul>\
+			      <div class="tab-content">\
+			      	<div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto active" id="contacts" role="tabpanel">\
+			      		<div class="d-flex justify-content-center">\
+			      			<a href="javascript:;" class="wd-180 btn btn-primary mg-y-10" onclick="siderightNewContent();">新建内容</a>\
+			      		</div>\
+			      		<div class="item-yyzc">\
+				        	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">运营支撑</label>\
+				            <div class="contact-list pd-x-10">\
+				          	</div>\
+				        </div>\
+				        <div class="item-yyfb">\
+							<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">应用发布</label>\
+				            <div class="contact-list pd-x-10">\
+				          	</div>\
+				        </div>\
+				        <div class="item-zyhj">\
+				          	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">资源汇聚</label>\
+				            <div class="contact-list pd-x-10">\
+				          	</div>\
+				        </div>\
+			          	<div class="item-scgj">\
+				          	<label class="sidebar-label pd-x-25 mg-t-15 opacity-1">生产工具</label>\
+				            <div class="contact-list pd-x-10">\
+				          	</div>\
+			        	</div>\
+			        </div>\
+			        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="attachments" role="tabpanel">\
+			          <div class="item-online">\
+				          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1 line-num">在线人员（0）</label>\
+				          <div class="contact-list pd-x-10">\
+				          </div>\
+				       </div>\
+				       <div class="item-outline">\
+				          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1 line-num">离线人员（0）</label>\
+				          <div class="contact-list pd-x-10">\
+				          </div>\
+				        </div>  \
+			        </div>\
+			        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="calendar" role="tabpanel">\
+			          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">待审核（0）</label>\
+			          <div class="media-file-list">\
+			          </div>\
+			        </div>\
+			        <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="settings" role="tabpanel">\
+			          <label class="sidebar-label pd-x-25 mg-t-25 tx-white opacity-1">最近编辑内容</label>\
+			          <div class="media-file-list recentEdit">	\
+			          </div>\
+			        </div>\
+			      </div>\
+			    </div>';			    
+			    $("body").append(siderRightHtml);
+			    ms.fillHtmlOne();
+			    ms.bindEvent(".sidebar-tabs")
+			    
+			})();
+		},
+		//填充html
+		fillHtmlOne: function(obj, args) {
+			return(function() {				
+				$.ajax({
+					url:"http://123.56.71.230:889/cms/content/media_list.jsp",	
+					type:"get",
+			        dataType : 'jsonp',
+					success :function(data){				
+						if(data[0].yyzc.length){
+							var yyzcHtml = splitHtml(data[0].yyzc);
+							$(".item-yyzc .contact-list").html(yyzcHtml);
+						}
+						if(data[0].yyfb.length){
+							var yyfbHtml = splitHtml(data[0].yyfb);
+							$(".item-yyfb .contact-list").html(yyfbHtml);
+						}
+						if(data[0].zyhj.length){
+							var zyhjHtml = splitHtml(data[0].zyhj);
+							$(".item-zyhj .contact-list").html(zyhjHtml);
+						}
+						if(data[0].scgj.length){
+							var scgjHtml = splitHtml(data[0].scgj);
+							$(".item-scgj .contact-list").html(scgjHtml);
+						}
+					},
+					error:function(e){
+						console.log(e)						
+					}
+				});				
+			})();
+				
+			function splitHtml(data){
+				var _html  = "" ;
+				for (var i=0 ;i<data.length;i++) {
+					_html += '<a href="'+data[i].Url+'" class="contact-list-link">'+
+						'<div class="d-flex">'+
+							'<div class="pos-relative bg-item bg-yyzc"> '+data[i].logo+
+							'</div>'   +
+							'<span class="tx-white tx-14 mg-l-10"> '+data[i].prjname+'</span>'+
+						'</div>'+
+					'</a>'
+				}
+				return _html ;
+			}
+		},
+		fillHtmlTwo: function(obj, args) {
+			return(function() {				
+				$.ajax({
+					url:"http://api.juyun.tv/api/user_list.php?id=4",	
+					type:"get",
+			        dataType : 'jsonp',
+					success :function(data){									
+						var d = data.result.list ,
+						online = 0,
+						outline = 0 ,
+						onlineHtml  = "" ,
+						outlineHtml = "" ;
+						for (var i =0 ; i<d.length ;i++) {
+							if(d[i].online==1){
+								onlineHtml += '<a href="javascript:;" class="contact-list-link new">\
+									<div class="d-flex">\
+						                <div class="pos-relative">\
+						                  <img src="'+d[i].photo+'" class="wd-40 rounded-circle" alt="">\
+						                  <div class="contact-status-indicator bg-success"></div>\
+						                </div>\
+						                <div class="contact-person">\
+						                  <p class="mg-b-0">'+d[i].title+'</p>\
+						                  <span class="tx-12 op-5 d-inline-block">系统用户</span>\
+						                </div>\
+						                <span class="tx-info tx-12" style="display:none"><span class="square-8 bg-info rounded-circle"></span> 1 new</span>\
+						            </div>\
+					            </a>' ;
+					            online ++ ;
+					         
+							}else{
+								outlineHtml += '<a href="javascript:;" class="contact-list-link new">\
+									<div class="d-flex">\
+						                <div class="pos-relative">\
+						                  <img src="'+d[i].photo+'" class="wd-40 rounded-circle" alt="">\
+						                  <div class="contact-status-indicator  bg-gray-500"></div>\
+						                </div>\
+						                <div class="contact-person">\
+						                  <p class="mg-b-0">'+d[i].title+'</p>\
+						                  <span class="tx-12 op-5 d-inline-block">系统用户</span>\
+						                </div>\
+						                <span class="tx-info tx-12" style="display:none"><span class="square-8 bg-info rounded-circle"></span> 1 new</span>\
+						            </div>\
+					            </a>' ;
+					            outline ++ ;
+							}
+						}						
+						$(".item-online .contact-list").html(onlineHtml);
+						$(".item-online .line-num").html("在线人员（"+online+"）");
+						$(".item-outline .contact-list").html(outlineHtml);
+						$(".item-outline .line-num").html("离线人员（"+outline+"）");
+						
+					},
+					error:function(e){
+						console.log(e)						
+					}
+				});
+			})();
+				
+			
+		},
+		fillHtmlThree: function(obj, args) {
+			return(function() {				
+					
+			})();
+			
+		},
+		fillHtmlFour: function(obj, args) {
+			return(function() {	
+				$.ajax({
+					url:"http://123.56.71.230:889/cms/content/editor_log.jsp",	
+					type:"get",
+			        dataType : 'jsonp',
+					success :function(data){				
+						
+						var recentHtml = "" ;						
+						for (var i =0 ; i<data.length ;i++) {
+							recentHtml += '<a href="'+data[i].address+'">\
+				          		<div class="media  mg-t-20 bg-tx-img">\
+					              <div class="pd-10  dsh-box wd-50  tx-ht-48 tx-center d-flex align-items-center justify-content-center">\
+					                <i class="fa fa-file-word-o tx-28 tx-white"></i>\
+					              </div>\
+					              <div class="media-body d-flex flex-column tx-ht-48 justify-content-between">\
+					                <p class="mg-b-0 tx-14 tx-ellipsis">'+data[i].Title+'</p>\
+					                <p class="mg-b-0 tx-12">\
+					                	<span class="tx-type" style="display:none;">图文</span>\
+					                	<span class="tx-white op-8"><span class="mg-r-10">'+data[i].name+'</span>'+ data[i].CreateDate+'</span>\
+					                </p>\
+					              </div>\
+					            </div>\
+				          	</a>' 
+						}						
+						$(".recentEdit").html(recentHtml);						
+					},
+					error:function(e){
+						console.log(e)						
+					}
+				});				
+			})();
+		},
+		//绑定事件
+		bindEvent: function(obj) {		
+			return(function() {			
+				$(obj).on("click","a", function() {
+					var index = parseInt( $(this).attr("data-index") );
+					console.log(index)
+					switch (index){
+						case 0:
+						    ms.fillHtmlOne();
+							break;
+						case 1:
+						    ms.fillHtmlTwo();
+							break;
+						case 2:
+						    ms.fillHtmlThree();
+							break;
+						case 3:
+						    ms.fillHtmlFour();
+							break;
+						default:
+							break;
+					}																
+				});
+								
+			})();
+		}
+	}
+	$.fn.sideRight = function() {
+        ms.addMessageIcon(this);
+        ms.addTabs()
+	}
+})(jQuery);
+
+//$(".br-header").sideRight();
+
+var jjj =  [
+  {
+  	"yyzc":[
+  	{"groupId":"1","newpage":0,"prjname":"平台管理","Url":"/tcenter/main_system2018.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":0,"prjname":"大数据展示","Url":"/cms/screen/daping_main.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":0,"prjname":"用户数据","Url":"/cms/appuser/main.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":0,"prjname":"数据统计","Url":"/tongji/index_tcenter.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":0,"prjname":"选题任务","Url":"/cms/task/main.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":0,"prjname":"舆情系统","Url":"/cms/yuqing/main.jsp","target":"","status":true},
+  	{"groupId":"1","newpage":1,"prjname":"OA系统","Url":"http://www.tidemedia.com/","target":"target='_blank'","status":true},
+  	{"groupId":"1","newpage":1,"prjname":"指挥调度","Url":"http://123.56.71.230:65524/b/b/1541656281751.shtml","target":"target='_blank'","status":true}
+  	],
+  	"yyfb":[
+  	{"groupId":"2","newpage":0,"prjname":"APP管理","Url":"/cms/app/main.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"网站管理","Url":"/cms/web/main.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"微信矩阵","Url":"","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"电子报","Url":"/cms/epaper/main.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"网络电视","Url":"","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"问政系统","Url":"/cms/wenzheng/wenzheng_main.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"电子地图","Url":"/cms/emap/main.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"信息推送","Url":"/cms/main_tcenter_social.jsp","target":"","status":true},
+  	{"groupId":"2","newpage":0,"prjname":"应用管理","Url":"/cms/main.jsp","target":"","status":true}],
+  	"scgj":[
+  	{"groupId":"4","newpage":0,"prjname":"云快编","Url":"/nles/index_tcenter.jsp","target":"","status":true},
+  	{"groupId":"4","newpage":0,"prjname":"云导播","Url":"","target":"","status":true},
+  	{"groupId":"4","newpage":1,"prjname":"云直播","Url":"http://console.juyun.tv/index/countpage/index","target":"target='_blank'","status":true},
+  	{"groupId":"4","newpage":1,"prjname":"H5云制作","Url":"https://xiumi.us","target":"target='_blank'","status":true},
+  	{"groupId":"4","newpage":0,"prjname":"流矩阵管理","Url":"/encoder/index_tcenter.jsp","target":"","status":true},
+  	{"groupId":"4","newpage":0,"prjname":"直播分发","Url":"/live/index_tcenter.jsp","target":"","status":true},
+  	{"groupId":"4","newpage":0,"prjname":"移动审片","Url":"/cms/shenpian/main.jsp","target":"","status":true},
+  	{"groupId":"4","newpage":0,"prjname":"文稿管理","Url":"/cms/shengao/main.jsp","target":"","status":true}
+  	],
+  	"zyhj":[
+  	{"groupId":"3","newpage":0,"prjname":"PGC内容","Url":"/cms/pgc/main.jsp","target":"","status":true},
+  	{"groupId":"3","newpage":0,"prjname":"UGC内容","Url":"/cms/ugc/ugc_main.jsp","target":"","status":true},
+  	{"groupId":"3","newpage":0,"prjname":"全媒体资源","Url":"/vms2018/index_tcenter.jsp","target":"","status":true},
+  	{"groupId":"3","newpage":0,"prjname":"内容采集","Url":"http://123.56.71.230:889/cms/collect/main.jsp","target":"","status":true},
+  	{"groupId":"3","newpage":0,"prjname":"云媒资","Url":"","target":"","status":true},
+  	{"groupId":"3","newpage":0,"prjname":"收录剪辑","Url":"/vms/chaitiao/index_tcenter.jsp","target":"","status":true}
+  	]
+  }
+]
+</script>
+</body>
+
+</html>

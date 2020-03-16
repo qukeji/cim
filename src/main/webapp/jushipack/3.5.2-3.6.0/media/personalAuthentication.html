@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人认证</title>
+		<link rel="stylesheet" href="/css/media_register.css" />
+		<script type="text/javascript" src="/js/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+		<!-- 个人认证 -->
+		<div class="media-container personalAuthentication">
+			<div class="media-title">
+			    <h5>个人认证</h5>
+		    </div>
+			<div class="media-bind">
+				<input class="personal-name media-per" type="text" value="" id="personal-name" name="personal-name" placeholder="个人名称">
+				<input class="email media-per" type="text" value="" id="personal-email" name="personal-email" placeholder="邮箱">
+				<textarea placeholder="请输入简介"></textarea>
+				<button class="sub-btn" id="submit_personal">加入</button>
+			</div>
+		</div>
+		<div id="commonpop">
+			<p><span></span></p>
+		</div>
+		<script type="text/javascript" src="/js/media_config.js" ></script>
+		<script>
+			$(function(){
+				  //个人认证提交
+				
+				$("#submit_personal").click(function(){
+				    var type=0;
+					var name=$("#personal-name").val();
+					var email=$("#personal-email").val();
+					var summary=$(".personalAuthentication textarea").val();
+					var callback="callback";
+					if(!name){
+						commonPop("请输入个人名称"); 
+						return false;
+					}
+					if(!email){
+						commonPop("请输入邮箱"); 
+						return false;
+					}
+					var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+				    if (!reg.test(email)) {
+				        commonPop("邮箱格式不正确，请重新输入！");
+				        return false;
+				    }
+					if(!summary){
+						commonPop("请输入简介"); 
+						return false;
+					}
+					var _data={};
+					if(getCookie("action")){
+					    _data={"session":session,"site":site,"type":type,"name":name,"email":email,"summary":summary,"action":getCookie("action")}
+					}else{
+					    _data={"session":session,"site":site,"type":type,"name":name,"email":email,"summary":summary,"action":0}
+					    
+					}
+					$.ajax({
+						type:"get",
+						url:ipurl+"/company_register.php",
+						data:_data,
+						dataType :"jsonp",
+						jsonp:"callback",
+						success:function(data){
+							console.log(data)
+							if(data.code==200){
+							   	commonPop(data.message); 
+							   	delCookie("action");
+							   	window.location.href="application.html";
+								//location.replace("application.html");
+							}else{
+							    commonPop(data.message); 
+							}
+						},
+						error:function(){
+						}
+					});
+				})
+			})	
+		</script>
+	</body>
+</html>

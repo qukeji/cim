@@ -1,0 +1,122 @@
+1、字号调整，图片缩进问题
+模板修改: 
+app/content.shtml
+模板所属栏目：APP管理-栏目管理（含所有子频道）
+2、列表页相关文章取大图，列表页摘要换行及双引号处理
+属于APP管理-栏目管理（含所有子频道）
+app/list_1_0.shtml       列表页
+下面三个属于媒体号内容管理及其子频道
+company/live_list_1_0.shtml     媒体号直播列表页
+company/textimage_list_1_0.shtml    媒体号图文列表页
+company/video_list_1_0.shtml   媒体号视频列表页
+3、直播分享页js提取
+模板修改  
+live_wap.html 
+模板所属栏目：APP管理-栏目管理（含所有子频道）
+4、启动图增加字段
+app/start_pic.json
+模板所属栏目: APP管理-栏目管理（含所有子频道）
+5、新增底栏维护、我的界面栏目
+新增模板：
+app/appbot.json    APP管理-底栏维护
+app/my_menu.json   APP管理-我的界面
+6、新增404页面管理栏目
+模板:
+app/notfound.html   APP管理-404页面管理
+7、一键换肤
+模板文件：
+/pc/skin.css
+静态文件：
+/include/pc/header.shtml
+所属栏目：
+聚视演示版--网站管理-一键换肤
+
+
+3.3.0补充模板 
+1、APP管理---栏目管理下修改了：    
+     content_wap.shtml      
+     pic_wap_content.shtml
+     live_wap.html  
+     video_wap.html      
+ 前2个属于app文件夹，后两个属于wap文件夹
+更新功能：微信分享不取title作为摘要
+3、协议与须知---邀请分享页两个模板
+   share_pc.html  
+   share_app.html  
+   属于wap文件夹
+更新功能：优化app下载页
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1、APP管理---栏目管理下修改了：
+     
+     content_wap.shtml      
+     pic_wap_content.shtml
+     live_wap.html  
+     video_wap.html      
+ 前2个属于app文件夹，后两个属于wap文件夹
+更新功能：微信分享不取title作为摘要
+2、content.shtml  属于app文件夹，修改页面json中用于微信分享的字段url
+
+3、协议与须知---邀请分享页两个模板
+   share_pc.html  
+   share_app.html  
+   属于wap文件夹
+更新功能：优化app下载页
+
+4、appconfig.json
+新增pohto字段，属于app文件夹
+
+
+模板修改记录格式
+
+功能说明：APP管理-栏目管理频道 ， 微信分享不取title作为摘要  （修改或新建）
+老版本影响：影响什么
+app/content_wap.shtml   
+wap/live_wap.html   
+
+功能：针对爆料内容，设置未公开的话，让它不会呈现出
+老版本影响：不确定
+1、频道：APP管理-栏目管理（含所有子频道）
+app/list_1_0.shtml
+2、频道：媒体号内容管理及其子频道
+company/live_list_1_0.shtml
+company/textimage_list_1_0.shtml
+company/video_list_1_0.shtml
+
+
+功能：解决相关文章内容页链接取不出来
+老版本影响：不确定
+1、频道：APP管理-栏目管理（含所有子频道）
+app/list_1_0.shtml
+2、频道：媒体号内容管理及其子频道
+company/live_list_1_0.shtml
+company/textimage_list_1_0.shtml
+company/video_list_1_0.shtml
+
+功能：处理双引号和换行所导致的在客户端内提示数据解析异常的问题
+老版本影响：不确定
+1、频道：APP管理-栏目管理（含所有子频道）
+app/list_1_0.shtml
+2、频道：媒体号内容管理及其子频道
+company/live_list_1_0.shtml
+company/textimage_list_1_0.shtml
+company/video_list_1_0.shtml
+
+
+功能：给图片加上完整域名
+频道：APP管理-栏目管理（含所有子频道）
+老版本影响：不确定
+app/list_slide_1_0.json

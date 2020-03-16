@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="publisher" content="TideCMS 9.0">
+	<meta charset="utf-8">
+	<title>问政-手机号验证</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link type="text/css" rel="stylesheet" href="../css/reset.css" />
+	<link type="text/css" rel="stylesheet" href="../css/index_wzh5.css" />
+	<link type="text/css" rel="stylesheet" href="../css/font-awesome/css/font-awesome.css" />	
+	<script src="../js/fontSize.js"></script>	
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/wz-common-h5.js"></script>
+	<style>
+		.submit{margin-bottom: 0.15rem !important;}
+		.phone-tips{font-size: 0.20rem;color: #d4283e;}
+		.phone-tips i{margin-right: 0.05rem;}
+	</style>
+	</head>
+	<body id="wywz">
+	
+		<div class="wz-phone input-item">
+			<input type="tel" value="" name="" placeholder="请输入您的手机号码"/>
+		</div>
+		<div class="submit">
+        	<a href="javascript:;" class="submit-a">提交</a>
+        </div>
+        <div class="phone-tips"><i class="fa fa-exclamation"></i>此手机号是您问政时填写的手机号</div>
+        
+        <div id="commonpop">
+			<p class="tips-container"><span></span></p>
+		</div>
+		<div class="backpage">
+    		<span class=""></span>
+    	</div>
+	</body>
+	<script>
+		var pageType = getUrl("a")  ;  
+		//链接跳转
+		function locationHref(phonenum){
+		    if(pageType==0){
+			    var _url = "wywz.html"
+			}else if(pageType==1){
+			    var _url = "wdwz-list.html"
+			}
+			_url = _url+"?phone="+phonenum ;
+			
+			window.location.href= _url;  //_blank在新的窗口打开页面			
+		}
+           
+        $(".submit-a").click(function(){
+        	var index = $(this).index();
+	        var phone = $(".wz-phone input").val() ;
+	       // if(sSs("wz_phone")){
+	       // 	locationHref(sSs("wz_phone")) ;
+	       // 	return ;
+	       // }
+	        var re = /^(1[3456789][0-9]{9})$/;
+            if (re.test(phone)==false) {
+                commonPop("请输入正确的手机号！");
+                return false; 
+            }
+			$.ajax({
+				type:"get",
+				url: siteUrl+"/wenzheng_list.jsp",				  		
+				dataType:"jsonp",
+				data:{
+					"phone":phone
+				},
+				success:function(data){					
+					if(!data.falsephone){
+						commonPop("手机号不存在！");
+						return false ;
+					}else{
+					    console.log(phone)
+						sSs("wz_phone",phone) ;
+						locationHref(phone) ;
+					}
+				}
+			});
+			return false;
+
+        })
+	</script>
+</html>

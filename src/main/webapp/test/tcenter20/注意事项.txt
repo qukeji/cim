@@ -1,0 +1,35 @@
+注意：
+1.升级脚本中tide_products表设置主键起始值是写死的，需要手动检查数据库，修改为对应值
+
+升级遇到问题：
+1.应先升级租户相关数据表，再升级后台程序，不然程序报错，无法登录后台  
+
+下次升级处理：
+1.Company.java放到util目录
+2.用户登录日志改成系统管理，对应程序都放system下面
+3.icons系统参数改成html文件用js实现
+
+
+vms升级：
+1.site表增肌company字段
+2.vms/check/index.jsp
+3.音视频媒资：vms/video/content.jsp --> vms/lib/lib_content.jsp
+4.拆条任务：chaitiao/chaitiao_task_list2018.jsp  --> lib/lib_chaitiao.jsp (内容编辑页报错)
+5.回收站：trash/recycle_content.jsp --> lib/lib_recycle.jsp
+
+
+CMS安装包：
+404： 
+1.api/company/site_list.jsp
+更新：
+1.cms/api/receive_collect.jsp
+2.cms/api/receive_hot.jsp
+3.cms/content/company_for_user.jsp
+
+tcenter安装包：
+404：
+1.tcenter/zidingyi.jsp
+更新：
+1.tcenter/company_action.jsp
+2.tcenter/company_edit.jsp
+3.tcenter/company_add.jsp

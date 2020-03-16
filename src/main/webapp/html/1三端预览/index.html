@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html id="wxMain">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<title>TideVMS 9.0 开发测试环境 </title>
+
+<link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+<link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+<link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+<link href="../../style/2018/bracket.css" rel="stylesheet" >
+<link href="../../style/2018/common.css" rel="stylesheet" >
+<link href="../../style/2018/preview.css" rel="stylesheet" >
+<script type="text/javascript" src="../../lib/2018/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../common/2018/common2018.js"></script>
+
+<style>	 
+	body{background: #fff;}   
+    body .menu-item-label,body .menu-item-arrow{display: none; 	opacity: 0;}        
+    .br-logo>a span{color:#ffffff}
+	.br-mainpanel {margin-left: 0px;}
+	.br-header>.nav{align-items:center;}   
+    .collapsed-menu .with-first-nav{margin-left: 0;}
+    .br-header1 {
+    	height: 60px; position: fixed; top: 0; right: 0; left: 0; z-index: 1030; background-color: #fff;
+    	box-shadow: 0 1px 4px 0 rgba(0,0,0,.16); display: flex; align-items: center; justify-content: space-between; transition: all .2s ease-in-out;
+	} 
+    .br-mainpanel{display: flex;align-items: center;justify-content: center;}
+	@media (min-width: 992px){
+	    .br-header {left: 0px; }
+	}
+</style>
+<script language=javascript>
+    function init()
+    {
+        window.status="当前用户：方志伟  角色：系统管理员";
+        set_main_class("index");       
+    }
+    function set_main_class(str){
+        jQuery('.header_menu  li').removeClass('on');
+        jQuery('#home_'+str).addClass('on');
+    }
+    function feed()
+    {
+        title='反馈'
+        url="http://123.125.148.3:888/cms/feedback.jsp";
+        var	dialog = new top.TideDialog();
+        dialog.setWidth(500);
+        dialog.setHeight(500);
+        dialog.setUrl(url);
+        dialog.setTitle(title);
+        dialog.show();
+    };
+    
+    //定制减去60
+    function changeFrameHeight(_this){
+    	$(_this).css("height",document.documentElement.clientHeight-70);
+    }
+    window.onresize = function(){	
+    	if(document.getElementById("content_frame")){
+    		document.getElementById("content_frame").style.height =Math.max(document.documentElement.clientHeight-60,0) + "px";				
+    	}
+    }
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" scroll="no">
+ 	<div class="br-header1">
+        <div class="d-flex">
+            <a class="d-flex align-items-center tx-center ht-100p wd-100p" href="http://123.56.71.230:889/tcenter/main.jsp">
+			   <img class="ht-100p" src="http://123.56.71.230:889/cms/img/2019/system_logo.png">
+			</a>
+        </div>
+        <ul id="preview_nav" class="nav nav-outline align-items-center flex-row" role="tablist">
+          <li class="nav-item"><a class="nav-link active" data-url="http://123.56.71.230:8999/f/pc_preview_1.shtml" data-toggle="tab" href="#pc-preview-box1" role="tab" aria-expanded="false">电脑端预览1</a></li>
+		  <li class="nav-item"><a class="nav-link " data-url="http://123.56.71.230:8999/f/pc_preview_1.shtml" data-toggle="tab" href="#pc-preview-box2" role="tab" aria-expanded="false">电脑端预览2</a></li>
+		  <li class="nav-item"><a class="nav-link " data-url="http://123.56.71.230:8999/f/pc_preview_1.shtml" data-toggle="tab" href="#pc-preview-box3" role="tab" aria-expanded="false">电脑端预览3</a></li>
+          <li class="nav-item"><a class="nav-link" data-url="http://123.56.71.230:8999/f/app_preview_1.shtml"  data-toggle="tab" href="#app-preview-box" role="tab" aria-expanded="false">手机端预览</a></li>
+          <li class="nav-item"><a class="nav-link" data-url="http://123.56.71.230:8999/f/tv_preview_1.shtml"  data-toggle="tab" href="#tv-preview-box" role="tab" aria-expanded="false">电视端预览</a></li>         
+        </ul>
+        <div class="d-flex">
+            <a href="javascript:;" id="copyurl" class="btn btn-info mg-r-20 btn-sm" data-clipboard-action="cut" data-clipboard-target="#urlPlace">复制地址</a>
+        </div>
+        
+    </div>
+	<!-- br-header -->
+	<!-- ########## START: MAIN PANEL ########## -->
+		
+	<div class="br-mainpanel with-first-nav">
+		<div class="pc-preview-box preview-box block" id="pc-preview-box1">
+			<iframe class="preview-iframe " width="100%" height="100%" src="http://123.56.71.230:8999/f/pc_preview_1.shtml" id="pc_content_frame" style="width: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+		</div>
+		<div class="pc-preview-box preview-box " id="pc-preview-box2">
+			<iframe class="preview-iframe " width="100%" height="100%" src="http://123.56.71.230:8999/f/pc_preview_1.shtml" id="pc_content_frame" style="width: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+		</div>
+		<div class="pc-preview-box preview-box " id="pc-preview-box3">
+			<iframe class="preview-iframe " width="100%" height="100%" src="http://123.56.71.230:8999/f/pc_preview_1.shtml" id="pc_content_frame" style="width: 100%;" frameborder="0" onload="changeFrameHeight(this)"></iframe>
+		</div>
+		<div class="app-preview-box preview-box" id="app-preview-box">
+			<div class="iframe-box">
+				<iframe class="preview-iframe " width="100%" height="100%" src="http://123.56.71.230:8999/f/app_preview_1.shtml" id="app_content_frame" style="width: 100%;" frameborder="0" onload=""></iframe>
+			</div>
+		</div>
+		<div class="tv-preview-box preview-box" id="tv-preview-box">
+			<div class="iframe-box">
+				<iframe class="preview-iframe " width="100%" height="100%" src="http://123.56.71.230:8999/f/tv_preview_1.shtml" id="tv_content_frame" style="width: 100%;" frameborder="0" onload=""></iframe>
+			</div>
+		</div>
+	</div>	
+	<!--  urlPlace用来放待复制的地址 -->
+	<input type="text" style="position: absolute;left: -500px;" id="urlPlace" value="http://123.56.71.230:8999/f/pc_preview_1.shtml"/>
+	
+	
+	
+		
+	<!-- br-mainpanel -->
+	<!-- ########## END: MAIN PANEL ########## -->
+		
+<script src="../../lib/2018/jquery/jquery.js"></script>
+<script src="../../common/2018/TideDialog2018.js"></script>
+<script src="../../lib/2018/popper.js/popper.js"></script>
+<script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+<script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../lib/2018/moment/moment.js"></script>
+<script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+<script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+
+<script src="../../lib/2018/peity/jquery.peity.js"></script>
+<script src="../../common/2018/bracket.js"></script>
+	<!--复制插件-->
+<script type="text/javascript" src="../../common/2018/clipboard.min.js"></script>
+	
+
+<script>
+	
+$(function() {
+	'use strict'
+
+	$(window).resize(function() {
+		minimizeMenu();
+	});
+
+	minimizeMenu();
+
+	function minimizeMenu() {
+		if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+			// show only the icons and hide left menu label by default
+			$('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+			$('body').addClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideUp();
+		} else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+			$('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+			$('body').removeClass('collapsed-menu');
+			$('.show-sub + .br-menu-sub').slideDown();
+		}
+	}
+	
+	
+});
+    
+    //默认地址
+    var previewUrl = "http://123.56.71.230:8999/f/pc_preview_1.shtml" ;
+    $("#preview_nav li a").click(function(){
+        previewUrl = $(this).attr("data-url") ;
+		var _id = $(this).attr("href")
+		$(".preview-box").hide();
+		$(_id).show();
+        $("#urlPlace").val(previewUrl);
+    })
+    
+    //复制相关 
+    var tdclipboard = new ClipboardJS('#copyurl');
+	tdclipboard.on('success', function(e) {	    
+	    var dialog = new top.TideDialog();	   
+			dialog.setWidth(320);
+			dialog.setHeight(230);		
+			dialog.setTitle("提示");
+			dialog.setMsg("复制成功！");
+			dialog.ShowMsg();
+	});
+
+
+</script>
+</body>
+
+</html>

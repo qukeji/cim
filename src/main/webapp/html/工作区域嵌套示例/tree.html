@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>menu</title><!-- 去掉IE=EmulateIE7 -->
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" /><!-- 去掉引用xtree.css，修改menu.css为tidecms.css -->
+<!-- 去掉此处描述html标签的css -->
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_test/common/jquery.js"></script>
+<script type="text/javascript" src="http://cms.tidedemo.com/cms_test/common/xtree.js"></script>
+<script language="javascript">
+
+function init()
+{
+}
+
+function show(id)
+{
+	if(parent.frames["ifm_right"])
+	{
+		var loc = "";
+
+		if(typeof(id) == "string")
+		{
+			loc = id;
+		}
+		else
+		{
+		if(id==1)
+			loc = "site.jsp";
+		else if(id==2)
+			loc = "login_log.jsp";
+		else if(id==3)
+			loc = "error_log.jsp";
+		else if(id==4)
+			loc = "file_list.jsp";
+		else if(id==5)
+			loc = "operate_log.jsp";
+		else if(id==6)
+			loc = "license.jsp";
+		else if(id==7)
+			loc = "parameter.jsp";
+		else if(id==8)
+			loc = "manager.jsp";
+		else if(id==9)
+			loc = "system_log.jsp";
+		else if(id==10)
+			loc = "content_quartz.jsp";
+		else if(id==11)
+			loc = "../update/upgrade.jsp";
+		else if(id==12)
+			loc = "../video/server_list.jsp";
+		else
+			return;
+		}
+		parent.frames["ifm_right"].location = loc;
+	}
+}
+
+function showSite(id)
+{
+	if(parent.frames["ifm_right"])
+	{
+		parent.frames["ifm_right"].location = "site.jsp?id=" + id;
+	}
+}
+</script>
+<style>.menu_main_2012{top:0;}</style><!-- 新增css，去掉之前的css -->
+</head>
+
+<body>
+<!-- 去掉menu_top层 -->
+<div class="menu_main_2012" id="div1"><!-- 修改menu_main为menu_main_2012 -->
+<script language="javascript">
+if (document.getElementById) {
+	var tree = new WebFXTree('系统管理','');
+	tree.setBehavior('classic');
+	var a = new WebFXTreeItem('站点配置','javascript:show(1)');
+	tree.add(a);
+	var lsh_3 = new WebFXTreeItem('主站','javascript:showSite(3);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_3);
+var lsh_4 = new WebFXTreeItem('视频库','javascript:showSite(4);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_4);
+var lsh_8 = new WebFXTreeItem('手机应用演示','javascript:showSite(8);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_8);
+var lsh_18 = new WebFXTreeItem('社区演示','javascript:showSite(18);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_18);
+var lsh_24 = new WebFXTreeItem('直播管理(废弃)','javascript:showSite(24);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_24);
+var lsh_19 = new WebFXTreeItem('统计','javascript:showSite(19);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_19);
+var lsh_21 = new WebFXTreeItem('测试站点','javascript:showSite(21);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_21);
+var lsh_22 = new WebFXTreeItem('某部网站','javascript:showSite(22);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_22);
+var lsh_23 = new WebFXTreeItem('test','javascript:showSite(23);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_23);
+var lsh_25 = new WebFXTreeItem('湖北台','javascript:showSite(25);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_25);
+var lsh_26 = new WebFXTreeItem('jaguar主站','javascript:showSite(26);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_26);
+var lsh_29 = new WebFXTreeItem('小高','javascript:showSite(29);\" SiteID=0 ChannelType=\"3','','../images/tree/16_channel_site_icon.png','../images/tree/16_channel_site_icon.png');
+a.add(lsh_29);
+
+
+	tree.add(new WebFXTreeItem("许可证","javascript:show(6)"));
+	tree.add(new WebFXTreeItem("系统参数","javascript:show(7)"));
+	tree.add(new WebFXTreeItem("操作日志","javascript:show(5)"));
+	tree.add(new WebFXTreeItem("登录日志","javascript:show(2)"));
+	tree.add(new WebFXTreeItem("错误日志","javascript:show(3)"));
+	tree.add(new WebFXTreeItem("系统日志","javascript:show(9)"));
+	tree.add(new WebFXTreeItem("备份中心","javascript:show(4)"));
+	tree.add(new WebFXTreeItem("系统监控","javascript:show(8)"));
+	tree.add(new WebFXTreeItem("转码服务器","javascript:show(12)"));
+	tree.add(new WebFXTreeItem("调度管理","javascript:show(10)"));
+	tree.add(new WebFXTreeItem("升级管理","javascript:show(11)"));
+
+	document.write(tree);
+	tree.expandAll();
+}
+</script>
+</div>
+<!-- 去掉menu_bottom层 -->
+</body>
+</html>

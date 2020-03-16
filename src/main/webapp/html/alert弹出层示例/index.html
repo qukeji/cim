@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<link rel="Shortcut Icon" href="favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 9 演示站点</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="init();"  scroll="no">
+<div class="header">
+	<div class="logo" id="logo_id"><a href="main.jsp?Flag=1" title="TideCMS 9"><img src="../../images/logo.png" alt="TideCMS" /></a></div>
+    <div class="header-nav" id="header-nav_id">
+    	<ul>
+        	<li id="home_file"><a href="javascript:menu('file');"><span>文件管理</span></a></li>
+			<li id="home_channel"><a href="javascript:menu('channel');"><span>结构管理</span></a></li>
+			<li id="home_source"><a href="javascript:menu('source');"><span>资源中心</span></a></li>
+			<li id="home_lib"><a href="javascript:menu('lib');"><span>内容中心</span></a></li>
+			<li id="home_content"><a href="javascript:menu('content');"><span>界面管理</span></a></li>
+			<li id="home_sns" href="sns/index.jsp"><a href="javascript:menu('sns');"><span>社区管理</span></a></li>
+            <li id="home_system"><a href="javascript:menu('system');"><span>系统管理</span></a></li>
+			<li id="home_person"><a href="javascript:menu('person');"><span>个人信息</span></a></li>
+        </ul>
+    </div>
+    <div class="header-info">
+    	张良 你好！<!--<a href="#" class="messages">2条留言</a>--><a href="logout.jsp">退出登录</a>|<a href="javascript:feed();">反馈</a>    
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!-- 弹出层开始 -->
+<div class="openwin tidedialog" id="TideDialog_1">
+	<div class="openwin_bg"></div>
+	<div class="openwin_main" id="popmain" style="margin:-75px 0 0 -150px;width:300px;height:150px;"><!-- 宽高是随着alert内容来改变的，margin值-75px是高度的一半，-150是宽度的一半 -->
+    	<div class="openwin_nav" id="openwin_nav_id">
+        	<div class="nav" id="TideDialogTitle">删除专题</div>
+            <div class="close" style="background:url(../../images/openwin_close.png) no-repeat 0 0;"><a href="" title="关闭" id="TideDialogClose"></a></div>
+        </div>
+        <div class="openwin_iframe" id="popDiviframe" name="popDiviframe"><div class="content_2012">确定要删除专题么？<br />警告：频道被删除后不能恢复，而且其下面的子频道将一并删除。</div></div>
+        <div class="form_button">
+        	<input name="startButton" type="submit" class="tidecms_btn2" value="确定" id="startButton">
+        	<input name="btnCancel1" type="button" class="tidecms_btn2" value="取消" id="btnCancel1" onclick="top.TideDialogClose('');">
+        </div>
+	</div>
+</div>
+<!-- 弹出层结束 -->
+</body>
+</html>

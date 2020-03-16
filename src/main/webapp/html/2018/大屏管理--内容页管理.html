@@ -1,0 +1,542 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="robots" content="noindex, nofollow">
+	<link rel="Shortcut Icon" href="/cms2018/favicon.ico">
+    <title>内容编辑</title>
+    
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+   
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    <link href="../../lib/2018/jt.timepicker/jquery.timepicker.css" rel="stylesheet">
+    <!-- Bracket CSS -->
+    
+    <link rel="stylesheet" href="../../style/2018/bracket.css">  
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../common/2018/common2018.js"></script>
+    <script src="../../common/2018/TideDialog2018.js"></script>
+    <style>
+    	.collapsed-menu .br-mainpanel-file{
+			margin-left: 60px;
+		}
+    	@media (max-width: 991px){
+				.email .with-second-nav {
+				    margin-left: 230px;
+				}
+				.collapsed-menu .br-mainpanel-file{
+					margin-left: 0;
+				}
+				
+			}
+		@media (max-width: 575px){
+			.email .with-second-nav {
+			    margin-left: 0px;
+			}
+		}
+		
+		#nav-header{line-height: 60px;margin-left: 20px;color: #a4aab0;font-style: normal;}
+		#nav-header a{color: #a4aab0;}
+		
+		.bs-tooltip-bottom .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #f8f9fa;opacity: 1;}
+		.tooltip.bs-tooltip-bottom .arrow::before,
+		.tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {border-bottom-color: #f8f9fa;	}
+		.edui-editor {z-index: 0 !important;}
+	    /*tooltip相关样式*/
+	    .bs-tooltip-right .tooltip-inner {padding: 8px 15px;font-size: 13px;border-radius: 3px;color: #ffffff;background-color: #00b297;opacity: 1;}
+		.tooltip.bs-tooltip-right .arrow::before,
+		.tooltip.bs-tooltip-auto[x-placement^="right"] .arrow::before {			
+			border-right-color: #00b297;			
+		}
+		
+		.min-h-200{min-height: 100px;}
+		.screen-row{overflow: hidden;}
+		.x16-1{width: 180px;}
+		.x16-2{width: 360px;}
+		.x16-3{width: 540px;}
+		.x16-4{width: 720px;}
+		.x16-5{width: 900px;}
+		.x16-6{width: 1080px;}
+		.x16-7{width: 1260px;}
+		
+		.y9-1{height: 101px;}
+		.y9-2{height: 202px;}
+		.y9-3{height: 303px;}
+		.y9-4{height: 404px;}
+		.y9-5{height: 505px;}
+		.y9-6{height: 606px;}
+		.y9-7{height: 707px;}
+		
+		.x4-1{width: 135px;}
+		.x4-2{width: 270px;}
+		.x4-3{width: 405px;}
+		.x4-4{width: 540px;}
+		.x4-5{width: 675px;}
+		.x4-6{width: 810px;}
+		.x4-7{width: 945px;}
+		
+		.y3-1{height: 101px;}
+		.y3-2{height: 202px;}
+		.y3-3{height: 303px;}
+		.y3-4{height: 404px;}
+		.y3-5{height: 505px;}
+		.y3-6{height: 606px;}
+		.y3-7{height: 707px;}
+		
+		.border-50{border-radius: 50%;width: 40px;height: 40px;background: rgb(139, 195, 74);text-align: center;line-height: 40px;color: #fff;}
+		.screen-item{position: relative;}
+		.screen-item .new-screen{position: absolute;right: -31px;top: 0;z-index: 0;}
+    </style>
+  </head>
+  
+  <body class="collapsed-menu email">
+
+    <!-- ########## START: LEFT PANEL ########## -->
+    <div class="br-logo"><a href="index.html"><img src="../../images/2018/system-logo.png"></a></div>
+    <div class="br-sideleft ">
+      <label class="sidebar-label pd-x-15 mg-t-20"></label>
+      <div class="br-sideleft-menu">
+        <a href="index.html" class="br-menu-link active" data-toggle="tooltip" data-placement="right" title="功能组1">
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-edit tx-22"></i>
+            <span class="menu-item-label">功能组1</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="" class="br-menu-link" data-toggle="tooltip" data-placement="right" title="功能组2">
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-area-chart"></i>
+            <span class="menu-item-label">功能组2</span>            
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->    
+        <a href="structure.html" class="br-menu-link" data-toggle="tooltip" data-placement="right" title="功能组3">
+          <div class="br-menu-item">
+            <i class="menu-item-icon fa fa-commenting tx-20"></i>
+            <span class="menu-item-label">功能组3</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        
+      </div><!-- br-sideleft-menu -->
+       
+    </div><!-- br-sideleft -->
+    
+    <!-- ########## END: LEFT PANEL ########## -->
+
+     <!-- ########## START: HEAD PANEL ########## -->
+     <div class="br-header">
+      <div class="br-header-left">
+        <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+        <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+        <div id="nav-header" class="hidden-md-down flex-row align-items-center">
+        	<a href="javascript:;">资源栏目</a>>
+        	<a href="javascript:;">文化娱乐</a>>
+        	<a href="javascript:;">中国双航母编队呼之欲出</a>
+        </div>
+      </div><!-- br-header-left -->
+      <div class="br-header-right">
+        <div class="btn-box" >	      	
+      		<button type="button" class="btn btn-primary tx-size-xs mg-r-5">保存</button>
+		    <button type="button" class="btn btn-secondary tx-size-xs mg-r-5">保存并发布</button>
+		    <button type="button"  class="btn btn-secondary tx-size-xs mg-r-10">关闭</button>			   
+	    </div>
+        
+      </div><!-- br-header-right -->
+    </div><!-- br-header -->
+    <!-- ########## END: HEAD PANEL ########## -->
+    
+   
+    <div class="br-mainpanel br-mainpanel-file overflow-hidden bd-b"> 
+    	
+        <div class="br-pagebody bg-white pd-0 mg-0">
+        	<div class="br-content-box pd-30 d-flex align-items-center justify-content-center  overflow-x-auto min-h-200">
+        		<div class="d-flex align-items-start justify-content-center min-h-200">
+	        		<div class="screen-box d-flex flex-lg-row">
+	        			<!--<div class="screen-column d-flex flex-column ">
+	        				<div class="screen-row d-flex flex-row ">
+		        				<div class="screen-item bg-primary d-flex bd-white bd  x16-1 y9-1">
+		        					<div class="bg-primary rounded overflow-hidden wd-100p">
+										<div class="pd-10 d-flex align-items-center ht-100p">
+											<div class="mg-l-0 wd-100p ht-100p d-flex flex-column justify-content-between">
+												<p class="tx-16 tx-monttx-white"><i class="fa tx-white fa-sign-out"></i></p>
+											    <div class="d-flex justify-content-center">
+													 <div class="border-50">1</div>
+												</div>
+												<div class="d-flex justify-content-end">
+													<a class="" href="javascript:;"><i class="tx-white fa fa-gear tx-14"> </i></a>
+													<a class="mg-l-10" href="javascript:;" onclick="removeThis(this)"><i class="tx-white fa fa-trash tx-14 "> </i></a>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="new-screen row-add" onclick="creatPop(2,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>
+		        				</div>
+		        				
+		        			</div>
+		        			<div class="screen-row d-flex flex-row ">
+		        				<div class="screen-item bg-primary  d-flex bd-white bd x16-2 y9-1">
+		        					<div class="bg-primary rounded overflow-hidden wd-100p">
+										<div class="pd-10 d-flex align-items-center ht-100p">
+											<div class="mg-l-0 wd-100p ht-100p d-flex flex-column justify-content-between">
+												<p class="tx-16 tx-monttx-white"><i class="fa tx-white fa-sign-out"></i></p>
+											    <div class="d-flex justify-content-center">
+													 <div class="border-50 screen-order">2</div>
+												</div>
+												<div class="d-flex justify-content-end">
+													<a class="" href="javascript:;"><i class="tx-white fa fa-gear tx-14"> </i></a>
+													<a class="mg-l-10" href="javascript:;" onclick="removeThis(this)"><i class="tx-white fa fa-trash tx-14 "> </i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="new-screen row-add" onclick="creatPop(2,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>       				
+		        				</div>
+		        				
+	        				</div>
+	        				<div class="new-screen bot-add" onclick="creatPop(0,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>       				
+	        			</div>
+	        			<div class="screen-column d-flex flex-column ">
+	        				<div class="screen-row d-flex flex-row ">
+		        				<div class="screen-item bg-primary d-flex bd-white bd  x16-1 y9-2">
+		        					<div class="bg-primary rounded overflow-hidden wd-100p">
+										<div class="pd-10 d-flex align-items-center ht-100p">
+											<div class="mg-l-0 wd-100p ht-100p d-flex flex-column justify-content-between">
+												<p class="tx-16 tx-monttx-white"><i class="fa tx-white fa-sign-out"></i></p>
+											    <div class="d-flex justify-content-center">
+													 <div class="border-50">3</div>
+												</div>
+												<div class="d-flex justify-content-end">
+													<a class="" href="javascript:;"><i class="tx-white fa fa-gear tx-14"> </i></a>
+													<a class="mg-l-10" href="javascript:;" onclick="removeThis(this)"><i class="tx-white fa fa-trash tx-14 "> </i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="new-screen row-add" onclick="creatPop(2,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>
+		        				</div>
+	        				</div>
+	        				<div class="new-screen bot-add current-btn" onclick="creatPop(0,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>       				
+	        			</div>-->
+	        			
+	        		</div>  
+	        		
+	        		<!--页面初始就会只有这一个按钮-->
+        			<div class="new-screen right-add" onclick="creatPop(1,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>       				
+        		
+        		</div>
+        	</div>
+        </div>
+    </div><!-- br-mainpanel -->
+    <div class="br-mainpanel br-mainpanel-file overflow-hidden mg-t-0 pd-b-40 bd-b"> 
+    	
+        <div class="d-flex align-items-center justify-content-start pd-x-20 pd-sm-x-30 pd-t-25 mg-b-20 mg-sm-b-30">
+	        <div class=" tx-16">内容源配置</div>        
+	        <div class="btn-group mg-l-auto hidden-sm-down">
+	          <a href="#" class="btn btn-outline-info" onclick="newContentSource();">新建内容源</a>
+	          <a href="#" class="btn btn-outline-info" onclick="editContentSource();">修改内容源</a>
+	          <a href="#" class="btn btn-outline-info" onclick="delContentSource();">删除内容源</a>    
+	        </div><!-- btn-group -->
+	        
+	        <div class="btn-group mg-l-10 hidden-sm-down">
+	          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-left"></i></a>
+	          <a href="#" class="btn btn-outline-info"><i class="fa fa-chevron-right"></i></a>
+	          
+	        </div><!-- btn-group -->
+	        <!-- START: 只显示在移动端 -->
+	        <div class="dropdown mg-l-auto hidden-md-up">
+	          <a href="#" class="btn btn-outline-secondary" data-toggle="dropdown">操作 <i class="fa fa-angle-down mg-l-5"></i></a>
+	          <div class="dropdown-menu dropdown-menu-right pd-10">
+	            <nav class="nav nav-style-1 flex-column">
+	              <a href="#" class="nav-link">发布</a>
+			          <a href="javascript:;" class="nav-link" onclick="newContentSource();">新建内容源</a>
+			          <a href="javascript:;" class="nav-link" onclick="editContentSource();">修改内容源</a>
+			          <a href="javascript:;" class="nav-link" onclick="delContentSource();">删除内容源</a>
+			        
+	            </nav>
+	          </div><!-- dropdown-menu -->
+	        </div><!-- dropdown -->
+	        <!-- END: 只显示在移动端 -->
+      	</div>
+      	<div class="br-pagebody pd-x-20 pd-sm-x-30">
+        <div class="card bd-0 shadow-base">
+          <table class="table mg-b-0" id="content-table">
+            <thead>
+              <tr>
+                <th class="wd-50 header">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox" id="checkAll"><span></span>
+                  </label>
+                </th>
+                <th class="tx-12-force tx-mont tx-medium header wd-80">编号</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-160">内容源名称</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-200">创建作者</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down wd-180">创建时间</th>
+                <th class="tx-12-force tx-mont tx-medium hidden-xs-down header">目标地址</th>
+                <th class="tx-12-force wd-180 tx-mont tx-medium hidden-xs-down header">操作</th>
+               <!-- <th class="wd-5p">操作</th>-->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="valign-middle">
+                  <label class="ckbox mg-b-0">
+                    <input type="checkbox"><span></span>
+                  </label>
+                </td>
+                <td>1</td>
+                <td class="hidden-xs-down">舆情</td>
+                <td class="hidden-xs-down">管理员</td>
+                <td class="hidden-xs-down">2018-04-19 10:26 </td>
+                <td class="hidden-xs-down">https://baidu.com</td>
+                <td class="dropdown hidden-xs-down">
+                	<a href="javascript:;" class="btn pd-0 mg-r-8" title="预览"><i class="fa fa-eye  tx-18 handle-icon" aria-hidden="true"></i></a>
+                	<a href="javascript:;" class="btn pd-0 mg-r-8" title="修改"><i class="fa fa-edit tx-18 handle-icon" aria-hidden="true"></i></a>     	
+                    <a href="javascript:;" class="btn pd-0 mg-r-5" title="删除"><i class="fa fa-trash tx-18 handle-icon" aria-hidden="true"></i></a>
+                </td>
+              </tr>
+          	</table>
+          <div id="tide_content_tfoot">
+          	<label class="ckbox mg-b-0 mg-r-30 ">
+            	<input type="checkbox" id="checkAll_1"><span></span>
+          	</label> 
+          	<span class="mg-r-20 ">共666条</span>
+          	<span class="mg-r-20 ">1/16页</span>
+          	<div class="jump_page ">
+          		<span class="">跳至:</span>        		
+          		<label class="wd-60 mg-b-0">
+                	<input class="form-control" placeholder="" type="text">
+              	</label>
+		        <span class="">页</span>
+		        <a href="javascript:;" class="tx-14">Go</a>
+          	</div>
+          	<div class="each-page-num mg-l-20 ">
+          		<span class="">每页显示:</span>
+          		<select class="form-control select2 wd-80" data-placeholder="状态">
+		            <!--<option label="Choose one"></option>-->             
+		            <option value="1" >10</option> 
+		            <option value="Firefox" selected="selected">20</option>
+		            <option value="Chrome">30</option>                
+		          </select>
+		          <span class="">条</span>
+          	</div>
+          </div>
+          
+        </div>
+      </div>
+    </div><!-- br-mainpanel -->
+    
+    <div class="br-mainpanel br-mainpanel-file overflow-hidden mg-t-0 pd-b-40">        
+        <div class="br-pagebody bg-white mg-l-20 mg-r-20">
+        	<div class="br-content-box pd-20">
+        		<div class="article-title mg-l-15 mg-b-15 pd-r-30">
+				  	<div class="row flex-row align-items-center mg-b-15" id="">                   		  	  	
+					    <label class="left-fn-title wd-100 " id="">方案标题：</label>
+					    <label class="wd-content-lable d-flex" id="">
+						    <input class="form-control wd-300" placeholder="" type="text" id="Title" name="Title" size="80" value="" onkeyup="">
+					    </label>
+					    <label><span class="mg-l-10"></span></label>		
+				   </div>
+				   <div class="row flex-row align-items-center mg-b-15" id="">                   		  	  	
+					    <label class="left-fn-title wd-100 " id="">总分辨率：</label>
+					    <label class="wd-content-lable d-flex" id="">
+						    <input class="form-control wd-100 mg-r-20" placeholder="宽" type="text" id="Title" name="Title" size="80" value="" onkeyup="">
+						    <input class="form-control wd-100" placeholder="高" type="text" id="Title" name="Title" size="80" value="" onkeyup="">
+					    </label>
+					    <label><span class="mg-l-10"></span></label>		
+				   </div>
+				   <div class="row flex-row align-items-center mg-b-15" id="">
+					   	<label class="left-fn-title wd-100" id="">屏幕类型：</label>
+					   	<label class="wd-content-ckx d-flex " id="">
+					   		<label class="ckbox mg-r-15">
+					   			<input type="checkbox" value="0" id="rr1" name="checkbox1">
+					   			<span for="rr1">平板电视拼接</span>
+					   		</label>
+							<label class="ckbox mg-r-15">
+								<input type="checkbox" value="1" id="rr2" name="checkbox1">
+								<span for="rr2">LED拼接屏</span>
+							</label>
+							<label class="ckbox mg-r-15">
+								<input type="checkbox" value="1" id="rr3" name="checkbox1" checked="">
+								<span for="rr3">投影</span>
+							</label>
+						</label>
+				   </div>
+		        </div>
+        	</div>
+        </div>
+    </div><!-- br-mainpanel -->
+    
+    
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>
+    <script src="../../common/2018/bracket.js"></script> 
+    
+    <script>
+      $(function(){
+        'use strict';
+
+        //show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+
+        $('.br-mailbox-list,.br-subleft').perfectScrollbar();
+
+        $('#showMailBoxLeft').on('click', function(e){
+          e.preventDefault();
+          if($('body').hasClass('show-mb-left')) {
+            $('body').removeClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-left').addClass('fa-arrow-right');
+          } else {
+            $('body').addClass('show-mb-left');
+            $(this).find('.fa').removeClass('fa-arrow-right').addClass('fa-arrow-left');
+          }
+        });
+ 
+        $('.br-sideleft [data-toggle="tooltip"]').tooltip({
+       	  shadowColor:"#ffffff",
+       	  textColor:"000000",
+       	  trigger:"hover"
+       	});
+             	
+   
+    });
+    
+    var btnType = 0 ;  //新建按钮类型  0
+	//新建内容源
+   	function newContentSource(){
+   		var url = "大屏管理-新建内容源弹窗.html";
+    	var	dialog = new top.TideDialog();
+			dialog.setWidth(500);
+			dialog.setHeight(300);
+			dialog.setUrl(url);
+			dialog.setTitle('定义内容源');
+			//dialog.setChannelName('资源栏目');
+			dialog.show();
+	}
+   	//编辑内容源
+   	function editContentSource(){
+   		var url = "大屏管理-内容源选择.html";
+    	var	dialog = new top.TideDialog();
+			dialog.setWidth(400);
+			dialog.setHeight(350);
+			dialog.setUrl(url);
+			dialog.setTitle('定义内容源');
+			//dialog.setChannelName('资源栏目');
+			dialog.show();
+	}
+   	//删除内容源
+   	function delContentSource(){
+   		alert("想好再删除！")
+	}
+   	
+   	//新建显示模块---弹窗
+   	function creatPop(type,_this){
+   		$(".new-screen").removeClass("current-btn");  
+   		$(_this).addClass("current-btn");
+   		if(type==0){
+   			btnType =0 ; //列新建
+   		}else if(type==1){ 
+   			btnType =1 ;  //行新建
+   		}else if(type==2){ 
+   			btnType =2 ;  //列内，行新建
+   		}
+   		var url = "大屏管理-新建显示模块.html";
+    	var	dialog = new top.TideDialog();
+			dialog.setWidth(450);
+			dialog.setHeight(370);
+			dialog.setUrl(url);
+			dialog.setTitle('新建显示模块');
+			//dialog.setChannelName('资源栏目');
+			dialog.show();
+   	}
+   	//检查有几块屏幕
+   	function checkScreenNum(){
+   		var num = $(".screen-item").length ? $(".screen-item").length : 0;
+   		return num;
+   	}
+   	
+   	//添加屏幕模块
+   	function addScreen(bl,w,h){
+   		var oDiv=document.createElement('div');
+   		if(bl==0){
+   			var wd = "x16-"+w ,
+   				ht = "y9-"+h ;
+   		}else if(bl==1){
+   			var wd = "x4-"+w ,
+   			    ht = "y3-"+h ;
+   		}  		
+   		oDiv.className = "screen-item bg-primary d-flex bd-white bd" ;
+   		$(oDiv).addClass(wd).addClass(ht).attr({
+   			"data-type":bl,
+   			"data-w":w,
+   			"data-h":h
+   		})  ;   		
+   		var html = '<div class="bg-primary rounded overflow-hidden wd-100p">'+
+   		                '<div class="pd-10 d-flex align-items-center ht-100p">'+
+   							'<div class=" mg-l-0 wd-100p ht-100p d-flex flex-column justify-content-between">'+
+   								'<p class="tx-16 tx-monttx-white"><i class="fa tx-white fa-sign-out"></i></p>'+
+   								'<div class="d-flex justify-content-center">'+
+   									'<div class="border-50 screen-order">'+(checkScreenNum()+1)+'</div>'+
+   								'</div>'+
+   								'<div class="d-flex justify-content-end">'+
+   									'<a class="" href="javascript:;"><i class="tx-white fa fa-eye tx-14 "> </i></a>'+
+   									'<a class="mg-l-10" href="javascript:;" onclick="removeThis(this)"><i class="tx-white fa fa-trash tx-14 "> </i></a>'+
+   								'</div>'+
+   							'</div>'+
+   						'</div>'+
+   					'</div>' +
+   					'<div class="new-screen row-add" onclick="creatPop(2,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>' ;
+   		$(oDiv).html(html);	
+   		var rowDiv = '<div class="screen-row d-flex flex-row "></div>' ;
+   		if(btnType==0){  	
+   			//列创建
+   			var html_r = $(rowDiv).html($(oDiv)) ;
+   			$(".current-btn").before(html_r)
+   		}else if(btnType==1){
+   			//行创建
+   			//html = '<div class="screen-row d-flex flex-row ">' +html +'</div>';
+   			var html_c = $(rowDiv).html($(oDiv)) ;
+   			//$(oDiv).html(html);
+   			var sDiv=document.createElement('div');
+   			sDiv.className = "screen-column d-flex flex-column " ;
+   			var btnHtml = '<div class="new-screen bot-add" onclick="creatPop(0,this)"><i class="fa fa-plus-square tx-primary tx-34"></i></div>'
+   			
+   			$(sDiv).html(html_c)  ;
+   			$(sDiv).append(btnHtml) ;
+   			$(".screen-box").append($(sDiv));
+   		}else if(btnType==2){
+   			//列内》行内创建
+   			var siblingsScreen = $(".current-btn").parent(".screen-item") ;
+   			//$(oDiv).html(html);
+   			siblingsScreen.before($(oDiv)) ;
+   			
+   		}
+   		
+   	}
+   	
+   	//删除显示屏幕
+   	function removeThis(_this){
+   		if(confirm("确定要删除吗？")){
+   			var screen_column = $(_this).parents(".screen-column") ;
+	   		var screen_item  = screen_column.find(".screen-item") ;
+	   		if(screen_item.length==1){
+	   			screen_column.remove() ;
+	   		}else{
+	   			$(_this).parents(".screen-item").remove();
+	   		}
+   		}   		
+   	}
+    </script>
+    
+  </body>
+</html>

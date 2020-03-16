@@ -1,0 +1,16 @@
+input,textarea,select{font-size:12px;vertical-align:middle;}
+
+textarea.textfield{border:1px solid #8a8a8a;background:#f9f9f9;padding:4px 2px;}
+input.submit{border:1px solid #8a8a8a;padding:2px;cursor:pointer;}
+input.textfield{border:1px solid #8a8a8a;background:#f9f9f9;padding:3px 2px;}
+input.text{border:1px solid #8a8a8a;padding:1px 2px;}
+input.button{background:url(../images/form_button.png) no-repeat;width:71px;height:24px;line-height:24px;text-align:center;margin:0 2px;color:#454545;border:none;cursor:pointer;}
+
+/* upload line */
+.upload_flash{}
+.upload_line{height:14px;line-height:14px;margin:4px 0;}
+.upload_line_box{}
+.upload_filename{float:left;}
+.upload_jdt{width:138px;height:12px;border:1px solid #7c859c;background:url(../images/upload_jdt_bg.gif) repeat-x;float:left;margin:0 5px;}
+.upload_jdt_box{background:url(../images/upload_jdt_box.gif) repeat-x;height:12px;}
+.upload_txt{float:left;line-height:14px;}

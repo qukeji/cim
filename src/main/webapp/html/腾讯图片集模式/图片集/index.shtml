@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>天气资讯 - 爱天气</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<style>
+.tide_photos_main{text-align:center;background:#ffffff;padding:30px 0;font-size:13px;line-height:18px;}
+</style>
+</head>
+<script language="javascript"> 
+	function changeImg(mypic){ 
+		var xw=800; 
+		var xl=9999; 
+			 
+		var width = mypic.width; 
+		var height = mypic.height; 
+		var bili = width/height;         
+			 
+		var A=width/xw; 
+		var B=height/xl; 
+			 
+		if(A>1||B>1) 
+		{ 
+			if(A>B) 
+			{ 
+				mypic.width=xw; 
+				mypic.height=xw/bili; 
+			} 
+			if(A<B) 
+			{ 
+				mypic.width=xl*bili; 
+				mypic.height=xl; 
+			} 
+		}
+			
+	} 
+</script>
+<body>
+<div class="tide_photos_main">
+	<img src="" id="imageurl" onload="changeImg(this)" />
+</div>
+<script>
+var aParams = document.location.search.substr(1).split('&') ;
+for ( i = 0 ; i < aParams.length ; i++ )
+{
+ var aParam = aParams[i].split('=') ;
+ var sParamName  = aParam[0] ;
+ var sParamValue = unescape( aParam[1] ) ;
+  if(sParamName == 'pic')
+  {
+   if(sParamValue != "")
+   {
+     var oImg = document.getElementById("imageurl");
+     oImg.src = sParamValue;
+    }
+    else
+    {
+      alert("抱歉！您想查看的图片已经不存在了。^_^");
+      //window.close();
+    }
+  }
+  else
+  {
+    alert("抱歉！您想查看的图片已经不存在了。^_^");
+    //window.close();
+  }
+}
+
+</script>
+</body>
+</html>

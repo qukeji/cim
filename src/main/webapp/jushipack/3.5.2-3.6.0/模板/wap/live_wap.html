@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$item.getTitle()</title>
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta itemprop="name" content="$item.getTitle()"/>
+    <meta itemprop="image" content="#if($item.getValue('Photo4')!="")#if($item.getValue('Photo4').startsWith("http")==true)$item.getValue('Photo4')#else$channel.getSite().getExternalUrl2()$item.getValue('Photo4')#end#else#if($item.getValue('Photo').startsWith("http")==true)$item.getValue('Photo')#else$channel.getSite().getExternalUrl2()$item.getValue('Photo')#end#end" />
+    <meta name="description" itemprop="description" content="$util.JSONQuote($item.getSummary())" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="/css/live_wap.css" />	
+	<script type="text/javascript" src="/js/fontSize.js"></script>
+</head>
+<body class="page-load">
+	<header>
+		<input type="hidden" class="player-cover ttt" value="$item.getValue("Photo")" />
+		<input type="hidden" class="td-liveid" value="$item.getValue("td_liveid")" />	
+		<input type="hidden" class="globalid" value="$item.getGlobalID()" />
+		<section id="player"></section>		
+	</header>
+	<div class="main-content">
+		<div class="live-detail">
+			<p class="title">$item.getTitle()</p>
+			<p class="intro">$item.getValue('Summary')</p>
+			<!-- <div class="time">当前时间：<span class="time-sp"></span></div> -->
+		</div>
+		<!--节目单-->
+		<div class="program-list">
+			<ul class="date-list">
+				
+			</ul>
+			<ul class="program-content">
+				<li class="p-li"></li>
+				<li class="p-li"></li>
+				<li class="p-li"></li>
+				<li class="p-li"></li>
+				<li class="p-li"></li>
+				<li class="p-li"></li>
+				<li class="p-li active">
+					<ul>						
+					
+					</ul>
+				</li>				
+			</ul>
+		</div>						
+	</div>
+		
+	<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+	<!-- 小窗 -->
+	<script type="text/javascript" src="/js/live_wap.js"></script>
+	<!--直播 -->
+	<script type="text/javascript" src="/js/live_h5.js"></script>
+	<script>
+        var siteUrl = "$channel.getSite().getExternalUrl2()";
+        var Title="$util.JSONQuote($item.getTitle())";
+        var Summary="$util.JSONQuote($item.getSummary())";
+        var pImg  = "#if($item.getValue('Photo4')!="")$item.getValue('Photo4')#else$item.getValue('Photo')#end";
+        if(pImg.substr(0,4)!="http"){
+           pImg  = ""+siteUrl + pImg  ;
+        }    
+        var shareUrl = "$item.getHttpHref()";
+       
+    </script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="/js/js_wap.js"></script>
+</body>
+
+</html>

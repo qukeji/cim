@@ -1,0 +1,24 @@
+1、用户隐私协议修改
+    1）栏目名修改
+	   APP管理/协议与须知/用户隐私协议  ----->  APP管理/协议与须知/隐私协议
+    2）APP管理-协议与须知下
+     新增用户协议栏目，栏目目录为user    
+	 添加模板app/policy.html    
+	 模板生成文件命名规则：按文档指定文件名      
+	 条件：filename
+
+2、二级栏目模板  增肌video拓展属性
+   模板：app/channel_list_1_0.json
+   
+3、组件管理栏目，修改频道属性--列表设置--勾选包含子频道
+   组件管理下新增公告维护栏目
+   模板更新：app/advert.shtml
+   
+4、更改取标题，摘要，来源的模板方法
+  频道：APP管理-栏目管理（含所有子频道）
+	app/list_slide_1_0.json
+	app/list_1_0.shtml
+	2）频道：媒体号内容管理及其子频道
+	company/live_list_1_0.shtml
+	company/textimage_list_1_0.shtml
+	company/video_list_1_0.shtml

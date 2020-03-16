@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>日常任务</title>
+		<link rel="stylesheet" href="/css/mygold.css" />
+		<script src="/js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div class="task-hd  header-wrap">
+			<div class="header-box">
+				<div class="now-gold">
+					<p>当前金币</p>
+					<p><span id="goldnum">0</span><span>个</span></p>
+				</div>
+				<div class="get-gold dpnone">
+						<a href="javascript:;"><span>去兑换</span><img src="/images/go-right.png"/></a>
+				</div>
+			</div>
+		</div>
+		<div class="task-wrap">
+			<div class="taskblock-item">
+				<div class="taskblock-title"><h5>新手任务</h5></div>
+				<ul class="newtask">
+				
+				</ul>
+			</div>
+			<div class="taskblock-item">
+				<div class="taskblock-title"><h5>日常任务</h5></div>
+				<ul class="dailytask">
+				
+				</ul>
+			</div>
+		</div>
+		<script>
+			var Global={
+				init:function() {
+					this.htmlFontSize();
+				},
+				//设置根元素的font-size
+				htmlFontSize:function(){
+					var doc = document;
+					var win = window;
+					function initFontSize(){
+						var docEl = doc.documentElement,
+							resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+							recalc = function(){
+								var clientWidth = docEl.clientWidth;
+								if(!clientWidth) return;
+								if(clientWidth>750){
+									clientWidth=750;
+								}
+								fontSizeRate = (clientWidth / 375);
+								var baseFontSize = 50*fontSizeRate;
+								docEl.style.fontSize =  baseFontSize + 'px';
+							}
+						recalc();
+						if(!doc.addEventListener) return;
+						win.addEventListener(resizeEvt, recalc, false);
+						doc.addEventListener('DOMContentLoaded', recalc,false);
+					}
+					initFontSize();
+				}
+			
+			};
+			Global.init();
+			
+			var site = getUrl("site");
+			var session = getUrl("session") ;
+			//var code = getUrl("code") ; qiandao
+			var code =  "qiandao" ;
+			var itemid = getUrl("itemid")  ;
+		
+			//检测是否签到
+			function checkRegister(){
+			    $.ajax({
+			         type:"GET",
+			         url:"/apiv3.6.0/sign_in.php",
+			         data:{site:site,session:session,code:code,itemid:itemid},
+			         dataType :"json",
+			         success:function(data){
+			             console.log(data);
+			             if(data.coins){
+			               $("#goldnum").text(data.coins);  
+			             }
+			             if(data.status==0){ //已签到
+			                 $(".qiandao").find("a").removeClass("gopublish").addClass("published") ;
+			                 $(".qiandao").find("a").text("已签到");
+			                 $(".qiandao").removeClass("dpnone") ;
+			             }else{   //未签到
+			                 $(".qiandao").find("a").removeClass("published").addClass("gopublish") ;
+			                 $(".qiandao").removeClass("dpnone") ;
+			             }
+			             
+			         },
+			         error:function(data){
+			             console.log(data);
+			         }
+			     });
+			}
+			
+			var lock =  false ;
+			function signin(_this){
+			    if(lock){
+                    return  false;
+                }else{
+                    lock = true;
+                }   
+			    if($(_this).hasClass("published")){
+			        return false ;
+			    }else{
+			        $.ajax({
+    			         type:"GET",
+    			         url:"/apiv3.6.0/add_coins.php",
+    			         data:{site:site,session:session,code:code},
+    			         dataType :"json",
+    			         success:function(data){
+    			             if(data.status==1){
+    			                  $(".qiandao").find("a").removeClass("gopublish").addClass("published") ;
+    			                  $(".qiandao").find("a").text("已签到");
+    			                  checkRegister();
+    			                  lock = true;
+    			             }else{
+    			                 alert("签到不成功！");
+    			                 lock = false;
+    			             }
+    			         },
+    			         error:function(data){
+    			             console.log(data);
+    			         }
+    			     });
+			    }
+		   }
+			
+			$(function(){
+			      $.ajax({
+			         type:"GET",
+			         url:"/interaction/goldaddition//goldaddition.json",
+			         dataType :"json",
+			         success:function(data){
+			             console.log(data);
+			             var rtask="";
+			             var xtask="";
+			             for(var i=0;i<data.length;i++){
+			                 var taskhtml="";
+			                 var title=data[i].Title;
+			                 taskhtml+='<li>';
+			                 taskhtml+='<div class="taskitem-left">';
+			                 taskhtml+='<p class="taskitem-title"><span>'+data[i].Title+'</span><span class="task-getnum">+'+data[i].goldaddition+'</span></p>';
+			                 taskhtml+='<p>'+data[i].description+'</p>';
+			                 taskhtml+='</div>';
+			                 if(title.indexOf("签到") != -1){
+			                     taskhtml+='<div class="taskitem-right qiandao">';
+			                     taskhtml+='<a href="javascript:;" onclick="signin(this)" class="published">签到</a>';
+			                     taskhtml+='</div>';
+			                 }
+			                 taskhtml+='</li>';
+			                 if(data[i].type==0){
+			                     $(".newtask").append(taskhtml);
+			                 }else{
+			                     $(".dailytask").append(taskhtml);
+			                 }
+			             }
+			             //检测是否签到成功
+			             checkRegister() ;
+			             
+			         },
+			         error:function(data){
+			             console.log(data);
+			         }
+			     });
+			     
+			});
+			
+			function getUrl(name) {
+            	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+            };
+		</script>
+	</body>
+</html>

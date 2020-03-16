@@ -1,0 +1,3 @@
+#foreach( $item in $Controller.listTopItems(1))
+{ "forceupdate":"$item.getValue("forceupdate")","summary":"$util.JSONQuote($item.getValue("Summary"))","androidversion":"$item.getValue("version")","linkurl":"$item.getValue("linkurl")","iosversion":"$item.getValue("iosversion")"}
+#end

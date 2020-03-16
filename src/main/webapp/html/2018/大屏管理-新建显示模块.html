@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+    <meta name="author" content="ThemePixels">
+    <title>聚视后台</title>
+    <!-- vendor css -->
+    <link href="../../lib/2018/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/2018/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="../../lib/2018/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="../../lib/2018/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+    
+    <link href="../../lib/2018/highlightjs/github.css" rel="stylesheet">    
+    <link href="../../lib/2018/select2/css/select2.min.css" rel="stylesheet">
+    
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="../../style/2018/bracket.css">    
+    <link rel="stylesheet" href="../../style/2018/common.css">
+    
+  </head>
+  <style>
+  	html,body{width: 100%;height: 100%;}  	
+		.modal-body{top: 0;}
+		.modal-body .config-box .row .left-fn-title{min-width: 60px;}
+  </style>
+  <body class="" >
+    <div class="bg-white modal-box">     
+	    <div class="modal-body pd-20 overflow-y-auto">
+	        <div class="config-box">
+	       	 	<ul>
+	       	  	<!--基本信息-->
+	       	  	
+	       		 	<li class="block"> 
+	       		 		<div class="row">                   		  	  	
+	   		  	  		  <label class="left-fn-title wd-100">名称：</label>
+			              <label class="wd-230">
+			                <input class="form-control wd-120" id="s_name" placeholder="不超过5个字符" type="text">
+			              </label>									            
+	       		  	  	</div>
+	       		  	  	<div class="row" id="bili">                  		  	  	
+		   		  	  		  <label class="left-fn-title wd-100">屏幕比例：</label>
+				              <label class="rdiobox">
+				                <input name="proportion" value="0" type="radio" checked="checked"><span>16:9</span>
+				              </label>
+					            <label class="rdiobox">
+				                <input name="proportion" value="1" type="radio"><span>4:3</span>
+				              </label>
+		       		  	 </div>
+	       		  	  	<div class="row">                   		  	  	
+	   		  	  		  	<label class="left-fn-title wd-100">内容源选择：</label>  
+	   		  	  		  	<div class="d-flex">
+	   		  	  		  		<label class="mg-r-20">宽
+		   		  	  		  		<select class="form-control wd-80 ht-40 select2" id="s_w"  data-placeholder="">           
+						                <option value="1" selected="selected">1</option> 
+						                <option value="2">2</option>	
+						                <option value="3">3</option> 						                
+				                	</select> 
+			                	</label>
+			                	<label>高			                					                	
+				                	<select class="form-control wd-80 ht-40 select2" id="s_h" data-placeholder="">           
+						                <option value="1" selected="selected">1</option> 
+						                <option value="2">2</option>	
+						                <option value="3">3</option> 					                					               
+				                	</select>
+			                	</label>
+	   		  	  		  	</div>
+	       		  	  	</div>
+	       		  	  	<div class="row mg-t--10">
+	       		  	  		<label class="left-fn-title wd-100"></label>
+	       		  	  		<label class="d-flex align-items-center tx-gray-800 tx-12">
+	       		  	  			<i class="icon ion-information-circled tx-16 tx-gray-900 mg-r-5"></i>提示：最终展示会根据屏幕比例自适应。
+	       		  	  		</label>
+	       		  	  	</div>
+	       		  </li>	       		
+       	    </ul>
+	        </div>
+	                   
+	    </div><!-- modal-body -->
+      <div class="btn-box" >
+      	<div class="modal-footer" >
+		      <button type="button" class="btn btn-primary tx-size-xs" onclick="confirmAddScreen();"> 确认</button>
+		      <button type="button" onclick="top.TideDialogClose();" class="btn btn-secondary tx-size-xs" data-dismiss="modal">取消</button>
+		    </div> 
+      </div>
+	         
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="../../lib/2018/jquery/jquery.js"></script>
+    <script src="../../lib/2018/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/2018/popper.js/popper.js"></script>
+    <script src="../../lib/2018/bootstrap/bootstrap.js"></script>
+    <script src="../../lib/2018/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../../lib/2018/moment/moment.js"></script>
+    
+    <script src="../../lib/2018/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="../../lib/2018/peity/jquery.peity.js"></script>   
+	  <script src="../../lib/2018/highlightjs/highlight.pack.js"></script>   
+    <script src="../../lib/2018/select2/js/select2.min.js"></script>   
+    <script src="../../common/2018/bracket.js"></script>         
+  </body>
+  <script>
+  	function confirmAddScreen(){
+  		var name = $("#s_name").val();
+  		var bl = $("#bili :radio:checked").val();  //比例  0对应16:9     1对应4:3
+  		
+  		var w_size = $("#s_w option:selected").val();  //宽的分数
+  		var h_size = $("#s_h option:selected").val();  //高的分数
+  		//console.log(bl,w_size,h_size)
+  		top.TideDialogClose();
+  		window.parent.addScreen(bl,w_size,h_size);
+  	}
+  </script>
+</html>

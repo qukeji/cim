@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>财新</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #ptest {
+            width: 700px;
+            /*1060px;*/
+            /*height: 480px;*/
+            /*margin:30px auto;*/
+        }
+        
+        #showplayerbox {
+            margin-top: 30px;
+            width: 1060px;
+            /*height: 596px;*/
+            /*margin:30px auto;*/
+        }
+    </style>
+
+
+
+    <script src="js/tidePlayer.js"></script>
+
+
+
+</head>
+
+<body>
+    <div id="showplayerbox"></div>
+
+    <p>--------------------------</p>
+    <textarea></textarea>
+
+    <div id="ptest">
+        <script>
+            /*
+             * 参数说明：
+             * json			必须	播放信息JSON地址或者JSON对象数据
+             * callback		可选	JSONP调用的callback字段名，默认为funcname
+             * video 		可选	如果仅作为播放某个视频的播放器，则只传video参数即可
+             * width		可选	播放器宽，如果外部有标签，100%则贴合外部标签样式，默认800px
+             * height		可选	播放器高，如果外部有标签，100%则贴合外部标签样式，默认600px
+             * recommand	可选	相关推荐视频列表接口地址
+             * channel		可选	广告位ID，不设置表示没有广告，替换到广告接口的{CHANNEL}
+             * autoplay		可选	是否自动播放，默认为不自动播放
+             * divid		可选	设置一个标签的ID，播放器将写入指定的标签
+             * id 			可选	播放器的全局ID，默认系统将分配一个
+             * noad 		可选	当为true的时候将不显示广告
+             * userCall 	可选	判断当前是否需要显示关闭广告（财新已经内部配置，不需要单独设置）
+             * adshowtype	可选	广告字样显示方式，1-只显示广告字样 2-同时显示倒计时
+             * playCall 	可选	播放判断函数，判断是否能开始播放
+             * waveform		可选	是否显示音频柱，默认为false
+             * speed		可选	是否显示倍速选项，默认为false
+             * vol			可选	初始音量，0-100，默认100
+             * bigPlay		可选	是否显示大播放按钮，默认显示
+             * minimize		可选	传递初始化小窗播放的函数名称，如果不传则不会有小窗播放效果
+             * nomse		可选	当为手机设备的时候不启用MSE的hls.js
+             * playRate		可选	初始的视频播放速度，默认1.0x
+             * 
+             **/
+            var tplayer = new tidePlayer({
+                //width: "100%",
+                //height: "100%",
+
+                //video: "https://sttv-hls-org.cutv.com/lKGXIQa/85slkG0.m3u8",
+                //json: "aHR0cDovL2FwcC5xZ3VpeWFuZy5jb20vYXBpL3Ztc1ZpZGVvLnBocD9HbG9iYWxJRD0yMTM3NjE1",
+                //json: 'http://218.26.188.232/playinfo/c1495523-2c5f-6be4-f0b9-daae03f2b094.json',
+                cover: "http://media.tcloud.sxrtv.com/c1/49/c1495523-2c5f-6be4-f0b9-daae03f2b094/t.jpg",
+                //callback: "callback",
+                //json: 'http://vuser.kepuchina.cn/api/get_video_info.php?GlobalID=1180984',
+                /*
+                json: {
+                    "title": "",
+                    "photo": "",
+                    "videos": [{
+                        "type": "v_sd",
+                        "url": "http://video.qguiyang.com/2019/01/03/13Dio2w_1546513246239_AkhMl50_1959.mp4"
+                    }, {
+                        "type": "v",
+                        "url": "http://video.qguiyang.com/2019/01/03/13Dio2w_1546513246239_AkhMl50_1959.mp4"
+                    }]
+                },
+				*/
+                //recommand: "http://search.caixin.com/search/relvideos.jsp?key=视频&size=20",
+                //channel: "ad.json?ch=123",
+                autoplay: false,
+                //bigPlay: false,
+                //vol: 50,
+                //playCall: playCheck,
+                //userCall:false,
+                //waveform: false,
+                divid: 'showplayerbox',
+                adshowtype: 2,
+                speed: true,
+                /*
+                 * userCall参数和adshowtype参数决定了广告如何显示
+                 * userCall参数是决定是否开启登录用户一定时间后出现关闭按钮
+                 */
+
+                server: "live.0359tv.com", //直播服务器其实地址
+                channel: "ss4Lj11", //初始频道ID
+                dhls: true, //是否动态HLS地址
+                tsldhls: true, //是否动态时移地址
+                et: true //是否接受EPG时段展示
+            });
+
+            //用户判断函数，当返回true，表示可以播放，否则不进行下一步，且做页面跳转
+            function playCheck() {
+                var _uid = Number(getCookie('SA_USER_UID'));
+                if (_uid && !isNaN(_uid)) {
+                    return true;
+                }
+                document.getElementById("cxloginbox").style.display = "block";
+                return false;
+            }
+        </script>
+
+        <button onclick="tplayer.play(30,false);">play(30);</button>
+        <button onclick="tplayer.play(undefined,false);">play();</button>
+
+
+        <div class="login" id="cxloginbox" style="display:none;">
+            <dl>
+                <dt>登录后才可以播放哦！</dt>
+                <dd><input type="button" onclick="window.location.href=('http://u.caixin.com/m/login.html?url='+escape(window.location.href))" value="登录" /></dd>
+            </dl>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

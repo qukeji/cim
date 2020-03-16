@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 9 列表</title>
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div class="content_t1">
+	<div class="content_t1_nav">当前位置：国内</div>
+    <div class="content_new_post">
+        <div class="tidecms_btn" onClick="openSearch();">
+        	<div class="t_btn_pic"><img src="../../images/icon/preview.png" /></div>
+            <div class="t_btn_txt">检索</div>
+        </div>
+        <div class="tidecms_btn" onClick="addDocument();">
+        	<div class="t_btn_pic"><img src="../../images/icon/add.png" /></div>
+            <div class="t_btn_txt">新建</div>
+        </div>
+    </div>
+</div>
+<div class="viewpane_c1" id="SearchArea" style="display:none">
+	<div class="top">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="center">
+<table width="100%" height="38" border="0" cellpadding="0" cellspacing="0" class="box-tint">
+  <tr>
+    <td width="20">&nbsp;</td>
+    <td><form name="search_form" action="content.jsp?id=4022&rowsPerPage=20" method="post" onSubmit="document.search_form.OpenSearch.value='1';">检索：标题
+		  	<input name="Title" type="text" size="18" class="textfield" value="">
+		  创建日期
+		  	<select name="CreateDate1" >
+		    	<option value=">" selected>大于</option>
+		    	<option value="=" >等于</option>
+		    	<option value="<" >小于</option>
+      		</select>
+		  	<input name="CreateDate" type="text" size="10"  class="textfield" value=""><img align="absmiddle" src="../images/calendar.gif" onclick="selectdate('CreateDate');">
+		  	作者
+		  	<input name="User" type="text" size="10"  class="textfield" value="">
+		  	状态
+		  	<select name="Status" >
+		    	<option value="0" selected></option>
+		    	<option value="2" >已发</option>
+		    	<option value="1" >草稿</option>
+      		</select>
+			<!-- 图片新闻
+		  	<input type="checkbox" name="IsPhotoNews" value="1" > -->
+		 	包含子频道
+		  	<input type="checkbox" name="IsIncludeSubChannel" value="1" >
+    		<input type="submit" name="Submit" class="submit" value="查找"><input type="hidden" name="OpenSearch" id="OpenSearch" value="0"></form></td>
+    <td width="20">&nbsp;</td>
+  </tr>
+</table>
+    </div>
+    <div class="bot">
+    	<div class="left"></div>
+    	<div class="right"></div>
+    </div>
+</div>
+<div class="content_2012">
+	<div class="toolbar">
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+            <ul class="toolbar2">
+            	<li class="first"><a href="content.jsp?id=4022&rowsPerPage=20">全部</a></li>
+                <li><a href="content.jsp?id=4022&Status1=-1&rowsPerPage=20">草稿</a></li>
+                <li><a href="content.jsp?id=4022&Status1=1&rowsPerPage=20">已发</a></li>
+                <li class="last"><a href="content.jsp?id=4022&IsDelete=1&rowsPerPage=20">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+                <li  class="first"><a href="javascript:approve();">发布</a></li>
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+				<li><a href="javascript:recommendOut();">推荐</a></li>
+				<li><a href="javascript:sortableEnable();">排序</a></li>
+				<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+				<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1_cur" title="文字列表"></li>
+            <li class="b2" title="图文结合列表"></li>
+            <li class="b3" title="图片列表"></li>
+        </ul>
+    </div>
+  	<div class="viewpane">
+	<!-- 图片列表开始 -->
+    	<div class="viewpane_pic_list">
+    	<table border="0" width="100%" class="view_table">
+  			<tr>
+    			<td align="center" valign="top" class="checked">
+                	<div class="pic">
+                    	<table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="../../images/viewpane_pic_list_default.png" /></td>
+						  	</tr>
+						</table>
+                        <div class="pic_tool_bg"></div>
+                        <div class="pic_tool_button"><a href="#"><img src="../../images/v9_button_1.gif" /></a><a href="#"><img src="../../images/v9_button_2.gif" /></a></div>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" checked="checked" /></span>
+                        <span class="title"><img src="../../images/channel_icon/170.png" title="图片新闻">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+    			<td align="center" valign="top">
+                	<div class="pic">
+               	    <table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="http://192.168.1.2:888/cms/images/pic/01.jpg" /></td>
+						  	</tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+                <td align="center" valign="top">
+                	<div class="pic">
+               	    <table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="../../images/pic/01.jpg" /></td>
+						  	</tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+    			<td align="center" valign="top">
+                	<div class="pic">
+               	    <table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="../../images/pic/01.jpg" /></td>
+						  	</tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+                <td align="center" valign="top">
+                	<div class="pic">
+               	    <table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="../../images/pic/01.jpg" /></td>
+						  	</tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+		  	</tr>
+  			<tr>
+    			<td align="center" valign="top" class="c">
+                	<div class="pic">
+                    	<table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="../../images/pic/02.jpg" /></td>
+						  	</tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+    			<td align="center" valign="top">
+                	<div class="pic">
+                    	<table border="0" width="100%">
+  							<tr>
+    							<td align="center" valign="middle"><img src="http://192.168.1.2:888/cms/images/pic/03.jpg" /></td>
+					  	  </tr>
+						</table>
+                    </div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+                <td align="center" valign="middle">
+                	<div class="pic">正在下载</div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+    			<td align="center" valign="middle">
+               	  <div class="pic"></div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+                <td align="center" valign="middle">
+               	  <div class="pic"></div>
+                    <div class="txt">
+                    	<span class="check"><input name="" type="checkbox" value="" /></span>
+                        <span class="title">图片名称图片名称图片名称</span>
+                    </div>
+                </td>
+		  	</tr>
+		</table>
+      </div>
+	  <!-- 图片列表结束 -->
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll">全部</span><span id="selectNo">无</span></div>
+        	<div class="left">共4124条 1/207页
+			跳至<input name="jumpNum" id="jumpNum" type="text" />页 <span id="goToId" style="cursor:pointer;">GO</span></div>
+            <div class="center"><a href="content.jsp?currPage=1&id=4022&rowsPerPage=20&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0" title="首页"><img src="../../images/viewpane_pages1.png" alt="首页" /></a><a href="content.jsp?currPage=2&id=4022&rowsPerPage=20&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0" title="下一页">下一页<img src="../../images/viewpane_pages3.png" alt="下一页" /></a><a href="content.jsp?currPage=207&id=4022&rowsPerPage=20&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0" title="末页"><img src="../../images/viewpane_pages4.png" alt="末页" /></a></div>
+            <div class="right">
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="rowsPerPage" onChange="change('#rowsPerPage','4022');" id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">条</div>
+            </div>
+        </div>
+  	</div>
+	<div class="toolbar" style="margin:14px 0 0;">
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+            <ul class="toolbar2">
+            	<li class="first"><a href="content.jsp?id=4022&rowsPerPage=20">全部</a></li>
+                <li><a href="content.jsp?id=4022&Status1=-1&rowsPerPage=20">草稿</a></li>
+                <li><a href="content.jsp?id=4022&Status1=1&rowsPerPage=20">已发</a></li>
+                <li class="last"><a href="content.jsp?id=4022&IsDelete=1&rowsPerPage=20">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+                <li class="first"><a href="javascript:approve();">发布</a></li>
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+				<li><a href="javascript:recommendOut();">推荐</a></li>
+				<li><a href="javascript:sortableEnable();">排序</a></li>
+				<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+				<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1_cur" title="文字列表"></li>
+            <li class="b2" title="图文结合列表"></li>
+            <li class="b3" title="图片列表"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

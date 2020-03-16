@@ -1,0 +1,102 @@
+/* ------------------------------
+css for Tidecms 7 Openwin
+design by zhangliang & mezeroz@gmail.com
+date 2009-5-20
+last update Zhangliang 2012.08.23 14:02
+---------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none;hide-focus:expression(this.hideFocus=true);}
+a:hover{text-decoration:none;color:#096ed5;}
+*:focus{outline:none;}
+
+.form_top,.form_bottom{height:18px;background:url(../../images/form_top.png) repeat-x;}
+.form_top .left,.form_top .right,.form_bottom .left,.form_bottom .right{width:18px;height:18px;float:left;}
+.form_top .left{background:url(../../images/form_top_left.png) no-repeat;}
+.form_top .right{background:url(../../images/form_top_right.png) no-repeat;float:right;}
+.form_bottom{background:url(../../images/form_bot.png) repeat-x;}
+.form_bottom .left{background:url(../../images/form_bot_left.png) no-repeat;}
+.form_bottom .right{background:url(../../images/form_bot_right.png) no-repeat;float:right;}
+.form_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;font-size:12px;font-family:"宋体"}
+.form_main_m{margin:0 18px;overflow-y:auto;overflow-x:none;}
+.form_main td{padding:6px 4px;font-size:12px;}
+.form_button{text-align:center;padding:16px 0 0;}
+
+.form_top{position:absolute;left:0;top:0;right:0;}
+.form_main{position:absolute;left:0;top:18px;bottom:55px;right:0;overflow:auto;}
+.form_bottom{position:absolute;left:0;bottom:37px;right:0;overflow:auto;}
+.form_button{position:absolute;left:0;bottom:0;right:0;height:28px;}
+
+/* edit 2012.05.29 by zhangliang */
+.edit-main{margin:20px;position:relative;font-size:12px;}
+/* 从2012.07.02起废弃 开始 */
+.edit-con{position:absolute;top:29px;width:100%;z-index:1;}
+.edit-con .top{height:14px;overflow:hidden;background:url(../../images/bg_top.png) repeat-x;}
+.edit-con .top .left{float:left;}
+.edit-con .top .left{background:url(../../images/top_l.png) no-repeat;width:14px;height:14px;}
+.edit-con .top .right{float:right;background:url(../../images/top_r.png) no-repeat;width:14px;height:14px;}
+.edit-con .bot{height:14px;overflow:hidden;background:url(../../images/bg_bot.png) repeat-x;}
+.edit-con .bot .left{float:left;}
+.edit-con .bot .left{background:url(../../images/bot_l.png) no-repeat;width:14px;height:14px;}
+.edit-con .bot .right{float:right;background:url(../../images/bot_r.png) no-repeat;width:14px;height:14px;}
+.edit-con .center{padding:0 12px;}
+.edit-con .center td{padding:5px 0;line-height:160%;}
+.edit-con .center_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;overflow-y:auto;}
+.edit-con .center_main table,.edit-con .center_main table td{border-collapse:collapse;overflow:hidden;}
+.edit-con .center .title{padding:0 0 15px 0;}
+.edit-con .center .title input{border:1px solid #8a8a8a;background:#f9f9f9;padding:4px 2px;font-size:12px;vertical-align:middle;width:460px;}
+.edit-con .center .edit{padding:0 0 15px 0;}
+.edit-con .center .line{padding:0 0 15px 0;}
+/* 从2012.07.02起废弃 结束 */
+.edit_con_2012{position:absolute;top:29px;width:100%;bottom:36px;z-index:1;}
+.edit_con_2012 .center_main{border:1px solid #dbdbdb;border-radius:3px;padding:14px 12px;position:absolute;top:0;left:0;right:0;bottom:0;overflow-y:auto;background:#fff;}
+.edit_con_2012 .center_main .center{zoom:1;}
+.edit_con_2012 .center_main table,.edit_con_2012 .center_main table td{border-collapse:collapse;}
+.edit_con_2012 .center_main table td{padding:5px;line-height:160%;}
+.edit_con_2012 .center_main .title{padding:0 0 15px 0;}
+.edit_con_2012 .center_main .title input{border:1px solid #8a8a8a;background:#f9f9f9;padding:4px 2px;font-size:12px;vertical-align:middle;width:460px;}
+.edit_con_2012 .center_main .edit{padding:0 0 15px 0;}
+.edit_con_2012 .center_main .line{padding:0 0 15px 0;}
+.edit-nav{position:relative;z-index:2;height:31px;}
+.edit-nav ul{padding:0 0 0 4px;overflow:auto;}
+.edit-nav li{float:left;height:30px;margin:0 1px;overflow:hidden;}
+.edit-nav li a{line-height:28px;padding:0 20px;height:28px;float:left;color:#4b4b4b;border:1px solid #dbdbdb;border-top-left-radius:3px;border-top-right-radius:3px;background:-webkit-gradient(linear,0 0,0 bottom,from(#ececec),to(#ffffff));background:-moz-linear-gradient(top,#ececec,#ffffff);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec',endColorstr='#ffffff');}
+.edit-nav li a:hover{text-decoration:none;}
+.edit-nav li a.cur,.edit-nav li a:hover{background:#ffffff;border-bottom:1px solid #ffffff;color:#096ed5;}
+
+/* Add 2009.06.19 by zhangliang */
+.openwin_box{background:url(../../images/openwin_box_bg.jpg) no-repeat;width:210px;height:60px;margin:0 auto;cursor:pointer}
+.openwin_box .pic{display:block;float:left;width:82px;text-align:center;padding:1px 0 0;}
+.openwin_box .txt{display:block;float:left;width:108px;padding:7px 20px 0 0;line-height:20px;}
+.openwin_box .txt .openwin_help{margin:0 0 0 3px;}
+.openwin_box .txt .openwin_help img{margin:0 0 -2px;}
+
+/* openwin */
+.openwin{font-size:12px;position:fixed;z-index:1000;}
+.openwin_bg{filter:alpha(opacity=10);-moz-opacity:0.1;opacity:0.1;z-index:1001;background:#000000;position:fixed;left:0;top:0;right:0;bottom:0;}
+.openwin_main{background:#efefef;position:fixed;z-index:1002;left:50%;top:50%;width:628px;height:408px;border:1px solid #cccccc;padding:12px;border-radius:10px;box-shadow:0 0 15px #bcbcbc;}
+.openwin_nav{height:25px;line-height:25px;font-family:"宋体"}
+.openwin_nav .nav{float:left;color:#555555;}
+.openwin_nav .nav a{color:#555555;}
+.openwin_nav .close{float:right;}
+.openwin_nav .close a{display:block;height:19px;width:19px;}
+
+/* Add 2009.11.13 by zhangliang */
+.dialog_bottom{background:url(../../images/form_bot.png) repeat-x;height:18px;}
+.dialog_bottom .left,.dialog_bottom .right{width:18px;height:18px;float:left;}
+.dialog_bottom .left{background:url(../../images/form_bot_left.png) no-repeat;}
+.dialog_bottom .right{background:url(../../images/form_bot_right.png) no-repeat;float:right;}
+.dialog_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;font-size:12px;font-family:"宋体"}
+.dialog_main_m{margin:0 18px;overflow-y:auto;overflow-x:none;}
+.dialog_main td{padding:6px 4px;font-size:12px;}
+.dialog_main{position:absolute;left:0;top:18px;bottom:18px;right:0;overflow:auto;}
+.dialog_bottom{position:absolute;left:0;bottom:0;right:0;overflow:auto;}
+.dialog_button{text-align:center;padding:10px 0 0;}
+
+/* Add 2012.07.03 by zhangliang 列表显示 开始 */
+.list_show{overflow:hidden;}
+.list_show li{float:left;width:25%;padding:0 0 4px;}
+.list_show input{margin:0 2px 0 0;*margin:0;}
+/* Add 2012.07.03 by zhangliang 列表显示 结束 */

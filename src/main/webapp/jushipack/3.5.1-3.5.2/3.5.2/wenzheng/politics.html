@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我要问政</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/politics.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/wz-common-pc.js"></script>  
+</head>
+
+<body>
+    <!-- header开始 -->
+    <div class="header">
+        <div class="inner">
+            <div class="search-box">
+                <span class="search-box-in">
+                    <img src="images/search2.png">
+                    <input autofocus="autofocus" placeholder="输入关键字" type="text" class="search-box-input">
+                </span>
+                <span class="search-box-out">站内搜索</span>
+            </div>
+            <div class="header-phone">
+                <p class="header-qq">热线电话：400-0873-154 </p>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="inner">
+            <div class="nav-item nav-item-politics active">
+                <a href="politics.html" target="_blank">我要问政</a>
+            </div>
+            <div class="nav-item  nav-item-mypolitics ">
+                <a href="mypolitics.html" target="_blank">我的问政</a>
+            </div>
+        </div>
+    </div>
+    <!-- header结束 -->
+
+    <!-- content开始 -->
+    <div class="content ">
+        <div class="inner">
+            <div class="content-header">
+                <p>我要问政</p>
+            </div>
+            <div class="content-title">
+                <p>诉求信息：</p>
+                <p>按照e线民生平台的问题处理流程，部门处理问题的时限根据问题类型不同分为3—10个工作日不等，请网友们提问后耐心等待，勿重复提交，谢谢合作。</p>
+            </div>
+            <div class="content-info">
+                <div class="item">
+                    <div class="item-title">类型：</div>
+                    <div class="item-input">
+                        <label class="bui-radios-label bui-radios-anim">      
+                            <input type="radio" name="type" value="1" checked><i class="bui-radios"></i><span>投诉</span>
+                        </label>
+                        <label class="bui-radios-label bui-radios-anim">
+                            <input type="radio" name="type" value="2"><i class="bui-radios"></i><span>咨询</span>
+                        </label>
+                        <label class="bui-radios-label bui-radios-anim">
+                            <input type="radio" name="type" value="3"><i class="bui-radios"></i><span>问题</span>
+                        </label>
+                        <label class="bui-radios-label bui-radios-anim">
+                            <input type="radio" name="type" value="4"><i class="bui-radios"></i><span>建议</span>
+                        </label>
+                        <label class="bui-radios-label bui-radios-anim">
+                            <input type="radio" name="type" value="5"><i class="bui-radios"></i><span>反馈</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">部门：</div>
+                    <div class="item-input">
+                        <select id="department">
+                            <option value="0" checked>----选择部门----</option>
+                            <option value="1" >公安部</option>
+                            <option value="2" >交通部</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">是否公开：</div>
+                    <div class="item-input"> 
+                        <label class="bui-radios-label bui-radios-anim">      
+                            <input type="radio" name="gk" value="0" checked><i class="bui-radios"></i><span>公开</span>
+                        </label>
+                        <label class="bui-radios-label bui-radios-anim">
+                            <input type="radio" name="gk" value="1"><i class="bui-radios"></i><span>保密</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title item-title-top">主题：</div>
+                    <div class="item-input"> 
+                        <input type="text" placeholder="请输入您的主题" class="item-input-w politics-title">
+                    </div>
+                </div>
+                <div class="item item-textarea">
+                    <div class="item-title item-title-top">详细问题：</div>
+                    <div class="item-input"> 
+                        <textarea type="text" placeholder="请输入您的详细问题" class="item-input-textarea politics-summary"></textarea>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title item-title-top">姓名：</div>
+                    <div class="item-input"> 
+                        <input type="text" placeholder="请输入您的姓名" class="item-input-w politics-name">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title item-title-top">手机号码：</div>
+                    <div class="item-input"> 
+                        <input type="text" placeholder="请输入您的手机号码" class="item-input-w politics-phone">
+                    </div>
+                </div>
+                 
+                <div class="item-submit">提交</div>
+
+ 
+            </div>
+        </div>
+    </div>
+    <!--通用提示框-->
+    <div id="commonpop">
+        <p class="tips-container"><span></span></p>
+    </div>
+
+    <!-- footer开始 -->
+    <div class="footer">
+    </div>
+    <!-- footer结束 -->
+    <script>
+        var userid=123;
+        $(function(){
+            //问政部门列表
+            $.ajax({
+                type:"get",
+                dataType:"jsonp",
+                url:siteUrl+"/channel_list.jsp",  
+                success:function(data){ 
+                    if(data.status==200){
+                        //console.log(data)
+                        var result=data.result;
+                        $("#department").html("");
+                        var html='<option value="0" checked>----选择部门----</option>';
+                        $.each(result,function(vi,va){
+                            html+='<option value="'+va.id+'" >'+va.name+'</option>';
+                        })
+                        $("#department").html(html);
+                    }else{
+                        console.log(data.message)
+                    }
+                }
+            })
+
+            //问政接口提交
+            $(".item-submit").click(function(){
+                var type=$("input[name='type']:checked").val();
+                var channelid=$("#department option:checked").val();
+                if(channelid == 0){
+                    commonPop("请选择部门");
+                    return false;
+                }
+                var show=$("input[name='gk']:checked").val();
+                var title =$.trim($(".politics-title").val());
+                if(title==""){
+                   commonPop("请填写您的主题");
+                   $(".politics-title").focus();
+                   return false;
+                }
+                var summary =$.trim($(".politics-summary").val());
+                if(summary==""){
+                   commonPop("请输入您的详细问题");
+                   $(".politics-summary").focus();
+                   return false;
+                }
+                var username =$.trim($(".politics-name").val());
+                if(username==""){
+                   commonPop("请输入您的姓名");
+                   $(".politics-name").focus();
+                   return false;
+                }
+                var phone =$.trim($(".politics-phone").val());
+                if(phone==""){
+                   commonPop("请输入您的手机号码");
+                   $(".politics-phone").focus();
+                   return false;
+                }
+                var rg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/;
+                if (!rg.test($(".politics-phone").val())) {
+                    commonPop("请输入正确的手机号");
+                    return false;
+                }
+                //console.log(type+","+channelid+","+show+","+title+","+summary+","+username+","+phone+","+userid)
+                $.ajax({
+                    type:"post",
+                    dataType:"jsonp",
+                    data:{
+                        type:type,
+                        channelid:channelid,
+                        show:show,
+                        title:title,
+                        summary:summary,
+                        username:username,
+                        phone:phone,
+                        userid:userid
+                    },
+                    url:siteUrl+"/publish_wenzheng.jsp",
+                    success:function(data){
+                        if(data.status==200){
+                            
+                            commonPop("提交成功");
+                           
+                            setTimeout(function (){ window.location.href="mypolitics.html?phone="+phone;},1000); 
+                        }else{
+                            commonPop(data.message)
+                        }
+                    }
+                })
+            });
+        
+            
+        })
+    </script>
+       
+</body>
+
+</html>

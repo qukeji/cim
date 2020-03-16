@@ -1,0 +1,24 @@
+/* ------------------------------
+css for Tidecms 7
+design by zhangliang & mezeroz@gmail.com
+last update Zhangliang 2012.07.03 14:44
+---------------------------- */
+body,h1,h2,h3,h4,h5,h6,p,form,ul,ol,li,input,frameset{margin:0;padding:0;font-family:"宋体";line-height:normal;}
+ul,ol{list-style:none;}
+img{border:0;}
+.clear{clear:both;}
+a{color:#000000;text-decoration:none;hide-focus:expression(this.hideFocus=true);}
+a:hover{text-decoration:none;color:#096ed5;}
+
+
+.form_top,.form_bottom{height:18px;background:url(../../images/form_top.png) repeat-x;}
+.form_top .left,.form_top .right,.form_bottom .left,.form_bottom .right{width:18px;height:18px;float:left;}
+.form_top .left{background:url(../../images/form_top_left.png) no-repeat;}
+.form_top .right{background:url(../../images/form_top_right.png) no-repeat;float:right;}
+.form_bottom{background:url(../../images/form_bot.png) repeat-x;}
+.form_bottom .left{background:url(../../images/form_bot_left.png) no-repeat;}
+.form_bottom .right{background:url(../../images/form_bot_right.png) no-repeat;float:right;}
+.form_main{border:1px solid #dbdbdb;border-top:none;border-bottom:none;background:#ffffff;font-size:12px;font-family:"宋体"}
+.form_main_m{margin:0 18px;overflow-y:auto;overflow-x:none;zoom:1;}
+.form_main td{padding:6px 4px;font-size:12px;}
+.form_button{text-align:center;padding:16px 0 0;}

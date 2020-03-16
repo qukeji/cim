@@ -1,0 +1,8 @@
+1，现有的字段修改为utf8mb4，使用/test/utf8mb4.jsp
+2，更新tidecms_2014.jar
+3，更新mysql连接库jar，原来的删除
+4，修改mysql配置，默认为
+default-character-set=utf8mb4
+
+测试方法：
+老数据修改，新建频道添加数据，数据使用特殊字符或表情符

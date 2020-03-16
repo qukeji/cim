@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<style>
+    html,body,.wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+</style>
+<script>
+    function init() {
+        var ChannelID = GetQueryString("ChannelID");
+        var img = GetQueryString("img");
+        document.getElementById("imgeditor").src = "../photo/image_deal_online_editor.jsp?ChannelID=" + ChannelID +
+            "&img=" + img;
+    }
+
+    //获取参数
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>
+
+<body onload="init()">
+
+    <div class="wrapper">
+
+        <iframe id="imgeditor" name="imgeditor" style="width:96%;height:100%"></iframe>
+
+    </div>
+
+</body>
+
+</html>

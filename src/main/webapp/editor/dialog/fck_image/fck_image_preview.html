@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2008 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Preview page for the Image dialog window.
+ *
+ * Curiosity: http://en.wikipedia.org/wiki/Lorem_ipsum
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex, nofollow" />
+	<script src="../common/fck_dialog_common.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+var FCKTools	= window.parent.FCKTools ;
+var FCKConfig	= window.parent.FCKConfig ;
+
+// Sets the Skin CSS
+document.write( FCKTools.GetStyleHtml( FCKConfig.SkinDialogCSS ) ) ;
+document.write( FCKTools.GetStyleHtml( GetCommonDialogCss( '../' ) ) ) ;
+
+if ( window.parent.FCKConfig.BaseHref.length > 0 )
+	document.write( '<base href="' + window.parent.FCKConfig.BaseHref + '">' ) ;
+
+window.onload = function()
+{
+	window.parent.SetPreviewElements(
+		document.getElementById( 'imgPreview' ),
+		document.getElementById( 'lnkPreview' ),
+		document.getElementById( 'img_hidden' )) ;
+}
+
+	</script>
+</head>
+<body style="color: #000000; background-color: #ffffff">
+	<div>
+		<img id="img_hidden" alt="1" style="position:absolute;top:-100000px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='image')"></img><a id="lnkPreview" onclick="return false;" style="cursor: default">
+			<img id="imgPreview" onload="window.parent.UpdateOriginal();"
+				alt="" /></a>泰德网聚是专业的网站技术服务公司， 自2002年成立来为众多知名企业和品牌成功定制与实施基于Web及其他多种媒体的互动应用方案和网站项目。创意与技术的完美结合是我们追求的目标。我们的核心产品TideCMS内容管理系统即可以用来快速创建网站，也可以用来管理网站上的内容以及管理网站上的一系列功能应用。 TideCMS提出的统一资源管理的概念越拉越赢得客户的认可，通过TideCMS可以架构企业的各类应用站点，包括手机及其他媒体的应用。
+	</div>
+</body>
+</html>

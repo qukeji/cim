@@ -1,0 +1,17 @@
+﻿开发环境：
+2007/09/02
+11223456121234 gg1111
+MySql:4.1.11-nt
+Tomcat:5.0.27
+Eclipse:2.1.1
+
+=============
+SQL
+ALTER TABLE `publish_item` ADD INDEX ( 'FileName' );
+ALTER TABLE `publish_item` ADD INDEX ( 'PublishScheme' );
+ALTER TABLE `publish_item` ADD INDEX ( 'Status' );
+==============
+
+在 catalina.bat中加入set JAVA_OPTS=-Xms128m -Xmx128m，以防止outofmemoryerror.
+最大和最小相等，可以优化java的垃圾处理
+

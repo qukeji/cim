@@ -1,0 +1,75 @@
+
+.preview-box{display: none;}
+.preview-box.block{display: block;}
+/* pc预览 */
+.pc-preview-box{
+	width: 1280px;
+}
+.noscrollbar::-webkit-scrollbar{display: none;}
+#app-preview-box{
+	width: 390px;
+	height: 800px;
+	background-image:url(../../img/2019/app_preview.png)   ;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: cover;
+	overflow: hidden;
+	margin-top: 20px;
+}
+#app_content_frame{
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+#app-preview-box .iframe-box{
+	width: 336px;
+	height: 696px;
+	overflow: hidden;
+	margin-top: 50px;
+	margin-left: 27px;
+} 
+#tv-preview-box{
+	width: 1280px;
+	height: 796px;
+	margin-top: 20px;
+	background-image:url(../../img/2019/tv_preview.png)   ;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: cover;
+}
+#tv-preview-box .iframe-box{
+	width: 1248px;
+	height: 700px;
+	overflow: hidden;
+	margin-top: 16px;
+	margin-left: 14px;
+	padding-bottom: 10px;
+} 
+
+/*响应式*/
+@media (max-width: 1366px){
+	/*#app-preview-box{
+		width: 260px;
+		height: 530px;
+		
+	}	*/
+	/*#app-preview-box .iframe-box{
+		width: 245px;
+		height: 460px;
+		overflow: hidden;
+		margin-top: 34px;
+		margin-left: 10px;
+	}   */
+    #tv-preview-box{
+    	width: 856px;
+    	height: 530px;
+    }
+    #tv-preview-box .iframe-box{
+    	width: 832px;
+    	height: 473px;
+    	overflow: hidden;
+    	margin-top: 10px;
+    	margin-left: 10px;
+    	padding-bottom: 10px;
+    } 
+    
+}

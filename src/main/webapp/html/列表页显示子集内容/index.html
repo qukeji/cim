@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS 7 列表</title>
+<link href="../../style/9/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+<link href="../../style/9/tidecms.css" type="text/css" rel="stylesheet" />
+<link href="../../style/9/smoothness/jquery-ui-1.8.2.custom.css" type="text/css" rel="stylesheet"/>
+<!--[if lt IE 9]>
+    <script src="../../js/html5shiv.min.js"></script>
+    <script src="../../js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../common/common.js"></script>
+<script type="text/javascript" src="../common/jquery.js"></script>
+<script type="text/javascript" src="../common/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="../common/ui.core.js"></script>
+<script type="text/javascript" src="../common/ui.sortable.js"></script>
+<script type="text/javascript" src="../common/ui.draggable.js"></script>
+<script type="text/javascript" src="../common/jquery-ui-1.8.2.datepicker.min.js"></script>
+<script type="text/javascript" src="../common/content.js"></script>
+<script type="text/javascript" src="../common/jquery.contextmenu.js"></script>
+<script>
+var listType = 1;
+var rows = 10;
+var cols = 5;
+var ChannelID = 12405;
+var currRowsPerPage = 20;
+var currPage = 1;
+var Parameter = "&ChannelID="+ChannelID+"&rowsPerPage="+currRowsPerPage+"&currPage="+currPage;
+var pageName = "teleplay_content_video_2012.jsp";
+if(pageName=="") pageName = "content.jsp";
+
+function gopage(currpage)
+{
+	var url = pageName + "?currPage="+currpage+"&id=12405&rowsPerPage=20&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0";
+	this.location = url;
+}
+
+function list(str)
+{
+	var url = pageName + "?id=12405&rowsPerPage=20";
+	if(typeof(str)!='undefined')
+		url += "&" + str;
+	this.location = url;
+}
+
+function Preview22(id)
+{
+	tidecms.dialog("custom/video_player.jsp?id="+id,640,510,"视频预览");
+}
+
+function showsubitem(id)
+{
+//	window.console.info("teleplay_item_content_video_2012.jsp?parentid=" + id+"&category=12562");
+	this.location = "teleplay_item_content_video_2012.jsp?parentid=" + id+"&category=12562";
+}
+
+//删除电视剧壳
+function deleteFile(){
+var obj=getCheckbox();
+var message = "确实要删除这"+obj.length+"项吗？";
+if(obj.length==0){
+alert("请先选择要删除的文件！");
+}else{
+if(confirm(message)){
+var url="/cms/custom/teleplay_item_delete.jsp?ItemID=" + obj.id + Parameter;
+window.console.info(url);
+$.ajax({
+type: "GET",
+url: url,
+success: function(msg){document.location.href=document.location.href;}
+});
+}
+}
+} 
+</script>
+</head>
+<body>
+<div class="content_t1">
+	<div class="content_t1_nav">当前位置：电视剧</div>
+    <div class="content_new_post">
+    	<div class="tidecms_btn">
+        	<div class="t_btn_pic"><img src="../../images/icon/preview.png" /></div>
+            <div class="t_btn_txt">检索</div>
+        </div>
+		<div class="tidecms_btn">
+        	<div class="t_btn_pic"><img src="../../images/icon/add.png" /></div>
+            <div class="t_btn_txt">新建</div>
+        </div>
+    </div>
+</div>
+<div class="viewpane_c1" id="SearchArea" style="display:none">
+	<div class="top">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="center">
+    <table width="100%" height="38" border="0" cellpadding="0" cellspacing="0" class="box-tint">
+  <tr>
+    <td width="20">&nbsp;</td>
+    <td><form name="search_form" action="teleplay_content_video_2012.jsp?id=12405&rowsPerPage=20" method="post" onSubmit="document.search_form.OpenSearch.value='1';">检索：标题
+		  <input name="Title" type="text" size="18" class="textfield" value="">
+		  拆条日期
+		  <select name="CreateDate1" >
+		    <option value=">" selected>大于</option>
+		    <option value="=" >等于</option>
+		    <option value="<" >小于</option>
+      </select>
+		  <input id="CreateDate" name="CreateDate" type="text" size="10"  class="textfield" value="">
+		  作者
+		  <input name="User" type="text" size="10"  class="textfield" value="">
+		  状态
+		  <select name="Status" >
+		    <option value="0" selected></option>
+		    <option value="2" >已发</option>
+		    <option value="1" >草稿</option>
+      </select>
+	<!-- 图片新闻
+		  <input type="checkbox" name="IsPhotoNews" value="1" > -->	
+		 包含子频道
+		  <input type="checkbox" name="IsIncludeSubChannel" value="1" > 
+    <input type="submit" name="Submit" class="submit" value="查找"><input type="hidden" name="OpenSearch" id="OpenSearch" value="0"></form></td>
+    <td width="20">&nbsp;</td>
+  </tr>
+</table>
+    
+    </div>
+    <div class="bot">
+    	<div class="left"></div>
+    	<div class="right"></div>
+    </div>
+</div>
+<div class="content_2012">
+	<div class="toolbar">
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+        	<ul class="toolbar3" style="display:none;">
+            	<li id="displayOperation">
+                	<p><span>全部<img src="../../images/toolbar2_list.gif" /></span></p>
+                </li>
+            </ul>
+            <ul class="toolbar2">
+                <li class="first"><a href="javascript:list();">全部</a></li>
+                <li><a href="javascript:list('Status1=-1');">草稿</a></li>
+                <li><a href="javascript:list('Status1=1');">已发</a></li>
+                <li class="last"><a href="javascript:list('IsDelete=1');">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+               <!--<li><a href="#">归档</a></li> -->
+                <li  class="first"><a href="javascript:approve();">发布</a></li>
+            <!--   <li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				 <li><a href="javascript:deleteFile2();">撤稿</a></li>
+					
+					<li><a href="javascript:recommendOut();">推荐</a></li>
+				
+				
+				
+					<li><a href="javascript:sortableEnable();">排序</a></li>
+				
+					<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+					<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_page">
+        	
+            <li class="next" title="下一页" onClick="gopage(2)">下一页</li>
+        </ul>
+        <ul class="toolbar_r">
+        	<li class="b1" title="文字列表" onClick="changeList(1);"></li>
+			<li class="b2_cur" title="图文列表" onClick="changeList(2);"></li>
+            <li class="b3" title="图片平铺" onClick="changeList(3);"></li>
+        </ul>
+    </div>
+<div class="viewpane">
+
+        <div class="viewpane_pic_txt">
+<table width="100%" border="0" id="oTable" class="view_table">
+
+ <tbody> 
+
+<tr No="1" ItemID="93" OrderNumber="65"  status="1" GlobalID="1130078" id="item_93" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="93" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title"><img src="../../images/channel_icon/170.png" title="图片新闻">[Z]中国式离婚</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>Z] [分类：] [关键词：陈道明 蒋雯丽 咏梅 吕中 石维坚] [集数：23]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    在今天，离婚往往和“第三者”交织在一起，但《中国式离婚》却给人们讲述了一个没有第三者的离婚故事，它提出第三者并不是婚姻危机的本质原因，它只是离婚 的催化剂。而导致婚姻危机的是婚姻本身的变化，这种变化最终导致婚姻的裂变。 那么，在今天我们究竟需要什么样的婚姻？我们的家到底怎么了？
+<p>    钱钟书说：“婚姻就像围城”，难道婚姻真的是爱情的坟墓？本剧情节紧凑，发人深思。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="approve2(93);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+    <div class="v9_button" onclick="Preview2(93);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(93);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+		</div>
+	</div>
+<!-- 这里是显示子集的div开始 -->
+    <div class="vpc_subitem">
+<table width="100%" border="0">
+  <tr>
+    <td><a href="#"><img src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" width="90" height="120" /></a><div class="title"><a href="#">中国式离婚</a></div></td>
+    <td><a href="#"><img src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" width="90" height="120" /></a><div class="title"><a href="#">中国式离婚</a></div></td>
+    <td><a href="#"><img src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" width="90" height="120" /></a><div class="title"><a href="#">中国式离婚</a></div></td>
+    <td><a href="#"><img src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" width="90" height="120" /></a><div class="title"><a href="#">中国式离婚</a></div></td>
+    <td><a href="#"><img src="http://www.cutv.com/v2/CUTV/b/y/images/20122291330487995147_94.jpg" width="90" height="120" /></a><div class="title"><a href="#">中国式离婚</a></div></td>
+  </tr>
+</table>
+		<div class="vpc_subitem_more" onclick="showsubitem(1130078);">查看更多>></div>
+        <div class="clear"></div>
+    </div>
+<!-- 这里是显示子集的div结束 -->
+	</td>
+</tr>
+
+<tr No="2" ItemID="92" OrderNumber="64"  status="1" GlobalID="1130033" id="item_92" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="92" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/x/images/20122291330486865053_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[Y]一起来看流星雨</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>Y] [分类：] [关键词：郑爽 张翰 俞灏明 魏晨 朱梓骁] [集数：36]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    草根出身的楚雨荨借钱入读艾利斯顿学院。由于替人打抱不平而成为H4整蛊的对象，在较量和比拼中相互欣赏成为朋友，H4从而一改往日作风，开始努力学习，最终成为学校的四大优秀生。
+<p>    由于有台湾版《流星花园》的珠玉在前，以及日本版、韩国版的不断推陈出新，《一起来看流星雨》从诞生之初便被贴上了“山寨”的标签，而几位主演的造型也频频被冠上“雷人”的评价。主演们表示，重点是激励大家勇敢追求自己的目标，而作为一部纯国产的青春偶像剧，支持国货也是义不容辞的责任。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1130033);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(92);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(92);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(92);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="3" ItemID="91" OrderNumber="63"  status="0" GlobalID="1130019" id="item_91" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="91" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/w/images/20122291330486489477_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[X]行走的鸡毛掸子</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>X] [分类：] [关键词：寇世勋 潘虹 霍青 童瑶 王谦] [集数：29]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    故事讲述的是江南一户曾以扎鸡毛掸子之绝艺受皇室御封的耿姓大户人家为了维护此项绝世手工技艺的传承与荣耀，历经家族兴衰、人间辛酸的传奇故事。
+<p>    该剧情节细腻丰富，戏剧冲突紧张激烈，虽然情牵一线的不过是看似不起眼的鸡毛掸子，但是其中却饱含了民族文化与时代变迁的历史深意。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1130019);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(91);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(91);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(91);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="4" ItemID="90" OrderNumber="62"  status="0" GlobalID="1130015" id="item_90" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="90" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/d/images/20122291330486162354_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[L]狼烟</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>L] [分类：] [关键词：罗嘉良 陈慧珊 侯勇 巫刚 伊能静 殷桃] [集数：30]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    中国东部核工业城市宁海陷入战火恐慌，遭到强敌海﹑陆﹑空的多方面袭击.宁海再次面临全面沦陷的危险，市长朱北阳请求战区司令员钟元年在宁海组建一支Demotic Reservist，简称DR师，并点名要求即将通往将军之路的高达为DR师师长。
+<p>    在组建DR师时，高达意识到要把这支部队打造成未来天外神兵，必须整合宁海一切社会资源纳入指挥一体化的E6W系统。钟元年提出E8W系统必须经过实战检验，发动了一场代号为“狼烟行动”的战争。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1130015);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(90);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(90);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(90);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="5" ItemID="89" OrderNumber="61"  status="1" GlobalID="1129715" id="item_89" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="89" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/w/images/20122291330481894015_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[X]新结婚时代</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>X] [分类：] [关键词：刘若英 郭晓冬 梅婷 吴健] [集数：26]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    该剧由“奶茶”刘若英主演，讲述编辑、教授、富商、农民、保姆，他们搭上了同一班列车，围绕在城乡恋、姐弟恋、老少恋三对错位爱情主干线旁边，一齐驶向复婚、新婚、再婚的终点。车中所经路途，点点滴滴，如同描绘了一幅现代都市情感百科全书。
+<p>    农村孩子何建国用知识改变了命运，拥有好工作的同时又娶到了出自高知家庭的顾小西。然而城乡和家庭教育背景的差异，令他们彼此的相处出现摩擦和分歧…</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1129715);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(89);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(89);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(89);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="6" ItemID="88" OrderNumber="60"  status="1" GlobalID="1129681" id="item_88" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="88" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/w/images/20122291330481720355_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[X]喜耕田的故事</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>X] [分类：] [关键词：林永健 王亚军 褚栓忠 田亮 郝文婷] [集数：19]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    以一个进城务工的普通农民喜耕田返乡后的生活为主线，通过一系列生动有趣的故事情节，表现了新时期农民的所思所想和喜怒哀乐。
+<p>    在省城打工的农民喜耕田元旦收工后找婆姨秀兰。俩人在小旅馆里意外地得知了国家免除农业税的好消息。喜耕田随即返乡务农，通过向二虎村长和李镇长证实后，耕田决定承包村里剩下的三十亩地。可这时在省城做生意的本村村民三鬼回来也要承包地…</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1129681);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(88);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(88);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(88);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="7" ItemID="87" OrderNumber="59"  status="1" GlobalID="1126992" id="item_87" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="87" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/v/images/20122281330413738044_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[W]蜗居</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>W] [分类：] [关键词：李念 张嘉译 文章 郝平 海清] [集数：33]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    故事的起因是因为房子——已婚的姐姐要买房，但经济实力不济，为钱弄得一身的烦恼，还差点和姐夫离婚。未婚的妹妹挺身而出，去向某官借钱，于是与这位贪官发生了种种感情纠葛。
+<p>    三对男女的故事围绕大都市“江州”过山车般疯涨的房价展开，裹挟着官场腐败、包二奶、房地产界的官商勾结、拆迁钉子户、大学毕业生低收入群体、白领房奴等等当下热门的社会现实问题。让观众大呼：“现实的可怕”。凭借着该剧，也让演员海清、李念、张嘉译从此声名大噪。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1126992);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(87);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(87);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(87);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="8" ItemID="86" OrderNumber="58"  status="1" GlobalID="1125542" id="item_86" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="86" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/v/images/20122281330392767757_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[W]王子变青蛙</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>W] [分类：] [关键词：明道 陈乔恩 王绍伟 隋棠 赵虹乔] [集数：30]</div>
+	    <div class="vpc_txt_summary">摘要：<p>        功利女孩遇上百分百冷血王子，将会上演一出怎样的童话故事？一个以嫁给有钱人为人生目标的功利女孩，一个以事业成就衡量人生价值的冷酷王子。一个意外让王子与女孩的人生产生交集，冷酷的王子失去了记忆变成落难的青蛙。
+<p>    女孩以为捡到了一个来路不明的偷渡客，奴役他、修理他、用尽各种方式占他便宜，却不知身旁的这个人正是她梦寐以求的超级贵公子。恢复记忆后的王子又回到从前强势的个性，并忘了与女孩的记忆，女孩该如何唤醒王子爱的记忆，抢救与王子之间的爱情呢？</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1125542);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(86);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(86);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(86);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="9" ItemID="85" OrderNumber="57"  status="0" GlobalID="1125511" id="item_85" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="85" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/t/images/20122281330392521141_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[T]天龙八部</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>T] [分类：] [关键词：胡军 林志颖 高虎 刘亦菲 刘涛] [集数：40]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    北宋年间，外族纷纷觊觎大宋国土，形成汉、辽对立的局面。丐帮帮主乔峰因拒绝副帮主妻康敏之爱遭报复指为契丹人后裔而受中原武林人士唾弃。乔峰为平反遂四处追查身世，期间认识了大理世子段誉及虚竹和尚，并结拜为兄弟。乔峰追寻身世时屡遭奸人所害，含冤莫白，更错杀红颜知已阿朱，后为救朱妹阿紫寻医至大辽，辗转成为大辽国南院大王，但与中原关系则更趋恶劣。段誉为人豁达开朗，对貌若天仙的王语嫣一见倾心，可惜嫣只钟情表哥慕容复，令三人陷入一段纠缠不清的苦恋。虚竹天性纯良，宅心仁厚，深得高人指点，武功高强，后被选为西夏驸马。段誉、乔峰、虚竹在汉辽相争的时势下，竟都在异域拥有举足轻重的地位。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1125511);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(85);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(85);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(85);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="10" ItemID="84" OrderNumber="56"  status="1" GlobalID="1087830" id="item_84" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="84" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/p/images/20122151329276911765_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[P]泡沫之夏</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>P] [分类：] [关键词：徐熙媛 何润东 黄晓明 沈建宏 张国柱] [集数：26]</div>
+	    <div class="vpc_txt_summary">摘要：<p>   欧辰是提供夏沫养父工作的富家少爷，而洛熙则是被收养的孤儿，因为夏沫的关系，三人引发了一连串的变故。五年后，洛熙以当红歌手的身份再次回到台北。
+    此时 的夏沫也找到了一份演员助理的工作。回到家中，夏沫是个尽职尽责的好姐姐，对于生病的弟弟小澄倾尽照顾与关爱。失忆的富家公子欧辰，一直努力的回忆着梦中 留给他绿色蕾丝的女孩。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1087830);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(84);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(84);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(84);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="11" ItemID="83" OrderNumber="55"  status="0" GlobalID="1087804" id="item_83" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="83" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/c/images/20122151329276640399_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[M]秘密图纸</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>M] [分类：] [关键词：王志飞 吴越 杨志刚 颜世魁] [集数：30]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    改编自1965年八一电影制片厂制作黑白国语电影的同名30集谍战反特电视剧，以20世纪50年代为背景，郭靖宇导演执导。
+<p>    影片中的科学工作者李化思想麻痹，不遵守制度，随身带着秘密图纸外出开会。不料，在火车站将装有秘密图纸的公文包丢失了。公安女侦查员石云正在医院养病，得知情况后，立即出院接受任务。影片剧情由此展开。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1087804);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(83);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(83);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(83);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="12" ItemID="82" OrderNumber="54"  status="1" GlobalID="1087744" id="item_82" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="82" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/f/images/20122151329276288455_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[K]寇老西儿</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>K] [分类：] [关键词：葛优 陈道明 瞿颖 仲星火] [集数：20]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    由百姓影帝葛优主演。该片讲述的是宋朝太宗年间名相寇准为官清廉，急民所急，不畏强权，大智若愚。他不按牌理出牌，曾“审过葫芦，问过黄瓜，打过城隍，拷过地瓜”，深得百姓爱戴的故事。
+    潘仁美的儿子潘豹摆下擂台，无辜伤人性命，杨七郎看不过，跳上擂台力劈潘豹，潘仁美、杨家将两家各执一词，互告死状。寇准从山西太谷县七品县令调进京城主持审案，八贤王为了使杨家将沈冤昭雪，帮助寇老西儿与奸臣潘仁美和王强巧妙周旋、争斗，最终不仅保护了杨六郎，还使大宋王朝转危为安。看清朝廷险恶的内幕后，寇准激流勇退，挂冠而去。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1087744);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(82);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(82);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(82);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="13" ItemID="81" OrderNumber="53"  status="0" GlobalID="1071152" id="item_81" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="81" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/e/images/20122101328804152659_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[J]决不饶恕</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>J] [分类：] [关键词：陈建斌 刘蓓 刘威葳 汤镇宗 郭涛   ] [集数：22]</div>
+	    <div class="vpc_txt_summary">摘要：<p>&nbsp;&nbsp;&nbsp;《征服》导演高群书重拳出击。 该剧围绕着一个叫丁武的男人展开，他本是一名尽职尽责的公务员，更是一位对妻子体贴有加的好丈夫。
+&nbsp;&nbsp;&nbsp; 因为与好友的一次&ldquo;打赌&rdquo;，他意外发现自己心目中最纯洁的妻子竟与另一个陌生的男人坐在了一起，悲哀像一颗子弹般击中了他的胸膛，他发誓要报复对方&hellip;&hellip;</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1071152);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(81);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(81);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(81);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="14" ItemID="80" OrderNumber="52"  status="1" GlobalID="1071144" id="item_80" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="80" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/e/images/20122101328803932074_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[J]决战南京</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>J] [分类：] [关键词：郭广平 陈宝国 韩雪 潘虹 高明] [集数：35]</div>
+	    <div class="vpc_txt_summary">摘要：<p>&nbsp;&nbsp;&nbsp; 1945年8月15日，日本投降。由毛泽东亲自任命的南京特别市长粟裕令新二师参谋长梁一桐率先遣队星夜过江，配合地下党接管南京。周佛海突然反水，南京 地下市委遭受灭顶之灾，先遣队损失惨重。梁一桐接受特殊使命，投奔恩师杨百川，在其力荐下很快得以重用，并将爱女杨紫月许配给他&hellip;&hellip;
+&nbsp;&nbsp;&nbsp; 与以往的谍战片不同，电视剧《决战南京》不会将全部的剧情放在谍战方面，而是更多的加入了战争、爱情等新鲜元素，在观众已经对谍战剧造成了审美疲劳的时候，为这类剧集注入了新鲜的血液。观众将会在《决战南京》中看到&ldquo;百万雄师过大江&rdquo;的雄壮场面，也会感受到剧中荡气回肠的唯美爱情故事。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1071144);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(80);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(80);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(80);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="15" ItemID="79" OrderNumber="51"  status="0" GlobalID="1070940" id="item_79" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="79" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/e/images/2012291328799784649_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[J]结婚进行曲</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>J] [分类：] [关键词：徐峥 张延 李岚 陈宁] [集数：22]</div>
+	    <div class="vpc_txt_summary">摘要：<p>&nbsp;&nbsp;&nbsp; 在剧中，徐峥饰演是从上海来北京闯天下的&ldquo;外地人&rdquo;姚翔，他以卖马桶为生，一切务实，梦想能控制一切，而张延饰演有点憨的北京大妞陆思蔓，是某乐队的大提琴乐手，平时爱天马行空的幻想。
+&nbsp;&nbsp;&nbsp; 本剧描写了这样一对即将告别单身的欢喜冤家，他们在一起筹备婚礼而发生的一系列啼笑皆非的事情，延续了赵赵独具特色的冷幽默搞笑风格&hellip;&hellip;</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1070940);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(79);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(79);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(79);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="16" ItemID="78" OrderNumber="50"  status="1" GlobalID="1070916" id="item_78" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="78" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/e/images/2012291328799133348_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[J]家有九凤</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>J] [分类：] [关键词：李明启 张英 盖克 刘莉莉 郑铮] [集数：26]</div>
+	    <div class="vpc_txt_summary">摘要：<p>&nbsp;&nbsp;&nbsp; 平遥古城，听雨楼，春节。初老太太带着8个女儿正在吃团圆饭，离家8年在北大荒插队的七凤突然归来。谁也未曾想到，七凤是怀着身孕回来的。这在听雨楼引起了一场轩然大波&hellip;&hellip;
+&nbsp;&nbsp;&nbsp; 以平民导演著称的杨亚洲执导该剧，贯穿全剧的除了有温馨感人的亲情之外，时代的变迁也被融入到《家有九凤》之中，杨导以70年代、80年代、90年代三个时期分上、中、下三篇来演绎故事，反映出大时代变迁的历史内容，是一部即好看又深刻的作品。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1070916);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(78);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(78);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(78);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="17" ItemID="77" OrderNumber="49"  status="1" GlobalID="1070904" id="item_77" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="77" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/h/images/2012291328798834118_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[H]婚变</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>H] [分类：] [关键词：婚姻 感情生活 冯远征 陈小艺 ] [集数：28]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    一个争夺遗产的情感阴谋，使原本幸福的婚姻陷入崩溃的边缘，在道德底线与爱情的冲突下，他们是否能够做出正确的抉择。为人忠厚老实的某酒店出租车司机郑建强虽说对女强人妻子罗晓红唯唯诺诺，结婚近十年也因 没孩子偶尔有些不愉快，但这对夫妻因两小无猜，彼此也能恩爱体贴，尤其是郑建强，对挚爱的罗晓红俨然就是一个超标准的模范丈夫。     然而，他俩做梦都没想到， 一个巨大的阴谋突如其来从天而降，而且瞬间就将其二人推入了反目为仇、分道扬镳的陷阱之中！</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1070904);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(77);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(77);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(77);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="18" ItemID="76" OrderNumber="48"  status="0" GlobalID="1070861" id="item_76" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="76" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/h/images/2012291328798162900_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[H]活佛济公</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>H] [分类：] [关键词：陈浩民 杨雪 陈紫函 林子聪 馨子] [集数：42]</div>
+	    <div class="vpc_txt_summary">摘要：<p>&nbsp;&nbsp;&nbsp; 史上最帅的济公，和杨雪出演对手戏。该剧故事根据清郭小亭著济公全传以及民间故事改编，传说前世为降龙尊者的济公降生到善人李茂春家中，取名李修缘，后投身灵隐寺，自号济癫。在灵隐寺，济癫 不限佛门清规戒律，行为异常实心存大善，除恶扬善，被百姓奉为圣僧、活佛。
+&nbsp;&nbsp;&nbsp; 而与降龙罗汉素有过节的大鹏，逃离仙界后带领弟子九尾狐白灵、黑风对济公进行报 复。济公运用自己智慧，与以大鹏为代表的丑恶势力和现象斗智、斗勇，拯救百姓于苦难，其传奇故事被世世代代广为传颂。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1070861);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(76);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(76);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(76);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="19" ItemID="75" OrderNumber="47"  status="0" GlobalID="1062097" id="item_75" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="75" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/j/images/2012291328719589227_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[F]风云2</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>F] [分类：] [关键词：赵文卓 何润东 孙兴 黄奕 秦岚] [集数：42]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    聂风练魔刀解救武林危机后，魔性难除。步惊云、第二梦恐风误伤无辜，将风留在一孤岛中修练，解除魔性。怎料风魔性突发，伤了梦，闯到铁剑门闹事。云为阻止风开杀戒，与之激战，双双堕入急流，生死未卜。
+    云被一渔家盲女无意发现，救回家中，云手中死握着绝世好剑。盲女紫凝之父，虽非江湖中人，但对风云两人之事也有所闻，怕云的出现会惹来江湖仇杀，加上云已昏迷多时，料其难以康复，想把云丢回海中，免招麻烦，凝不忍，但父意已决，待凝熟睡，便将云推回海中。
+    梦知风云跌进急流的消息，扶伤找寻，但已无两人影踪，梦不甘，坚信风仍生存，誓要找回风。风被浪卷至岸边，苏醒，以为自己杀了梦和云，难过不已，为免再杀无辜，风躲进凌云窟，击下巨石封洞门，准备在凌云窟内了却残生。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1062097);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(75);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(75);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(75);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+
+<tr No="20" ItemID="74" OrderNumber="46"  status="1" GlobalID="1062077" id="item_74" class="tide_item">
+	<td class="checkbox" width="33" align="center" valign="top"><input name="id" value="74" type="checkbox"/></td>
+	<td width="132" valign="top"><div class="vpc_pic"><img type="tide" src="http://www.cutv.com/v2/CUTV/b/h/images/2012291328719252159_94.jpg" /></div></td>
+	<td valign="top">
+	<div class="vpc_txt">
+		<div class="vpc_txt_title">[H]霍元甲</div>
+	    <div class="vpc_txt_info">[目录：视频库>内容中心>新媒资>CUTV>电视剧>H] [分类：] [关键词：郑伊健 陈小春 周牧茵 修庆 丁莉] [集数：42]</div>
+	    <div class="vpc_txt_summary">摘要：<p>    清末，英、法、俄等八国强硬侵压中国，日本亦对中国侵略不断。天津霍元甲志存高远的他，练得一身好功夫。霍元甲有两挚友，农劲荪和王五。三人各有抱负，霍元甲认为“欲使国强，非得人人习武”。
+<p>    霍元甲父霍恩第与师弟赵声显却因“秘宗拳”正宗，三十年走过来，两家械斗不断，霍元甲与赵家女儿赵倩男，迫得在感情事上不得不暂且划上句号。霍、赵两家一年一度比赛争取“正宗”头衔的日子到了，中途横出一独臂老人程天笑，此次偕徒弟陈真回来搅局，霍元甲把程天笑打走。程天笑性格偏激，受不了输在一个后辈小子手上，跟霍元甲再次比武3次，最后还是用了秘宗拳的最后3式把程天笑打死。陈真誓杀霍元甲为师报仇。</p></div>
+	    <div class="vpc_txt_tools">
+	<div class="v9_button" onclick="showsubitem(1062077);"><img src="show_subitem.jpg" title="管理子集" /></div>
+	<div class="v9_button" onclick="approve2(74);"><img src="../../images/v9_button_1.gif" title="发布" /></div>
+	
+    <div class="v9_button" onclick="Preview2(74);"><img src="../../images/v9_button_2.gif" title="CMS地址预览" /></div>
+	<div class="v9_button" onclick="Preview3(74);"><img src="../../images/preview2.gif" title="正式地址预览" /></div>
+	
+		</div>
+	</div>
+	</td>
+</tr>
+</tr>
+
+ </tbody> 
+</table>
+</div>
+<script>
+var page={id:'12405',currPage:'1',rowsPerPage:'20',querystring:'&Title=&CreateDate=&CreateDate1=&User=&Status=0&IsPhotoNews=0&OpenSearch=0&IsDelete=0&Status1=0',TotalPageNumber:4};
+</script>        
+ 
+        <div class="viewpane_pages">
+        	<div class="select">选择：<span id="selectAll">全部</span><span id="selectNo">无</span>			</div>
+        	<div class="left">共65条 1/4页 
+			跳至<input name="jumpNum" id="jumpNum" type="text" />页 <span id="goToId" style="cursor:pointer;">GO</span></div>
+			 	
+            <div class="center"><a href="javascript:gopage(1);" title="首页"><img src="../../images/viewpane_pages1.png" alt="首页" /></a><a href="javascript:gopage(2);" title="下一页">下一页<img src="../../images/viewpane_pages3.png" alt="下一页" /></a><a href="javascript:gopage(4);" title="末页"><img src="../../images/viewpane_pages4.png" alt="末页" /></a></div>
+		 
+            <div class="right">
+
+            	<div style="float:left;">每页显示</div>
+            	<div class="right_s1">
+                <div class="right_s2">
+            	    <select name="rowsPerPage" onChange="change('#rowsPerPage','12405');" id="rowsPerPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="80">80</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                </div>
+            	<div style="float:left;">条</div>
+
+            </div>
+        </div>
+        
+  </div>
+  
+	<div class="toolbar" style="margin:14px 0 0;">
+    	<div class="toolbar_l">
+        	<span class="toolbar1">显示：</span>
+        	<ul class="toolbar3" style="display:none;">
+            	<li id="displayOperation">
+                	<p><span>全部<img src="../../images/toolbar2_list.gif" /></span></p>
+                </li>
+            </ul>
+            <ul class="toolbar2">
+                <li class="first"><a href="javascript:list();">全部</a></li>
+                <li><a href="javascript:list('Status1=-1');">草稿</a></li>
+                <li><a href="javascript:list('Status1=1');">已发</a></li>
+                <li class="last"><a href="javascript:list('IsDelete=1');">已删除</a></li>
+            </ul>
+            <span class="toolbar1">操作：</span>
+            <ul class="toolbar2">
+               <!--<li><a href="#">归档</a></li> -->
+                <li  class="first"><a href="javascript:approve();">发布</a></li>
+            <!--   <li><a href="javascript:Publish();">发布</a></li> -->  
+                <li><a href="javascript:Preview();">预览</a></li>
+                <li><a href="javascript:editDocument1();">编辑</a></li>
+				<li><a href="javascript:deleteFile2();">撤稿</a></li>
+					
+					<li><a href="javascript:recommendOut();">推荐</a></li>
+				
+				
+				
+					<li><a href="javascript:sortableEnable();">排序</a></li>
+				
+					<li><a href="javascript:RefreshItem();">刷新Cache</a></li>
+					<li class="last"><a href="javascript:deleteFile();"><font style="color:red;">删除</font></a></li>
+            </ul>
+        </div>
+        <ul class="toolbar_r">
+        	<li class="b1" title="文字列表" onClick="changeList(1);"></li>
+			<li class="b2_cur" title="图文列表" onClick="changeList(2);"></li>
+            <li class="b3" title="图片平铺" onClick="changeList(3);"></li>
+        </ul>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+
+	$("img[type='tide']").each(function(i){
+   autoLoadImage(true,120,120,"",$(this));
+ });
+$("#rows").val(rows);
+$("#cols").val(cols);
+
+
+
+	sortable();
+	sortableDisable();
+	
+
+
+var beforeShowFunc = function() {}
+var menu = [
+  {'<img src="../../images/inner_menu_release.gif" title="发布"/>发布':function(menuItem,menu) {approve();} },
+  {'<img src="../../images/inner_menu_preview.gif" title="预览"/>预览':function(menuItem,menu) {Preview(); }},
+  {'<img src="../../images/inner_menu_edit.gif" title="编辑"/>编辑':function(menuItem,menu) {editDocument1(); }},
+  {'<img src="../../images/inner_menu_recall.gif" title="撤稿"/>撤稿':function(menuItem,menu) {deleteFile2(); }},
+	{'<img src="../../images/inner_menu_recommend.gif" title="推荐"/>推荐':function(menuItem,menu) {recommendOut();}},
+	
+	{'<img src="../../images/inner_menu_taxis.gif" title="排序"/>排序':function(menuItem,menu) {sortableEnable(); }},
+  {'<img src="../../images/inner_menu_cache.gif" title="刷新Cache"/>刷新Cache':function(menuItem,menu) {RefreshItem(); }},
+  {'<img src="../../images/inner_menu_del.gif" title="删除"/><font style="color:red;">删除</font>':function(menuItem,menu) {deleteFile(); }}
+];
+//$(document).bind("contextmenu",function(){return false;});
+$('.tide_item').contextMenu(menu,{theme:'vista',beforeShow:beforeShowFunc});
+ 
+});
+//$("#img_1").draggable({ iframeFix: true } );
+</script>
+
+<!--540ms-->
+</body>
+</html>

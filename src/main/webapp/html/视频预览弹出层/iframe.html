@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TideCMS  列表</title>
+<link href="../../style/9/tidecms.css" rel="stylesheet" />
+<script type="text/javascript" src="http://123.125.148.27:8080/vms/common/jquery.js"></script>
+<script type="text/javascript" src="http://123.125.148.27:8080/vms/common/ZeroClipboard.js"></script>
+<script type="text/javascript" src="http://123.125.148.27:8080/vms/common/videoPlayer.js"></script>
+</head>
+
+<body onload="initCopy();" style="background:none;">
+<div class="con_video_content" id="con_video_content"><script>showPlayer({video:"",width:640,height:480,divid:"con_video_content"});</script></div>
+<div class="vms_video_code">
+    <div class="v_pre_select"><select><option>请选择码率</option><option>标清（250K）</option><option>高清（482K）</option><option>超清（1047K）</option></select></div>
+    <div class="v_v_c_item">
+        <div class="v_v_c_i_title"><input type='button' id = "player_code_button" class="tidecms_btn3"  data-clipboard-target="player_code" data-clipboard-text="Default clipboard text from attribute" value="复制">embed代码：</div>
+        <textarea id="player_code"><embed name="TIDE_PLAYER_0" width="640" height="512" src="http://123.125.148.27:99/images/video_player.swf" wmode="opaque" allowfullscreen="true" allowscriptaccess="always" flashvars="video=http://123.125.148.27:100/2015/03/03/5J2HAyX_1425350760168_VkDdg3F_2.mp4&skin=0,0,0,0&autoplay=true" type="application/x-shockwave-flash"></embed></textarea>
+    </div>
+    <div class="v_v_c_item">
+        <div class="v_v_c_i_title"><input type='button' id = "player_code_url_button"  class="tidecms_btn3"  data-clipboard-target="player_code_url" data-clipboard-text="Default clipboard text from attribute"  value="复制">视频路径：</div>
+        <textarea id="player_code_url">http://123.125.148.27:100/2015/03/03/5J2HAyX_1425350760168_VkDdg3F_2.mp4</textarea>
+    </div>
+    <div class="v_v_c_item">
+        <div class="v_v_c_i_title"><input type='button' id="html_code_button" class="tidecms_btn3"  
+data-clipboard-target="html_code" data-clipboard-text="Default clipboard text from attribute" value="复制">html代码：</div>
+        <textarea id="html_code"><script src="http://123.125.148.27:99/js/videoPlayer.js"></script><script>showPlayer({json:"http://123.125.148.27:100/2015/03/03/5J2HAyX_1425350760168_VkDdg3F_2.mp4",vtype:"v_hd"});</script></textarea>
+    </div>
+</div>
+</body>
+</html>

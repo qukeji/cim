@@ -1,0 +1,19 @@
+<html>
+<script type="text/javascript" src="../common/jquery.js"></script>
+<script>
+function s()
+{
+	document.form.submit();
+}
+</script>
+<body>
+<form action="additem.jsp" method="post" name="form">
+标题：<input type="text" onkeyup="checkTitle();" value="" name="Title" id="Title" size="80" class="textfield">
+<br>摘要：<textarea id="Summary" name="Summary" rows="5" class="textfield" cols="77"></textarea>
+<br>内容：<textarea id="Content" name="Content" rows="5" class="textfield" cols="77"></textarea>
+<br>日期：<input type="text" size="24" class="textfield date hasDatepicker" value="2011-07-14 16:57:26" id="PublishDate" name="PublishDate">
+<br>频道编号：<input type="text" size="24" class="textfield date hasDatepicker" value="5601" id="channelid" name="channelid">
+<br><input type="button" value="提交测试" onClick="s();">
+</form>
+</body>
+</html>

@@ -155,7 +155,6 @@
                     <compilerArguments>
                         <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
                         <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
-                        <bootclasspath></bootclasspath>
                     </compilerArguments>
                 </configuration>
             </plugin>

@@ -70,7 +70,7 @@ public class Util2 {
 		DateFormat df = new SimpleDateFormat(pattern);
 		return df.format(nowDate.getTime());
 	}
-	
+
 	/**
 	 * 获取当前的日期时间字串
 	 * @return String
@@ -81,22 +81,22 @@ public class Util2 {
 		int month = nowDate.get(Calendar.MONTH) + 1;
 		int day = nowDate.get(Calendar.DATE);
 		return year
-			+ "-"
-			+ month
-			+ "-"
-			+ day
-			+ " "
-			+ nowDate.get(Calendar.HOUR_OF_DAY)
-			+ ":"
-			+ nowDate.get(Calendar.MINUTE);
+				+ "-"
+				+ month
+				+ "-"
+				+ day
+				+ " "
+				+ nowDate.get(Calendar.HOUR_OF_DAY)
+				+ ":"
+				+ nowDate.get(Calendar.MINUTE);
 	}
 
-	
+
 	//格式化日期
 	public static String FormatDate(String pattern, String date) {
 		return FormatDate(pattern,date,"","");
 	}
-	
+
 	//格式化日期，带时区 lang英文或中文，默认中文
 	public static String FormatDate(String pattern,String date,String zone,String lang) {
 		String returnDate = "";
@@ -106,7 +106,7 @@ public class Util2 {
 			df = new SimpleDateFormat(pattern,Locale.ENGLISH);
 		else
 			df = new SimpleDateFormat(pattern);
-		
+
 		df.setTimeZone(TimeZone.getTimeZone(zone));
 		Date TempDate = null;
 		SimpleDateFormat ThisDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -122,12 +122,12 @@ public class Util2 {
 
 		return returnDate;
 	}
-	
+
 	//格式化日期
 	public static String FormatDate(String pattern, long date) {
 		return FormatDate(pattern,date,"");
 	}
-	
+
 	//格式化日期
 	public static String FormatDate(String pattern,long date,String zone) {
 		if(pattern.length()==0)
@@ -142,7 +142,7 @@ public class Util2 {
 		df.setTimeZone(java.util.TimeZone.getTimeZone(zone));
 		return df.format(nowDate.getTime());
 	}
-	
+
 	//格式化日期
 	public static String FormatDate(String pattern, int date) {
 		if(pattern.length()==0)
@@ -153,7 +153,7 @@ public class Util2 {
 		df.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
 		return df.format(nowDate.getTime());
 	}
-	
+
 	//格式化时间戳，参数为秒，不需要乘以1000
 	public static String FormatTimeStamp(String pattern, long date) {
 		if(pattern.length()==0)
@@ -163,7 +163,7 @@ public class Util2 {
 		DateFormat df = new SimpleDateFormat(pattern);
 		return df.format(nowDate.getTime());
 	}
-	
+
 	//格式化时长，pattern例如**时**分**秒,**分**秒，*分*秒
 	public static String formatDuration(int duration, String pattern) {
 		pattern = pattern.replace("*", "#");
@@ -213,7 +213,7 @@ public class Util2 {
 		}
 		return times;
 	}
-	
+
 	//根据日期获取calendar对象，比如getCalendar("2010-06-10 00:00:00")
 	public static GregorianCalendar getCalendar(String date,String pattern)
 	{
@@ -228,17 +228,17 @@ public class Util2 {
 		} catch (ParseException e) {
 			return day1;
 		}
-		
+
 		return day1;
 	}
-	
+
 	//date为空，返回当前时间日历对象
 	public static GregorianCalendar getCalendar(String date)
 	{
 		if(date.length()==0) return new java.util.GregorianCalendar();
 		return getCalendar(date,"yyyy-MM-dd HH:mm:ss");
 	}
-	
+
 	/**
 	 * 统一的关闭页面
 	 * @return String
@@ -247,7 +247,7 @@ public class Util2 {
 		String str;
 		str = "		  <div align=center><p><br>\r\n";
 		str
-			+= "    <a href=\"javascript:window.close();\"><font color=black><u><b>Close</b></u></font></a></p>\r\n";
+				+= "    <a href=\"javascript:window.close();\"><font color=black><u><b>Close</b></u></font></a></p>\r\n";
 		str += "  <p>&nbsp;</p></div>\r\n";
 		return str;
 	}
@@ -285,7 +285,7 @@ public class Util2 {
 		input = input.replace("\"", "\\\"");
 		input = input.replace("/", "\\/");
 		input = input.replace("\n", "\\n");
-		
+
 		return input;
 	}
 
@@ -296,14 +296,14 @@ public class Util2 {
 		input = input.replace('\\', '/');
 		return ClearPath_(input);
 	}
-	
+
 	public static String ClearPath_(String input)
 	{
 		int from = 0;
 		int j = input.indexOf("://");
 		if(j!=-1)
 			from = j + 3;
-		
+
 		int i = input.indexOf("//",from);
 		if(i==-1)
 			return input;
@@ -313,7 +313,7 @@ public class Util2 {
 			return Util.ClearPath_(input_);
 		}
 	}
-	
+
 	//获取文件路径，去除文件名
 	public static String getFilePath(String filename)
 	{
@@ -327,7 +327,7 @@ public class Util2 {
 			return ext;
 		}
 	}
-	
+
 	//获取文件名，去除文件路径
 	public static String getFileName(String filename)
 	{
@@ -341,25 +341,25 @@ public class Util2 {
 			return ext;
 		}
 	}
-	
+
 	//Html代码格式化
-    public static String HTMLEncode( String input )
-    {
-        if( input == null || input.length() == 0 ) {
-            return input;
-        }
-        input = input.replace("<","&lt;");
-        input = input.replace(">","&gt;");
-        input = input.replace("\"","&quot;");
-        return input;
-    }
-    
-    //URL编码
-    public static String URLEncode(String input,String enc)
-    {
-    	String retu = "";
-    	if(input == null)
-    		retu = "";
+	public static String HTMLEncode( String input )
+	{
+		if( input == null || input.length() == 0 ) {
+			return input;
+		}
+		input = input.replace("<","&lt;");
+		input = input.replace(">","&gt;");
+		input = input.replace("\"","&quot;");
+		return input;
+	}
+
+	//URL编码
+	public static String URLEncode(String input,String enc)
+	{
+		String retu = "";
+		if(input == null)
+			retu = "";
 		else
 		{
 			try {
@@ -368,8 +368,8 @@ public class Util2 {
 			}
 		}
 		return retu;
-    }
-    
+	}
+
 	/**
 	 * 返回字符串,如果为Null,返回空字符串
 	 * @param input
@@ -380,7 +380,7 @@ public class Util2 {
 			return "";
 		else
 			return input;
-			//return convertEncode(input);
+		//return convertEncode(input);
 	}
 
 	/**
@@ -403,11 +403,11 @@ public class Util2 {
 			ch = input.charAt(i);
 			//System.out.println(ch+"");
 			if (ch == '\'') {
-				buf.append("\\'");				
+				buf.append("\\'");
 			}
 			else if (ch == '\\') {
 				buf.append("\\\\");
-			}			
+			}
 			//else if( ch == '\"' ) {
 			//					buf.append( "\\\"" );
 			//}
@@ -438,65 +438,65 @@ public class Util2 {
 			}
 			else if (ch == '>') {
 				buf.append("&gt;");
-			}			
+			}
 			else if (ch == '"') {
 				buf.append("&quot;");
-			}	
+			}
 			else if (ch == '\'') {
 				buf.append("&apos;");
-			}	
+			}
 			else if (ch == '&') {
 				buf.append("&amp;");
-			}				
+			}
 			else {
 				buf.append(ch);
 			}
 		}
 		//return buf.toString();
-		return (buf.toString());	
+		return (buf.toString());
 	}
-	
-     
-	 /**
+
+
+	/**
 	 *  增加了 tab符处理  
 	 *  优化原有针对换行符的处理
 	 *   qukeji 2018-05-04
 	 * @param input
 	 * @return String
 	 */
-	  public static String JSONQuote(String input) {
-			if (input == null || input.length() == 0) {
-				return input;
-			}
-			//Use a StringBuffer in lieu of String concatenation -- it is
-			//much more efficient this way.
-			StringBuffer buf = new StringBuffer(input.length() + 6);
-			char ch = ' ';
-			for (int i = 0; i < input.length(); i++) {
-				ch = input.charAt(i);
-				if (ch == '"') {
-					buf.append("\\\"");
-				}
-				else if(ch == '\r')
-				{
-					buf.append("\\r");
-				}
-				else if(ch == '\n')
-				{
-					buf.append("\\n");
-				}
-                else if(ch == '\t')
-				{
-					buf.append("\\t");
-				}
-				else {
-					buf.append(ch);
-				}
-			}
-			//return buf.toString();
-			return (buf.toString());
+	public static String JSONQuote(String input) {
+		if (input == null || input.length() == 0) {
+			return input;
 		}
-		
+		//Use a StringBuffer in lieu of String concatenation -- it is
+		//much more efficient this way.
+		StringBuffer buf = new StringBuffer(input.length() + 6);
+		char ch = ' ';
+		for (int i = 0; i < input.length(); i++) {
+			ch = input.charAt(i);
+			if (ch == '"') {
+				buf.append("\\\"");
+			}
+			else if(ch == '\r')
+			{
+				buf.append("\\r");
+			}
+			else if(ch == '\n')
+			{
+				buf.append("\\n");
+			}
+			else if(ch == '\t')
+			{
+				buf.append("\\t");
+			}
+			else {
+				buf.append(ch);
+			}
+		}
+		//return buf.toString();
+		return (buf.toString());
+	}
+
 	/**
 	 * Method getParameter.
 	 * @param request
@@ -545,7 +545,7 @@ public class Util2 {
 		else
 			return Integer.valueOf(tempstr).intValue();
 	}
-	
+
 	/**
 	 * Method getIntSession.
 	 * @param session
@@ -590,7 +590,7 @@ public class Util2 {
 		DecimalFormat df = new DecimalFormat(pattern);
 		return df.format(x);
 	}
-	
+
 	/**
 	 * 格式化货币字串.
 	 * @param x
@@ -653,19 +653,19 @@ public class Util2 {
 		return "";
 	}
 
-  public static String convertEncode(String str)
+	public static String convertEncode(String str)
 	{
 		if(str==null)
-			  return "";
-		try 
+			return "";
+		try
 		{
-		  String temp_p = str;
-		  byte[] temp_t = temp_p.getBytes("iso-8859-1");
-		  String temp = new String(temp_t,"GB2312");
-		  return temp;
-		} 
+			String temp_p = str;
+			byte[] temp_t = temp_p.getBytes("iso-8859-1");
+			String temp = new String(temp_t,"GB2312");
+			return temp;
+		}
 		catch(Exception e)
-		{	
+		{
 		}
 		return "";
 	}
@@ -676,9 +676,9 @@ public class Util2 {
 	 * @throws IOException
 	 */
 	public static void WriteFile(String FileName, String Content)
-		throws IOException {
+			throws IOException {
 		PrintWriter out =
-			new PrintWriter(new BufferedWriter(new FileWriter(FileName, true)));
+				new PrintWriter(new BufferedWriter(new FileWriter(FileName, true)));
 		out.println(Content);
 		out.close();
 	}
@@ -744,7 +744,7 @@ public class Util2 {
 		}
 	}
 
-	
+
 	public static int[] StringToIntArray(String str, String separator) {
 		if (str == null || separator == null)
 			return null;
@@ -759,7 +759,7 @@ public class Util2 {
 			return array;
 		}
 	}
-	
+
 	/**
 	 * Method StringInArray.
 	 * @param array
@@ -808,9 +808,9 @@ public class Util2 {
 			return true;
 		}   catch(ParseException e) {
 			return false;
-		} 
+		}
 	}
-    
+
 	//如果是0,输出空格
 	//2003-05-10
 	public static String convertZero(int i)
@@ -820,7 +820,7 @@ public class Util2 {
 		else
 			return ""+i;
 	}
-    
+
 	//如果是0,输出空格，如果不是0，保留两位小数输出
 	//2003-05-10
 	public static String convertZero(float i)
@@ -836,7 +836,7 @@ public class Util2 {
 	public static int parseInt(String num)
 	{
 		if(num==null || num.length()==0) return 0;
-		
+
 		try
 		{
 			return(Integer.parseInt(num));
@@ -844,9 +844,9 @@ public class Util2 {
 		catch(NumberFormatException e)
 		{
 			return 0;
-		}			
-	}  
-	
+		}
+	}
+
 	public static long parseLong(String num)
 	{
 		try
@@ -856,9 +856,9 @@ public class Util2 {
 		catch(NumberFormatException e)
 		{
 			return 0;
-		}			
-	}  
-	
+		}
+	}
+
 	public static float parseFloat(String num)
 	{
 		try
@@ -868,7 +868,7 @@ public class Util2 {
 		catch(NumberFormatException e)
 		{
 			return 0;
-		}			
+		}
 	}
 
 	public static double parseDouble(String num)
@@ -880,11 +880,11 @@ public class Util2 {
 		catch(NumberFormatException e)
 		{
 			return 0;
-		}			
-	}  
+		}
+	}
 	/**得到时间戳**/
 	public static String parseDate(String date)
-	{	  
+	{
 		Date TempDate = null;
 		SimpleDateFormat ThisDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		//2003/09/19 加入setLenient(true),否则判断会不准确
@@ -894,22 +894,22 @@ public class Util2 {
 		} catch (ParseException e) {
 			return "";
 		}
-		  return TempDate.getTime()+"";
+		return TempDate.getTime()+"";
 	}
-	
-	// 去掉所有html元素,  
-    public static String removeHtml(String input) {  
-        if (input == null) {  
-            return "";  
-        }  
-        
-        String str = input.replaceAll("\\&[a-zA-Z]{1,10};", "").replaceAll(  
-                "<[^>]*>", "");  
-        str = str.replaceAll("[(/>)<]", "");  
 
-        return str;  
-    }
-    
+	// 去掉所有html元素,  
+	public static String removeHtml(String input) {
+		if (input == null) {
+			return "";
+		}
+
+		String str = input.replaceAll("\\&[a-zA-Z]{1,10};", "").replaceAll(
+				"<[^>]*>", "");
+		str = str.replaceAll("[(/>)<]", "");
+
+		return str;
+	}
+
 	public static boolean isHasSubFolder(String path)
 	{
 		File file = new File(path);
@@ -928,7 +928,7 @@ public class Util2 {
 	@SuppressWarnings("unchecked")
 	public static void Logout(HttpSession session) {
 		Enumeration<String> iterator = session.getAttributeNames();
-		while (iterator.hasMoreElements()) 
+		while (iterator.hasMoreElements())
 		{
 			String name = (String) iterator.nextElement();
 			session.removeAttribute(name);
@@ -953,13 +953,13 @@ public class Util2 {
 	}*/
 
 	//用于截断文字 能区分半角和全角
-	public static String substring(String str,int len,String str1) 
+	public static String substring(String str,int len,String str1)
 	{
 		len = len * 2;
 		StringBuffer sb = new StringBuffer();
 		int counter = 0;
 		boolean b_str1 = false;
-		for (int i = 0; i < str.length(); i++) 
+		for (int i = 0; i < str.length(); i++)
 		{
 			char c = str.charAt(i);
 			if (c < 255) {
@@ -976,19 +976,19 @@ public class Util2 {
 
 		return sb.toString() + (b_str1?str1:"");
 	}
-	  
+
 	// 用于截断文字
 	public static String substring(String str,int len)
 	{
 		return substring(str,len,"...");
-	}	
-	
+	}
+
 	//访问http链接,以后逐步废弃
 	public static String connectHttpUrl(String url,boolean print)
 	{
 		return connectHttpUrl(url,"");
 	}
-	
+
 	//访问http链接
 	public static String connectHttpUrl(String url,String charset)
 	{
@@ -998,26 +998,26 @@ public class Util2 {
 		try {
 			if(charset.length()==0) charset = "utf-8";
 			l_url = new java.net.URL(url);
-		java.net.HttpURLConnection con = (java.net.HttpURLConnection) l_url.openConnection();
-		HttpURLConnection.setFollowRedirects(true);
-		con.setConnectTimeout(60000);//连接超时,1分钟,防止网络异常，程序僵死
-        con.setReadTimeout(60000);//读操作超时,1分钟
-		con.setInstanceFollowRedirects(true);//支持重定向
-		con.connect(); 
-		java.io.InputStream l_urlStream = con.getInputStream(); 
-		java.io.BufferedReader l_reader = new java.io.BufferedReader(new java.io.InputStreamReader(l_urlStream,charset)); 
-		while ((sCurrentLine = l_reader.readLine()) != null) 
-		{ 
-			content+=sCurrentLine + "\r\n"; 
-		}		
+			java.net.HttpURLConnection con = (java.net.HttpURLConnection) l_url.openConnection();
+			HttpURLConnection.setFollowRedirects(true);
+			con.setConnectTimeout(60000);//连接超时,1分钟,防止网络异常，程序僵死
+			con.setReadTimeout(60000);//读操作超时,1分钟
+			con.setInstanceFollowRedirects(true);//支持重定向
+			con.connect();
+			java.io.InputStream l_urlStream = con.getInputStream();
+			java.io.BufferedReader l_reader = new java.io.BufferedReader(new java.io.InputStreamReader(l_urlStream,charset));
+			while ((sCurrentLine = l_reader.readLine()) != null)
+			{
+				content+=sCurrentLine + "\r\n";
+			}
 		} catch (MalformedURLException e) {
 			System.out.println("cann't connect " + url);
 			//e.printStackTrace(System.out);
 		} catch (IOException e) {
 			System.out.println("cann't connect " + url);
 			//e.printStackTrace(System.out);
-		} 
-		
+		}
+
 		return content;
 	}
 
@@ -1026,7 +1026,7 @@ public class Util2 {
 	{
 		return postHttpUrl(httpurl,data,"utf-8");
 	}
-	
+
 	//post提交数据 data数据如："username=aa&password=b"
 	public static String postHttpUrl(String httpurl,String data,String charset)
 	{
@@ -1035,24 +1035,24 @@ public class Util2 {
 		try {
 			url = new URL(httpurl);
 			java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
-			connection.setDoOutput(true);  
+			connection.setDoOutput(true);
 			connection.setUseCaches(false);
-			connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");  
+			connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 			connection.setRequestMethod("POST");
 			connection.connect();
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			
+
 			out.write(data);
 			out.flush();
-			
+
 			String sCurrentLine = "";
-			
-			java.io.InputStream l_urlStream = connection.getInputStream(); 
-			java.io.BufferedReader l_reader = new java.io.BufferedReader(new java.io.InputStreamReader(l_urlStream,charset)); 
-			while ((sCurrentLine = l_reader.readLine()) != null) 
+
+			java.io.InputStream l_urlStream = connection.getInputStream();
+			java.io.BufferedReader l_reader = new java.io.BufferedReader(new java.io.InputStreamReader(l_urlStream,charset));
+			while ((sCurrentLine = l_reader.readLine()) != null)
 			{
-				content+=sCurrentLine; 
-			}		
+				content+=sCurrentLine;
+			}
 
 			//System.out.println(content);
 			out.close();
@@ -1063,40 +1063,40 @@ public class Util2 {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-		} 
-		
+		}
+
 		return content;
 	}
-	
+
 	public static String connectHttpUrl(String url)
 	{
 		String content = "";
 
 		InputStream in = null;
-		
-		 try {
-		   in = new URL(url).openStream();
-		   content = IOUtils.toString(in);
-		 } catch (MalformedURLException e) {
-			 System.out.println("cann't connect " + url);
+
+		try {
+			in = new URL(url).openStream();
+			content = IOUtils.toString(in);
+		} catch (MalformedURLException e) {
+			System.out.println("cann't connect " + url);
 		} catch (IOException e) {
 			System.out.println("cann't connect " + url);
 		} finally {
 			if(in!=null)
 				IOUtils.closeQuietly(in);
-		 }
-		 return content;
+		}
+		return content;
 	}
-	
+
 	//从一个arraylist中截取部分,第一个为1
 	@SuppressWarnings("unchecked")
 	public static ArrayList getArray(ArrayList arraylist,int from,int end)
 	{
 		ArrayList array = new ArrayList();
-		
+
 		if(arraylist!=null && arraylist.size()>0)
 		{
-			for (int i = 0; i < arraylist.size(); i++) 
+			for (int i = 0; i < arraylist.size(); i++)
 			{
 				if(i>=(from-1) && i<=(end-1))
 					array.add(arraylist.get(i));
@@ -1104,17 +1104,17 @@ public class Util2 {
 		}
 		return array;
 	}
-	
+
 	//得到一个初始化的arraylist，模板里面需要
 	public static ArrayList getArray()
 	{
 		return new ArrayList();
 	}
-	
+
 	public static String getCookieValue(String name,Cookie[] cs)
 	{
 		String str = "";
-		
+
 		if(!name.equals("") && cs!=null && cs.length>0)
 		{
 			for(int i = 0;i<cs.length;i++)
@@ -1126,7 +1126,7 @@ public class Util2 {
 		}
 		return str;
 	}
-	
+
 	//暂停时间
 	public static void consumeTime(long millis) {
 		try {
@@ -1135,7 +1135,7 @@ public class Util2 {
 
 		}
 	}
-	
+
 	/**
 	 * 根据给定时间,获取时间戳 
 	 * startDate:格式是"yyyy-MM-dd"
@@ -1154,7 +1154,7 @@ public class Util2 {
 			nowDate.set(Calendar.DAY_OF_MONTH,Integer.parseInt(s[2]));
 			nowDate.set(Calendar.MONTH,Integer.parseInt(s[1])-1);
 			nowDate.set(Calendar.YEAR,Integer.parseInt(s[0]));
-			
+
 			String []t=startTime.split(":");
 			nowDate.set(Calendar.HOUR_OF_DAY,Integer.parseInt(t[0]));
 			nowDate.set(Calendar.MINUTE,Integer.parseInt(t[1]));
@@ -1163,7 +1163,7 @@ public class Util2 {
 		}
 		return fromtime;
 	}
-	
+
 	//获取文件扩展名
 	public static String getFileExt(String filename)
 	{
@@ -1177,7 +1177,7 @@ public class Util2 {
 			return ext;
 		}
 	}
-	
+
 	public static ArrayList getObject(String classname)
 	{
 		try {
@@ -1188,7 +1188,7 @@ public class Util2 {
 			return new ArrayList();
 		}
 	}
-	
+
 	public static JSONObject getJson(String s)
 	{
 		try {
@@ -1198,38 +1198,38 @@ public class Util2 {
 			return new org.json.JSONObject();
 		}
 	}
-	
+
 	public static TideJson getMyJson(String s)
 	{
 		TideJson tj = new TideJson();
 		tj.setJson(Util.getJson(s));
 		return tj;
 	}
-	
+
 	public static int getRandom(int i)
 	{
 		return new java.util.Random().nextInt(i);
 	}
-	
+
 	public static ArrayList<String> getMatch(String s,String reg,int group)
 	{
 		ArrayList<String> a = new ArrayList<String>();
-		
+
 		Pattern p = Pattern.compile(reg);
 		Matcher m = p.matcher(s);
 		while (m.find()) {
-		  a.add(m.group(group));
+			a.add(m.group(group));
 		}
-		
+
 		return a;
 	}
-	
+
 	public static void sendQQ(String to,String message)
 	{
 		QQ q = new QQ();
 		q.Send(to, message);
 	}
-	
+
 	//从网络上下载文件
 	public static boolean downloadFile(String fileurl,String target)
 	{
@@ -1237,27 +1237,27 @@ public class Util2 {
 		URL url;
 		try {
 			url = new URL(fileurl);
-		    URLConnection con = url.openConnection();
-		    InputStream is = con.getInputStream();
-		    byte[] bs = new byte[1024];
-		    int len;
-		    String target2 = target;
-		    int jj = target.lastIndexOf("/");
-		    if(jj!=-1)
-		    	target2 = target.substring(0,jj);
-		    File f = new File(target2);
-		    if(!f.exists())
-		    	f.mkdirs();
-		    
-		    OutputStream os = new FileOutputStream(target);
+			URLConnection con = url.openConnection();
+			InputStream is = con.getInputStream();
+			byte[] bs = new byte[1024];
+			int len;
+			String target2 = target;
+			int jj = target.lastIndexOf("/");
+			if(jj!=-1)
+				target2 = target.substring(0,jj);
+			File f = new File(target2);
+			if(!f.exists())
+				f.mkdirs();
 
-		    while ((len = is.read(bs)) != -1) {
-		      os.write(bs, 0, len);
-		    }
+			OutputStream os = new FileOutputStream(target);
 
-		    os.close();
-		    is.close();	
-		    result = true;
+			while ((len = is.read(bs)) != -1) {
+				os.write(bs, 0, len);
+			}
+
+			os.close();
+			is.close();
+			result = true;
 		} catch (MalformedURLException e) {
 			//e.printStackTrace();
 			System.out.println("下载失败："+fileurl+",错误信息:"+e.getMessage());
@@ -1265,63 +1265,63 @@ public class Util2 {
 			//e.printStackTrace();
 			System.out.println("下载失败："+fileurl+",错误信息:"+e.getMessage());
 		}
-		
+
 		return result;
 	}
-	
+
 	//base64编码
-	public static String base64(String s){ 
+	public static String base64(String s){
 		if (s == null) return "";
 		char[] ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 		byte[] buf = s.getBytes();
 		int size = buf.length;
-        char[] ar = new char[((size + 2) / 3) * 4];
-        int a = 0;
-        int i=0;
-        while(i < size){
-            byte b0 = buf[i++];
-            byte b1 = (i < size) ? buf[i++] : 0;
-            byte b2 = (i < size) ? buf[i++] : 0;
+		char[] ar = new char[((size + 2) / 3) * 4];
+		int a = 0;
+		int i=0;
+		while(i < size){
+			byte b0 = buf[i++];
+			byte b1 = (i < size) ? buf[i++] : 0;
+			byte b2 = (i < size) ? buf[i++] : 0;
 
-            int mask = 0x3F;
-            ar[a++] = ALPHABET[(b0 >> 2) & mask];
-            ar[a++] = ALPHABET[((b0 << 4) | ((b1 & 0xFF) >> 4)) & mask];
-            ar[a++] = ALPHABET[((b1 << 2) | ((b2 & 0xFF) >> 6)) & mask];
-            ar[a++] = ALPHABET[b2 & mask];
-        }
-        switch(size % 3){
-            case 1: ar[--a]  = '=';
-            case 2: ar[--a]  = '=';
-        }
-        return new String(ar);
+			int mask = 0x3F;
+			ar[a++] = ALPHABET[(b0 >> 2) & mask];
+			ar[a++] = ALPHABET[((b0 << 4) | ((b1 & 0xFF) >> 4)) & mask];
+			ar[a++] = ALPHABET[((b1 << 2) | ((b2 & 0xFF) >> 6)) & mask];
+			ar[a++] = ALPHABET[b2 & mask];
+		}
+		switch(size % 3){
+			case 1: ar[--a]  = '=';
+			case 2: ar[--a]  = '=';
+		}
+		return new String(ar);
 		//return (new sun.misc.BASE64Encoder()).encode( s.getBytes() ); 
 	}
 	//aes加密
-	public static String AES_Encrypt(String keyStr,String AESTYPE,String plainText) { 
-        byte[] encrypt = null; 
-        try{ 
-        	if(AESTYPE.equals("")){
-        		AESTYPE="AES/ECB/PKCS5Padding";
-        	}
-            Key key = generateKey(keyStr); 
-            Cipher cipher = Cipher.getInstance(AESTYPE); 
-            cipher.init(Cipher.ENCRYPT_MODE, key); 
-            encrypt = cipher.doFinal(plainText.getBytes());     
-        }catch(Exception e){ 
-            e.printStackTrace(); 
-        }
-        return new String(new BASE64Encoder().encode(encrypt));
-    } 
-	private static Key generateKey(String key)throws Exception{ 
-        try{            
-            SecretKeySpec keySpec = new SecretKeySpec(key.getBytes(), "AES"); 
-            return keySpec; 
-        }catch(Exception e){ 
-            e.printStackTrace(); 
-            throw e; 
-        } 
- 
-    }
+	public static String AES_Encrypt(String keyStr,String AESTYPE,String plainText) {
+		byte[] encrypt = null;
+		try{
+			if(AESTYPE.equals("")){
+				AESTYPE="AES/ECB/PKCS5Padding";
+			}
+			Key key = generateKey(keyStr);
+			Cipher cipher = Cipher.getInstance(AESTYPE);
+			cipher.init(Cipher.ENCRYPT_MODE, key);
+			encrypt = cipher.doFinal(plainText.getBytes());
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return new String(new BASE64Encoder().encode(encrypt));
+	}
+	private static Key generateKey(String key)throws Exception{
+		try{
+			SecretKeySpec keySpec = new SecretKeySpec(key.getBytes(), "AES");
+			return keySpec;
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+
+	}
 
 	//获取token中的用户id
 	public static String getUser(String token)

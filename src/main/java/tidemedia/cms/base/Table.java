@@ -1,17 +1,10 @@
 package tidemedia.cms.base;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import tidemedia.cms.system.CmsCache;
 import tidemedia.cms.util.Util;
 import tidemedia.tcenter.base.ApplicationContextProvider;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -32,7 +25,6 @@ public abstract class Table {
 	{
 	    //ac = new ClassPathXmlApplicationContext("dbconfig.xml");
 		this.dataSource = dataSource;
-
 	}
 	
 	private String		dataSource = "";
@@ -53,9 +45,9 @@ public abstract class Table {
 	 * Method Add.
 	 * @throws MessageException
 	 */
-	public abstract void Add() throws SQLException,MessageException;
+	public abstract void Add() throws SQLException, MessageException;
 	public abstract void Delete(int id) throws SQLException, MessageException, IOException, ParseException;
-	public abstract void Update() throws SQLException,MessageException;
+	public abstract void Update() throws SQLException, MessageException;
 	public abstract boolean canAdd();
 	public abstract boolean canUpdate();
 	public abstract boolean canDelete();
@@ -66,20 +58,18 @@ public abstract class Table {
         if(connection==null || connection.isClosed())
         {
             try{
-                //System.out.println("datasource:"+dataSource);
+                //if(dataSource=="") dataSource = "sns";
                 if(dataSource.length()>0)
                 {
                     //Context envCtx=new InitialContext();
                     //Context initctx=new InitialContext();
                     //Context envCtx=(Context) initctx.lookup("java:comp/env");//在webshere下面需要去掉
                     //connection = ((DataSource)envCtx.lookup(dataSource)).getConnection();
-                    //connection = ((DataSource)ac.getBean("dbPool_user")).getConnection();
 					DataSource datasource = (DataSource) ApplicationContextProvider.getBean("dbPool_"+dataSource);
 					connection = datasource.getConnection();
                 }
                 else
                 {
-                    //connection = ((DataSource)ac.getBean("dbPool")).getConnection();
 					DataSource datasource = (DataSource) ApplicationContextProvider.getBean("dbPool");
 					connection = datasource.getConnection();
                 }
@@ -88,12 +78,6 @@ public abstract class Table {
             {
                 e.printStackTrace(System.out);
                 System.out.println("数据源连接出错，请检查数据源"+dataSource+"是否正确配置,"+e.getMessage());
-            }
-
-            if(CmsCache.ehcache)
-            {
-                String key = "createconnnection_" + Util.getCurrentDate("yyyy_MM_dd_HH");
-                CacheUtil.increment(key);
             }
         }
         //Cannot connect to database
@@ -111,52 +95,8 @@ public abstract class Table {
         else
             retry = 0;
     }
-
-	public void createConnection_() throws MessageException, SQLException
-	{
-		if(connection==null || connection.isClosed())
-		{
-			try{
-			//if(dataSource=="") dataSource = "sns";
-			if(dataSource.length()>0)
-			{
-				//Context envCtx=new InitialContext();
-			    Context initctx=new InitialContext();
-		        Context envCtx=(Context) initctx.lookup("java:comp/env");//在webshere下面需要去掉
-		        connection = ((DataSource)envCtx.lookup(dataSource)).getConnection();
-			}
-			else
-				connection = CmsCache.getDataSource().getConnection();//System.out.println("get a ");	
-			}catch(SQLException e)
-			{
-				e.printStackTrace(System.out);
-			} catch (NamingException e) {
-				System.out.println("数据源连接出错，请检查数据源"+dataSource+"是否正确配置,"+e.getMessage());
-			}
-			
-			if(CmsCache.ehcache)
-			{
-				String key = "createconnnection_" + Util.getCurrentDate("yyyy_MM_dd_HH");
-				CacheUtil.increment(key);
-			}
-		}
-		//Cannot connect to database
-		if(connection==null)
-		{
-			if(retry<5) {
-				Util.consumeTime(2*(retry+1));//2毫秒
-				retry++;System.out.println("尝试次数："+retry);createConnection();
-				}
-			else{
-			System.out.println("尝试次数2："+retry);
-			throw new MessageException("连接数据库失败，请联系管理员!");
-			}
-		}
-		else
-			retry = 0;
-	}
 	
-	public ResultSet executeQuery(String sql) throws SQLException, MessageException {		
+	public ResultSet executeQuery(String sql) throws SQLException, MessageException {
 		if(connection==null|| connection.isClosed())
 			createConnection();	
 		
@@ -174,13 +114,7 @@ public abstract class Table {
 			stmt = connection.createStatement();
 			rs = stmt.executeQuery(sql);
 		}		
-		
-		if(CmsCache.ehcache)
-		{
-			String key = "executequery_" + Util.getCurrentDate("yyyy_MM_dd_HH");
-			CacheUtil.increment(key);
-		}
-		
+
 		long etime = System.currentTimeMillis();
 		//System.out.println("slow sql,"+(etime-stime)+","+sql);
 		if(CmsCache.slowquery)
@@ -227,12 +161,6 @@ public abstract class Table {
 		stmt.close();
 		freeConnection();
 		
-		if(CmsCache.ehcache)
-		{
-			String key = "executeupdate_" + Util.getCurrentDate("yyyy_MM_dd_HH");
-			CacheUtil.increment(key);
-		}
-		
 		long etime = System.currentTimeMillis();
 		//System.out.println("slow sql,"+(etime-stime)+","+sql);
 		if(CmsCache.slowquery)
@@ -263,11 +191,7 @@ public abstract class Table {
 		stmt.close();
 		freeConnection();
 		
-		if(CmsCache.ehcache)
-		{
-			String key = "executeupdate_" + Util.getCurrentDate("yyyy_MM_dd_HH");
-			CacheUtil.increment(key);
-		}
+
 		
 		return i;
 	}

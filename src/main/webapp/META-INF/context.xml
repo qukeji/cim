@@ -1,0 +1,8 @@
+<Context path="/tcenter_youka" docBase="shop" debug="5" crossContext="true"  >
+
+    <Resource name="bean/Config" auth="Container"
+              type="tidemedia.cms.base.Config"
+              factory="org.apache.naming.factory.BeanFactory"
+              database="mysql" customer="" channelCache="false" cookieLogin="true" product="TideCMS"  startQuartz="false" active="1"/>
+
+</Context>

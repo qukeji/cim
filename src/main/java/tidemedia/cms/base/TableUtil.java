@@ -1,21 +1,14 @@
 package tidemedia.cms.base;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import tidemedia.tcenter.base.ApplicationContextProvider;
-
-import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Administrator  2003-5-9 14:39:50
  * 
  * */
 public class TableUtil extends Table {
-
-	//@Autowired
-	//private ApplicationContext applicationContext;
-
+	
 	public TableUtil() throws MessageException,SQLException
 	{
 	}
@@ -23,51 +16,42 @@ public class TableUtil extends Table {
 	public TableUtil(String dataSource) throws MessageException,SQLException
 	{
 		super(dataSource);
-
-		/*
-		if(applicationContext==null)
-			System.out.println("applicationContext is null");
-		else
-			System.out.println("applicationContext:"+applicationContext);
-
-		DataSource one = (DataSource)ApplicationContextProvider.getBean("one");
-		System.out.println("one:"+one);*/
 	}
 	
 	/**
-	 * @see
+	 * @see com.NS.Table#Add()
 	 */
 	public void Add() throws SQLException, MessageException {
 	}
 
 	/**
-	 * @see
+	 * @see com.NS.Table#Delete(int)
 	 */
 	public void Delete(int id) throws SQLException, MessageException {
 	}
 
 	/**
-	 * @see
+	 * @see com.NS.Table#Update()
 	 */
 	public void Update() throws SQLException, MessageException {
 	}
 
 	/**
-	 * @see
+	 * @see com.NS.Table#canAdd()
 	 */
 	public boolean canAdd() {
 		return false;
 	}
 
 	/**
-	 * @see
+	 * @see com.NS.Table#canUpdate()
 	 */
 	public boolean canUpdate() {
 		return false;
 	}
 
 	/**
-	 * @see
+	 * @see com.NS.Table#canDelete()
 	 */
 	public boolean canDelete() {
 		return false;

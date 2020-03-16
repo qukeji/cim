@@ -1,4 +1,29 @@
 <Context path="/tcenter_youka" docBase="shop" debug="5" crossContext="true"  >
+    <Resource name="jdbc/mysql" auth="Container" type="javax.sql.DataSource"
+              username="root"
+              password="tidecms2008"
+              maxTotal="550"
+              maxidle="80"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedOnMaintenance="true"
+              removeAbandonedTimeout="120"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/tidemedia_cms_youka?autoReconnect=true&amp;useSSL=false"
+              minEvictableIdleTimeMillis="4000"
+              timeBetweenEvictionRunsMillis="5000"/>
+
+    <Resource name="user" auth="Container" type="javax.sql.DataSource"
+              username="root"
+              password="tidecms2008"
+              maxTotal="550"
+              maxidle="80"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedOnMaintenance="true"
+              removeAbandonedTimeout="120"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/tidemedia_user_youka?autoReconnect=true&amp;useSSL=false"
+              minEvictableIdleTimeMillis="4000"
+              timeBetweenEvictionRunsMillis="5000"/>
 
     <Resource name="bean/Config" auth="Container"
               type="tidemedia.cms.base.Config"

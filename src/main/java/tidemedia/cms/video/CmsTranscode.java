@@ -1,18 +1,5 @@
 package tidemedia.cms.video;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import tidemedia.cms.base.MessageException;
 import tidemedia.cms.base.TableUtil;
 import tidemedia.cms.publish.Publish;
@@ -21,6 +8,15 @@ import tidemedia.cms.system.CmsCache;
 import tidemedia.cms.system.Document;
 import tidemedia.cms.system.Log;
 import tidemedia.cms.util.Util;
+
+import java.io.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CmsTranscode implements Runnable {
 
@@ -47,21 +43,21 @@ public class CmsTranscode implements Runnable {
 		while (thread == this.runner) {
 			try {
 				boolean ValidFlag = CmsCache.hasValidLicense();
-				// System.out.println("ÊÚÈ¨ÊÇ·ñ´æÔÚÎÊÌâ"+ValidFlag);
+				// System.out.println("ï¿½ï¿½È¨ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+ValidFlag);
 				if (ValidFlag) {
 					Thread.sleep(30000);
 					checkTranscode();
 
 				}
 			} catch (MessageException e) {
-				Log.SystemLog("CMS×Ô¶¯×ªÂë", "´íÎóÐÅÏ¢" + e.toString());
+				Log.SystemLog("CMSï¿½Ô¶ï¿½×ªï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" + e.toString());
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				Log.SystemLog("CMS×Ô¶¯×ªÂë", "´íÎóÐÅÏ¢" + e.toString());
+				Log.SystemLog("CMSï¿½Ô¶ï¿½×ªï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" + e.toString());
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				Log.SystemLog("CMS×Ô¶¯×ªÂë", "´íÎóÐÅÏ¢" + e.toString());
+				Log.SystemLog("CMSï¿½Ô¶ï¿½×ªï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" + e.toString());
 				e.printStackTrace();
 			}
 		}
@@ -69,7 +65,7 @@ public class CmsTranscode implements Runnable {
 
 	}
 
-	// »ñÈ¡±àÂë·½Ê½
+	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ë·½Ê½
 	public static String getVideoType(String videoInfo, String sub) {
 		System.out.println(videoInfo);
 		int index1 = videoInfo.indexOf(sub);
@@ -87,7 +83,7 @@ public class CmsTranscode implements Runnable {
 		return temp;
 	}
 
-	// Í¨¹ýÕýÔòÀ´ÌáÈ¡
+	// Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡
 	public static String getRegex(String videoInfo, String reg) {
 		Pattern pat = Pattern.compile(reg);
 		Matcher mat = pat.matcher(videoInfo);
@@ -96,7 +92,7 @@ public class CmsTranscode implements Runnable {
 		return "";
 	}
 
-	// ´ÓffmpegÐÅÏ¢ÖÐ¶ÁÈ¡ÊÓÆµÊ±³¤£¬µ¥Î»ÊÇÃë
+	// ï¿½ï¿½ffmpegï¿½ï¿½Ï¢ï¿½Ð¶ï¿½È¡ï¿½ï¿½ÆµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
 	public static String getDurations(String s, String sub) {
 		String m = "Duration: ";
 		int index1 = s.indexOf(m);
@@ -111,15 +107,15 @@ public class CmsTranscode implements Runnable {
 		return t;
 	}
 
-	// »ñÈ¡ÊÓÆµÐÅÏ¢£¬duration Ê±³¤ bitrate ÂëÁ÷ width ¿í height ¸ß videotype ±àÂë·½Ê½ fps Ö¡ÂÊ
+	// ï¿½ï¿½È¡ï¿½ï¿½Æµï¿½ï¿½Ï¢ï¿½ï¿½duration Ê±ï¿½ï¿½ bitrate ï¿½ï¿½ï¿½ï¿½ width ï¿½ï¿½ height ï¿½ï¿½ videotype ï¿½ï¿½ï¿½ë·½Ê½ fps Ö¡ï¿½ï¿½
 
 	public HashMap getVideoInfo(String ffmpeg[]) {
 		HashMap map = new HashMap();
-		String duration = "";// Ê±³¤
-		String bitrate = "";// ÂëÁ÷
-		String widthHeight = "";// ·Ö±æÂÊ
-		String videoType = "";// ±àÂë·½Ê½
-		String fps = "";// Ö¡ÂÊ
+		String duration = "";// Ê±ï¿½ï¿½
+		String bitrate = "";// ï¿½ï¿½ï¿½ï¿½
+		String widthHeight = "";// ï¿½Ö±ï¿½ï¿½ï¿½
+		String videoType = "";// ï¿½ï¿½ï¿½ë·½Ê½
+		String fps = "";// Ö¡ï¿½ï¿½
 
 		try {
 
@@ -127,7 +123,7 @@ public class CmsTranscode implements Runnable {
 			System.out.println("videoInfowhl:" + videoInfo);
 			if (videoInfo.indexOf("No such file") != -1) {
 
-				Log.SystemLog("×ªÂë·þÎñ¶Ë", "ÊÓÆµÔ´ÎÄ¼þÎÞ·¨¶ÁÈ¡£º"
+				Log.SystemLog("×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ÆµÔ´ï¿½Ä¼ï¿½ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½ï¿½"
 						+ org.apache.commons.lang.StringUtils.join(ffmpeg, "")
 						+ "," + videoInfo);
 			}
@@ -150,7 +146,7 @@ public class CmsTranscode implements Runnable {
 		return map;
 	}
 
-	// »ñÈ¡ÂëÂÊ
+	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 	public String getBitrate(String videoInfo, String sub) {
 		int index1 = videoInfo.indexOf(sub);
 		String temp = "";
@@ -209,12 +205,12 @@ public class CmsTranscode implements Runnable {
 				}
 				try {
 					if (!f_s.exists()) {
-						Log.SystemLog("×Ô¶¯×ªÂë½ø³Ì",
-								"×ªÂëÔ´ÎÄ¼þ²»´æÔÚ---ÎÄÕÂ±êÌâ:" + doc.getTitle()
-										+ "---×ªÂëÔ­ÊÓÆµÂ·¾¶:" + videoSource
-										+ "---×ªÂëºóÊÓÆµÂ·¾¶ :" + videoDest);
+						Log.SystemLog("ï¿½Ô¶ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½",
+								"×ªï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½---ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½:" + doc.getTitle()
+										+ "---×ªï¿½ï¿½Ô­ï¿½ï¿½ÆµÂ·ï¿½ï¿½:" + videoSource
+										+ "---×ªï¿½ï¿½ï¿½ï¿½ï¿½ÆµÂ·ï¿½ï¿½ :" + videoDest);
 						updateVideoDest(gid, 3, "", doc.getChannel()
-								.getTableName());// ÉèÖÃÍê³É×´Ì¬
+								.getTableName());// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 						continue;
 					}
 					executeTranscode(videoSource, videoDest, gid,
@@ -237,30 +233,30 @@ public class CmsTranscode implements Runnable {
 								+ gid + "");
 					} catch (Exception e) {
 						e.printStackTrace();
-						System.out.println("¸üÐÂÊ±³¤Ê§°Ü" + e.toString());
+						System.out.println("ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê§ï¿½ï¿½" + e.toString());
 					}
 					updateVideoDest(gid, 2, videoDestPath_field, doc
-							.getChannel().getTableName());// ÉèÖÃÍê³É×´Ì¬
-					Log.SystemLog("×Ô¶¯×ªÂë½ø³Ì", "×ªÂëÍê³É    ÊÓÆµ±êÌâ:" + doc.getTitle()
-							+ "    Ô´ÊÓÆµµØÖ·  " + videoSource + "---Ä¿±êÊÓÆµµØÖ·: "
+							.getChannel().getTableName());// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+					Log.SystemLog("ï¿½Ô¶ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½", "×ªï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½:" + doc.getTitle()
+							+ "    Ô´ï¿½ï¿½Æµï¿½ï¿½Ö·  " + videoSource + "---Ä¿ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ö·: "
 							+ videoDest);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					updateVideoDest(gid, 3, "", doc.getChannel().getTableName());// ÉèÖÃÍê³É×´Ì¬
-					Log.SystemLog("×Ô¶¯×ªÂë½ø³Ì", "×ªÂë³öÏÖÒì³£" + e.toString()
-							+ "---ÎÄÕÂ±êÌâ:" + doc.getTitle() + "---×ªÂëÔ­ÊÓÆµÂ·¾¶:"
-							+ videoSource + "---×ªÂëºóÊÓÆµÂ·¾¶ :" + videoDest);
+					updateVideoDest(gid, 3, "", doc.getChannel().getTableName());// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+					Log.SystemLog("ï¿½Ô¶ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½", "×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£" + e.toString()
+							+ "---ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½:" + doc.getTitle() + "---×ªï¿½ï¿½Ô­ï¿½ï¿½ÆµÂ·ï¿½ï¿½:"
+							+ videoSource + "---×ªï¿½ï¿½ï¿½ï¿½ï¿½ÆµÂ·ï¿½ï¿½ :" + videoDest);
 				}
 
 			}
 		}
 	}
 
-	// Ö´ÐÐÒ»¸öÃüÁî µÚÒ»¸ö²ÎÊý¸Ä³ÉÊý×é
+	// Ö´ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String cmd(String s[], boolean print) {
 		System.out.println("enter cmd");
-		List<String> commend = new java.util.ArrayList<String>();
+		List<String> commend = new ArrayList<String>();
 
 		ProcessBuilder builder = new ProcessBuilder();
 		builder.command(commend);
@@ -302,8 +298,8 @@ public class CmsTranscode implements Runnable {
 		ProcessBuilder builder = new ProcessBuilder();
 
 		String tab = CmsCache.getDocument(globalid).getChannel().getTableName();
-		updateVideoDest(globalid, 1, "", tab);// ÉèÖÃÍê³É×´Ì¬
-		List<String> commend = new java.util.ArrayList<String>();
+		updateVideoDest(globalid, 1, "", tab);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+		List<String> commend = new ArrayList<String>();
 		commend.add(ffmpegPath);
 		commend.add("-y");
 		commend.add("-i");
@@ -317,7 +313,7 @@ public class CmsTranscode implements Runnable {
 		commend.add("-b:a");
 		commend.add("64k");
 		commend.add(videoDest);
-		StringBuilder buf = new StringBuilder(); // ±£´æffmpegµÄÊä³ö½á¹ûÁ÷
+		StringBuilder buf = new StringBuilder(); // ï¿½ï¿½ï¿½ï¿½ffmpegï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String commend_desc = commend.toString().replace(",", " ");
 		System.out.println("commend:" + commend_desc);
 		builder.command(commend);
@@ -325,15 +321,15 @@ public class CmsTranscode implements Runnable {
 		Process process = builder.start();
 		// process = java.lang.Runtime.getRuntime().exec(cmd);
 		// process.waitFor();
-		InputStream is = process.getInputStream(); // »ñÈ¡ffmpeg½ø³ÌµÄÊä³öÁ÷
-		BufferedReader br = new BufferedReader(new InputStreamReader(is)); // »º³å¶ÁÈë
+		InputStream is = process.getInputStream(); // ï¿½ï¿½È¡ffmpegï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		BufferedReader br = new BufferedReader(new InputStreamReader(is)); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String line = null;
 		int duration = 0;
 		int current = 0;
 		int progress = 0;
 		while ((line = br.readLine()) != null) {
 			System.out.println(line);
-			buf.append(line); // Ñ­»·µÈ´ýffmpeg½ø³Ì½áÊø
+			buf.append(line); // Ñ­ï¿½ï¿½ï¿½È´ï¿½ffmpegï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½
 			if (duration == 0) {
 				int m = line.indexOf("Duration: ");
 				if (m != -1) {
@@ -372,7 +368,7 @@ public class CmsTranscode implements Runnable {
 
 	}
 
-	// ¸üÐÂ½ø¶È
+	// ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½
 	public static void updateProgress(int globalid, int progress, String tab)
 			throws MessageException, SQLException {
 		TableUtil tu = new TableUtil();
@@ -381,7 +377,7 @@ public class CmsTranscode implements Runnable {
 		tu.executeUpdate(sql);
 	}
 
-	// ¸üÐÂ×ªÂëºóµØÖ·
+	// ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ö·
 	public static void updateVideoDest(int globalid, int Status2,
 			String VideoDest, String tab) throws MessageException, SQLException {
 		TableUtil tu = new TableUtil();
@@ -391,7 +387,7 @@ public class CmsTranscode implements Runnable {
 		tu.executeUpdate(sql);
 	}
 
-	// »ñÈ¡Ê±¼ä
+	// ï¿½ï¿½È¡Ê±ï¿½ï¿½
 	public static int getTime(String s) {
 		// System.out.println(s);
 		String[] ss = Util.StringToArray(s, ":");
@@ -407,7 +403,7 @@ public class CmsTranscode implements Runnable {
 
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
-		String a="ÒË±öÊÐ(231001)";
+		String a="ï¿½Ë±ï¿½ï¿½ï¿½(231001)";
 		System.out.println(a.substring(a.indexOf("(")+1,a.lastIndexOf(")")));
 	}
 }

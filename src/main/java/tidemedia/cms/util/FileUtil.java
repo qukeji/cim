@@ -4,19 +4,33 @@
  */
 package tidemedia.cms.util;
 
-import java.awt.Dimension;
-import java.awt.Image;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
+import de.innosystec.unrar.Archive;
+import de.innosystec.unrar.rarfile.FileHeader;
+import magick.CompositeOperator;
+import magick.ImageInfo;
+import magick.MagickException;
+import magick.MagickImage;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.tools.zip.ZipEntry;
+import org.apache.tools.zip.ZipFile;
+import org.apache.tools.zip.ZipOutputStream;
+import org.im4java.core.*;
+import org.im4java.process.ArrayListOutputConsumer;
+import org.im4java.process.ProcessStarter;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tidemedia.cms.base.MessageException;
+import tidemedia.cms.publish.Publish;
+import tidemedia.cms.publish.PublishManager;
+import tidemedia.cms.system.*;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 import java.net.SocketException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
@@ -26,45 +40,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipException;
-
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import magick.CompositeOperator;
-import magick.ImageInfo;
-import magick.MagickException;
-import magick.MagickImage;
-
-import org.apache.commons.net.ftp.FTPClient;
-import org.apache.tools.zip.ZipEntry;
-import org.apache.tools.zip.ZipFile;
-import org.apache.tools.zip.ZipOutputStream;
-import org.im4java.core.CompositeCmd;
-import org.im4java.core.ConvertCmd;
-import org.im4java.core.IM4JavaException;
-import org.im4java.core.IMOperation;
-import org.im4java.core.IdentifyCmd;
-import org.im4java.process.ArrayListOutputConsumer;
-import org.im4java.process.ProcessStarter;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import tidemedia.cms.base.MessageException;
-import tidemedia.cms.publish.Publish;
-import tidemedia.cms.publish.PublishManager;
-import tidemedia.cms.system.CmsCache;
-import tidemedia.cms.system.ErrorLog;
-import tidemedia.cms.system.Log;
-import tidemedia.cms.system.LogAction;
-import tidemedia.cms.system.Site;
-import tidemedia.cms.system.Watermark;
-import tidemedia.cms.util.Util;
-
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
-
-import de.innosystec.unrar.Archive;
-import de.innosystec.unrar.rarfile.FileHeader;
 
 /**
  * @author 李永海(yonghai2008@gmail.com)
@@ -101,7 +76,7 @@ public class FileUtil {
 		file.delete();
 	}
 
-	public void PublishFiles(String FileName,String Path,String rootpath,int userid,Site site) throws MessageException, SQLException
+	public void PublishFiles(String FileName, String Path, String rootpath, int userid, Site site) throws MessageException, SQLException
 	{
 		Publish publish = new Publish();
 		String[] files = Util.StringToArray(FileName,",");
@@ -115,21 +90,21 @@ public class FileUtil {
 			}
 		}
 		
-		PublishManager publishmanager = PublishManager.getInstance();		
+		PublishManager publishmanager = PublishManager.getInstance();
 		publishmanager.FilePublish(userid);			
 	}
 	
-	public void PublishFolder(File file,String rootpath,int userid,Site site) throws MessageException, SQLException
+	public void PublishFolder(File file, String rootpath, int userid, Site site) throws MessageException, SQLException
 	{
 		new Log().FileLog(LogAction.folder_publish, rootpath, userid,site.getId());
 		File file2 = new File(rootpath);
 		PrePublishFolder(file,file2.getPath(),site);
 		
-		PublishManager publishmanager = PublishManager.getInstance();	
+		PublishManager publishmanager = PublishManager.getInstance();
 		publishmanager.FilePublish(userid);
 	}
 	
-	public void PrePublishFolder(File file,String rootpath,Site site) throws MessageException, SQLException
+	public void PrePublishFolder(File file, String rootpath, Site site) throws MessageException, SQLException
 	{
 		String InsertFileName = "";	
 		Publish publish = new Publish();
@@ -160,12 +135,12 @@ public class FileUtil {
 		}
 	}
 
-	public void PublishFile(String FileName,String rootpath,int userid,Site site) throws MessageException, SQLException
+	public void PublishFile(String FileName, String rootpath, int userid, Site site) throws MessageException, SQLException
 	{
 		Publish publish = new Publish();
 		publish.InsertToBePublished(FileName,rootpath,site);
 		
-		PublishManager publishmanager = PublishManager.getInstance();	
+		PublishManager publishmanager = PublishManager.getInstance();
 		publishmanager.FilePublish(userid);			
 	}
 	
@@ -198,7 +173,7 @@ public class FileUtil {
 		return df.format(nowDate.getTime());		
 	}
 
-	public void downloadFile(HttpServletResponse response,String sourceFilePathName,String contentType,String destFileName,int siteid)	throws IOException, MessageException, SQLException 
+	public void downloadFile(HttpServletResponse response,String sourceFilePathName,String contentType,String destFileName,int siteid)	throws IOException, MessageException, SQLException
 	{
 		downloadFile(null,response,sourceFilePathName,contentType,destFileName,siteid);
 	}
@@ -211,11 +186,11 @@ public class FileUtil {
 	 * @param blockSize
 	 * @throws IOException
 	 * @throws SQLException 
-	 * @throws MessageException 
+	 * @throws MessageException
 	 * siteid如果为0，直接下载文件
 	 */
 	public void downloadFile(HttpServletRequest request,HttpServletResponse response,String sourceFilePathName,String contentType,
-		String destFileName,int siteid)	throws IOException, MessageException, SQLException 
+		String destFileName,int siteid)	throws IOException, MessageException, SQLException
 	{
 		String agent =  "";
 		if(request!=null)
@@ -232,7 +207,7 @@ public class FileUtil {
 		String filename = "";
 		if(siteid>0)
 		{
-			Site site=CmsCache.getSite(siteid);
+			Site site= CmsCache.getSite(siteid);
 			filename = site.getSiteFolder() + "/" + sourceFilePathName;
 		}
 		else
@@ -291,7 +266,7 @@ public class FileUtil {
 			response.getOutputStream().write(b, 0, readBytes);
 		}
 		fileIn.close();
-		}catch(java.net.SocketException e)
+		}catch(SocketException e)
 		{
 			try {
 				new Log().FileLog(LogAction.download_cancel, sourceFilePathName, actionuser,siteid);
@@ -302,8 +277,8 @@ public class FileUtil {
 			}
 		}
 	}
-	
-	public void downloadFolder(HttpServletRequest request,HttpServletResponse response,String sourceFolder,int siteid)	throws IOException, MessageException, SQLException 
+
+	public void downloadFolder(HttpServletRequest request,HttpServletResponse response,String sourceFolder,int siteid)	throws IOException, MessageException, SQLException
 		{
 			String contentType = "csv/downloadable";
 			String agent =  "";
@@ -321,12 +296,12 @@ public class FileUtil {
 			String foldername = "";
 			if(siteid>0)
 			{
-				Site site=CmsCache.getSite(siteid);
+				Site site= CmsCache.getSite(siteid);
 				foldername = site.getSiteFolder() + "/" + sourceFolder;
 			}
-			
+
 			if(foldername.length()==0) return;
-			
+
 			String destFileName = "";
 			if(foldername.equals("\\"))
 			{
@@ -338,7 +313,7 @@ public class FileUtil {
 			}
 			File zipfile = new File(foldername + "/" + destFileName);
 			zipFiles(new File(foldername),zipfile);
-			
+
 			new Log().FileLog(LogAction.folder_download, sourceFolder, actionuser,siteid);
 			String filename = foldername + "/" + destFileName;
 			File file = new File(filename);
@@ -389,7 +364,7 @@ public class FileUtil {
 			}
 
 			fileIn.close();
-			}catch(java.net.SocketException e)
+			}catch(SocketException e)
 			{
 				try {
 					new Log().FileLog(LogAction.download_cancel, sourceFolder, actionuser,siteid);
@@ -420,7 +395,7 @@ public class FileUtil {
 	 * @throws MessageException
 	 * @throws SQLException
 	 */
-	public void downloadBackupFile(HttpServletRequest request,HttpServletResponse response,String sourceFilePathName,String contentType,String destFileName)throws IOException, MessageException, SQLException 
+	public void downloadBackupFile(HttpServletRequest request,HttpServletResponse response,String sourceFilePathName,String contentType,String destFileName)throws IOException, MessageException, SQLException
 	{
 				 
 		String agent =  "";
@@ -492,7 +467,7 @@ public class FileUtil {
 		out.close();
 	}
 	
-	public void _zipFiles(File folder,ZipOutputStream out,int folderlen,File zipFileName) throws IOException
+	public void _zipFiles(File folder, ZipOutputStream out, int folderlen, File zipFileName) throws IOException
 	{
 		if(!canZip(folder)) return;
 		
@@ -584,14 +559,14 @@ public class FileUtil {
 			int i = filename.lastIndexOf("/");
 			if(i==-1) return;
 			String path = filename.substring(0,i);
-			ZipFile zipFile = new ZipFile(filename);     
-			java.util.Enumeration<ZipEntry> e = zipFile.getEntries();        
-			ZipEntry entry;			     
+			ZipFile zipFile = new ZipFile(filename);
+			java.util.Enumeration<ZipEntry> e = zipFile.getEntries();
+			ZipEntry entry;
 			InputStream in = null;  
 			BufferedOutputStream dest = null;
 			while (e.hasMoreElements()) 
 			{  
-			    entry = (ZipEntry)e.nextElement();  
+			    entry = (ZipEntry)e.nextElement();
 			    int count;  
 			    byte[] data = new byte[1024];   
 			    File f = new File(path + "/" + entry.getName());
@@ -660,11 +635,11 @@ public class FileUtil {
 		//File file1 = new File(filename1);
 		//File file2 = new File(filename2);
 		System.setProperty("jmagick.systemclassloader","no");
-		MagickImage scaled = null; 
+		MagickImage scaled = null;
 		
 		try {
-			 ImageInfo info = new ImageInfo(filename1);  
-			 MagickImage image = new MagickImage(info);   
+			 ImageInfo info = new ImageInfo(filename1);
+			 MagickImage image = new MagickImage(info);
 			 Dimension imageDim = image.getDimension();    
              
 			int width1 = imageDim.width;
@@ -1011,7 +986,8 @@ public class FileUtil {
 		
 		String watermask = CmsCache.getParameterValue("sys_watermask");//一个json串
 		
-		if(watermask.length()==0){ErrorLog.Log("图片处理", "图片水印参数sys_watermask没有配置", "");return false;}
+		if(watermask.length()==0){
+            ErrorLog.Log("图片处理", "图片水印参数sys_watermask没有配置", "");return false;}
 		
 		String im4java_path = getIM4JAVAPath();
 		
@@ -1153,7 +1129,7 @@ public class FileUtil {
 		return success;		
 	}
 	
-	public static boolean FtpUpload(FTPClient ftp,String localfile,String remotefile) throws IOException
+	public static boolean FtpUpload(FTPClient ftp, String localfile, String remotefile) throws IOException
 	{
 		boolean copy_success = false;
 		if(!remotefile.startsWith("/")) remotefile = "/" + remotefile;
@@ -1221,7 +1197,7 @@ public class FileUtil {
 		return copy_success;		
 	}
 	
-	public static boolean FtpCopy(FTPClient ftp,String filename,String filename2) throws IOException
+	public static boolean FtpCopy(FTPClient ftp, String filename, String filename2) throws IOException
 	{
 		return FtpUpload(ftp,filename,filename2);		
 	}
@@ -1272,17 +1248,17 @@ public class FileUtil {
     	return result;
     }
    
-    public static FTPClient getFtpClient(String server,String username,String password) throws SocketException, IOException
+    public static FTPClient getFtpClient(String server, String username, String password) throws SocketException, IOException
     {
     	return getFtpClient(server,21,username,password,0);
     }
     
-    public static FTPClient getFtpClient(String server,String username,String password,int mode) throws SocketException, IOException
+    public static FTPClient getFtpClient(String server, String username, String password, int mode) throws SocketException, IOException
     {
     	return getFtpClient(server,21,username,password,mode);
     }
     
-    public static FTPClient getFtpClient(String server,int port,String username,String password,int mode) throws SocketException, IOException
+    public static FTPClient getFtpClient(String server, int port, String username, String password, int mode) throws SocketException, IOException
     {
     	FTPClient ftp=new FTPClient();
 
@@ -1304,7 +1280,7 @@ public class FileUtil {
     
     //ftp 下载 filename 远程文件 filename2 本地文件
     //result 0 失败 1成功 2 文件不存在 3 登录不上
-	public static int FtpDownload(FTPClient ftp,String remotefile,String localfile)
+	public static int FtpDownload(FTPClient ftp, String remotefile, String localfile)
 	{
 		int result = 0;
 		
@@ -1344,7 +1320,7 @@ public class FileUtil {
 	{
 		//System.out.println("unrar:"+file.getPath());
         try {
-            Archive archive = new Archive(file); 
+            Archive archive = new Archive(file);
             FileHeader fh = archive.nextFileHeader();
             //System.out.println(file.getPath());
             int i = file.getPath().lastIndexOf("/");

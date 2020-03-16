@@ -128,6 +128,7 @@ public class CmsCache extends CmsCacheL {
             //System.out.println("time1:"+(System.currentTimeMillis()-beginTime)+"秒");
         } catch (Exception e1) {
             System.out.println("启动发生错误:"+e1.getMessage());
+            e1.printStackTrace();
             e1.printStackTrace(System.out);
         }
     }
